@@ -1,0 +1,132 @@
+local loadsave = require( "loadsave" )
+local composer = require( "composer" )
+local scene = composer.newScene()
+local json = require( "json" ) 
+
+function scene:create( event )
+    local sceneGroup = self.view
+    local widget = require ("widget")
+
+    --로드
+    local loadedEndings = loadsave.loadTable( "endings.json" )
+    music = loadedEndings.bgMusic
+
+    -- 배경 어둡게
+    local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
+    black.alpha = 0.5
+    black:setFillColor(0)
+    sceneGroup:insert(black)
+    
+    local settings = {}
+    settings["fxvolume"] = 0.5
+    settings["bgvolume"] = 0.5
+    
+    -- Audio setup
+    audio.reserveChannels(1)
+    --local backgroundSound = audio.loadStream(music)
+
+    local bgImage = display.newImage("이미지/볼륨/background.png", display.contentWidth, display.contentHeight)
+    bgImage.x = display.contentWidth / 2; 
+    bgImage.y = display.contentHeight  / 2; 
+    sceneGroup:insert(bgImage)
+    
+    -- 텍스트 추가
+    local bgLabel = display.newText("배경음 조절", 0,0, native.systemFont, 18)
+    bgLabel.anchorY = 1; bgLabel.anchorX = 0
+    bgLabel.x,bgLabel.y = display.contentWidth/2,display.contentHeight/2
+    bgLabel:setFillColor(30/255, 30/255, 30/255 )
+    sceneGroup:insert(bgLabel)
+    
+    -- 볼륨리스너  
+    local function bgSliderListener( event )
+        local sliderValue = event.value
+        loadedEndings.slider = sliderValue
+        local logValue
+        if sliderValue == nil then sliderValue = 0 end
+        if (sliderValue > 0) then
+            logValue = (math.pow(3,sliderValue/100)-1)/(3-1)
+        else
+            logValue = 0.0
+        end
+        settings["bgvolume"] = logValue
+        loadedEndings.logValue = logValue
+        loadsave.saveTable(loadedEndings,"endings.json")
+        audio.setVolume( settings["bgvolume"]  )
+    end
+    
+    -- 볼륨슬라이더
+    local bgSlider = widget.newSlider{
+        top = 380,   left = 580,      
+        width=220,  height=10,      
+        value=loadedEndings.slider,
+        background = "이미지/볼륨/sliderBg.png",
+        fillImage = "이미지/볼륨/sliderFill.png",
+        fillWidth = 2, leftWidth = 16,
+        handle = "이미지/볼륨/handle.png",
+        handleWidth = 32, handleHeight = 32,
+        listener = bgSliderListener
+    }
+    sceneGroup:insert( bgSlider )
+
+    -- exit 버튼 눌렀을 때 volumeControl.lua파일에서 벗어나기
+    local function goback(event)
+        if event.phase == "began" then
+            composer.hideOverlay("volumeControl")
+        end
+    end
+
+    -- exit 버튼 생성 및 버튼에 이벤트 리스너 추가
+    local exit = display.newImageRect("이미지/공통/x버튼.png", 40, 40)
+    sceneGroup:insert(exit)
+    exit.x, exit.y = display.contentWidth/2 + 260 ,display.contentHeight/2 - 150
+    exit:addEventListener("touch",goback)
+end
+
+function scene:show( event )
+    local sceneGroup = self.view
+    local phase = event.phase
+    
+    if phase == "will" then
+        -- Called when the scene is still off screen and is about to move on screen
+    elseif phase == "did" then
+        -- Called when the scene is now on screen
+        -- 
+        -- INSERT code here to make the scene come alive
+        -- e.g. start timers, begin animation, play audio, etc.
+    end    
+end
+
+function scene:hide( event )
+    local sceneGroup = self.view
+    local phase = event.phase
+        
+    if event.phase == "will" then
+        -- Called when the scene is on screen and is about to move off screen
+        --
+        -- INSERT code here to pause the scene
+        -- e.g. stop timers, stop animation, unload sounds, etc.)
+    elseif phase == "did" then
+        -- Called when the scene is now off screen
+    end
+end
+
+function scene:destroy( event )
+    local sceneGroup = self.view
+    
+    -- Called prior to the removal of scene's "view" (sceneGroup)
+    -- 
+    -- INSERT code here to cleanup the scene
+    -- e.g. remove display objects, remove touch listeners, save state, etc.
+end
+
+---------------------------------------------------------------------------------
+
+-- Listener setup
+scene:addEventListener( "create", scene )
+scene:addEventListener( "show", scene )
+scene:addEventListener( "hide", scene )
+scene:addEventListener( "destroy", scene )
+
+-----------------------------------------------------------------------------------------
+
+return scene

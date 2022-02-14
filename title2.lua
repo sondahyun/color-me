@@ -1,0 +1,281 @@
+local loadsave = require( "loadsave" )
+local composer = require( "composer" )
+local scene = composer.newScene()
+local json = require( "json" ) 
+
+function scene:create( event )
+	local sceneGroup = self.view
+
+	--로드
+	local loadedEndings = loadsave.loadTable( "endings.json" )
+
+	--local titleMusic = audio.loadStream( "음악/타이틀.mp3" )
+
+	local background = display.newImageRect("이미지/타이틀/메인.png",display.contentWidth, display.contentHeight)
+	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background)
+
+	local ending = display.newImage("이미지/타이틀/엔딩모음.png")
+	ending.x, ending.y = display.contentWidth*0.95,display.contentHeight*0.9
+	sceneGroup:insert(ending)
+
+	local newgame = display.newImage("이미지/타이틀/새게임.png")
+	newgame.x,newgame.y = 510,640
+	sceneGroup:insert(newgame)
+
+	local loadgame = display.newImage("이미지/타이틀/로드버튼.png")
+	loadgame.x,loadgame.y = 765,640
+	sceneGroup:insert(loadgame)
+
+	local titlePopup = display.newImage("이미지/타이틀/이름설정팝업.png")
+	titlePopup.x,titlePopup.y = display.contentWidth/2,display.contentHeight/2
+	titlePopup.alpha = 0
+	sceneGroup:insert(titlePopup)
+
+	local titleButton = display.newImage("이미지/타이틀/이름결정.png")
+	titleButton.x,titleButton.y = display.contentWidth/2,display.contentHeight/2 + 200
+	titleButton.alpha = 0
+	sceneGroup:insert(titleButton)
+
+	--이름 입력을 위한 텍스트상자 생성--
+	local defaultField
+	local function textListener( event )
+ 
+    	if ( event.phase == "began" ) then
+        	-- User begins editing "defaultField"
+ 
+    	elseif ( event.phase == "ended" or event.phase == "submitted" ) then
+        	-- Output resulting text from "defaultField"
+        	print( event.target.text )
+ 
+    	elseif ( event.phase == "editing" ) then
+        	print( event.newCharacters )
+        	print( event.oldText )
+        	print( event.startPosition )
+        	print( event.text )
+    	end
+	end
+
+	titlePopup.alpha = 1
+	titleButton.alpha = 1
+
+		-- Create text field
+
+	local function make_text()
+		defaultField = native.newTextField( 640, 400, 370, 60 )
+		defaultField:addEventListener( "userInput", textListener )
+		defaultField.font = native.newFont( "font/잘풀리는오늘 Medium.ttf", 40)
+		defaultFied = ""
+		defaultField.align = "center"
+		sceneGroup:insert(defaultField)
+	end
+	make_text()
+
+	-- 검은 화면
+	local back = display.newRect(display.contentWidth/2,display.contentHeight/2, display.contentWidth,display.contentHeight)
+	back:setFillColor(0)
+	sceneGroup:insert(back)
+	back.alpha = 0
+
+	-- 화면전환 이펙트
+	local options={
+		effect = "fade",
+		time = 2000
+	}
+
+	local function gotomap(event)
+		if event.phase == "began" then 
+			event.target.width,event.target.height = 68.82,68.82
+		elseif event.phase == "cancelled" then 
+			event.target.width,event.target.height = 74,74
+		elseif event.phase == "ended" then
+			event.target.width,event.target.height = 74,74
+			
+			defaultField:removeSelf()
+			defaultField = nil
+				composer.removeScene("title2")
+				composer.gotoScene("title")
+
+		end
+	end
+
+
+	local exit1 = display.newImage("이미지/공통/x버튼.png")
+	sceneGroup:insert(exit1)
+	exit1.x, exit1.y = display.contentWidth*0.77, display.contentHeight*0.16
+	exit1:addEventListener("touch",gotomap)
+
+	
+	local function startNew(event)
+		--색깔 또는 이름을 선택하지 않았을 시 에러 팝업창으로 넘어간다
+		if defaultField.text == "" then
+			defaultField:removeSelf()
+			defaultField = nil
+			composer.removeScene("title2")
+			composer.gotoScene("title2_1")
+		else
+				--게임 진행을 위한 저장 데이터들 생성
+				
+				loadedEndings = loadsave.loadTable( "endings.json" )
+				loadedEndings.end_num = 0
+				loadsave.saveTable(loadedEndings,"endings.json")
+				local gameSettings = {
+    				money = 200,
+    				fun = 0,
+    				hobby = 0,
+    				study = 0,
+    				friendship =0,
+    			
+    				red = 0,
+    				yellow = 0,
+    				green = 0,
+    				blue = 0,
+    				purple = 0,
+    				month = 0,
+    				limited_num= 0,
+    				red_num = 0,
+    				blue_num = 0,
+    				yellow_num = 0,
+    				green_num = 0,
+    				purple_num = 0,
+    				game_num = 0,
+    				activity_num = 0,
+    				friend_num = 0,
+    				play1_num =0,
+    				play2_num=0,
+    				play3_num=0,
+    				play4_num=0,
+    				play5_num=0,
+    				hobby1_num = 0,
+    				hobby2_num = 0,
+    				hobby3_num = 0,
+    				hobby4_num = 0,
+    				hobby5_num = 0,
+    				study1_num = 0,
+    				study2_num = 0,
+    				study3_num = 0,
+    				study4_num = 0,
+    				study5_num = 0,
+    				friend1_num = 0,
+    				friend2_num = 0,
+    				friend3_num = 0,
+    				friend4_num = 0,
+    				friend5_num = 0,
+    				show1 = 0,
+    				show2= 0,
+    				show3= 0,
+    				show4= 0,
+    				show5= 0,
+    				show6= 0,
+    				show7= 0,
+
+    				month1_event = 0,
+    				month2_event = 0,
+    				month3_event = 0,
+    				month4_event = 0,
+    				month5_event = 0,
+    				month6_event = 0,
+
+    				tutorial = 0,
+
+    				badWhite = 0,
+    				goodWhite = 0,
+
+    				former1 = "",
+    				former2 = "",
+    				former01 = "",
+    				former02 = "",
+    				next1 = "",
+    				next2 = "",
+    				name = defaultField.text,
+    				test = 0
+				}
+				loadsave.saveTable( gameSettings, "settings.json" )
+					local items = {
+						itemCount = 0,
+						item1 = "없음",
+						item2 = "없음",
+						item3 = "없음",
+						item4 = "없음",
+						item5 = "없음",
+						item6 = "없음",
+						item7 = "없음",
+						item8 = "없음",
+						item9 = "없음",
+						item10 = "없음",
+						item11 = "없음",
+						item12 = "없음"
+					}
+				loadsave.saveTable( items, "items.json" )
+				composer.setVariable("name",defaultField.text)
+				defaultField:removeSelf()
+				defaultField = nil
+				
+				titleButton.alpha = 0
+				titlePopup.alpha = 0
+				exit1.alpha = 0
+
+				composer.removeScene("title2")
+				composer.gotoScene( "tutorial",options)
+				audio.pause( titleMusic )
+				local tutorialMusic = audio.loadStream( "음악/튜토리얼.mp3" )
+       			audio.setVolume( loadedEndings.logValue )
+				audio.play(tutorialMusic)
+			end
+	end
+	titleButton:addEventListener("tap",startNew)
+
+
+	
+	
+
+end
+
+function scene:show( event )
+	local sceneGroup = self.view
+	local phase = event.phase
+	
+	if phase == "will" then
+		-- Called when the scene is still off screen and is about to move on screen
+	elseif phase == "did" then
+		-- Called when the scene is now on screen
+		-- 
+		-- INSERT code here to make the scene come alive
+		-- e.g. start timers, begin animation, play audio, etc.
+	end	
+end
+
+function scene:hide( event )
+	local sceneGroup = self.view
+	local phase = event.phase
+	
+	if event.phase == "will" then
+		-- Called when the scene is on screen and is about to move off screen
+		--
+		-- INSERT code here to pause the scene
+		-- e.g. stop timers, stop animation, unload sounds, etc.)
+	elseif phase == "did" then
+		-- Called when the scene is now off screen
+	end
+end
+
+function scene:destroy( event )
+	local sceneGroup = self.view
+	
+	-- Called prior to the removal of scene's "view" (sceneGroup)
+	-- 
+	-- INSERT code here to cleanup the scene
+	-- e.g. remove display objects, remove touch listeners, save state, etc.
+end
+
+---------------------------------------------------------------------------------
+
+-- Listener setup
+scene:addEventListener( "create", scene )
+scene:addEventListener( "show", scene )
+scene:addEventListener( "hide", scene )
+scene:addEventListener( "destroy", scene )
+
+-----------------------------------------------------------------------------------------
+
+return scene
