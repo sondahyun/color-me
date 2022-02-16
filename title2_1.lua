@@ -16,15 +16,15 @@ function scene:create( event )
 	ending.x, ending.y = display.contentWidth*0.95,display.contentHeight*0.9
 	sceneGroup:insert(ending)
 
-	local newgame = display.newImage("이미지/타이틀/새게임.png")
-	newgame.x,newgame.y = 510,640
-	sceneGroup:insert(newgame)
+    local newgame = display.newImage("이미지/타이틀/새게임.png")
+    newgame.x,newgame.y = display.contentWidth * 0.42, display.contentHeight * 0.9
+    sceneGroup:insert(newgame)
 
-	local loadgame = display.newImage("이미지/타이틀/로드버튼.png")
-	loadgame.x,loadgame.y = 765,640
-	sceneGroup:insert(loadgame)
+    local loadgame = display.newImage("이미지/타이틀/로드버튼.png")
+    loadgame.x,loadgame.y = display.contentWidth * 0.58, display.contentHeight * 0.9
+    sceneGroup:insert(loadgame)
 
-	local titlePopup = display.newImage("이미지/타이틀/메인/이름설정팝업.png")
+	local titlePopup = display.newImage("이미지/타이틀/이름설정팝업.png")
 	titlePopup.x,titlePopup.y = display.contentWidth/2,display.contentHeight/2
 	titlePopup.alpha = 0
 	sceneGroup:insert(titlePopup)
