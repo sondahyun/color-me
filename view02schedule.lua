@@ -84,6 +84,14 @@ function scene:create( event )
 		end
 	end
 
+	-- home 화면으로 --
+	local function go_back(event)
+		if event.phase == "began" then
+			composer.removeScene("view02schedulee")
+			composer.gotoScene("view00Room")
+		end
+	end
+
 
 	-- 배경 요소 -- 
 	
@@ -102,6 +110,13 @@ function scene:create( event )
 	pencil.width, pencil.height = display.contentWidth*0.1826,display.contentHeight*0.5103
 	pencil.anchorX,pencil.anchorY = 0,0
 	sceneGroup:insert(pencil)
+
+	local exit = display.newImage("이미지/공통/x버튼.png")
+	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
+	exit.anchorX, exit.anchorY = 0,0
+	sceneGroup:insert(exit)
+	exit:addEventListener("touch",go_back)
+
 
 	-- 스탯 게이지 --
 
