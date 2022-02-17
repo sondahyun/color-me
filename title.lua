@@ -30,13 +30,13 @@ function scene:create( event )
     sceneGroup:insert(titlePopup)
 
     local titleButton = display.newImage("이미지/타이틀/이름결정.png")
-    titleButton.x,titleButton.y = display.contentWidth/2,display.contentHeight/2 + 200
+    titleButton.x,titleButton.y = display.contentWidth/2, display.contentHeight * 0.65
     titleButton.alpha = 0
     sceneGroup:insert(titleButton)
 
     --샘플 볼륨 이미지
-    local volumeButton = display.newImageRect("이미지/볼륨/icon.png", 100, 100)
-    volumeButton.x,volumeButton.y = 70,70
+    local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
     sceneGroup:insert(volumeButton)
 
     --샘플볼륨함수--
@@ -98,15 +98,15 @@ function scene:create( event )
             -- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
             if j == 0 then
                 local backgroundMusicChannel = audio.play(click1)
-                event.target.width = 86.1
-                event.target.height = 110.25
+                event.target.width = event.target.width*1.1
+                event.target.height = event.target.height*1.1
                 j = j + 1
             end
         
         elseif (event.target.x-event.x)^2 + (event.target.y-event.y)^2 > 40^2 then
             if j == 1 then
-                event.target.width =82
-                event.target.height = 105
+                event.target.width = event.target.width/11*10
+                event.target.height = event.target.height/11*10
                 j = j - 1 
             end
             
@@ -128,34 +128,32 @@ function scene:create( event )
     sceneGroup:insert(ending)
     ending:addEventListener("touch",move)
     ending:addEventListener("mouse",bigbig1)
+    volumeButton:addEventListener("mouse",bigbig1)
 
     -- 270.9,98.7
     local i = 0
     local function bigbig (event)
-
         if ((event.target.x-event.x)^2 < 13000) and ((event.target.y-event.y)^2<1700) then
             -- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
-            
             if i == 0 then
                -- local backgroundMusicChannel = audio.play(click1)
-                event.target.width = 240
-                event.target.height = 88
+                event.target.width = event.target.width*1.1
+                event.target.height = event.target.height*1.1
                 i = i + 1
             end
         end
         if ((event.x-event.target.x)^2 > 9000) then
             if i == 1 then
-                event.target.width =229
-                event.target.height =84
+                event.target.width = event.target.width/11*10
+                event.target.height = event.target.height/11*10
                 i = i - 1 
             end
         elseif ((event.target.y-event.y)^2>1100) then
             if i == 1 then
-                event.target.width =229
-                event.target.height =84
+                event.target.width = event.target.width/11*10
+                event.target.height = event.target.height/11*10
                 i = i - 1 
             end
-            
         end
     end
 

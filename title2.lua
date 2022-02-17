@@ -33,7 +33,7 @@ function scene:create( event )
 	sceneGroup:insert(titlePopup)
 
 	local titleButton = display.newImage("이미지/타이틀/이름결정.png")
-	titleButton.x,titleButton.y = display.contentWidth/2,display.contentHeight/2 + 200
+	titleButton.x,titleButton.y = display.contentWidth/2,display.contentHeight * 0.65
 	titleButton.alpha = 0
 	sceneGroup:insert(titleButton)
 
@@ -62,7 +62,7 @@ function scene:create( event )
 		-- Create text field
 
 	local function make_text()
-		defaultField = native.newTextField( 640, 400, 370, 60 )
+		defaultField = native.newTextField( display.contentWidth/2,display.contentHeight * 0.56, 370, 60 )
 		defaultField:addEventListener( "userInput", textListener )
 		defaultField.font = native.newFont( "font/잘풀리는오늘 Medium.ttf", 40)
 		defaultFied = ""

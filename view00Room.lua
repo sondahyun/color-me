@@ -78,7 +78,7 @@ function scene:create( event )
 	end
 	
 -- 배경 객체
-	local background = display.newImageRect("이미지/홈/배경/기본.png",display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("이미지/홈/배경/가구포함.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 
@@ -139,11 +139,11 @@ function scene:create( event )
 	coin.x, coin.y = display.contentWidth*0.9, display.contentHeight*0.08
 
 -- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",1230,58,"font/NanumSquare_acB.ttf")
+	local money = display.newText("",display.contentWidth*0.96, display.contentHeight*0.075,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
 	money.anchorX = 1
 	money.text = loadedSettings.money 
-	money.size = 45
+	money.size = 53
 	sceneGroup:insert(money)
 
 -- 주인공 객체
@@ -152,7 +152,7 @@ function scene:create( event )
 	sceneGroup:insert(mainpen)
 
 -- 달력 글씨
-	local month = display.newText("",888,115,"font/잘풀리는오늘 Medium.ttf")
+	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
 	month:setFillColor(0)
 	month.size = 25
 	sceneGroup:insert(month)
@@ -218,8 +218,8 @@ function scene:create( event )
 	end
 
 	--샘플 볼륨 이미지
-    local volumeButton = display.newImageRect("이미지/볼륨/icon.png", 100, 100)
-    volumeButton.x,volumeButton.y = 70,70
+    local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.13, display.contentHeight * 0.906
     sceneGroup:insert(volumeButton)
 
     --샘플볼륨함수--

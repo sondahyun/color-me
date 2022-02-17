@@ -214,9 +214,9 @@ function scene:create( event )
 	for i=1,18 do
 		pen[1][i] = display.newImage(image3[i])
 		if i > 10 then
-			pen[1][i].x, pen[1][i].y = 266 + 75.2*(i-11), 530
+			pen[1][i].x, pen[1][i].y = (display.contentWidth*0.25)*(i-11), display.contentHeight*0.37
 		else
-			pen[1][i].x, pen[1][i].y = 266 + 75.2*(i-1), 259
+			pen[1][i].x, pen[1][i].y = (display.contentWidth*0.25)*(i-1), display.contentHeight*0.37
 		end 
 		sceneGroup:insert(pen[1][i])
 		pen[1][i].alpha =color[1][i]
@@ -287,7 +287,7 @@ function scene:create( event )
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	sceneGroup:insert(exit)
-	exit.x, exit.y = display.contentWidth*0.105, display.contentHeight*0.165
+	exit.x, exit.y = display.contentWidth*0.16, display.contentHeight*0.2
 	exit:addEventListener("touch",gotomap)
 
 

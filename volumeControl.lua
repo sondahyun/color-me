@@ -25,17 +25,10 @@ function scene:create( event )
     audio.reserveChannels(1)
     --local backgroundSound = audio.loadStream(music)
 
-    local bgImage = display.newImage("이미지/볼륨/background.png", display.contentWidth, display.contentHeight)
+    local bgImage = display.newImage("이미지/타이틀/설정/창.png", display.contentWidth, display.contentHeight)
     bgImage.x = display.contentWidth / 2; 
     bgImage.y = display.contentHeight  / 2; 
     sceneGroup:insert(bgImage)
-    
-    -- 텍스트 추가
-    local bgLabel = display.newText("배경음 조절", 0,0, native.systemFont, 18)
-    bgLabel.anchorY = 1; bgLabel.anchorX = 0
-    bgLabel.x,bgLabel.y = display.contentWidth/2,display.contentHeight/2
-    bgLabel:setFillColor(30/255, 30/255, 30/255 )
-    sceneGroup:insert(bgLabel)
     
     -- 볼륨리스너  
     local function bgSliderListener( event )
@@ -59,10 +52,9 @@ function scene:create( event )
         top = 380,   left = 580,      
         width=220,  height=10,      
         value=loadedEndings.slider,
-        background = "이미지/볼륨/sliderBg.png",
-        fillImage = "이미지/볼륨/sliderFill.png",
+        background = "이미지/타이틀/설정/소리조절칸.png",
         fillWidth = 2, leftWidth = 16,
-        handle = "이미지/볼륨/handle.png",
+        handle = "이미지/타이틀/설정/소리조절.png",
         handleWidth = 32, handleHeight = 32,
         listener = bgSliderListener
     }

@@ -25,12 +25,12 @@ function scene:create( event )
     sceneGroup:insert(loadgame)
 
 	local titlePopup = display.newImage("이미지/타이틀/이름설정팝업.png")
-	titlePopup.x,titlePopup.y = display.contentWidth/2,display.contentHeight/2
+	titlePopup.x,titlePopup.y = display.contentWidth/2,display.contentHeight * 0.8
 	titlePopup.alpha = 0
 	sceneGroup:insert(titlePopup)
 
 	local titleButton = display.newImage("이미지/타이틀/이름결정.png")
-	titleButton.x,titleButton.y = display.contentWidth/2,display.contentHeight/2 + 200
+	titleButton.x,titleButton.y = display.contentWidth/2,display.contentHeight * 0.65
 	titleButton.alpha = 0
 	sceneGroup:insert(titleButton)
 
