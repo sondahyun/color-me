@@ -196,7 +196,9 @@ function scene:create( event )
     end
     loadgame:addEventListener("touch",startLoad)
     loadgame:addEventListener("mouse",bigbig)
-   
+
+
+
 end
 
 function scene:show( event )

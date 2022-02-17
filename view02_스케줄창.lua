@@ -298,6 +298,28 @@ function scene:create( event )
 		sceneGroup:insert(month_to_do[i])
 	end
 
+	local optian = {
+        width = 1920,
+        height = 1080,
+        numFrames = 30
+    }
+    local test_image = graphics.newImageSheet("애니매이션/공부/1.png",optian)
+    local take = {
+        name = "테스트",
+        start = 1,
+        count = 28,
+        loopCount = 4,
+        time = 1500,
+        loopDirection = "forward"
+    }
+
+    local test_animation = display.newSprite(test_image,take)
+    test_animation.x, test_animation.y = display.contentWidth*0.5,display.contentHeight*0.5
+    test_animation.width = 100
+    test_animation:play()
+    sceneGroup:insert(test_animation)
+
+
 
 
 
