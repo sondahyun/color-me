@@ -328,7 +328,7 @@ function scene:create( event )
 	-- 버튼 객체 생성. 버튼 투명도는 기본적으로 1이지만, 창에 버튼 이미지가 박혀있기 때문에, 타겟된 창의 버튼의 투명도는 0으로 설정해야 한다.
 	for i = 1,6 do
 		button[i] = display.newImage(image2[i])
-		button[i].x, button[i].y = 1131,178 + 79.5*(i-1)
+		button[i].x, button[i].y = 1596.5 , 299 + 105 * (i-1)
 		sceneGroup:insert(button[i])
 		button[i].name = i
 		button[i]:addEventListener("touch",side)

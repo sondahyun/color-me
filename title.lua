@@ -17,11 +17,11 @@ function scene:create( event )
     sceneGroup:insert(background)
 
     local newgame = display.newImage("이미지/타이틀/새게임.png")
-    newgame.x,newgame.y = 510,640
+    newgame.x,newgame.y = display.contentWidth * 0.42, display.contentHeight * 0.9
     sceneGroup:insert(newgame)
 
     local loadgame = display.newImage("이미지/타이틀/로드버튼.png")
-    loadgame.x,loadgame.y = 765,640
+    loadgame.x,loadgame.y = display.contentWidth * 0.58, display.contentHeight * 0.9
     sceneGroup:insert(loadgame)
 
     local titlePopup = display.newImage("이미지/타이틀/이름설정팝업.png")
