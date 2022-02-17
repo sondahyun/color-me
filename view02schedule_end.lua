@@ -6,12 +6,9 @@
 
 local composer = require( "composer" )
 local scene = composer.newScene()
-local loadsave = require( "loadsave" )
-local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local loadedSettings = loadsave.loadTable( "settings.json" )
 	
 	-- Called when the scene's view does not exist.
 	-- 
@@ -26,7 +23,7 @@ function scene:create( event )
 
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.hideOverlay("view02_스케줄창_마침화면")
+			composer.hideOverlay("view02schedule_end")
 		end
 	end
 

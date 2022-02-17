@@ -13,85 +13,27 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	
+	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
+	black.alpha = 0.5
+	black:setFillColor(0)
+	sceneGroup:insert(black)
 	-- Called when the scene's view does not exist.
 	-- 
 	-- INSERT code here to initialize the scene
 	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
 
 
-	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
-	black.alpha = 0.5
-	black:setFillColor(0)
-	sceneGroup:insert(black)
-
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.hideOverlay("view02_스케줄창_가이드")
-		end
-	end
-
-	local tutorial = {}
-
-	for i=1,9 do 
-		tutorial[i] = display.newImage("이미지/스케줄/가이드/홈_게임방법가이드" .. i .. ".png")
-		tutorial[i].x, tutorial[i].y = display.contentWidth/2, display.contentHeight/2
-		--tutorial[i].anchorX,tutorial[i].anchorY = 0,0
-		sceneGroup:insert(tutorial[i])
-		tutorial[i].alpha=0
-	end
-
-	tutorial[1].alpha = 1
-
-
-
-	-- 장면 넘김
-	local i = 1
-
-	-- 다음 장면 넘김
-	local function next(event)
-		if event.phase == "began" then 
-			if i < 9 then
-				i = i+1
-				tutorial[i-1].alpha = 0
-				tutorial[i].alpha = 1
-
-			end
-		end
-	end
-
-	-- 이전 장면 되돌아가기
-	local function former(event)
-		if event.phase == "began" then 
-			if i > 1 then
-				i = i-1
-				tutorial[i+1].alpha = 0
-				tutorial[i].alpha = 1
-
-			end
+			composer.hideOverlay("view02schedule_alarm")
 		end
 	end
 	
-
-	-- 기본 값.
-
-	-- 다음 장면 버튼
-	local move= display.newImage("이미지/스케줄/가이드/오른쪽.png")
-	move.x, move.y = display.contentWidth*0.8, display.contentHeight/2
-	move:addEventListener("touch",next)
-	sceneGroup:insert(move)
-	
-	-- 이전 장면 버튼
-	local move1= display.newImage("이미지/스케줄/가이드/왼쪽.png")
-	move1.x, move1.y = display.contentWidth*0.2, display.contentHeight/2
-	move1:addEventListener("touch",former)
-	sceneGroup:insert(move1)
-
-	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.76, display.contentHeight*0.27
-	sceneGroup:insert(exit)
-	exit:addEventListener("touch",go_back)
-
-	
+	-- create a white background to fill screen
+	local background = display.newImage("이미지/스케줄/제한/횟수제한.png")
+	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	background:addEventListener("touch",go_back)
+	sceneGroup:insert(background)
 end
 
 function scene:show( event )

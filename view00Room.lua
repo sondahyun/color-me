@@ -66,7 +66,7 @@ function scene:create( event )
 		if event.phase == "ended" then
 			--print("dfd")
 			composer.removeScene("view00Room")
-			--composer.gotoScene( "view02_스케줄창" )
+			composer.gotoScene( "view02schedule" )
 		end
 
 	end

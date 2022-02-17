@@ -73,14 +73,14 @@ function scene:create( event )
 	-- 활동 끝마치기 --
 	local function exit_month(event)
 		if event.phase == "began" then 
-			composer.showOverlay("view02_스케줄창_마침화면",option)
+			composer.showOverlay("view02schedule_end",option)
 		end
 	end
 
 	-- 가이드 창 불러오기 --
 	local function tutorial(event)
 		if event.phase == "began" then
-			composer.showOverlay("view02_스케줄창_가이드",option)
+			composer.showOverlay("view02schedule_guide",option)
 		end
 	end
 
@@ -211,10 +211,10 @@ function scene:create( event )
 			local i = event.target.name 
 			if (study[i] == 0) and (stat_num<4) then
 				composer.setVariable("number",i)
-				composer.removeScene("view02_스케줄창")
+				composer.removeScene("view02schedule")
 				composer.gotoScene("view03")
 			else
-				composer.showOverlay("view02_스케줄창_경고창",option)
+				composer.showOverlay("view02schedule_alarm",option)
 			end
 		end
 	end
@@ -226,7 +226,7 @@ function scene:create( event )
 			if (play[i] == 0) and (stat_num<4) then
 				print("다음화면으로!")
 			else
-				composer.showOverlay("view02_스케줄창_경고창",option)
+				composer.showOverlay("view02schedule_alarm",option)
 			end
 		end
 	end
@@ -238,7 +238,7 @@ function scene:create( event )
 			if (hobby[i] == 0) and (stat_num<4) then
 				print("다음화면으로!")
 			else
-				composer.showOverlay("view02_스케줄창_경고창",option)
+				composer.showOverlay("view02schedule_alarm",option)
 			end
 		end
 	end
