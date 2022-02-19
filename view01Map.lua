@@ -137,7 +137,7 @@ function scene:create( event )
 			else
 				local click01 = audio.play(click1)
 				composer.setVariable("color", color)
-				composer.removeScene("view1Map")
+				composer.removeScene("view01Map")
 				composer.gotoScene("view02Map")
 
 			end
