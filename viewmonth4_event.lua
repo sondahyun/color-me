@@ -43,10 +43,20 @@ function scene:create( event )
 	sceneGroup:insert(green_default)
 	green_default.alpha = 0
 
+	local green_awakard = display.newImage("이미지/캐릭터/솔리/난감.png")
+	green_awakard.x, green_awakard.y = display.contentWidth*0.53,display.contentHeight/2
+	sceneGroup:insert(green_awakard)
+	green_awakard.alpha = 0
+
 	local blue_default = display.newImage("이미지/캐릭터/위즈/기본.png")
 	blue_default.x, blue_default.y = display.contentWidth*0.53,display.contentHeight/2
 	sceneGroup:insert(blue_default)
 	blue_default.alpha = 0
+
+	local blue_angry = display.newImage("이미지/캐릭터/위즈/화남.png")
+	blue_angry.x, blue_angry.y =  display.contentWidth*0.53,display.contentHeight/2
+	sceneGroup:insert(blue_angry)
+	blue_angry.alpha = 0
 
 	-- 대사창 
 
@@ -149,7 +159,7 @@ function scene:create( event )
 		"무, 물 속에서 불…? 그래! 내가 물을 구해 올게!",
 		"으악!",
 		"솔리야, 괜찮아?",
-		"조심했어야지! 하마터면 큰일 날 뻔했잖아! 우리 행성에선 물 근처에 가면 중력에 세지는 것도 모르는 거야?\n어떻게 그런 기본적인 상식을 까먹을 수 있어? 그럴 거면 차라리 나를 시키지!",
+		"조심했어야지! 하마터면 큰일 날 뻔했잖아! 우리 행성에선 물 근처에 가면 중력에 세지는 것도 모르는 거야?",
 		"콜록, 나는 그런 게 아니고… 콜록, 너네를 편게 해주고 싶어서 내가 하려고 한 건데…. 콜록.",
 		"얘, 얘들아….",
 		"마쉬멜로우 정말 맛있겠다~",
@@ -157,6 +167,7 @@ function scene:create( event )
 		"가끔 캠핑 오는 것도 좋은 것 같아. 다음에 또 오자!",
 		"그래~"
 	}
+
 
 	local text1 = {
 		"위즈야, 솔리가 우리를 배려하다 그런거니까…. 너무 화내지 말자.",
@@ -200,13 +211,20 @@ function scene:create( event )
 		sceneGroup:insert(daewha3[i])
 	end
 
+	local side = display.newText("어떻게 그런 기본적인 상식을 까먹을 수 있어? 그럴 거면 차라리 나를 시키지!",160,910,"font/NanumSquare_acB.ttf")
+	side.anchorX,side.anchorY = 0,0
+	side:setFillColor(0)
+	side.alpha = 0
+	side.size = 30
+	sceneGroup:insert(side)
+
 	i = 1
 
-
+	u = 0
 
 	local function first_scence(event)
 		if event.phase == "began" then 
-			print(i)
+			--print(i)
 			if i==1 then
 				daewha[i].alpha = 0
 				daewha[i+1].alpha = 1
@@ -245,15 +263,15 @@ function scene:create( event )
 			 	background_1:addEventListener("touch",first_scence)
 			 	i = i+1
 			elseif i == 4 then
-			 	
+			 	print(i)
 			 	my_daesapan.alpha = 1
 			 	green_default.alpha = 1
 			 	daewha[i+1].alpha = 1
 			 	background_1:removeEventListener("touch",first_scence)
 			 	my_daesapan:addEventListener("touch",first_scence)
 			 	i = i+1
-			elseif i == 5 or i == 6 then 
-			 	
+			elseif i == 5 then 
+			 	u = u+1
 			 	my_daesapan.alpha = 0
 			 	green_daesapan.alpha = 1
 			 	daewha[i].alpha = 0
@@ -261,9 +279,12 @@ function scene:create( event )
 			 	
 			 	my_daesapan:removeEventListener("touch",first_scence)
 			 	green_daesapan:addEventListener("touch",first_scence)
-			 	i = i+1
-			 elseif i == 7 then
-			 	
+
+			 	if u == 2 then 
+			 		i = i+1
+			 		u = 0
+			 	end
+			elseif i == 6 then
 			 	
 			 	my_daesapan.alpha = 1
 			 	green_daesapan.alpha = 0
@@ -272,7 +293,63 @@ function scene:create( event )
 			 	
 			 	my_daesapan:addEventListener("touch",first_scence)
 			 	green_daesapan:removeEventListener("touch",first_scence)
-			 	i = i+1
+			 	u = u+1
+			 	if u == 2 then 
+			 		i = i+1
+			 		u = 0
+			 	end
+			
+			elseif i == 7 then
+				print(i)
+				my_daesapan.alpha = 0
+			 	green_daesapan.alpha = 1
+			 	daewha[i].alpha = 0
+			 	daewha[i+1].alpha = 1
+			 	green_default.alpha = 0
+			 	green_awakard.alpha = 1
+			 	my_daesapan:removeEventListener("touch",first_scence)
+			 	green_daesapan:addEventListener("touch",first_scence)
+			 	u = u+1
+			 	if u == 2 then 
+			 		i = i+1
+			 		u = 0
+			 	end
+
+			 elseif i == 8 then 
+			 	
+			 	green_daesapan.alpha = 0
+				daewha[i].alpha = 0
+				green_awakard.alpha = 0
+				u = u+1
+			 	if u == 2 then 
+			 		transition.to(green_daesapan,{alpha=0,delay=2000,onComplete=function() green_daesapan.alpha = 1 daewha[i+1].alpha=1 i = i+1 u = 0 end})
+			 	end
+			elseif i == 9 then
+			 	green_daesapan.alpha = 0
+			 	daewha[i].alpha = 0
+			 	green_daesapan:removeEventListener("touch",first_scence)
+			 	u = u+1
+			 	if u == 2 then 
+			 	 transition.to(background_2,{alpha=1,time=1000,onComplete=function() background_2:addEventListener("touch",first_scence) i = i+1 u = 0 end})
+			 	end
+			elseif i == 10 then 
+				background_2.alpha = 0
+				my_daesapan.alpha = 1
+				daewha[i].alpha=1
+				
+			 	my_daesapan:addEventListener("touch",first_scence)
+			 	background_2:removeEventListener("touch",first_scence)
+			 	u = u+1
+			 	if u == 2 then 
+			 		i = i+1
+			 		u = 0
+			 	end
+			 elseif i == 11 then
+			 	my_daesapan.alpha = 0
+			 	daewha[i-1].alpha = 0
+			 	daewha[i].alpha = 1
+			 	blue_daesapan.alpha = 1
+			 	blue_angry.alpha = 1
 			end
 		end
 	end
