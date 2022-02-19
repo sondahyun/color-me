@@ -48,6 +48,11 @@ function scene:create( event )
 	sceneGroup:insert(green_awakard)
 	green_awakard.alpha = 0
 
+	local green_happy = display.newImage("이미지/캐릭터/솔리/기쁨.png")
+	green_happy.x, green_happy.y = display.contentWidth*0.53,display.contentHeight/2
+	sceneGroup:insert(green_happy)
+	green_happy.alpha = 0
+
 	local blue_default = display.newImage("이미지/캐릭터/위즈/기본.png")
 	blue_default.x, blue_default.y = display.contentWidth*0.53,display.contentHeight/2
 	sceneGroup:insert(blue_default)
@@ -57,6 +62,16 @@ function scene:create( event )
 	blue_angry.x, blue_angry.y =  display.contentWidth*0.53,display.contentHeight/2
 	sceneGroup:insert(blue_angry)
 	blue_angry.alpha = 0
+
+	local blue_awakard = display.newImage("이미지/캐릭터/위즈/난감.png")
+	blue_awakard.x, blue_awakard.y =  display.contentWidth*0.53,display.contentHeight/2
+	sceneGroup:insert(blue_awakard)
+	blue_awakard.alpha = 0
+
+	local blue_happy = display.newImage("이미지/캐릭터/위즈/기쁨.png")
+	blue_happy.x, blue_happy.y =  display.contentWidth*0.53,display.contentHeight/2
+	sceneGroup:insert(blue_happy)
+	blue_happy.alpha = 0
 
 	-- 대사창 
 
@@ -104,11 +119,11 @@ function scene:create( event )
 
 	select_text1 = {
 		"그래 좋아!",
-		"위즈를 충고한다"
+		"위즈 편을 들어준다."
 	}
 	select_text2 = {
 		"아니, 난 쉬고 싶어.",
-		"솔리편들어준다"
+		"솔리에게 충고한다"
 	}
 
 	local option1={}
@@ -222,6 +237,63 @@ function scene:create( event )
 
 	u = 0
 
+	j = 1
+
+	local function choose1(event)
+		if event.phase == "began" then
+			if j == 1 then 
+				daewha[13].alpha = 0
+				select1.alpha = 0
+				select2.alpha = 0
+				select_daewha1[2].alpha = 0
+				select_daewha2[2].alpha = 0
+				daewha2[j].alpha = 1
+				j = j+1
+				my_daesapan:addEventListener("touch",choose1)
+			elseif j == 2 then
+				blue_awakard.alpha = 1
+				my_daesapan.alpha = 0
+				blue_daesapan.alpha = 1
+				daewha2[j-1].alpha = 0
+				daewha2[j].alpha = 1
+				j = j+1
+				my_daesapan:removeEventListener("touch",choose1)
+				blue_daesapan:addEventListener("touch",choose1)
+			elseif j == 3 then
+				green_default.alpha = 1
+				daewha2[j-1].alpha = 0
+				daewha2[j].alpha = 1
+				blue_awakard.alpha = 0
+				blue_daesapan.alpha = 0
+				green_daesapan.alpha = 1
+				j = j+1
+				blue_daesapan:removeEventListener("touch",choose1)
+				green_daesapan:addEventListener("touch",choose1)
+			elseif j == 4 then 
+				daewha2[j-1].alpha = 0
+				daewha2[j].alpha = 1
+				green_daesapan.alpha = 0
+				green_default.alpha = 0
+				blue_default.alpha = 1
+				blue_daesapan.alpha = 1
+				j = j+1
+				green_daesapan:removeEventListener("touch",choose1)
+				blue_daesapan:addEventListener("touch",choose1)
+			elseif j == 5 then
+				daewha2[j-1].alpha = 0
+				daewha2[j].alpha = 1
+				green_daesapan.alpha = 1
+				green_happy.alpha = 1
+				blue_default.alpha = 0
+				blue_daesapan.alpha = 0
+				j = j + 1
+				blue_daesapan:removeEventListener("touch",choose1)
+				green_daesapan:addEventListener("touch",choose1)
+			end
+
+		end
+	end
+
 	local function first_scence(event)
 		if event.phase == "began" then 
 			--print(i)
@@ -322,7 +394,7 @@ function scene:create( event )
 				green_awakard.alpha = 0
 				u = u+1
 			 	if u == 2 then 
-			 		transition.to(green_daesapan,{alpha=0,delay=2000,onComplete=function() green_daesapan.alpha = 1 daewha[i+1].alpha=1 i = i+1 u = 0 end})
+			 		transition.to(green_daesapan,{alpha=0,delay=1000,onComplete=function() green_daesapan.alpha = 1 daewha[i+1].alpha=1 i = i+1 u = 0 end})
 			 	end
 			elseif i == 9 then
 			 	green_daesapan.alpha = 0
@@ -339,17 +411,46 @@ function scene:create( event )
 				
 			 	my_daesapan:addEventListener("touch",first_scence)
 			 	background_2:removeEventListener("touch",first_scence)
-			 	u = u+1
-			 	if u == 2 then 
-			 		i = i+1
-			 		u = 0
-			 	end
+			 	 
+			 	i = i+1
+			 	
+			 	
 			 elseif i == 11 then
 			 	my_daesapan.alpha = 0
 			 	daewha[i-1].alpha = 0
 			 	daewha[i].alpha = 1
+			 	side.alpha = 1
 			 	blue_daesapan.alpha = 1
 			 	blue_angry.alpha = 1
+			 	my_daesapan:removeEventListener("touch",first_scence)
+			 	blue_daesapan:addEventListener("touch",first_scence)
+			 	i = i+1
+			 	
+			 elseif i == 12 then 
+			 	daewha[i-1].alpha = 0
+			 	daewha[i].alpha = 1
+			 	side.alpha = 0
+			 	blue_daesapan.alpha = 0
+			 	blue_angry.alpha = 0
+			 	green_awakard.alpha = 1
+			 	green_daesapan.alpha = 1
+			 	blue_daesapan:removeEventListener("touch",first_scence)
+			 	green_daesapan:addEventListener("touch",first_scence)
+			 	i = i+1
+			 elseif i == 13 then 
+			 	daewha[i-1].alpha = 0
+			 	daewha[i].alpha = 1
+			 	my_daesapan.alpha = 1
+			 	green_awakard.alpha = 0
+			 	green_daesapan.alpha = 0
+			 	my_daesapan:removeEventListener("touch",first_scence)
+			 	select1.alpha = 1
+			 	select2.alpha = 1
+			 	select_daewha1[2].alpha = 1
+			 	select_daewha2[2].alpha = 1
+			 	select1:addEventListener("touch",choose1)
+
+
 			end
 		end
 	end
