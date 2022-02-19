@@ -239,6 +239,49 @@ function scene:create( event )
 
 	j = 1
 
+	local function last_scene(event) 
+		if event.phase == "began" then
+			if i == 13 then
+				daewha2[5].alpha =0
+				daewha3[3].alpha = 0
+				green_daesapan.alpha = 0
+				green_happy.alpha = 0
+				green_awakard.alpha = 0
+				transition.to(background_3,{alpha=1,delay=1000})
+				green_daesapan:removeEventListener("touch",last_scene)
+				background_3:addEventListener("touch",last_scene)
+				i = i+1
+			elseif i == 14 then
+				daewha[i-1].alpha =0
+				daewha[i].alpha = 1
+				i = i+1
+				green_daesapan.alpha = 1
+				background_3:removeEventListener("touch",last_scene)
+				green_daesapan:addEventListener("touch",last_scene)
+				blue_daesapan:addEventListener("touch",last_scene)
+				my_daesapan:addEventListener("touch",last_scene)
+			elseif i == 15 then
+				daewha[i-1].alpha =0
+				daewha[i].alpha = 1
+				i = i+1
+				green_daesapan.alpha = 0
+				my_daesapan.alpha = 1
+			elseif i == 16 then 
+				daewha[i-1].alpha =0
+				daewha[i].alpha = 1
+				i = i+1
+				my_daesapan.alpha = 0 
+				blue_daesapan.alpha = 1
+			elseif i == 17 then
+				daewha[i-1].alpha =0
+				daewha[i].alpha = 1
+				i = i+1
+				blue_daesapan.alpha = 0
+				green_daesapan.alpha = 1
+			end
+		end
+	end
+
 	local function choose1(event)
 		if event.phase == "began" then
 			if j == 1 then 
@@ -250,6 +293,8 @@ function scene:create( event )
 				daewha2[j].alpha = 1
 				j = j+1
 				my_daesapan:addEventListener("touch",choose1)
+				blue_daesapan:addEventListener("touch",choose1)
+				green_daesapan:addEventListener("touch",choose1)
 			elseif j == 2 then
 				blue_awakard.alpha = 1
 				my_daesapan.alpha = 0
@@ -257,8 +302,8 @@ function scene:create( event )
 				daewha2[j-1].alpha = 0
 				daewha2[j].alpha = 1
 				j = j+1
-				my_daesapan:removeEventListener("touch",choose1)
-				blue_daesapan:addEventListener("touch",choose1)
+				
+				
 			elseif j == 3 then
 				green_default.alpha = 1
 				daewha2[j-1].alpha = 0
@@ -267,8 +312,7 @@ function scene:create( event )
 				blue_daesapan.alpha = 0
 				green_daesapan.alpha = 1
 				j = j+1
-				blue_daesapan:removeEventListener("touch",choose1)
-				green_daesapan:addEventListener("touch",choose1)
+				
 			elseif j == 4 then 
 				daewha2[j-1].alpha = 0
 				daewha2[j].alpha = 1
@@ -277,8 +321,8 @@ function scene:create( event )
 				blue_default.alpha = 1
 				blue_daesapan.alpha = 1
 				j = j+1
-				green_daesapan:removeEventListener("touch",choose1)
-				blue_daesapan:addEventListener("touch",choose1)
+				
+				
 			elseif j == 5 then
 				daewha2[j-1].alpha = 0
 				daewha2[j].alpha = 1
@@ -286,9 +330,49 @@ function scene:create( event )
 				green_happy.alpha = 1
 				blue_default.alpha = 0
 				blue_daesapan.alpha = 0
-				j = j + 1
+				
+				my_daesapan:removeEventListener("touch",choose1)
 				blue_daesapan:removeEventListener("touch",choose1)
-				green_daesapan:addEventListener("touch",choose1)
+				green_daesapan:removeEventListener("touch",choose1)
+				green_daesapan:addEventListener("touch",last_scene)
+			end
+
+		end
+	end
+
+	local function choose2(event)
+		if event.phase == "began" then
+			if j == 1 then
+				daewha[13].alpha = 0
+				select1.alpha = 0
+				select2.alpha = 0
+				select_daewha1[2].alpha = 0
+				select_daewha2[2].alpha = 0
+				my_daesapan.alpha = 1
+				daewha3[j].alpha = 1
+				j =j +1
+				my_daesapan:addEventListener("touch",choose2)
+				green_daesapan:addEventListener("touch",choose2)
+				blue_daesapan:addEventListener("touch",choose2)
+			elseif j == 2 then
+				blue_daesapan.alpha = 1
+				my_daesapan.alpha = 0
+				blue_angry.alpha = 1
+				daewha3[j-1].alpha = 0
+				daewha3[j].alpha = 1
+				j = j +1
+			elseif j == 3 then
+				daewha3[j-1].alpha = 0
+				daewha3[j].alpha = 1
+				blue_daesapan.alpha = 0
+				blue_angry.alpha = 0
+				green_awakard.alpha = 1
+				green_daesapan.alpha = 1
+				j = j +1
+				my_daesapan:removeEventListener("touch",choose2)
+				green_daesapan:removeEventListener("touch",choose2)
+				blue_daesapan:removeEventListener("touch",choose2)
+				green_daesapan:addEventListener("touch",last_scene)
 			end
 
 		end
@@ -296,7 +380,7 @@ function scene:create( event )
 
 	local function first_scence(event)
 		if event.phase == "began" then 
-			--print(i)
+			print(i)
 			if i==1 then
 				daewha[i].alpha = 0
 				daewha[i+1].alpha = 1
@@ -443,13 +527,16 @@ function scene:create( event )
 			 	my_daesapan.alpha = 1
 			 	green_awakard.alpha = 0
 			 	green_daesapan.alpha = 0
-			 	my_daesapan:removeEventListener("touch",first_scence)
+			 	green_daesapan:removeEventListener("touch",first_scence)
+
 			 	select1.alpha = 1
 			 	select2.alpha = 1
 			 	select_daewha1[2].alpha = 1
 			 	select_daewha2[2].alpha = 1
 			 	select1:addEventListener("touch",choose1)
+			 	select2:addEventListener("touch",choose2)
 
+		
 
 			end
 		end
