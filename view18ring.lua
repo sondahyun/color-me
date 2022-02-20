@@ -8,25 +8,25 @@ function scene:create( event )
 	local function catch( event )
 		--if(event.phase == "began") then
 			composer.removeScene("view18ring")
-			composer.gotoScene("view19ring")
+			composer.gotoScene("view18ring_1")
 		--end
 	end
 
 
 	
 
-    local background = display.newImage( "image/ring_bg.png", display.contentWidth, display.contentHeight)
+    local background = display.newImage( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth/2
     background.y = display.contentHeight/2
     sceneGroup:insert(background)
-    local ready = display.newImage( "image/user2.png", display.contentWidth, display.contentHeight)
+    --[[local ready = display.newImage( "이미지/미니게임/미니게임_보라마을/user2.png", display.contentWidth, display.contentHeight)
     ready.x = display.contentWidth/2 - 310
     ready.y = display.contentHeight/2 + 160
     ready.rotation = 65
-    sceneGroup:insert(ready)
-    local daepo = display.newImage( "image/daepo.png", display.contentWidth, display.contentHeight)
-    daepo.x = display.contentWidth/2 - 500
-    daepo.y = display.contentHeight/2 + 250
+    sceneGroup:insert(ready)]]
+    local daepo = display.newImage( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 대기모양(보라마을).png", display.contentWidth, display.contentHeight)
+    daepo.x = display.contentWidth/5
+    daepo.y = display.contentHeight/1.2
     sceneGroup:insert(daepo)
 
     print("touch")
