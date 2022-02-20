@@ -18,11 +18,150 @@ function scene:create( event )
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
+	local options = {
+		isModal=true
+	}
+
 	local function click( event )
+		composer.setVariable("location",event.target.name)
 		composer.setVariable("item",event.target.id)
-		print("dfs")
-		--composer.showOverlay( "view03bag_popup",options)
+		composer.showOverlay( "viewgift_bag_popup",options)
 	end
+
+	--[[
+	local items = {}
+	
+	items[1] = loadedItems.item1--/loadedSettings.item1
+	items[2] = loadedItems.item2--/loadedSettings.item1	
+	items[3] = loadedItems.item3--/loadedSettings.item1		
+	items[4] = loadedItems.item4--/loadedSettings.item1		
+	items[5] = loadedItems.item5--/loadedSettings.item1		
+	items[6] = loadedItems.item6--/loadedSettings.item1		
+	items[7] = loadedItems.item7--/loadedSettings.item1		
+	items[8] = loadedItems.item8--/loadedSettings.item1		
+	items[9] = loadedItems.item9--/loadedSettings.item1		
+	items[10] = loadedItems.item10--/loadedSettings.item1		
+	items[11] = loadedItems.item11--/loadedSettings.item1		
+	items[12] = loadedItems.item12--/loadedSettings.item1
+
+	local function openPop(event)
+		if event.phase == "began" then
+			composer.setVariable("name", loadedItems.itemPop)--아이템 전달
+			--local i = location
+			items[location] = ""
+			print(location)
+			print("yes버튼 눌렀을때")
+			if location == 1 then
+				loadedItems.item1 = items[2]
+				loadedItems.item2 = items[3]
+				loadedItems.item3 = items[4]
+				loadedItems.item4 = items[5]	
+				loadedItems.item5 = items[6]
+				loadedItems.item6 = items[7]
+				loadedItems.item7 = items[8]
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 2 then
+				loadedItems.item2 = items[3]
+				loadedItems.item3 = items[4]
+				loadedItems.item4 = items[5]	
+				loadedItems.item5 = items[6]
+				loadedItems.item6 = items[7]
+				loadedItems.item7 = items[8]
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 3 then
+				loadedItems.item3 = items[4]
+				loadedItems.item4 = items[5]	
+				loadedItems.item5 = items[6]
+				loadedItems.item6 = items[7]
+				loadedItems.item7 = items[8]
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 4 then
+				loadedItems.item4 = items[5]	
+				loadedItems.item5 = items[6]
+				loadedItems.item6 = items[7]
+				loadedItems.item7 = items[8]
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 5 then	
+				loadedItems.item5 = items[6]
+				loadedItems.item6 = items[7]
+				loadedItems.item7 = items[8]
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 6 then	
+				loadedItems.item6 = items[7]
+				loadedItems.item7 = items[8]
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 7 then	
+				loadedItems.item7 = items[8]
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 8 then	
+				loadedItems.item8 = items[9]	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 9 then	
+				loadedItems.item9 = items[10]
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 10 then	
+				loadedItems.item10 = items[11]
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 11 then	
+				loadedItems.item11 = items[12]
+				loadedItems.item12 = ""
+			elseif location == 12 then	
+				loadedItems.item12 = ""
+			end
+
+			loadedItems.itemCount = loadedItems.itemCount - 1
+			loadsave.saveTable(loadedItems,"items.json")
+			
+			what = composer.getVariable("what")
+			composer.removeScene("viewmonth_event_위즈_birthday_상점_사용")
+			if what == 1 then
+				composer.gotoScene("viewz_bully") -- 선물 고르고 이동
+			elseif what == 2 then
+				composer.gotoScene("viewz_joy") -- 선물 고르고 이동
+			elseif what == 3 then
+				composer.gotoScene("viewz_solly") -- 선물 고르고 이동
+			elseif what == 4 then
+				composer.gotoScene("viewz_wiz") -- 선물 고르고 이동
+			elseif what == 5 then
+				composer.gotoScene("viewz_lay") -- 선물 고르고 이동
+			end
+		end
+	end
+	]]--
 
 
 	--반복문 정리--
@@ -31,6 +170,7 @@ function scene:create( event )
 			local item1 = display.newImage("이미지/가방/아이템/" .. loadedItems.item1 .. ".png")
 			item1.x, item1.y =  display.contentWidth*0.0516, display.contentHeight*0.2818
 			item1.id = loadedItems.item1
+			item1.name = 1
 			item1.anchorX, item1.anchorY = 0,0
 			sceneGroup:insert(item1)
 			item1:addEventListener("touch", click)
@@ -38,6 +178,7 @@ function scene:create( event )
 			local item2 = display.newImage("이미지/가방/아이템/" .. loadedItems.item2 .. ".png")
 			item2.x, item2.y =  display.contentWidth*0.1670, display.contentHeight*0.2818
 			item2.id = loadedItems.item2
+			item2.name = 2
 			item2.anchorX, item2.anchorY = 0,0
 			sceneGroup:insert(item2)
 			item2:addEventListener("touch", click)
@@ -45,6 +186,7 @@ function scene:create( event )
 			local item3 = display.newImage("이미지/가방/아이템/" .. loadedItems.item3 .. ".png")
 			item3.x, item3.y =  display.contentWidth*0.2823, display.contentHeight*0.2818
 			sceneGroup:insert(item3)
+			item3.name = 3
 			item3.id = loadedItems.item3
 			item3.anchorX, item3.anchorY = 0,0
 			item3:addEventListener("touch", click)
@@ -53,6 +195,7 @@ function scene:create( event )
 			item4.x, item4.y =  display.contentWidth*0.3977, display.contentHeight*0.2818
 			sceneGroup:insert(item4)
 			item4.id = loadedItems.item4
+			item4.name = 4
 			item4.anchorX, item4.anchorY = 0,0
 			item4:addEventListener("touch", click)
 		elseif num == 5 then
@@ -60,6 +203,7 @@ function scene:create( event )
 			item5.x, item5.y =  display.contentWidth*0.5130, display.contentHeight*0.2818
 			sceneGroup:insert(item5)
 			item5.id = loadedItems.item5
+			item5.name = 5
 			item5.anchorX, item5.anchorY = 0,0
 			item5:addEventListener("touch", click)
 		elseif num == 6 then
@@ -67,6 +211,7 @@ function scene:create( event )
 			item6.x, item6.y =  display.contentWidth*0.6283, display.contentHeight*0.2818
 			sceneGroup:insert(item6)
 			item6.id = loadedItems.item6
+			item6.name = 6
 			item6.anchorX, item6.anchorY = 0,0
 			item6:addEventListener("touch", click)
 		elseif num == 7 then
@@ -74,6 +219,7 @@ function scene:create( event )
 			item7.x, item7.y =  display.contentWidth*0.7437, display.contentHeight*0.2818
 			sceneGroup:insert(item7)
 			item7.id = loadedItems.item7
+			item7.name = 7
 			item7.anchorX, item7.anchorY = 0,0
 			item7:addEventListener("touch", click)
 		elseif num == 8 then
@@ -81,6 +227,7 @@ function scene:create( event )
 			item8.x, item8.y =  display.contentWidth*0.8590, display.contentHeight*0.2818
 			sceneGroup:insert(item8)
 			item8.id = loadedItems.item8
+			item8.name = 8
 			item8.anchorX, item8.anchorY = 0,0
 			item8:addEventListener("touch", click)
 		elseif num == 9 then
@@ -88,6 +235,7 @@ function scene:create( event )
 			item9.x, item9.y =  display.contentWidth*0.0516, display.contentHeight*0.6178
 			sceneGroup:insert(item9)
 			item9.id = loadedItems.item9
+			item9.name = 9
 			item9.anchorX, item9.anchorY = 0,0
 			item9:addEventListener("touch", click)
 		elseif num == 10 then
@@ -95,6 +243,7 @@ function scene:create( event )
 			item10.x, item10.y =  display.contentWidth*0.1670, display.contentHeight*0.6178
 			sceneGroup:insert(item10)
 			item10.id = loadedItems.item10
+			item10.name = 10
 			item10.anchorX, item10.anchorY = 0,0
 			item10:addEventListener("touch", click)
 		elseif num == 11 then
@@ -102,6 +251,7 @@ function scene:create( event )
 			item11.x, item11.y =  display.contentWidth*0.2823, display.contentHeight*0.6178
 			sceneGroup:insert(item11)
 			item11.id = loadedItems.item11
+			item11.name = 11
 			item11.anchorX, item11.anchorY = 0,0
 			item11:addEventListener("touch", click)
 		elseif num == 12 then
@@ -109,6 +259,7 @@ function scene:create( event )
 			item12.x, item12.y =  display.contentWidth*0.3977, display.contentHeight*0.6178
 			sceneGroup:insert(item12)
 			item12.id = loadedItems.item12
+			item12.name = 12
 			item12.anchorX, item12.anchorY = 0,0
 			item12:addEventListener("touch", click)
 		elseif num == 13 then
@@ -117,6 +268,7 @@ function scene:create( event )
 			sceneGroup:insert(item13)
 			item13.id = loadedItems.item13
 			item13.anchorX, item13.anchorY = 0,0
+			item13.name = 13
 			item13:addEventListener("touch", click)
 		elseif num == 14 then
 			local item14 = display.newImage("이미지/가방/아이템/" .. loadedItems.item14 .. ".png")
@@ -124,6 +276,7 @@ function scene:create( event )
 			sceneGroup:insert(item14)
 			item14.id = loadedItems.item14
 			item14.anchorX, item14.anchorY = 0,0
+			item14.name = 14
 			item14:addEventListener("touch", click)
 		elseif num == 15 then
 			local item15 = display.newImage("이미지/가방/아이템/" .. loadedItems.item15 .. ".png")
@@ -131,6 +284,7 @@ function scene:create( event )
 			sceneGroup:insert(item15)
 			item15.id = loadedItems.item15
 			item15.anchorX, item15.anchorY = 0,0
+			item15.name = 15
 			item15:addEventListener("touch", click)
 		elseif num == 16 then
 			local item16 = display.newImage("이미지/가방/아이템/" .. loadedItems.item16 .. ".png")
@@ -138,6 +292,7 @@ function scene:create( event )
 			sceneGroup:insert(item16)
 			item16.anchorX, item16.anchorY = 0,0
 			item16.id = loadedItems.item16
+			item16.name = 16
 			item16:addEventListener("touch", click)
 		end
 	end

@@ -14,6 +14,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 	
 	local loadedSettings = loadsave.loadTable( "settings.json" )
+	local loadedItems= loadsave.loadTable( "items.json" )
 	mainName = loadedSettings.name
 
 	
@@ -251,9 +252,9 @@ function scene:create( event )
 				select_daewha2.alpha = 0
 				my_daesapan:removeEventListener("touch",next)
 				my_daesapan:addEventListener("touch",choice1)
-				local gift = 1
+				--local gift = 1
 				-- 선물이 없을 때
-				if gift == 0 then
+				if loadedItems.itemCount == 0 then
 					daewha[5].alpha = 1
 					u =u +1
 				else 

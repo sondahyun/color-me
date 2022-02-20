@@ -54,7 +54,7 @@ function scene:create( event )
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
 	exit.anchorX, exit.anchorY = 0,0
-
+	
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
