@@ -43,6 +43,11 @@ function scene:create( event )
 	black:setFillColor(0)
 	sceneGroup:insert(black)
 
+	-- showoverlay 함수 사용 option
+    local options = {
+        isModal = true
+    }
+
 	--배경
 
 	local function go_back(event)
@@ -54,8 +59,15 @@ function scene:create( event )
 
 	local function go_popup(event)
 		if event.phase == "began" then
-			composer.showOverlay("zopup_update")
+			composer.showOverlay("zopup_update",options)
 			--composer.gotoScene("view00Room")
+		end
+	end
+
+	local function popup(event)
+		if event.phase == "began" then
+			composer.setVariable("color",event.target.name)
+			composer.showOverlay("view00Room_friend_popup",options)
 		end
 	end
 
@@ -104,6 +116,8 @@ function scene:create( event )
 		friend[i].x=xx[i]
 		friend[i].y=yy[i]
 		friend[i].anchorX,friend[i].anchorY = 0,0
+		friend[i].name = i
+		friend[i]:addEventListener("touch",popup)
 		sceneGroup:insert(friend[i])
 	end
 
