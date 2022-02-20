@@ -37,7 +37,7 @@ function scene:create( event )
 	sceneGroup:insert(board)
 
 	score3 = composer.getVariable("score2")
-	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/1.7,"font/잘풀리는오늘 Medium.ttf") 
+	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/1.9,"font/잘풀리는오늘 Medium.ttf") 
 	showScore1:setFillColor(1,0,0)
 	showScore1.size = 60
 	sceneGroup:insert(showScore1)
@@ -47,8 +47,8 @@ function scene:create( event )
 	loadedSettings.money = loadedSettings.money + score3
 	loadsave.saveTable(loadedSettings, "settings.json")
 
-	local backtomap =display.newImageRect("이미지/미니게임/미니게임_지도로 돌아가기 버튼.png",display.contentWidth/6.112,display.contentHeight/18.3050)
-	backtomap.x, backtomap.y =display.contentWidth/2.39,display.contentHeight/1.63466
+	local backtomap =display.newImageRect("이미지/미니게임/미니게임_지도로 돌아가기 버튼.png",display.contentWidth/6.112,display.contentHeight/17.3050)
+	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/1.65466
 	sceneGroup:insert(backtomap)
 	backtomap:addEventListener("touch",gomap)
 end
