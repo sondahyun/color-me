@@ -35,11 +35,13 @@ function scene:create( event )
 	local pencil = display.newImage("이미지/상점/아이템/연필.png")
 	pencil.x,pencil.y = display.contentWidth*0.1117, display.contentHeight*0.241
 	pencil.anchorX,pencil.anchorY = 0,0
+	sceneGroup:insert(pencil)
 	pencil.name = "연필"
 
 	local dog_rice = display.newImage("이미지/상점/아이템/사료.png")
 	dog_rice.x,dog_rice.y = display.contentWidth*0.2615, display.contentHeight*0.241
 	dog_rice.anchorX,dog_rice.anchorY = 0,0
+	sceneGroup:insert(dog_rice)
 	dog_rice.name = "사료"
 
 	local toy = display.newImage("이미지/상점/아이템/블록.png")
