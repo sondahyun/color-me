@@ -14,23 +14,48 @@ function scene:create( event )
 	black:setFillColor(0)
 	sceneGroup:insert(black)
 
+	local options = {
+		isModal = true
+	}
+
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.hideOverlay("zopup_update")
+			composer.removeScene("view03bag")
+			composer.gotoScene("view00Room")
 		end
 	end
 	
-	
+	local function go_popup(event)
+		if event.phase == "began" then
+			composer.showOverlay("zopup_update",options)
+			--composer.gotoScene("view00Room")
+		end
+	end
 
 
-	local update = display.newImage("이미지/공통/업데이트.png")
+	local update = display.newImage("이미지/가방/배경.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
+	local basic_button= display.newImage("이미지/가방/일반_완료.png")
+	basic_button.x, basic_button.y = display.contentWidth*0.3066, display.contentHeight*0.0774
+	basic_button.anchorX,basic_button.anchorY=0,0
+
+	sceneGroup:insert(basic_button)
+
+	local pretty_button= display.newImage("이미지/가방/꾸미기.png")
+	pretty_button.x, pretty_button.y = display.contentWidth*0.5, display.contentHeight*0.0774
+	sceneGroup:insert(pretty_button)
+	pretty_button.anchorX,pretty_button.anchorY=0,0
+	pretty_button:addEventListener("touch",go_popup)
+
+
 	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.695, display.contentHeight*0.4
+	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
+	exit.anchorX, exit.anchorY = 0,0
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
+
 
 
 

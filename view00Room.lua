@@ -31,7 +31,7 @@ function scene:create( event )
 
 	local function touch2(event)
 		composer.removeScene("view00Room")
-		composer.gotoScene( "view11Bag" )
+		composer.gotoScene( "view03bag" )
 
 	end
 

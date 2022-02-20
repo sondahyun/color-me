@@ -208,7 +208,12 @@ function scene:create( event )
 						item9 = "없음",
 						item10 = "없음",
 						item11 = "없음",
-						item12 = "없음"
+						item12 = "없음",
+						item13 = "없음",
+						item14 = "없음",
+						item15 = "없음",
+						item16 = "없음",
+						item17 = "없음"
 					}
 				loadsave.saveTable( items, "items.json" )
 				composer.setVariable("name",defaultField.text)
