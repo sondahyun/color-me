@@ -210,7 +210,7 @@ function scene:create( event )
 
 		if loadedSettings.tutorial == 0 then
 
-			composer.showOverlay("view02schedule_guide",options)
+			composer.showOverlay("zopup_guide",options)
 			loadedSettings.tutorial = loadedSettings.tutorial + 1
 			loadsave.saveTable(loadedSettings,"settings.json")
 		end

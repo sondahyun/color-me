@@ -6,14 +6,95 @@
 
 local composer = require( "composer" )
 local scene = composer.newScene()
+local loadsave = require( "loadsave" )
+local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	-- Called when the scene's view does not exist.
-	-- 
-	-- INSERT code here to initialize the scene
-	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
+	local loadedSettings = loadsave.loadTable( "settings.json" )
+
+	local options = {
+		effect="fade",
+		time = 1000
+	}
+
+	local function end_month(event)
+		if event.phase == "began" then
+			-- 모든 값 리셋
+			loadedSettings.month = loadedSettings.month + 1
+
+			loadedSettings.limited_num = 0
+			loadedSettings.red_num = 0
+			loadedSettings.yellow_num = 0
+			loadedSettings.blue_num = 0
+			loadedSettings.green_num = 0 
+			loadedSettings.purple_num =0
+			loadedSettings.game_num = 0
+			loadedSettings.activity_num = 0
+    			loadedSettings.play1_num =0
+    			loadedSettings.play2_num=0
+    			loadedSettings.play3_num=0
+    			loadedSettings.play4_num=0
+    			loadedSettings.play5_num=0
+    			loadedSettings.hobby1_num = 0
+    			loadedSettings.hobby2_num = 0
+    			loadedSettings.hobby3_num = 0
+    			loadedSettings.hobby4_num = 0
+    			loadedSettings.hobby5_num = 0
+    			loadedSettings.study1_num = 0
+    			loadedSettings.study2_num = 0
+    			loadedSettings.study3_num = 0
+    			loadedSettings.study4_num = 0
+    			loadedSettings.study5_num = 0
+    			loadedSettings.friend_num = 0
+    			loadedSettings.friend1_num = 0
+    			loadedSettings.friend2_num = 0
+    			loadedSettings.friend3_num = 0
+    			loadedSettings.friend4_num = 0
+    			loadedSettings.friend5_num = 0
+    			loadedSettings.show1 = 0
+    			loadedSettings.show2 = 0
+    			loadedSettings.show3 = 0
+    			loadedSettings.show4 = 0
+    			loadedSettings.show5 = 0
+    			loadedSettings.show6 = 0
+    			loadedSettings.show7 = 0
+
+			
+			loadsave.saveTable(loadedSettings,"settings.json")
+
+			-- 이벤트 발생 조건 여부 확인
+			if loadedSettings.month==2 then
+
+				if loadedSettings.month2_event==1 then
+					composer.removeScene("view12Plan")
+					composer.removeScene("View13Plan")
+					composer.gotoScene("viewmonth2_event",options)
+				else
+					composer.removeScene("view12Plan")
+					composer.removeScene("View13Plan")
+					composer.gotoScene("view01_month",options)
+
+				end
+
+			elseif loadedSettings.month==5 then
+					composer.removeScene("view12Plan")
+					composer.removeScene("View13Plan")
+					composer.gotoScene("viewmonth5_event",options)
+
+			elseif loadedSettings.month == 6 then 
+				composer.removeScene("view12Plan")
+				composer.removeScene("View13Plan")
+				composer.gotoScene("view99end")
+
+			else
+				composer.removeScene("view12Plan")
+				composer.removeScene("View13Plan")
+				composer.gotoScene("view01_month",options)
+			end
+		end
+	end
 
 
 	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
@@ -36,6 +117,7 @@ function scene:create( event )
 	yes_button.width = yes_button.width*0.8
 	yes_button.height = yes_button.height*0.8
 	sceneGroup:insert(yes_button)
+	yes_button:addEventListener("touch",end_month)
 
 	local no_button = display.newImage("이미지/공통/no버튼.png")
 	no_button.x,no_button.y = display.contentWidth*0.57,display.contentHeight*0.59

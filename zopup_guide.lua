@@ -26,7 +26,7 @@ function scene:create( event )
 
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.hideOverlay("view02schedule_guide")
+			composer.hideOverlay("zopup_guide")
 		end
 	end
 

@@ -80,7 +80,7 @@ function scene:create( event )
 	-- 가이드 창 불러오기 --
 	local function tutorial(event)
 		if event.phase == "began" then
-			composer.showOverlay("view02schedule_guide",option)
+			composer.showOverlay("zopup_guide",option)
 		end
 	end
 
