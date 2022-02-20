@@ -22,32 +22,32 @@ function scene:create( event )
 
 	
 ---배경화면
-	local background = display.newImageRect("image/BG_Forest.png", display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("이미지/미니게임/미니게임_초록마을/미니게임_카드게임 배경(초록마을).png", display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(background)--그룹
 
 --점수
-	local score = display.newImageRect("image/score.png", 130,150)
+	local score = display.newImageRect("이미지/미니게임/미니게임_코인창.png", display.contentWidth/9.3, display.contentHeight/4.26)
 	score.anchorX, score.anchorY =0,0
-	score.x,score.y = 15,20
+	score.x,score.y = display.contentWidth/33.166, display.contentHeight/13.2482826
 
 	local score1 = 0 
-	local showScore = display.newText(score1,80,85,"font/잘풀리는오늘 Medium.ttf") 
+	local showScore = display.newText(score1,display.contentWidth/12,display.contentHeight/5.555,"font/잘풀리는오늘 Medium.ttf") 
 	showScore:setFillColor(0) 
-	showScore.size = 40
+	showScore.size = 80
 
 
 --타이머
-	local time = display.newImageRect("image/time.png", 130,150)
+	local time = display.newImageRect("이미지/미니게임/미니게임_시간타이머.png", display.contentWidth/7.91, display.contentHeight/3.78)
 	time.anchorX, time.anchorY =0,0
-	time.x,time.y = 1115,20
+	time.x,time.y = display.contentWidth/1.180, display.contentHeight/21.53
 	
 
 	local limit = 25
-	local showLimit = display.newText(limit,1180,95,"font/잘풀리는오늘 Medium.ttf")
+	local showLimit = display.newText(limit,display.contentWidth/1.1,display.contentHeight/5.555,"font/잘풀리는오늘 Medium.ttf")
 	
 	showLimit:setFillColor(0)
-	showLimit.size = 40
+	showLimit.size = 80
 	
 	
 	--local function timeAttack( event )
