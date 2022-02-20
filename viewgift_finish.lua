@@ -6,18 +6,18 @@
 
 local composer = require( "composer" )
 local scene = composer.newScene()
+local loadsave = require( "loadsave" )
+local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	local my = display.newText("mainName",190,505,"font/잘풀리는오늘 Medium.ttf")
-	my.size = 30
-	my.alpha = 0
-	my:setFillColor(1)
-	sceneGroup:insert(my)
+	local loadedSettings = loadsave.loadTable( "settings.json" )
+	mainName = loadedSettings.name
 
-	local color = 1
-
+	
+	--local color = composer.getVariable("color")
+	color = 1
 	local color_name = {
 		"블리",
 		"조이",
@@ -31,11 +31,11 @@ function scene:create( event )
 	local background ={}
 
 	local background_image = {
-		"배경/캐릭터대화창-빨강마을배경.png",
-		"배경/캐릭터대화창-노랑마을배경.png",
-		"배경/캐릭터대화창-초록마을배경.png",
-		"배경/캐릭터대화창-파랑마을배경.png",
-		"배경/캐릭터대화창-보라마을배경.png"
+		"이미지/대화/우정배경/빨강.png",
+		"이미지/대화/우정배경/노랑.png",
+		"이미지/대화/우정배경/초록.png",
+		"이미지/대화/우정배경/파랑.png",
+		"이미지/대화/우정배경/보라.png"
 	}
 
 	for i = 1,5 do
@@ -53,56 +53,30 @@ function scene:create( event )
 
 	local default = {}
 
-	local default_image ={
-		"캐릭터-기본(그림자O)/캐릭터-블리(그림자O).png",
-		"캐릭터-기본(그림자O)/캐릭터-조이(그림자O).png",
-		"캐릭터-기본(그림자O)/캐릭터-솔리(그림자O).png",
-		"캐릭터-기본(그림자O)/캐릭터-위즈(그림자O).png",
-		"캐릭터-기본(그림자O)/캐릭터-레이(그림자O).png"
-	}
-
 	for i = 1,5 do
-		default[i] = display.newImage(default_image[i])
+		default[i] = display.newImage("이미지/캐릭터/" .. color_name[i] .. "/기본.png")
 		default[i].x, default[i].y = display.contentWidth/2,display.contentHeight/2
 		sceneGroup:insert(default[i])
 		default[i].alpha = 0
 	end
 
-	default[color].alpha = 1
-
 	-- 기쁨 --
 
 	local happy = {}
 
-	local happy_image = {
-		"캐릭터-기쁨(그림자O)/캐릭터-블리기쁨(그림자O).png",
-		"캐릭터-기쁨(그림자O)/캐릭터-조이기쁨(그림자O).png",
-		"캐릭터-기쁨(그림자O)/캐릭터-솔리기쁨(그림자O).png",
-		"캐릭터-기쁨(그림자O)/캐릭터-위즈기쁨(그림자O).png",
-		"캐릭터-기쁨(그림자O)/캐릭터-레이기쁨(그림자O).png"
-	}
 
 	for i = 1,5 do
-		happy[i] = display.newImage(happy_image[i])
+		happy[i] = display.newImage("이미지/캐릭터/" .. color_name[i] .. "/기쁨.png")
 		happy[i].x,happy[i].y = display.contentWidth/2,display.contentHeight/2
 		sceneGroup:insert(happy[i])
 		happy[i].alpha = 0 
 	end
 
 	-- 난감 -- 
-
 	local awkward = {}
 
-	local awkward_image = {
-		"캐릭터-난감(그림자O)/캐릭터-블리난감(그림자O).png",
-		"캐릭터-난감(그림자O)/캐릭터-조이난감(그림자O).png",
-		"캐릭터-난감(그림자O)/캐릭터-솔리난감(그림자O).png",
-		"캐릭터-난감(그림자O)/캐릭터-위즈난감(그림자O).png",
-		"캐릭터-난감(그림자O)/캐릭터-레이난감(그림자O).png"
-	}
-
 	for i = 1,5 do
-		awkward[i] = display.newImage(awkward_image[i])
+		awkward[i] = display.newImage("이미지/캐릭터/" .. color_name[i] .. "/난감.png")
 		awkward[i].x,awkward[i].y = display.contentWidth/2,display.contentHeight/2
 		sceneGroup:insert(awkward[i])
 		awkward[i].alpha = 0 
@@ -112,16 +86,8 @@ function scene:create( event )
 
 	local sad = {}
 
-	local sad_image = {
-		"캐릭터-슬픔(그림자O)/캐릭터-블리슬픔(그림자O).png",
-		"캐릭터-슬픔(그림자O)/캐릭터-조이슬픔(그림자O).png",
-		"캐릭터-슬픔(그림자O)/캐릭터-솔리슬픔(그림자O).png",
-		"캐릭터-슬픔(그림자O)/캐릭터-위즈슬픔(그림자O).png",
-		"캐릭터-슬픔(그림자O)/캐릭터-레이슬픔(그림자O).png"
-	}
-
 	for i = 1,5 do
-		sad[i] = display.newImage(sad_image[i])
+		sad[i] = display.newImage("이미지/캐릭터/" .. color_name[i] .. "/슬픔.png")
 		sad[i].x,sad[i].y = display.contentWidth/2,display.contentHeight/2
 		sceneGroup:insert(sad[i])
 		sad[i].alpha = 0 
@@ -131,16 +97,8 @@ function scene:create( event )
 
 	local angry = {}
 
-	local angry_image = {
-		"캐릭터-화남(그림자O)/캐릭터-블리화남(그림자O).png",
-		"캐릭터-화남(그림자O)/캐릭터-조이화남(그림자O).png",
-		"캐릭터-화남(그림자O)/캐릭터-솔리화남(그림자O).png",
-		"캐릭터-화남(그림자O)/캐릭터-위즈화남(그림자O).png",
-		"캐릭터-화남(그림자O)/캐릭터-레이화남(그림자O).png"
-	}
-
 	for i = 1,5 do
-		angry[i] = display.newImage(angry_image[i])
+		angry[i] = display.newImage("이미지/캐릭터/" .. color_name[i] .. "/화남.png")
 		angry[i].x,angry[i].y = display.contentWidth/2,display.contentHeight/2
 		sceneGroup:insert(angry[i])
 		angry[i].alpha = 0 
@@ -150,82 +108,58 @@ function scene:create( event )
 
 	local daesapan = {}
 
-	local daesapan_image = {
-		"대화창-대사판/캐릭터대화창-대사창(블리).png",
-		"대화창-대사판/캐릭터대화창-대사창(조이).png",
-		"대화창-대사판/캐릭터대화창-대사창(솔리).png",
-		"대화창-대사판/캐릭터대화창-대사창(위즈).png",
-		"대화창-대사판/캐릭터대화창-대사창(레이).png"
-	}
-
-
 	for i = 1,5 do
-		daesapan[i] = display.newImage(daesapan_image[i])
-		daesapan[i].x, daesapan[i].y = display.contentWidth/2,display.contentHeight*0.8
+		daesapan[i] = display.newImage("이미지/대화/대화창/" .. color_name[i] .. ".png")
+		daesapan[i].x, daesapan[i].y = display.contentWidth*0.5,display.contentHeight*0.7176
+		daesapan[i].anchorY = 0
 		sceneGroup:insert(daesapan[i])
 		daesapan[i].alpha = 0
 	end
 
 
-	local my_daesapan = display.newImage("대화창-대사판/캐릭터대화창-대사창(주인공).png")
-	my_daesapan.x, my_daesapan.y = display.contentWidth/2,display.contentHeight*0.8
+	local my_daesapan = display.newImage("이미지/대화/대화창/주인공.png")
+	my_daesapan.x, my_daesapan.y = display.contentWidth*0.5,display.contentHeight*0.7176
+	my_daesapan.anchorY = 0
 	sceneGroup:insert(my_daesapan)
 	my_daesapan.alpha=1
 
-	-- 선택지 --
-
-	local choose1 = {}
-	local choose2 = {}
-
-	local choose_image = {
-		"대화창-선택지버튼/캐릭터대화창-선택지(빨강마을).png",
-		"대화창-선택지버튼/캐릭터대화창-선택지(노랑마을).png",
-		"대화창-선택지버튼/캐릭터대화창-선택지(초록마을).png",
-		"대화창-선택지버튼/캐릭터대화창-선택지(파랑마을).png",
-		"대화창-선택지버튼/캐릭터대화창-선택지(보라마을).png"
-	}
-
-	for i = 1,5 do
-		choose1[i] = display.newImage(choose_image[i])
-		choose1[i].x, choose1[i].y = display.contentWidth*0.2,display.contentHeight*0.47
-		sceneGroup:insert(choose1[i])
-		choose1[i].alpha = 0
-
-		choose2[i] = display.newImage(choose_image[i])
-		choose2[i].x, choose2[i].y = display.contentWidth*0.8,display.contentHeight*0.47
-		sceneGroup:insert(choose2[i])
-		choose2[i].alpha = 0
-	end
-	-- 아이템 리스트 -- 
 
 	-- 아이템 겟 --
 
-	item_name = composer.getVariable("variable")
-	
-	local item = ""
+	item_name = composer.getVariable("item")
 
-	if item_name == "bag/block.png" then
+	if item_name == "블록" then
 		item = "뾰족 블록세트"
-	elseif item_name == "bag/dog.png" then
+	elseif item_name == "사료" then
 		item = "냠냠 고급사료"
-	elseif item_name == "bag/duck.png" then
+	elseif item_name == "오리" then
 		item = "노랑 목욕 오리"
-	elseif item_name == "bag/heart.png" then
+	elseif item_name == "응원봉" then
 		item = "하트하트 응원봉"
-	elseif item_name == "bag/kit.png" then
+	elseif item_name == "실험세트" then
 		item = "물속 불 피우기 실험키트"
-	elseif item_name == "bag/perfume.png" then
+	elseif item_name == "향수" then
 		item = "블랙체리 향수"
-	elseif item_name == "bag/pie.png" then
+	elseif item_name == "파이" then
 		item = "봄 피는 꽃 화분"
-	elseif item_name == "bag/plant.png" then
+	elseif item_name == "화분" then
 		item = "봄피는 꽃 화분"
-	elseif item_name == "bag/tiger.png" then
+	elseif item_name == "호랑이" then
 		item = "마마손 파이"
-	elseif item_name == "bag/speaker.png" then
+	elseif item_name == "스피커" then
 		item = "두배로 스피커"
-	elseif item_name =="bag/pencil.png" then
-		item = "스마트 연필"
+	elseif item_name =="망토" then
+		item = "히어로 망토"
+	elseif item_name =="머리핀" then
+		item = "하트 뿅뿅 머리핀"
+	elseif item_name =="민초" then
+		item = "민트초코 아이스크림"
+	elseif item_name =="액자" then
+		item = "빈 액자"
+	elseif item_name =="헤드셋" then
+		item = "나만 듣고 싶은 헤드셋"
+	elseif item_name =="안경닦이" then
+		item = "내 말이 맞아 안경닦이"
 	end
 	
 
@@ -234,49 +168,49 @@ function scene:create( event )
 	-- 블리
 
 	item_list[1] = {
-		"bag/perfume.png",
-		"bag/heart.png",
-
-		"bag/duck.png",
-		"bag/pie.png",
-		"bag/plant.png",
-		"bag/dog.png"
+		"향수",
+		"응원봉",
+		"오리",
+		"파이",
+		"화분",
+		"사료"
 	}
 
 	item_list[2] ={
-		"bag/duck.png",
-		"bag/speaker.png",
-		"bag/perfume.png",
-		"bag/heart.png",
-		"bag/pie.png",
-		"bag/dog.png"
+	
+		"오리",
+		"스피커",
+		"향수",
+		"응원봉",
+		"파이",
+		"사료"
 	}
 
 	item_list[3] ={
-		"bag/plant.png",
-		"bag/pie.png",
-		"bag/heart.png",
-		"bag/dog.png",
-		"bag/pencil.png",
-		"bag/duck.png"
+		"화분",
+		"파이",
+		"응원봉",
+		"사료",
+		"연필",
+		"오리"
 	}
 
 	item_list[4] ={
-		"bag/block.png",
-		"bag/pencil.png",
-		"bag/tiger.png",
-		"bag/speaker.png",
-		"bag/duck.png",
-		"bag/kit.png"
+		"블록",
+		"연필",
+		"호랑이",
+		"스피커",
+		"오리",
+		"실험세트"
 	}
 
 	item_list[5] ={
-		"bag/tiger.png",
-		"bag/dog.png",
-		"bag/kit.png",
-		"bag/duck.png",
-		"bag/pie.png",
-		"bag/block.png"
+		"호랑이",
+		"사료",
+		"실험세트",
+		"오리",
+		"파이",
+		"블록"
 	}
 
 
@@ -284,7 +218,7 @@ function scene:create( event )
 	-- 대화 내용 -- 
 
 
-	local name = "주인공"
+	local name = mainName
 
 	local perfect = {}
 	local soso = {}
@@ -320,29 +254,29 @@ function scene:create( event )
 	}
 
 	for i = 1,5 do
-		perfect[i] = display.newText(text_1[i],105,550,"font/NanumSquare_acB.ttf")
+		perfect[i] = display.newText(text_1[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		perfect[i].anchorX,perfect[i].anchorY = 0,0
 		perfect[i]:setFillColor(0)
 		perfect[i].alpha = 0
-		perfect[i].size = 25
+		perfect[i].size = 30
 		sceneGroup:insert(perfect[i])
 	end
 
 	for i = 1,5 do
-		soso[i] = display.newText(text_2[i],105,550,"font/NanumSquare_acB.ttf")
+		soso[i] = display.newText(text_2[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		soso[i].anchorX,soso[i].anchorY = 0,0
 		soso[i]:setFillColor(0)
 		soso[i].alpha = 0
-		soso[i].size = 25
+		soso[i].size = 30
 		sceneGroup:insert(soso[i])
 	end
 
 	for i = 1,5 do
-		bad[i] = display.newText(text_3[i],105,550,"font/NanumSquare_acB.ttf")
+		bad[i] = display.newText(text_3[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		bad[i].anchorX,bad[i].anchorY = 0,0
 		bad[i]:setFillColor(0)
 		bad[i].alpha = 0
-		bad[i].size = 25
+		bad[i].size = 30
 		sceneGroup:insert(bad[i])
 	end
 
@@ -369,13 +303,22 @@ function scene:create( event )
 		happy[color].alpha = 1
 		default[color].alpha = 0
 	elseif respones(item_name,3,6) == 1 then 
-		default[color].alpha = 0
+		default[color].alpha = 1
 		soso[color].alpha = 1
 	else
 		bad[color].alpha = 1
 		default[color].alpha = 0
 		awkward[color].alpha = 1
 	end
+
+	local function go_back(event)
+		if event.phase == "began" then
+			composer.removeScene("viewgift_finish")
+			composer.gotoScene("view01Map")
+		end
+	end
+
+	daesapan[color]:addEventListener("touch",go_back)
 
 
 
