@@ -43,23 +43,23 @@ function scene:create( event )
 	local i = 0
 	local function bigbig (event)
 		
-		if (event.target.x-event.x)^2 + (event.target.y-event.y)^2 < 40^2 then
-			-- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
-			if i == 0 then
-				local backgroundMusicChannel = audio.play(click1)
-				event.target.width = 96.6
-				event.target.height = 122.85
-				i = i + 1
-			end
-		
-		elseif (event.target.x-event.x)^2 + (event.target.y-event.y)^2 > 40^2 then
-			if i == 1 then
-				event.target.width = 92
-				event.target.height = 117
-				i = i - 1 
-			end
-			
-		end
+		if (event.target.x-event.x)^2 + (event.target.y-event.y)^2 < 58^2 then
+            -- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
+            if j == 0 then
+                local backgroundMusicChannel = audio.play(click1)
+                event.target.width = event.target.width*1.1
+                event.target.height = event.target.height*1.1
+                j = j + 1
+            end
+        
+        elseif (event.target.x-event.x)^2 + (event.target.y-event.y)^2 > 58^2 then
+            if j == 1 then
+                event.target.width = event.target.width/11*10
+                event.target.height = event.target.height/11*10
+                j = j - 1 
+            end
+            
+        end
 	end
 
 	local function touch3(event)
@@ -154,34 +154,34 @@ function scene:create( event )
 -- 달력 글씨
 	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
 	month:setFillColor(0)
-	month.size = 25
+	month.size = 40
 	sceneGroup:insert(month)
 -- 이전 달 할 일 1
-	local former = display.newText("",793,175,"font/잘풀리는오늘 Medium.ttf")
-	former.anchorX = 0
-	former:setFillColor(0)
-	former.size = 15
+	local former = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2325,"font/잘풀리는오늘 Medium.ttf")
+	former.anchorX,former.anchorY = 0,0
+	former:setFillColor(0.82,0.21,0.05)
+	former.size = 20
 	former.text = loadedSettings.former1
 	sceneGroup:insert(former)
 -- 이전 달 할 일 2
-	local former2 = display.newText("",793,197,"font/잘풀리는오늘 Medium.ttf")
-	former2.anchorX = 0
+	local former2 = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2603,"font/잘풀리는오늘 Medium.ttf")
+	former2.anchorX ,former2.anchorY = 0,0
 	former2:setFillColor(0)
-	former2.size = 15
+	former2.size = 20
 	former2.text = loadedSettings.former2
 	sceneGroup:insert(former2)
 -- 다음 달 할 일 1
-	local next1 = display.newText("dd",793,254,"font/잘풀리는오늘 Medium.ttf")
-	next1.anchorX = 0
+	local next1 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3422,"font/잘풀리는오늘 Medium.ttf")
+	next1.anchorX,next1.anchorY = 0,0
 	next1:setFillColor(0)
-	next1.size = 15
+	next1.size = 20
 	next1.text = loadedSettings.next1
 	sceneGroup:insert(next1)
 -- 다음 달 할 일 2
-	local next2 = display.newText("dd",793,276,"font/잘풀리는오늘 Medium.ttf")
-	next2.anchorX = 0
+	local next2 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3722,"font/잘풀리는오늘 Medium.ttf")
+	next2.anchorX,next2.anchorY = 0,0
 	next2:setFillColor(0)
-	next2.size = 15
+	next2.size = 20
 	next2.text = loadedSettings.next2
 	sceneGroup:insert(next2)
 
@@ -210,7 +210,7 @@ function scene:create( event )
 
 		if loadedSettings.tutorial == 0 then
 
-			composer.showOverlay("view00Room2",options)
+			composer.showOverlay("view02schedule_guide",options)
 			loadedSettings.tutorial = loadedSettings.tutorial + 1
 			loadsave.saveTable(loadedSettings,"settings.json")
 		end

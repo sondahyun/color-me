@@ -21,6 +21,10 @@ function scene:create( event )
     ending.x, ending.y = display.contentWidth*0.95,display.contentHeight*0.9
     sceneGroup:insert(ending)
 
+    local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
 	local back = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
 	back:setFillColor(0)
 	back.alpha = 0.5

@@ -16,6 +16,10 @@ function scene:create( event )
 	ending.x, ending.y = display.contentWidth*0.95,display.contentHeight*0.9
 	sceneGroup:insert(ending)
 
+	local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
     local newgame = display.newImage("이미지/타이틀/새게임.png")
     newgame.x,newgame.y = display.contentWidth * 0.42, display.contentHeight * 0.9
     sceneGroup:insert(newgame)

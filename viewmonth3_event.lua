@@ -195,7 +195,7 @@ function scene:create( event )
 	local daewha4 = {}
 
 	for i = 1,6 do
-		daewha0[i] = display.newText(text0[i],160,865,"font/NanumSquare_acB.ttf")
+		daewha0[i] = display.newText(text0[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		daewha0[i].anchorX,daewha0[i].anchorY = 0,0
 		daewha0[i]:setFillColor(0)
 		daewha0[i].alpha = 0
@@ -204,7 +204,7 @@ function scene:create( event )
 	end
 
 	for i = 1,5 do
-		daewha1[i] = display.newText(text1[i],160,865,"font/NanumSquare_acB.ttf")
+		daewha1[i] = display.newText(text1[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		daewha1[i].anchorX,daewha1[i].anchorY = 0,0
 		daewha1[i]:setFillColor(0)
 		daewha1[i].alpha = 0
@@ -213,7 +213,7 @@ function scene:create( event )
 	end
 
 	for i = 1,5 do
-		daewha2[i] = display.newText(text2[i],160,865,"font/NanumSquare_acB.ttf")
+		daewha2[i] = display.newText(text2[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		daewha2[i].anchorX,daewha2[i].anchorY = 0,0
 		daewha2[i]:setFillColor(0)
 		daewha2[i].alpha = 0
@@ -222,7 +222,7 @@ function scene:create( event )
 	end
 
 	for i = 1,4 do
-		daewha3[i] = display.newText(text3[i],160,865,"font/NanumSquare_acB.ttf")
+		daewha3[i] = display.newText(text3[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		daewha3[i].anchorX,daewha3[i].anchorY = 0,0
 		daewha3[i]:setFillColor(0)
 		daewha3[i].alpha = 0
@@ -231,7 +231,7 @@ function scene:create( event )
 	end
 
 	for i = 1,2 do
-		daewha4[i] = display.newText(text4[i],160,865,"font/NanumSquare_acB.ttf")
+		daewha4[i] = display.newText(text4[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
 		daewha4[i].anchorX,daewha4[i].anchorY = 0,0
 		daewha4[i]:setFillColor(0)
 		daewha4[i].alpha = 0
@@ -256,20 +256,20 @@ function scene:create( event )
 	for i =1,2 do
 		option1[i] = {
 			text = select_text1[i],
-			x=233,
-			y=490,
-			width=438,
-			height=143,
+			x=display.contentWidth*0.1213,
+			y=display.contentHeight*0.4537,
+			width=display.contentWidth*438,
+			height=display.contentHeight*0.1324,
 			align = "center",
 			font = "font/NanumSquareRoundB.ttf",
 			fontSize = 36
 		}
 		option2[i] = {
 			text = select_text2[i],
-			x=1254.73,
-			y=490,
-			width=438,
-			height=143,
+			x=display.contentWidth*0.6535,
+			y=display.contentHeight*0.4537,
+			width=display.contentWidth*438,
+			height=display.contentHeight*0.1324,
 			align = "center",
 			font = "font/NanumSquareRoundB.ttf",
 			fontSize = 36
