@@ -1,18 +1,17 @@
--- 두더지 게임 점수
+--파랑마을 카드게임 엔딩화면
 
+local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local scene = composer.newScene()
-local loadsave = require( "loadsave" )
 
 function scene:create( event )
 	local sceneGroup = self.view
-	
-	-- 배경객체
-	local background = display.newImageRect("이미지/미니게임/미니게임_빨강마을/미니게임_두더지게임 배경(빨강마을).png",display.contentWidth, display.contentHeight)
-	background.x,background.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background)
 
--- 배경 어둡게
+	-- 배경 설정
+	local background = display.newImageRect("이미지/미니게임/미니게임_파랑마을/미니게임_숫자게임 배경(파랑마을).png", 1920, 1080)
+	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+	sceneGroup:insert( background )
+
 	
 	local background1 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	
@@ -20,16 +19,13 @@ function scene:create( event )
 	transition.to(background1,{alpha=0.5,time=1000})
 	sceneGroup:insert(background1)
 	
--- map으로 돌아가기
-
 	local function gomap(event)
 		if event.phase == "began" then
-				composer.removeScene("view06Dudu")
+				composer.removeScene("view08Number")
 				composer.gotoScene( "view01Map" )
 		end
 	end
 
--- 점수판
 	local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/3.6294896, display.contentHeight/2.83122739)
 	board.x , board.y = display.contentWidth/2, display.contentHeight/2
 	board.alpha = 0.5
@@ -41,16 +37,16 @@ function scene:create( event )
 	showScore1:setFillColor(1,0,0)
 	showScore1.size = 60
 	sceneGroup:insert(showScore1)
-	
--- 점수에 따라 돈 획득/db에 저장
-	local loadedSettings = loadsave.loadTable( "settings.json" ) 
-	loadedSettings.money = loadedSettings.money + score3
-	loadsave.saveTable(loadedSettings, "settings.json")
 
 	local backtomap =display.newImageRect("이미지/미니게임/미니게임_지도로 돌아가기 버튼.png",display.contentWidth/6.112,display.contentHeight/17.3050)
 	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/1.65466
 	sceneGroup:insert(backtomap)
 	backtomap:addEventListener("touch",gomap)
+
+	local loadedSettings = loadsave.loadTable( "settings.json" ) 
+	loadedSettings.money = loadedSettings.money + score3
+	print(loadedSettings.money)
+	loadsave.saveTable(loadedSettings, "settings.json")
 end
 
 function scene:show( event )
