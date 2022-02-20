@@ -5,14 +5,15 @@
 -----------------------------------------------------------------------------------------
 local composer = require( "composer" )
 local scene = composer.newScene()
-
+local loadsave = require( "loadsave" )
+local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
-	black.alpha = 0.5
-	black:setFillColor(0)
-	sceneGroup:insert(black)
+	local loadedSettings = loadsave.loadTable( "settings.json" )
+	local loadedItems= loadsave.loadTable( "items.json" )
+
+
 
 	local options = {
 		isModal = true
@@ -53,9 +54,138 @@ function scene:create( event )
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
 	exit.anchorX, exit.anchorY = 0,0
+
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
+	local function click( event )
+		composer.setVariable("item",event.target.id)
+		composer.showOverlay( "view03bag_popup",options)
+	end
+
+
+	--반복문 정리--
+	local function image( num )
+		if num == 1 then
+			local item1 = display.newImage("이미지/가방/아이템/" .. loadedItems.item1 .. ".png")
+			item1.x, item1.y =  display.contentWidth*0.0516, display.contentHeight*0.2818
+			item1.id = loadedItems.item1
+			item1.anchorX, item1.anchorY = 0,0
+			sceneGroup:insert(item1)
+			item1:addEventListener("touch", click)
+		elseif num == 2 then
+			local item2 = display.newImage("이미지/가방/아이템/" .. loadedItems.item2 .. ".png")
+			item2.x, item2.y =  display.contentWidth*0.1670, display.contentHeight*0.2818
+			item2.id = loadedItems.item2
+			item2.anchorX, item2.anchorY = 0,0
+			sceneGroup:insert(item2)
+			item2:addEventListener("touch", click)
+		elseif num == 3 then
+			local item3 = display.newImage("이미지/가방/아이템/" .. loadedItems.item3 .. ".png")
+			item3.x, item3.y =  display.contentWidth*0.2823, display.contentHeight*0.2818
+			sceneGroup:insert(item3)
+			item3.id = loadedItems.item3
+			item3.anchorX, item3.anchorY = 0,0
+			item3:addEventListener("touch", click)
+		elseif num == 4 then
+			local item4 = display.newImage("이미지/가방/아이템/" .. loadedItems.item4 .. ".png")
+			item4.x, item4.y =  display.contentWidth*0.3977, display.contentHeight*0.2818
+			sceneGroup:insert(item4)
+			item4.id = loadedItems.item4
+			item4.anchorX, item4.anchorY = 0,0
+			item4:addEventListener("touch", click)
+		elseif num == 5 then
+			local item5 = display.newImage("이미지/가방/아이템/" .. loadedItems.item5 .. ".png")
+			item5.x, item5.y =  display.contentWidth*0.5130, display.contentHeight*0.2818
+			sceneGroup:insert(item5)
+			item5.id = loadedItems.item5
+			item5.anchorX, item5.anchorY = 0,0
+			item5:addEventListener("touch", click)
+		elseif num == 6 then
+			local item6 = display.newImage("이미지/가방/아이템/" .. loadedItems.item6 .. ".png")
+			item6.x, item6.y =  display.contentWidth*0.6283, display.contentHeight*0.2818
+			sceneGroup:insert(item6)
+			item6.id = loadedItems.item6
+			item6.anchorX, item6.anchorY = 0,0
+			item6:addEventListener("touch", click)
+		elseif num == 7 then
+			local item7 = display.newImage("이미지/가방/아이템/" .. loadedItems.item7 .. ".png")
+			item7.x, item7.y =  display.contentWidth*0.7437, display.contentHeight*0.2818
+			sceneGroup:insert(item7)
+			item7.id = loadedItems.item7
+			item7.anchorX, item7.anchorY = 0,0
+			item7:addEventListener("touch", click)
+		elseif num == 8 then
+			local item8 = display.newImage("이미지/가방/아이템/" .. loadedItems.item8 .. ".png")
+			item8.x, item8.y =  display.contentWidth*0.8590, display.contentHeight*0.2818
+			sceneGroup:insert(item8)
+			item8.id = loadedItems.item8
+			item8.anchorX, item8.anchorY = 0,0
+			item8:addEventListener("touch", click)
+		elseif num == 9 then
+			local item9 = display.newImage("이미지/가방/아이템/" .. loadedItems.item9 .. ".png")
+			item9.x, item9.y =  display.contentWidth*0.0516, display.contentHeight*0.6178
+			sceneGroup:insert(item9)
+			item9.id = loadedItems.item9
+			item9.anchorX, item9.anchorY = 0,0
+			item9:addEventListener("touch", click)
+		elseif num == 10 then
+			local item10 = display.newImage("이미지/가방/아이템/" .. loadedItems.item10 .. ".png")
+			item10.x, item10.y =  display.contentWidth*0.1670, display.contentHeight*0.6178
+			sceneGroup:insert(item10)
+			item10.id = loadedItems.item10
+			item10.anchorX, item10.anchorY = 0,0
+			item10:addEventListener("touch", click)
+		elseif num == 11 then
+			local item11 = display.newImage("이미지/가방/아이템/" .. loadedItems.item11 .. ".png")
+			item11.x, item11.y =  display.contentWidth*0.2823, display.contentHeight*0.6178
+			sceneGroup:insert(item11)
+			item11.id = loadedItems.item11
+			item11.anchorX, item11.anchorY = 0,0
+			item11:addEventListener("touch", click)
+		elseif num == 12 then
+			local item12 = display.newImage("이미지/가방/아이템/" .. loadedItems.item12 .. ".png")
+			item12.x, item12.y =  display.contentWidth*0.3977, display.contentHeight*0.6178
+			sceneGroup:insert(item12)
+			item12.id = loadedItems.item12
+			item12.anchorX, item12.anchorY = 0,0
+			item12:addEventListener("touch", click)
+		elseif num == 13 then
+			local item13 = display.newImage("이미지/가방/아이템/" .. loadedItems.item13 .. ".png")
+			item13.x, item13.y =  display.contentWidth*0.513, display.contentHeight*0.6178
+			sceneGroup:insert(item13)
+			item13.id = loadedItems.item13
+			item13.anchorX, item13.anchorY = 0,0
+			item13:addEventListener("touch", click)
+		elseif num == 14 then
+			local item14 = display.newImage("이미지/가방/아이템/" .. loadedItems.item14 .. ".png")
+			item14.x, item14.y =  display.contentWidth*0.6283, display.contentHeight*0.6178
+			sceneGroup:insert(item14)
+			item14.id = loadedItems.item14
+			item14.anchorX, item14.anchorY = 0,0
+			item14:addEventListener("touch", click)
+		elseif num == 15 then
+			local item15 = display.newImage("이미지/가방/아이템/" .. loadedItems.item15 .. ".png")
+			item15.x, item15.y =  display.contentWidth*0.7437, display.contentHeight*0.6178
+			sceneGroup:insert(item15)
+			item15.id = loadedItems.item15
+			item15.anchorX, item15.anchorY = 0,0
+			item15:addEventListener("touch", click)
+		elseif num == 16 then
+			local item16 = display.newImage("이미지/가방/아이템/" .. loadedItems.item16 .. ".png")
+			item16.x, item16.y =  display.contentWidth*0.8590, display.contentHeight*0.6178
+			sceneGroup:insert(item16)
+			item16.anchorX, item16.anchorY = 0,0
+			item16.id = loadedItems.item16
+			item16:addEventListener("touch", click)
+		end
+	end
+
+	local count = loadedItems.itemCount
+
+	for i=1,count do 
+		image(i)
+	end
 
 
 

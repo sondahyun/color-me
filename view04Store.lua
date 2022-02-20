@@ -5,10 +5,14 @@
 -----------------------------------------------------------------------------------------
 local composer = require( "composer" )
 local scene = composer.newScene()
-
+local loadsave = require( "loadsave" )
+local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
+	local loadedSettings = loadsave.loadTable( "settings.json" )
+	local loadedItems= loadsave.loadTable( "items.json" )
+
 	
 	local background = display.newImage("이미지/상점/배경.png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
@@ -35,10 +39,10 @@ function scene:create( event )
 
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",display.contentWidth*0.162, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
+	local money = display.newText("",display.contentWidth*0.13, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
-	money.anchorX = 1
-	money.text = 3000 
+	money.anchorX = 0
+	money.text = loadedSettings.money
 	money.size = 53
 	sceneGroup:insert(money)
 
@@ -47,7 +51,9 @@ function scene:create( event )
 	local function popup(event)
 		if event.phase == "began" then
 			item = event.target.name
+			money = event.target.id
 			composer.setVariable("item", item)
+			composer.setVariable("money",money)
 			composer.removeScene("view04Store")
 			composer.gotoScene("view04Storeitem")
 		end
@@ -58,6 +64,7 @@ function scene:create( event )
 	pencil.x,pencil.y = display.contentWidth*0.1117, display.contentHeight*0.241
 	pencil.anchorX,pencil.anchorY = 0,0
 	pencil.name = "연필"
+	pencil.id = 10
 	sceneGroup:insert(pencil)
 	pencil:addEventListener("touch",popup)
 
@@ -65,14 +72,17 @@ function scene:create( event )
 	dog_rice.x,dog_rice.y = display.contentWidth*0.2615, display.contentHeight*0.241
 	dog_rice.anchorX,dog_rice.anchorY = 0,0
 	dog_rice.name = "사료"
+	dog_rice.id = 16
 	sceneGroup:insert(dog_rice)
 	dog_rice:addEventListener("touch",popup)
 
 	local toy = display.newImage("이미지/상점/아이템/블록.png")
 	toy.x,toy.y = display.contentWidth*0.3948, display.contentHeight*0.241
 	toy.anchorX,toy.anchorY = 0,0
+	toy.id = 15
 	sceneGroup:insert(toy)
 	toy.name = "블록"
+
 	toy:addEventListener("touch",popup)
 
 	local duck = display.newImage("이미지/상점/아이템/오리.png")
@@ -80,6 +90,7 @@ function scene:create( event )
 	duck.anchorX,duck.anchorY = 0,0
 	sceneGroup:insert(duck)
 	duck.name = "오리"
+	duck.id = 14
 	duck:addEventListener("touch",popup)
 
 	local heart = display.newImage("이미지/상점/아이템/응원봉.png")
@@ -87,6 +98,7 @@ function scene:create( event )
 	heart.anchorX,heart.anchorY = 0,0
 	sceneGroup:insert(heart)
 	heart.name = "응원봉"
+	heart.id = 18
 	heart:addEventListener("touch",popup)
 
 	local pie = display.newImage("이미지/상점/아이템/파이.png")
@@ -94,6 +106,7 @@ function scene:create( event )
 	pie.anchorX,pie.anchorY = 0,0
 	sceneGroup:insert(pie)
 	pie.name = "파이"
+	pie.id = 20
 	pie:addEventListener("touch",popup)
 
 	-- 2행
@@ -103,6 +116,7 @@ function scene:create( event )
 	kit.anchorX,kit.anchorY = 0,0
 	sceneGroup:insert(kit)
 	kit.name = "실험세트"
+	kit.id = 25
 	kit:addEventListener("touch",popup)
 
 	local plant = display.newImage("이미지/상점/아이템/화분.png")
@@ -110,6 +124,7 @@ function scene:create( event )
 	plant.anchorX,plant.anchorY = 0,0
 	sceneGroup:insert(plant)
 	plant.name = "화분"
+	plant.id = 25
 	plant:addEventListener("touch",popup)
 
 	local tiger = display.newImage("이미지/상점/아이템/호랑이.png")
@@ -117,6 +132,7 @@ function scene:create( event )
 	tiger.anchorX,tiger.anchorY = 0,0
 	sceneGroup:insert(tiger)
 	tiger.name = "호랑이"
+	tiger.id = 25
 	tiger:addEventListener("touch",popup)
 
 	local purfume = display.newImage("이미지/상점/아이템/향수.png")
@@ -124,6 +140,7 @@ function scene:create( event )
 	purfume.anchorX,purfume.anchorY = 0,0
 	sceneGroup:insert(purfume)
 	purfume.name = "향수"
+	purfume.id = 25
 	purfume:addEventListener("touch",popup)
 
 	local speaker = display.newImage("이미지/상점/아이템/스피커.png")
@@ -131,6 +148,7 @@ function scene:create( event )
 	speaker.anchorX,speaker.anchorY = 0,0
 	sceneGroup:insert(speaker)
 	speaker.name = "스피커"
+	speaker.id = 25
 	speaker:addEventListener("touch",popup)
 
 	--3행
@@ -140,6 +158,7 @@ function scene:create( event )
 	pin.anchorX,pin.anchorY = 0,0
 	sceneGroup:insert(pin)
 	pin.name = "머리핀"
+	pin.id = 10
 	pin:addEventListener("touch",popup)
 
 	local headset = display.newImage("이미지/상점/아이템/헤드셋.png")
@@ -147,6 +166,7 @@ function scene:create( event )
 	headset.anchorX,headset.anchorY = 0,0
 	sceneGroup:insert(headset)
 	headset.name = "헤드셋"
+	headset.id = 25
 	headset:addEventListener("touch",popup)
 
 	local hero = display.newImage("이미지/상점/아이템/망토.png")
@@ -154,6 +174,7 @@ function scene:create( event )
 	hero.anchorX,hero.anchorY = 0,0
 	sceneGroup:insert(hero)
 	hero.name = "망토"
+	hero.id = 15
 	hero:addEventListener("touch",popup)
 
 	local galsses = display.newImage("이미지/상점/아이템/안경닦이.png")
@@ -161,6 +182,7 @@ function scene:create( event )
 	galsses.anchorX,galsses.anchorY = 0,0
 	sceneGroup:insert(galsses)
 	galsses.name = "안경닦이"
+	galsses.id = 25
 	galsses:addEventListener("touch",popup)
 
 	local mint = display.newImage("이미지/상점/아이템/민초.png")
@@ -168,7 +190,7 @@ function scene:create( event )
 	mint.anchorX,mint.anchorY = 0,0
 	sceneGroup:insert(mint)
 	mint.name = "민초"
-
+	mint.id = 25
 	mint:addEventListener("touch",popup)
 
 	local frame = display.newImage("이미지/상점/아이템/액자.png")
@@ -176,6 +198,7 @@ function scene:create( event )
 	frame.anchorX,frame.anchorY = 0,0
 	sceneGroup:insert(frame)
 	frame.name = "액자"
+	frame.id = 20
 	frame:addEventListener("touch",popup)
 
 
