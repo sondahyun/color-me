@@ -15,38 +15,37 @@ function scene:create( event )
 -- 마을 이미지 객체 
     local red = display.newImage("이미지/마을/빨강.png")
 	red.x,red.y = display.contentWidth*0.223,display.contentHeight*0.297
-	red.name = "1"
 	sceneGroup:insert(red)
 	local click1 = audio.loadStream( "음악/클릭1.wav" )
 	
 	local blue = display.newImage("이미지/마을/파랑.png")
 	blue.x,blue.y = display.contentWidth*0.794,display.contentHeight*0.29
-	blue.name = "2"
+	
 	sceneGroup:insert(blue)
 
 	local yellow = display.newImage("이미지/마을/노랑.png")
 	yellow.x,yellow.y = display.contentWidth*0.5,display.contentHeight*0.185	
-	yellow.name = "3"
+
 	sceneGroup:insert(yellow)
 
 	local purple = display.newImage("이미지/마을/보라.png")
 	purple.x,purple.y = display.contentWidth*0.217,display.contentHeight*0.698
-	purple.name = "4"
+	
 	sceneGroup:insert(purple)
 
 	local green = display.newImage("이미지/마을/초록.png")
 	green.x,green.y = display.contentWidth*0.785,display.contentHeight*0.713
-	green.name = "5"
+	
 	sceneGroup:insert(green)
 
 	local em = display.newImage("이미지/마을/임시거처.png")
 	em.x,em.y = display.contentWidth*0.5,display.contentHeight*0.829
-	em.name = "6"
+
 	sceneGroup:insert(em)
 
 	local store = display.newImage("이미지/마을/상점.png")
 	store.x,store.y = display.contentWidth*0.5,display.contentHeight*0.505
-	store.name = "7"
+	
 	sceneGroup:insert(store)
 
 	--장면전환
@@ -76,7 +75,7 @@ function scene:create( event )
 
 				if loadedSettings.month ==0 then
 					if loadedSettings.limited_num ~=2 then
-						if color == "1" then
+						if color == 1 then
 							if (loadedSettings.red_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
@@ -84,7 +83,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "2" then
+						elseif color == 4 then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
@@ -92,7 +91,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "3" then
+						elseif color == 2 then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
@@ -100,7 +99,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "4" then
+						elseif color == 5 then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
@@ -108,7 +107,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "5" then
+						elseif color == 3 then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
@@ -123,7 +122,7 @@ function scene:create( event )
 					end
 				elseif loadedSettings.month ==1 then
 					if loadedSettings.limited_num ~=2 then
-						if color == "1" then
+						if color == 1 then
 							if (loadedSettings.red_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
@@ -131,7 +130,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "2" then
+						elseif color == 4 then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
@@ -139,7 +138,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "3" then
+						elseif color == 2 then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
@@ -147,7 +146,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "4" then
+						elseif color == 5 then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
@@ -155,7 +154,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "5" then
+						elseif color == 3 then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
@@ -170,7 +169,7 @@ function scene:create( event )
 					end
 				elseif loadedSettings.month ==2 then
 					if loadedSettings.limited_num ~=2 then
-						if color == "1" then
+						if color == 1 then
 							if (loadedSettings.red_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
@@ -178,7 +177,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "2" then
+						elseif color == 4 then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
@@ -186,7 +185,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "3" then
+						elseif color == 2 then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
@@ -194,7 +193,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "4" then
+						elseif color == 5 then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
@@ -202,7 +201,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "5" then
+						elseif color == 3 then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
@@ -217,7 +216,7 @@ function scene:create( event )
 					end
 				elseif loadedSettings.month ==3 then
 					if loadedSettings.limited_num ~=2 then
-						if color == "1" then
+						if color == 1 then
 							if (loadedSettings.red_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
@@ -225,7 +224,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "2" then
+						elseif color == 4 then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
@@ -233,7 +232,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "3" then
+						elseif color == 2 then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
@@ -241,7 +240,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "4" then
+						elseif color == 5 then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
@@ -249,7 +248,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "5" then
+						elseif color == 3 then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
@@ -264,7 +263,7 @@ function scene:create( event )
 					end
 				elseif loadedSettings.month ==4 then
 					if loadedSettings.limited_num ~=2 then
-						if color == "1" then
+						if color == 1 then
 							if (loadedSettings.red_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
@@ -272,7 +271,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "2" then
+						elseif color == 4 then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
@@ -280,7 +279,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "3" then
+						elseif color == 2 then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
@@ -288,7 +287,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "4" then
+						elseif color == 5 then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
@@ -296,7 +295,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "5" then
+						elseif color == 3 then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
@@ -311,7 +310,7 @@ function scene:create( event )
 					end
 				elseif loadedSettings.month ==5 then
 					if loadedSettings.limited_num ~=2 then
-						if color == "1" then
+						if color == 1 then
 							if (loadedSettings.red_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
@@ -319,7 +318,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "2" then
+						elseif color == 4 then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
@@ -327,7 +326,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "3" then
+						elseif color == 2 then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
@@ -335,7 +334,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "4" then
+						elseif color == 5 then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
@@ -343,7 +342,7 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("view15limited")
 							end
-						elseif color == "5" then
+						elseif color == 3 then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
@@ -409,24 +408,25 @@ function scene:create( event )
 					end
 				end
 
-				if color == "1" then
+				if color == 1 then
 				--빨강게임 이동
 					composer.removeScene("view02Map")
 					composer.gotoScene( "view02Map2" )
 					
-				elseif color == "2" then
+				elseif color == 4 then
 				-- 파랑게임 이동
 					composer.removeScene("view02Map")
 					composer.gotoScene( "view02Map2" )
-				elseif color == "3" then
+				elseif color == 2 then
+				--노랑겜--
 					composer.removeScene("view02Map")
 					composer.gotoScene( "view02Map2" )
 					
-				elseif color == "4" then
+				elseif color == 5 then
 				-- 보라게임 이동
 					composer.removeScene("view02Map")
 					composer.gotoScene( "view02Map2" )
-				elseif color == "5" then
+				elseif color == 3 then
 				-- 초록게임 이동
 					composer.removeScene("view02Map")
 					composer.gotoScene( "view02Map2" )
@@ -438,6 +438,17 @@ function scene:create( event )
 			end
 		end
 	end
+
+	local function touch3(event)
+		if event.phase == "began" then 
+			if loadedSettings.gift_num ~= 1 then
+				composer.setVariable("color",color)
+				composer.removeScene("view02Map")
+				composer.gotoScene("viewgift")
+			end
+		end
+	end
+
 
 -- 마을 별 버튼
 	local function button()
@@ -458,6 +469,7 @@ function scene:create( event )
 
 		maeulbt:addEventListener("touch",touch1)
 		gamebt:addEventListener("touch",touch2)
+		presentbt:addEventListener("touch",touch3)
 	end
 
 
@@ -474,31 +486,31 @@ function scene:create( event )
 
 
 -- 타겟 네임에 따라 팝업 ui띄우기
-	if color =="1" then
+	if color ==1 then
 		redui = display.newImage("이미지/마을/방문창/빨강.png")
 		redui.x,redui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(redui)
 		button()
 
-	elseif color =="2" then
+	elseif color ==2 then
 		blueui = display.newImage("이미지/마을/방문창/파랑.png")
 		blueui.x,blueui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(blueui)
 		button()
 
-	elseif color =="3" then
+	elseif color ==3 then
 		yellowui = display.newImage("이미지/마을/방문창/노랑.png")
 		yellowui.x,yellowui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(yellowui)
 		button()
 
-	elseif color =="4" then
+	elseif color ==4 then
 		purpleui = display.newImage("이미지/마을/방문창/보라.png")
 		purpleui.x,purpleui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(purpleui)
 		button()
 
-	elseif color =="5" then
+	elseif color ==5 then
 		greenui = display.newImage("이미지/마을/방문창/초록.png")
 		greenui.x,greenui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(greenui)

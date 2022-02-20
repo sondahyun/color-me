@@ -145,6 +145,7 @@ function scene:create( event )
     				game_num = 0,
     				activity_num = 0,
     				friend_num = 0,
+    				gift_num=0,
     				play1_num =0,
     				play2_num=0,
     				play3_num=0,

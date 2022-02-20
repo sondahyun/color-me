@@ -60,6 +60,7 @@ function scene:create( event )
     			loadedSettings.show5 = 0
     			loadedSettings.show6 = 0
     			loadedSettings.show7 = 0
+    			loadedSettings.gift_num=0
 
 			
 			loadsave.saveTable(loadedSettings,"settings.json")
