@@ -185,7 +185,8 @@ function scene:create( event )
                 composer.showOverlay( "nosave", options )
             else
                 composer.removeScene("title")
-                composer.gotoScene( "view00Room",options1)
+                composer.gotoScene( "view00Room")
+                -- ,options1
                 audio.pause( titleMusic )
                 local home = audio.loadStream( "음악/집.mp3" )
                 audio.setVolume( loadedEndings.logValue )

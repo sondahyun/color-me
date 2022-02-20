@@ -74,7 +74,7 @@ function scene:create( event )
 	local function touch4(event)
 		--local click01 = audio.play(click1)
 		composer.removeScene("view00Room")
-		composer.gotoScene( "view14friend" )
+		composer.gotoScene( "view00Room_friend" )
 	end
 	
 -- 배경 객체
