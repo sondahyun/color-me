@@ -1,17 +1,28 @@
---파랑마을 카드게임 엔딩화면
+--카드 뒤집기 게임 종료된 화면
 
-local loadsave = require( "loadsave" )
+--[[local composer = require( "composer" )
+local scene = composer.newScene()]]
 local composer = require( "composer" )
 local scene = composer.newScene()
+local loadsave = require( "loadsave" )
+
 
 function scene:create( event )
 	local sceneGroup = self.view
+	
+	-- Called when the scene's view does not exist.
+	-- 
+	-- INSERT code here to initialize the scene
+	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
+	
+	-- create a white background to fill screen
 
-	-- 배경 설정
-	local background = display.newImageRect("이미지/미니게임/미니게임_파랑마을/미니게임_숫자게임 배경(파랑마을).png",display.contentWidth, display.contentHeight)
-	background.x, background.y = display.contentWidth/2, display.contentHeight/2
-	sceneGroup:insert( background )
+--배경화면
+	local background = display.newImageRect("image/BG_Forest.png", display.contentWidth, display.contentHeight)
+	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background)
 
+	
 	
 	local background1 = display.newRect(display.contentWidth/2, display.contentHeight/2, display.contentWidth, display.contentHeight)
 	
@@ -19,35 +30,40 @@ function scene:create( event )
 	transition.to(background1,{alpha=0.5,time=1000})
 	sceneGroup:insert(background1)
 	
-	local function gomap(event)
-		if event.phase == "began" then
-				composer.removeScene("view08Number")
-				composer.gotoScene( "view01Map" )
-		end
-	end
 
-	local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/3.6294896, display.contentHeight/2.83122739)
+
+	local board =display.newImageRect("image/finish.png",display.contentWidth/2.4, display.contentHeight/2)
 	board.x , board.y = display.contentWidth/2, display.contentHeight/2
 	board.alpha = 0.5
 	transition.to(board,{alpha=1,time=1000})
 	sceneGroup:insert(board)
 
-	score3 = composer.getVariable("score2")
-	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/1.9,"font/잘풀리는오늘 Medium.ttf") 
-	showScore1:setFillColor(1,0,0)
-	showScore1.size = 60
+	local score3 = composer.getVariable("score2")
+	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/2 + 35,"font/잘풀리는오늘 Medium.ttf") 
+	showScore1:setFillColor(1,0,0)--,0,0
+	showScore1.size = 90
 	sceneGroup:insert(showScore1)
 
-	local backtomap =display.newImageRect("이미지/미니게임/미니게임_지도로 돌아가기 버튼.png",display.contentWidth/6.112,display.contentHeight/17.3050)
-	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/1.65466
-	sceneGroup:insert(backtomap)
-	backtomap:addEventListener("touch",gomap)
-
+	
 	local loadedSettings = loadsave.loadTable( "settings.json" ) 
 	loadedSettings.money = loadedSettings.money + score3
 	print(loadedSettings.money)
 	loadsave.saveTable(loadedSettings, "settings.json")
+
+	local function gomap(event)
+		if event.phase == "began" then
+				composer.removeScene("view22card")
+				composer.gotoScene( "view01Map" )
+		end
+	end
+
+	local backtomap =display.newImageRect("image/backtomap.png",280,50)
+	backtomap.x, backtomap.y =display.contentWidth/2,470
+	sceneGroup:insert(backtomap)
+	backtomap:addEventListener("touch",gomap)
+	
 end
+
 
 function scene:show( event )
 	local sceneGroup = self.view
