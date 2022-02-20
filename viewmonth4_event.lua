@@ -2,13 +2,13 @@
 
 local composer = require( "composer" )
 local scene = composer.newScene()
---local loadsave = require( "loadsave" )
+local loadsave = require( "loadsave" )
 
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	--local loadedSettings = loadsave.loadTable( "settings.json" )
-	--mainName = loadedSettings.name-------수정
+	local loadedSettings = loadsave.loadTable( "settings.json" )
+	mainName = loadedSettings.name-------수정
 
 	--장면전환
 	local options={
@@ -35,6 +35,60 @@ function scene:create( event )
 	background_3.x,background_3.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_3)
 	background_3.alpha = 0
+
+	-- 달력 글씨
+	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
+	month:setFillColor(0)
+	month.size = 40
+	sceneGroup:insert(month)
+-- 이전 달 할 일 1
+	local former = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2325,"font/잘풀리는오늘 Medium.ttf")
+	former.anchorX,former.anchorY = 0,0
+	former:setFillColor(0.82,0.21,0.05)
+	former.size = 20
+	former.text = loadedSettings.former1
+	sceneGroup:insert(former)
+-- 이전 달 할 일 2
+	local former2 = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2603,"font/잘풀리는오늘 Medium.ttf")
+	former2.anchorX ,former2.anchorY = 0,0
+	former2:setFillColor(0)
+	former2.size = 20
+	former2.text = loadedSettings.former2
+	sceneGroup:insert(former2)
+-- 다음 달 할 일 1
+	local next1 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3422,"font/잘풀리는오늘 Medium.ttf")
+	next1.anchorX,next1.anchorY = 0,0
+	next1:setFillColor(0)
+	next1.size = 20
+	next1.text = loadedSettings.next1
+	sceneGroup:insert(next1)
+-- 다음 달 할 일 2
+	local next2 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3722,"font/잘풀리는오늘 Medium.ttf")
+	next2.anchorX,next2.anchorY = 0,0
+	next2:setFillColor(0)
+	next2.size = 20
+	next2.text = loadedSettings.next2
+	sceneGroup:insert(next2)
+
+-- 세이브 파일에 따라 달력 글씨 바뀜
+	if loadedSettings.month == 0 then
+		month.text = "이른 봄의 달"
+	elseif loadedSettings.month == 1 then
+		month.text = "꽃 피는 달"
+	elseif loadedSettings.month == 2 then
+		month.text = "해변달"
+	elseif loadedSettings.month == 3 then
+		month.text = "단풍달"
+	elseif loadedSettings.month == 4 then
+		month.text = "도토리 달"
+	elseif loadedSettings.month ==5 then
+		month.text = "눈꽃 달"
+	end
+
+	local options = {
+    	isModal = true
+    	
+	}
 
 	-- 캐릭터 선언
 
@@ -114,7 +168,7 @@ function scene:create( event )
 
 	-- 텍스트 --
 
-	name = "주인공"
+	
 
 	daewha = {}
 	daewha2 = {}
@@ -171,7 +225,7 @@ function scene:create( event )
 
 	local text = {
 		"(누군가 벨을 누른다)",
-		name .. "! 안녕? 시간 되면 위즈랑 같이 캠핑 안 갈래? 가서 마시멜로도 구워 먹자!",
+		mainName .. "! 안녕? 시간 되면 위즈랑 같이 캠핑 안 갈래? 가서 마시멜로도 구워 먹자!",
 		"좋아! 같이 놀러 가자!",
 		"아니, 난 쉬고 싶어. 다음에 같이 가자!",
 		"마쉬멜로우를 구워 먹으려면 불을 피워야겠지?",
@@ -204,7 +258,7 @@ function scene:create( event )
 		"으응…. 알겠어. 미안해."
 	}
 
-	local my = display.newText("주인공",display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
+	local my = display.newText(mainName,display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
 	my.anchorX,my.anchorY = 0,0
 	my.size = 45
 	my.alpha = 0
@@ -302,6 +356,8 @@ function scene:create( event )
 	local function choose1(event)
 		if event.phase == "began" then
 			if j == 1 then 
+				loadedSettings.green = loadedSettings.green + 1
+				loadsave.saveTable(loadedSettings, "settings.json")
 				daewha[13].alpha = 0
 				select1.alpha = 0
 				select2.alpha = 0

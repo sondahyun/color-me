@@ -1,12 +1,12 @@
 --해변달(3월) 이벤트 스크립트
 local composer = require( "composer" )
 local scene = composer.newScene()
---local loadsave = require( "loadsave" )
+local loadsave = require( "loadsave" )
 
 function scene:create( event )
 	local sceneGroup = self.view
 	
-	--local loadedSettings = loadsave.loadTable( "settings.json" )
+	local loadedSettings = loadsave.loadTable( "settings.json" )
 	
 	-- Called when the scene's view does not exist.
 	-- 
@@ -17,56 +17,59 @@ function scene:create( event )
 	local background = display.newImage("이미지/홈/배경/가구포함.png")
 	background.x, background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
---[[
-	local month = display.newText("",888,115,"font/잘풀리는오늘 Medium.ttf")
+-- 달력 글씨
+	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
 	month:setFillColor(0)
-	month.size = 25
+	month.size = 40
 	sceneGroup:insert(month)
-
-
-
-		if loadedSettings.month == 0 then
-			month.text = "이른 봄의 달"
-			
-		elseif loadedSettings.month == 1 then
-			month.text = "꽃 피는 달"
-		elseif loadedSettings.month == 2 then
-			month.text = "해변달"
-		elseif loadedSettings.month == 3 then
-			month.text = "단풍달"
-		elseif loadedSettings.month == 4 then
-			month.text = "도토리 달"
-		elseif loadedSettings.month ==5 then
-			month.text = "눈꽃 달"
-		end
-
-	local former = display.newText("",793,175,"font/잘풀리는오늘 Medium.ttf")
-	former.anchorX = 0
-	former:setFillColor(0)
-	former.size = 15
+-- 이전 달 할 일 1
+	local former = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2325,"font/잘풀리는오늘 Medium.ttf")
+	former.anchorX,former.anchorY = 0,0
+	former:setFillColor(0.82,0.21,0.05)
+	former.size = 20
 	former.text = loadedSettings.former1
 	sceneGroup:insert(former)
-
-	local former2 = display.newText("",793,197,"font/잘풀리는오늘 Medium.ttf")
-	former2.anchorX = 0
+-- 이전 달 할 일 2
+	local former2 = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2603,"font/잘풀리는오늘 Medium.ttf")
+	former2.anchorX ,former2.anchorY = 0,0
 	former2:setFillColor(0)
-	former2.size = 15
+	former2.size = 20
 	former2.text = loadedSettings.former2
 	sceneGroup:insert(former2)
-
-	local next1 = display.newText("dd",793,254,"font/잘풀리는오늘 Medium.ttf")
-	next1.anchorX = 0
+-- 다음 달 할 일 1
+	local next1 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3422,"font/잘풀리는오늘 Medium.ttf")
+	next1.anchorX,next1.anchorY = 0,0
 	next1:setFillColor(0)
-	next1.size = 15
+	next1.size = 20
 	next1.text = loadedSettings.next1
 	sceneGroup:insert(next1)
-
-	local next2 = display.newText("dd",793,276,"font/잘풀리는오늘 Medium.ttf")
-	next2.anchorX = 0
+-- 다음 달 할 일 2
+	local next2 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3722,"font/잘풀리는오늘 Medium.ttf")
+	next2.anchorX,next2.anchorY = 0,0
 	next2:setFillColor(0)
-	next2.size = 15
+	next2.size = 20
 	next2.text = loadedSettings.next2
-	sceneGroup:insert(next2)]]--
+	sceneGroup:insert(next2)
+
+-- 세이브 파일에 따라 달력 글씨 바뀜
+	if loadedSettings.month == 0 then
+		month.text = "이른 봄의 달"
+	elseif loadedSettings.month == 1 then
+		month.text = "꽃 피는 달"
+	elseif loadedSettings.month == 2 then
+		month.text = "해변달"
+	elseif loadedSettings.month == 3 then
+		month.text = "단풍달"
+	elseif loadedSettings.month == 4 then
+		month.text = "도토리 달"
+	elseif loadedSettings.month ==5 then
+		month.text = "눈꽃 달"
+	end
+
+	local options = {
+    	isModal = true
+    	
+	}
 
 	local background_1 = display.newImage("이미지/이벤트/3월/1.png")
 	background_1.x,background_1.y = display.contentWidth/2,display.contentHeight/2
@@ -135,10 +138,10 @@ function scene:create( event )
 
 
 
-	mainName = "주인공"
+	mainName = loadedSettings.name
 	
 --display.contentWidth*0.1386,
-	local my = display.newText("주인공",display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
+	local my = display.newText(mainName,display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
 	my.anchorX,my.anchorY = 0,0
 	my.size = 45
 	my.alpha = 1
@@ -256,20 +259,20 @@ function scene:create( event )
 	for i =1,2 do
 		option1[i] = {
 			text = select_text1[i],
-			x=display.contentWidth*0.1213,
-			y=display.contentHeight*0.4537,
-			width=display.contentWidth*438,
-			height=display.contentHeight*0.1324,
+			x=233,
+			y=490,
+			width=438,
+			height=143,
 			align = "center",
 			font = "font/NanumSquareRoundB.ttf",
 			fontSize = 36
 		}
 		option2[i] = {
 			text = select_text2[i],
-			x=display.contentWidth*0.6535,
-			y=display.contentHeight*0.4537,
-			width=display.contentWidth*438,
-			height=display.contentHeight*0.1324,
+			x=1254.73,
+			y=490,
+			width=438,
+			height=143,
 			align = "center",
 			font = "font/NanumSquareRoundB.ttf",
 			fontSize = 36
