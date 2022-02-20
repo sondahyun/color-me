@@ -22,7 +22,7 @@ function scene:create( event )
 	chosenColor = loadedSettings.color
 	mainName = loadedSettings.name
 
-   local my = display.newText(mainName,335,760,"font/잘풀리는오늘 Medium.ttf")
+   local my = display.newText(mainName,display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
    my.size = 45
    my.alpha = 0
    my:setFillColor(1)

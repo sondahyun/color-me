@@ -208,32 +208,32 @@ function scene:create( event )
 
 
 	local script_1 = display.newImage("s/r.png")
-	script_1.x,script_1.y =  display.contentWidth/2,display.contentHeight*0.8
+	script_1.x,script_1.y =  display.contentWidth/2,display.contentHeight*0.7176
 	sceneGroup:insert(script_1)
 	script_1.alpha = 0
 
 	local script_2 = display.newImage("s/y.png")
-	script_2.x, script_2.y = display.contentWidth/2,display.contentHeight*0.8
+	script_2.x, script_2.y = display.contentWidth/2,display.contentHeight*0.7176
 	sceneGroup:insert(script_2)
 	script_2.alpha = 0
 
 	local script_3 = display.newImage("s/g.png")
-	script_3.x, script_3.y =  display.contentWidth/2,display.contentHeight*0.8
+	script_3.x, script_3.y =  display.contentWidth/2,display.contentHeight*0.7176
 	sceneGroup:insert(script_3)
 	script_3.alpha = 0
 
 	local script_4 = display.newImage("s/b.png")
-	script_4.x, script_4.y =  display.contentWidth/2,display.contentHeight*0.8
+	script_4.x, script_4.y =  display.contentWidth/2,display.contentHeight*0.7176
 	sceneGroup:insert(script_4)
 	script_4.alpha = 0
 
 	local script_5 = display.newImage("s/p.png")
-	script_5.x, script_5.y =  display.contentWidth/2,display.contentHeight*0.8
+	script_5.x, script_5.y =  display.contentWidth/2,display.contentHeight*0.7176
 	sceneGroup:insert(script_5)
 	script_5.alpha = 0
 
 	local my_daesapan = display.newImage("대화창-대사판/캐릭터대화창-대사창(주인공).png")
-	my_daesapan.x, my_daesapan.y = display.contentWidth/2,display.contentHeight*0.8
+	my_daesapan.x, my_daesapan.y = display.contentWidth/2,display.contentHeight*0.7176
 	sceneGroup:insert(my_daesapan)
 	my_daesapan.alpha=0
 
