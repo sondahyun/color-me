@@ -17,10 +17,8 @@ function scene:create( event )
 	sceneGroup:insert(rect)
 	rect.alpha = 0
 
-	local my_daesapan = display.newImage("이미지/대화창/주인공.png")
+	local my_daesapan = display.newImage("이미지/대화/대화창/주인공.png")
 	my_daesapan.x, my_daesapan.y = display.contentWidth*0.5,display.contentHeight*0.851
-	my_daesapan.width =1790
-	my_daesapan.height = 245, 
 	sceneGroup:insert(my_daesapan)
 	my_daesapan.alpha=1
 
@@ -44,12 +42,16 @@ function scene:create( event )
 	local text = display.newText("어라? 문 앞에 편지가 와있네??", 105,550, "font/NanumSquareRoundR.ttf", 30)
 	sceneGroup:insert(text)
 	text:setFillColor(alpha)
-	text.x, text.y = display.contentWidth * 0.184,display.contentHeight*0.83
+	text.anchorX,text.anchorY = 0,0
+	text.x, text.y = display.contentWidth * 0.084,display.contentHeight*0.8
 
-	local text2 = display.newText("주인공", 105,550, "font/잘풀리는오늘 Medium.ttf", 34)
+	mainName = loadedSettings.name
+	local text2 = display.newText(mainName, 190,505, "font/잘풀리는오늘 Medium.ttf")
 	sceneGroup:insert(text2)
+	text2.size = 45
 	--text:setFillColor(alpha)
-	text2.x, text2.y = display.contentWidth * 0.175,display.contentHeight*0.77
+	text2.x, text2.y = display.contentWidth * 0.17,display.contentHeight*0.75
+
 
 	local month = display.newText("",888,115,"font/잘풀리는오늘 Medium.ttf",40)
 	month:setFillColor(0)
