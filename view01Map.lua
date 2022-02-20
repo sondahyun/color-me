@@ -108,6 +108,10 @@ function scene:create( event )
 
 	local color = 0
 
+	local options ={
+		isModal= true
+	}
+
 	
 -- 리스너 함수 생성
 	local function touch_ui (event)
@@ -133,6 +137,8 @@ function scene:create( event )
         		loadsave.saveTable(loadedEndings,"endings.json")
 				composer.removeScene("view1Map")
 				composer.gotoScene( "view04Store" )
+			elseif color == "8" then
+				composer.showOverlay("zopup_update",options)
 
 			else
 				local click01 = audio.play(click1)
