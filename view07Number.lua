@@ -7,7 +7,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 	
 	-- 배경 설정
-	local background = display.newImageRect("이미지/미니게임/미니게임_파랑마을/미니게임_숫자게임 배경(파랑마을).png", 1920, 1080)
+	local background = display.newImageRect("이미지/미니게임/미니게임_파랑마을/미니게임_숫자게임 배경(파랑마을).png",display.contentWidth, display.contentHeight)
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert( background )
 
