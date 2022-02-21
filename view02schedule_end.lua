@@ -69,33 +69,33 @@ function scene:create( event )
 			if loadedSettings.month==2 then
 
 				if loadedSettings.month2_event==1 then
-					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view02schedule")
+					composer.removeScene("view02schedule_end")
 					composer.gotoScene("viewmonth2_event",options)
 				else
-					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view02schedule")
+					composer.removeScene("view02schedule_end")
 					composer.gotoScene("likeability",options)
 
 				end
 			elseif loadedSettings.month==4 then
-					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view02schedule")
+					composer.removeScene("view02schedule_end")
 					composer.gotoScene("likeability",options)
 
 			elseif loadedSettings.month==5 then
-					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view02schedule")
+					composer.removeScene("view02schedule_end")
 					composer.gotoScene("viewmonth5_event",options)
 
 			elseif loadedSettings.month == 6 then 
-				composer.removeScene("view12Plan")
-				composer.removeScene("View13Plan")
+				composer.removeScene("view02schedule")
+				composer.removeScene("view02schedule_end")
 				composer.gotoScene("likeability")
 
 			else
-				composer.removeScene("view12Plan")
-				composer.removeScene("View13Plan")
+				composer.removeScene("view02schedule")
+				composer.removeScene("view02schedule_end")
 				composer.gotoScene("view01_month",options)
 			end
 		end

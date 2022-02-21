@@ -13,6 +13,13 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 
+	if loadedSettings.month == 5 then
+		if loadedSettings.month6_event == 0 then
+			loadedSettings.month6_event = loadedSettings.month6_event + 1
+			loadsave.saveTable(loadedSettings,"settings.json")
+		end
+	end
+
 	
 	local background = display.newImage("이미지/상점/배경(가격).png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5

@@ -13,6 +13,12 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 
+	if (loadedSettings.month == 0) and (loadedSettings.month1_event==0) then
+		--print("이벤트!!")
+		loadedSettings.month1_event = loadedSettings.month1_event + 1
+		loadsave.saveTable(loadedSettings,"settings.json")
+	end
+
 	local background = display.newImage("이미지/상점/배경(가격).png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
