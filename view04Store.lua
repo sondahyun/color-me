@@ -18,8 +18,11 @@ function scene:create( event )
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
 
+	local storeMusic = audio.loadStream( "음악/상점.mp3" )
+	
 	local function go_back(event)
 		if event.phase == "began" then
+			audio.pause(storeMusic)
 			composer.removeScene("view04Store")
 			composer.gotoScene("view01Map")
 		end
