@@ -26,12 +26,12 @@ function scene:create( event )
 	
 
 
-	local update = display.newImage("이미지/공통/업데이트.png")
+	local update = display.newImage("이미지/스케줄/제한/횟수제한.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.695, display.contentHeight*0.4
+	exit.x, exit.y = display.contentWidth*0.695, display.contentHeight*0.38
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
