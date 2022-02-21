@@ -91,7 +91,7 @@ function scene:create( event )
 			elseif loadedSettings.month == 6 then 
 				composer.removeScene("view02schedule")
 				composer.removeScene("view02schedule_end")
-				composer.gotoScene("likeability")
+				composer.gotoScene("view99end")
 
 			else
 				composer.removeScene("view02schedule")

@@ -28,16 +28,6 @@ function scene:create( event )
 	bGroup.x,bGroup.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(bGroup)
 
-	--샘플 볼륨 이미지
-    local volumeButton = display.newImageRect("이미지/볼륨/icon.png", 100, 100)
-    volumeButton.x,volumeButton.y = 70,70
-    sceneGroup:insert(volumeButton)
-
-    --샘플볼륨함수--
-    local function setVolume(event)
-        composer.showOverlay( "volumeControl", options )
-    end
-    volumeButton:addEventListener("tap",setVolume)
 
     --대화창
  	--대사

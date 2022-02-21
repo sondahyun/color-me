@@ -108,10 +108,11 @@ function scene:create( event )
 	friend:addEventListener("mouse",bigbig)
 
 -- 스탯 바 객체 생성.
-	local play = display.newRect(154,65, loadedSettings.fun*2.25 ,25)
+	local play = display.newRect(154,65, 200 ,25)
 	play.anchorX,play.anchorY = 0,0.5
 	play:setFillColor(0.643,0.384,0.666)
 	sceneGroup:insert(play)
+	play:toFront()
 
 	local hobby = display.newRect(154,100, loadedSettings.hobby*2.25 ,25)
 	hobby.anchorX,hobby.anchorY = 0,0.5

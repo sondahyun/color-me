@@ -69,11 +69,7 @@ function scene:create( event )
 		month.text = "눈꽃 달"
 	end
 
-	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
-	black.alpha = 0.5
-	black:setFillColor(0)
-	sceneGroup:insert(black)
-
+	
 
 	local background_1 = display.newImage("이미지/이벤트/생일/1.png")
 	background_1.x,background_1.y = display.contentWidth/2,display.contentHeight/2
