@@ -80,45 +80,39 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "2" then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "3" then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "4" then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "5" then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth1_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						end
 					else
-						composer.removeScene("view02Map")
-						composer.gotoScene("view15limited")
+						composer.showOverlay("zopup_limited")
 					end
 				elseif loadedSettings.month ==1 then
 					if loadedSettings.limited_num ~=2 then
@@ -127,45 +121,39 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "2" then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "3" then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "4" then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "5" then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth2_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						end
 					else
-						composer.removeScene("view02Map")
-						composer.gotoScene("view15limited")
+						composer.showOverlay("zopup_limited")
 					end
 				elseif loadedSettings.month ==2 then
 					if loadedSettings.limited_num ~=2 then
@@ -174,45 +162,39 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "2" then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "3" then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "4" then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "5" then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth3_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						end
 					else
-						composer.removeScene("view02Map")
-						composer.gotoScene("view15limited")
+						composer.showOverlay("zopup_limited")
 					end
 				elseif loadedSettings.month ==3 then
 					if loadedSettings.limited_num ~=2 then
@@ -221,45 +203,39 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "2" then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "3" then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "4" then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "5" then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth4_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						end
 					else
-						composer.removeScene("view02Map")
-						composer.gotoScene("view15limited")
+						composer.showOverlay("zopup_limited")
 					end
 				elseif loadedSettings.month ==4 then
 					if loadedSettings.limited_num ~=2 then
@@ -268,45 +244,39 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "2" then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "3" then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "4" then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "5" then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth5_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						end
 					else
-						composer.removeScene("view02Map")
-						composer.gotoScene("view15limited")
+						composer.showOverlay("zopup_limited")
 					end
 				elseif loadedSettings.month ==5 then
 					if loadedSettings.limited_num ~=2 then
@@ -315,75 +285,45 @@ function scene:create( event )
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "2" then
 							if (loadedSettings.blue_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "3" then
 							if (loadedSettings.yellow_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "4" then
 							if (loadedSettings.purple_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								composer.showOverlay("zopup_limited")
 							end
 						elseif color == "5" then
 							if (loadedSettings.green_num ~= 1) then
 								composer.removeScene("view02Map")
 								composer.gotoScene("viewmonth6_script",options)
 							else
-								composer.removeScene("view02Map")
-								composer.gotoScene("view15limited")
+								--composer.removeScene("view02Map")
+								composer.showOverlay("zopup_limited")
 							end
 						end
 					else
-						composer.removeScene("view02Map")
-						composer.gotoScene("view15limited")
+						--composer.removeScene("view02Map")
+						composer.showOverlay("zopup_limited")
 					end
 				end
 						
-
-				--2월
-				--[[elseif loadedSettings.month ==1 then
-						composer.removeScene("view02Map")
-						composer.gotoScene("viewmonth2_script")
-
-				elseif loadedSettings.month ==2 then
-					
-						composer.removeScene("view02Map")
-						composer.gotoScene("viewmonth3_script")
-						
-				elseif loadedSettings.month ==3 then
-					
-						composer.removeScene("view02Map")
-						composer.gotoScene("viewmonth4_script")
-					
-				elseif loadedSettings.month ==4 then
-					
-						composer.removeScene("view02Map")
-						composer.gotoScene("viewmonth5_script")
-						
-				elseif loadedSettings.month ==5 then
-					
-						composer.removeScene("view02Map")
-						composer.gotoScene("viewmonth6_script")
-							
-				end]]--
+				
 
 		end
 
@@ -432,8 +372,20 @@ function scene:create( event )
 				end
 
 			else 
+				--composer.removeScene("view02Map")
+				composer.showOverlay( "zopup_limited" )
+			end
+		end
+	end
+
+	local function go_present(event)
+		if event.phase == "began" then
+			if loadedSettings.gift_num ~= 1 then
+				composer.setVariable("color_char",color)
 				composer.removeScene("view02Map")
-				composer.gotoScene( "view15limited" )
+				composer.gotoScene("viewgift")
+			else
+				composer.showOverlay( "zopup_limited" )
 			end
 		end
 	end
@@ -452,7 +404,7 @@ function scene:create( event )
 
 		presentbt = display.newImage("이미지/마을/방문창/선물버튼.png")
 		presentbt.x,presentbt.y = display.contentWidth*0.585,display.contentHeight*0.544
-		
+		presentbt:addEventListener("touch",go_present)
 		sceneGroup:insert(presentbt)
 
 		maeulbt:addEventListener("touch",touch1)
@@ -506,7 +458,7 @@ function scene:create( event )
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	sceneGroup:insert(exit)
-	exit.x, exit.y = display.contentWidth*0.948, display.contentHeight*0.09
+	exit.x, exit.y = display.contentWidth*0.625, display.contentHeight*0.34
 	exit:addEventListener("touch",gotohome)
 
 end
