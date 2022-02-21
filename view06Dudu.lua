@@ -30,16 +30,16 @@ function scene:create( event )
 	end
 
 -- 점수판
-	local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/2.4, display.contentHeight/2)
+	local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/3.6294896, display.contentHeight/2.83122739)
 	board.x , board.y = display.contentWidth/2, display.contentHeight/2
 	board.alpha = 0.5
 	transition.to(board,{alpha=1,time=1000})
 	sceneGroup:insert(board)
 
 	score3 = composer.getVariable("score2")
-	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/2+32,"font/잘풀리는오늘 Medium.ttf") 
+	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/1.9,"font/잘풀리는오늘 Medium.ttf") 
 	showScore1:setFillColor(1,0,0)
-	showScore1.size = 90
+	showScore1.size = 60
 	sceneGroup:insert(showScore1)
 	
 -- 점수에 따라 돈 획득/db에 저장
@@ -47,8 +47,8 @@ function scene:create( event )
 	loadedSettings.money = loadedSettings.money + score3
 	loadsave.saveTable(loadedSettings, "settings.json")
 
-	local backtomap =display.newImageRect("image/backtomap.png",280,50)
-	backtomap.x, backtomap.y =display.contentWidth/2,470
+	local backtomap =display.newImageRect("이미지/미니게임/미니게임_지도로 돌아가기 버튼.png",display.contentWidth/6.112,display.contentHeight/17.3050)
+	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/1.65466
 	sceneGroup:insert(backtomap)
 	backtomap:addEventListener("touch",gomap)
 end

@@ -5,10 +5,14 @@
 -----------------------------------------------------------------------------------------
 local composer = require( "composer" )
 local scene = composer.newScene()
-
+local loadsave = require( "loadsave" )
+local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
+	local loadedSettings = loadsave.loadTable( "settings.json" )
+	local loadedItems= loadsave.loadTable( "items.json" )
+
 	local background = display.newImage("이미지/상점/배경.png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
@@ -24,10 +28,10 @@ function scene:create( event )
 	coin.x, coin.y = display.contentWidth*0.1, display.contentHeight*0.08
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",display.contentWidth*0.162, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
+	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
 	money.anchorX = 1
-	money.text = 3000 
+	money.text = loadedSettings.money 
 	money.size = 53
 	sceneGroup:insert(money)
 
@@ -123,8 +127,63 @@ function scene:create( event )
 	frame.anchorX,frame.anchorY = 0,0
 	sceneGroup:insert(frame)
 
-	
 	item = composer.getVariable("item")
+	money = composer.getVariable("money")
+
+	local function take_stuff(event)
+		if event.phase == "began" then 
+			if (loadedSettings.money - money) >= 0 and loadedItems.itemCount < 16 then
+				loadedItems.itemCount = loadedItems.itemCount + 1
+				if loadedItems.itemCount == 1 then
+					loadedItems.item1 = item
+				elseif loadedItems.itemCount == 2 then
+					loadedItems.item2 = item
+				elseif loadedItems.itemCount == 3 then
+					loadedItems.item3 = item
+				elseif loadedItems.itemCount == 4 then
+					loadedItems.item4 = item
+				elseif loadedItems.itemCount == 5 then
+					loadedItems.item5 = item
+				elseif loadedItems.itemCount == 6 then
+					loadedItems.item6 = item
+				elseif loadedItems.itemCount == 7 then
+					loadedItems.item7 = item
+				elseif loadedItems.itemCount == 8 then
+					loadedItems.item8 = item
+				elseif loadedItems.itemCount == 9 then
+					loadedItems.item9 = item
+				elseif loadedItems.itemCount == 10 then
+					loadedItems.item10 = item
+				elseif loadedItems.itemCount == 11 then
+					loadedItems.item11 = item
+				elseif loadedItems.itemCount == 12 then
+					loadedItems.item12 = item
+				elseif loadedItems.itemCount == 13 then
+					loadedItems.item13 = item
+				elseif loadedItems.itemCount == 14 then
+					loadedItems.item14 = item
+				elseif loadedItems.itemCount == 15 then
+					loadedItems.item15 = item
+				elseif loadedItems.itemCount == 16 then
+					loadedItems.item16 = item
+				elseif loadedItems.itemCount == 17 then
+					loadedItems.item17 = item
+				end
+				loadedSettings.money = loadedSettings.money - money
+				loadsave.saveTable(loadedSettings,"settings.json")
+				loadsave.saveTable(loadedItems,"items.json")
+				composer.removeScene("view04Storeitem")
+				composer.gotoScene("view04Store")
+			else 
+				--composer.removeScene("view04Storeitem")
+				composer.showOverlay("view04Storestop")
+			end
+		end
+	end
+
+
+	
+
 
 	local popup = display.newImage("이미지/상점/팝업창/" .. item .. ".png")
 	popup.x,popup.y = display.contentWidth/2,display.contentHeight/2
@@ -142,10 +201,12 @@ function scene:create( event )
 	exit1.anchorX, exit1.anchorY = 0,0
 	sceneGroup:insert(exit1)
 	exit1:addEventListener("touch",goback_store)
+
 	local button = display.newImage("이미지/상점/구매버튼.png")
 	button.x, button.y = display.contentWidth*0.44, display.contentHeight*0.59
 	button.anchorX, button.anchorY = 0,0
 	sceneGroup:insert(button)
+	button:addEventListener("touch",take_stuff)
 
 
 

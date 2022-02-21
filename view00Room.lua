@@ -31,7 +31,7 @@ function scene:create( event )
 
 	local function touch2(event)
 		composer.removeScene("view00Room")
-		composer.gotoScene( "view11Bag" )
+		composer.gotoScene( "view03bag" )
 
 	end
 
@@ -166,7 +166,7 @@ function scene:create( event )
 -- 이전 달 할 일 2
 	local former2 = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2603,"font/잘풀리는오늘 Medium.ttf")
 	former2.anchorX ,former2.anchorY = 0,0
-	former2:setFillColor(0)
+	former2:setFillColor(0.82,0.21,0.05)
 	former2.size = 20
 	former2.text = loadedSettings.former2
 	sceneGroup:insert(former2)

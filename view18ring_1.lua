@@ -1,46 +1,43 @@
------------------------------------------------------------------------------------------
---
--- view2.lua
---
------------------------------------------------------------------------------------------
+--링 통과하는 게임 시작하는 화면
+
 local composer = require( "composer" )
 local scene = composer.newScene()
-
-
 function scene:create( event )
 	local sceneGroup = self.view
-	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
-	black.alpha = 0.5
-	black:setFillColor(0)
-	sceneGroup:insert(black)
 
-	local function go_back(event)
-		if event.phase == "began" then
-			composer.hideOverlay("zopup_update")
-		end
+	local function catch( event )
+		--if(event.phase == "began") then
+			composer.removeScene("view18ring_1")
+			composer.gotoScene("view19ring")
+		--end
 	end
+
+
 	
-	
 
+    local background = display.newImage( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png", display.contentWidth, display.contentHeight)
+    background.x = display.contentWidth/2
+    background.y = display.contentHeight/2
+    sceneGroup:insert(background)
+    --[[local ready = display.newImage( "이미지/미니게임/미니게임_보라마을/user2.png", display.contentWidth, display.contentHeight)
+    ready.x = display.contentWidth/2 - 310
+    ready.y = display.contentHeight/2 + 160
+    ready.rotation = 65
+    sceneGroup:insert(ready)]]
+    local daepo = display.newImage( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 대기모양(보라마을).png", display.contentWidth, display.contentHeight)
+    daepo.x = display.contentWidth/5
+    daepo.y = display.contentHeight/1.2
+    sceneGroup:insert(daepo)
 
-	local update = display.newImage("이미지/공통/업데이트.png")
-	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
-	sceneGroup:insert(update)
-
-	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.695, display.contentHeight*0.4
-	sceneGroup:insert(exit)
-	exit:addEventListener("touch",go_back)
-
-
-
+    print("touch")
+    background:addEventListener("touch", catch)
 
 end
 
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
-	
+
 	if phase == "will" then
 		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then
@@ -54,13 +51,14 @@ end
 function scene:hide( event )
 	local sceneGroup = self.view
 	local phase = event.phase
-	
+
 	if event.phase == "will" then
 		-- Called when the scene is on screen and is about to move off screen
 		--
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
-	elseif phase == "did" then
+    elseif phase == "did" then
+        composer.removeScene("view18ring")
 		-- Called when the scene is now off screen
 	end
 end
@@ -84,4 +82,9 @@ scene:addEventListener( "destroy", scene )
 
 -----------------------------------------------------------------------------------------
 
+--local bgMusic = audio.loadStream("bgm.mp3")
+--audio.setVolume( 0.75 )
+
+--audio.play(bgMusic, {loops = -1, fadein = 5000})
+-- loop : -1 --> 무한
 return scene

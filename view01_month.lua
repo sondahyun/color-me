@@ -65,7 +65,7 @@ function scene:create( event )
 		loadedSettings.former1 = "-위즈 생일"
 		loadedSettings.former2 = ""
 		loadedSettings.next1 = "-블리 생일"
-		loadedSettings.next2 = "-주인공 생일"
+		loadedSettings.next2 = ""
 		loadsave.saveTable(loadedSettings,"settings.json")
 
 	elseif loadedSettings.month == 1 then
@@ -74,9 +74,9 @@ function scene:create( event )
 		month2:addEventListener("touch",touch)
 		sceneGroup:insert(month2)
 		loadedSettings.former02 = "-빨강 마을 블리의 생일"
-		loadedSettings.former01 = "-나의 생일"
-		loadedSettings.former2 = "-블리 생일"
-		loadedSettings.former1= "-나의 생일"
+		loadedSettings.former01 = ""
+		loadedSettings.former2 = ""
+		loadedSettings.former1= "-블리 생일"
 		loadedSettings.next1 = "-조이 생일"
 		loadedSettings.next2 = ""
 		loadsave.saveTable(loadedSettings,"settings.json")
@@ -117,8 +117,8 @@ function scene:create( event )
 		loadedSettings.former2 = ""
 		loadedSettings.former01 = "-오싹한 도토리 축제"
 		loadedSettings.former02 = ""
-		loadedSettings.next1 = "-레이 생일"
-		loadedSettings.next2 = ""
+		loadedSettings.next1 = "-나의 생일"
+		loadedSettings.next2 = "-레이 생일"
 		loadsave.saveTable(loadedSettings,"settings.json")
 
 	elseif loadedSettings.month == 5 then
@@ -127,8 +127,8 @@ function scene:create( event )
 		month6:addEventListener("touch",touch)
 		sceneGroup:insert(month6)
 		month.text = "마지막 달"
-		loadedSettings.former1 = "-레이 생일"
-		loadedSettings.former2 = ""
+		loadedSettings.former1 = "-나의 생일"
+		loadedSettings.former2 = "-레이 생일"
 		loadedSettings.former01 = "-보라 마을 레이의 생일"
 		loadedSettings.former02 = ""
 		loadedSettings.next1 = ""

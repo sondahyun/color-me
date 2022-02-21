@@ -13,11 +13,6 @@ local composer = require "composer"
 
 -- event listeners for tab buttons:
 local function onFirstView( event )
-	--서유리
-	--타이틀 음악을 다현
-	--local titleMusic = audio.loadStream( "음악/타이틀.mp3" )
-   -- audio.play(titleMusic)
-
     audio.play(titleMusic)
 
 	composer.gotoScene( "title" )
