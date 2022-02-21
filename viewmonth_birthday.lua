@@ -80,7 +80,7 @@ function scene:create( event )
 	sceneGroup:insert(background_1)
 	background_1.alpha = 0
 
-	local background_2 = display.newImage("이미지/이벤트/생일/1.png")
+	local background_2 = display.newImage("이미지/이벤트/생일/2.png")
 	background_2.x,background_2.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_2)
 	background_2.alpha = 0
@@ -95,7 +95,7 @@ function scene:create( event )
 	my_daesapan.anchorY = 0
 	sceneGroup:insert(my_daesapan)
 
-	local green_daesapan = display.newImage("이미지/대화/대화창/솔리.png")
+	local green_daesapan = display.newImage("이미지/대화/대화창/모두.png")
 	green_daesapan.x, green_daesapan.y = display.contentWidth*0.5,display.contentHeight*0.7176
 	green_daesapan.anchorY = 0
 	sceneGroup:insert(green_daesapan)
@@ -109,9 +109,58 @@ function scene:create( event )
 	my:setFillColor(1)
 	sceneGroup:insert(my)
 
+	local select1 = display.newImage("이미지/대화/선택지/주인공.png")
+	select1.x, select1.y = display.contentWidth*0.0998, display.contentHeight*0.3500
+	select1.anchorY, select1.anchorX = 0,0
+	select1.alpha = 0
+	sceneGroup:insert(select1)
+
+	local select2 = display.newImage("이미지/대화/선택지/주인공.png")
+	select2.x, select2.y = display.contentWidth*0.6326, display.contentHeight*0.3500
+	select2.anchorY, select2.anchorX = 0,0
+	select2.alpha = 0
+	sceneGroup:insert(select2)
+
+	local myBday = audio.loadStream("음악/myBday.mp3")
+
+	
+		option1 = {
+			text = "친구들과 나눠먹자",
+			x=233,
+			y=490,
+			width=438,
+			height=143,
+			align = "center",
+			font = "font/NanumSquareRoundB.ttf",
+			fontSize = 36
+		}
+		option2 = {
+			text = "혼자 먹자",
+			x=1254.73,
+			y=490,
+			width=438,
+			height=143,
+			align = "center",
+			font = "font/NanumSquareRoundB.ttf",
+			fontSize = 36
+		}
+
+	
+		select_daewha1=display.newText(option1)
+		select_daewha1.anchorX,select_daewha1.anchorY = 0,0
+		sceneGroup:insert(select_daewha1)
+		select_daewha1.alpha = 0
+
+		select_daewha2=display.newText(option2)
+		select_daewha2.anchorX,select_daewha2.anchorY = 0,0
+		sceneGroup:insert(select_daewha2)
+		select_daewha2.alpha = 0
+	
+
 	local daewha = {}
 
-	local text1 = {
+	local text = {
+		"(누군가 벨을 누른다)",
 		"(초인종 소리가 들려 나가보니 문 앞에 상자가 하나 놓여 있다)",
 		"이게 뭐지?",
 		"우와, 맛있어 보이는 케이크다...!",
@@ -125,7 +174,10 @@ function scene:create( event )
 		"다들 고마워!"
 	}
 
-	for i = 1,17 do
+	daewha = {}
+	daewha2 = {}
+
+	for i = 1,7 do
 		daewha[i] = display.newText(text[i],160,865,"font/NanumSquare_acB.ttf")
 		daewha[i].anchorX,daewha[i].anchorY = 0,0
 		daewha[i]:setFillColor(0)
@@ -133,6 +185,121 @@ function scene:create( event )
 		daewha[i].size = 30
 		sceneGroup:insert(daewha[i])
 	end
+
+	for i = 1,3 do
+		daewha2[i] = display.newText(text1[i],160,865,"font/NanumSquare_acB.ttf")
+		daewha2[i].anchorX,daewha2[i].anchorY = 0,0
+		daewha2[i]:setFillColor(0)
+		daewha2[i].alpha = 0
+		daewha2[i].size = 30
+		sceneGroup:insert(daewha2[i])
+	end
+
+	j = 1
+
+	local function another(event) 
+		if event.phase == "began" then 
+			if j == 1 then
+				background_1.alpha = 0
+				daewha[4].alpha = 0
+				daewha[5].alpha = 1
+				select_daewha1.alpha = 0
+				select_daewha2.alpha = 0
+				select1.alpha = 0
+				select2.alpha = 0
+				j = j+1
+				my_daesapan:addEventListener("touch",another)
+				green_daesapan:addEventListener("touch",another)
+			elseif j == 2 then
+				daewha[5].alpha = 0
+				daewha2[j-1].alpha = 1
+				background_2.alpha = 1
+				j = j+1
+			elseif j == 3 then
+				daewha2[j-2].alpha = 0
+				daewha2[j-1].alpha = 1
+				green_daesapan.alpha=1
+				my_daesapan.alpha = 0
+				my.alpha = 0
+				j = j+1
+			elseif j == 4 then 
+				daewha2[j-2].alpha = 0
+				daewha2[j-1].alpha = 1
+				green_daesapan.alpha=0
+				my_daesapan.alpha = 1
+				my.alpha = 1
+				j = j+1
+			elseif j == 5 then
+
+				loadedSettings.friendship = loadedSettings.friendship + 3
+		     	loadedSettings.friendship = loadedSettings.friendship + 3
+     			 loadedSettings.red = loadedSettings.red + 2
+     			 loadedSettings.yellow = loadedSettings.yellow + 2
+     				 loadedSettings.green = loadedSettings.green + 2
+     				 loadedSettings.blue = loadedSettings.blue + 2
+     				 loadedSettings.purple = loadedSettings.purple + 2
+     				 loadsave.saveTable(loadedSettings,"settings.json")
+
+				audio.pause(myBday)
+				composer.removeScene("viewmonth_birthday")
+				composer.gotoScene("view00Room")
+			end
+		end
+	end
+
+	i = 1
+	local function first(event)
+		if event.phase =="began" then 
+			if i <3 then
+				daewha[i].alpha = 0
+				daewha[i+1].alpha = 1
+				
+				my.alpha = 1
+				i = i+1
+			elseif i == 3 then
+				daewha[i].alpha = 0
+				daewha[i+1].alpha = 1
+				background_1.alpha = 1
+				i = i +1
+			elseif i == 4 then
+				select_daewha1.alpha = 1
+				select_daewha2.alpha = 1
+				select1.alpha = 1
+				select2.alpha = 1
+				my_daesapan:removeEventListener("touch",first)
+				select2:addEventListener("touch",first)
+				select1:addEventListener("touch",another)
+				i = i +1
+			elseif i == 5 then
+				daewha[i-1].alpha = 0
+				daewha[6].alpha = 1
+				select_daewha1.alpha = 0
+				select_daewha2.alpha = 0
+				select1.alpha = 0
+				select2.alpha = 0
+				my_daesapan:addEventListener("touch",first)
+				select2:removeEventListener("touch",first)
+				i = i+1
+			elseif i == 6 then
+				background_1.alpha = 1
+				money.alpha = 1
+				daewha[i].alpha = 0
+				daewha[7].alpha = 1
+				i = i+1
+			elseif i == 7 then
+				audio.pause(myBday)
+				composer.removeScene("viewmonth_birthday")
+				composer.gotoScene("view00Room")
+				loadedSettings.money = loadedSettings.money + 7
+				loadsave.saveTable(loadedSettings, "settings.json")
+
+			end
+
+		end
+	end
+
+	my_daesapan:addEventListener("touch",first)
+	daewha[1].alpha = 1
 
 
 
