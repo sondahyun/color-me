@@ -504,7 +504,7 @@ function scene:create( event )
 
 
 
-	local color = composer.getVariable("color")
+	local color = "2"--composer.getVariable("color")
 
 	if color == "1" then
 
@@ -530,6 +530,12 @@ function scene:create( event )
 								daewha12[2].alpha = 0
 								daewha12[3].alpha = 1
 								j = j+1
+								script_1.alpha = 1
+								choose11.alpha = 0
+								choose12.alpha = 0
+								daewha13[1].alpha = 0
+								daewha12[1].alpha = 0
+								script_1:addEventListener("touch",next1_1)
 							else
 								composer.removeScene("viewmonth4_script")
 								composer.gotoScene("view01Map",options)
@@ -552,7 +558,8 @@ function scene:create( event )
 							daewha13[1].alpha = 0
 							daewha12[2].alpha = 1
 							choose11:removeEventListener("touch",next1)
-							script_1:addEventListener("touch",next1_1)
+							script_1.alpha = 0
+							my_daesapan:addEventListener("touch",next1_1)
 						end
 
 					end
@@ -569,6 +576,12 @@ function scene:create( event )
 								daewha13[2].alpha = 0
 								daewha13[3].alpha = 1
 								j = j+1
+								script_1.alpha = 1
+								choose11.alpha = 0
+								choose12.alpha = 0
+								daewha13[1].alpha = 0
+								daewha12[1].alpha = 0
+								script_1:addEventListener("touch",next1_1)
 							else
 								composer.removeScene("viewmonth4_script")
 								composer.gotoScene("view01Map",options)
@@ -589,7 +602,8 @@ function scene:create( event )
 							daewha12[1].alpha = 0
 							daewha13[2].alpha = 1
 							choose12:removeEventListener("touch",next1)
-							script_1:addEventListener("touch",next1_2)
+							script_1.alpha = 0
+							my_daesapan:addEventListener("touch",next1_2)
 						end
 
 					end
@@ -603,6 +617,8 @@ function scene:create( event )
 								my.alpha = 1
 								daewha11[2].alpha = 1
 								i = i+1
+								script_1.alpha = 0
+								my_daesapan:addEventListener("touch",next)
 
 							elseif i == 1 then
 								
@@ -611,7 +627,7 @@ function scene:create( event )
 								my.alpha = 0
 								daewha11[3].alpha = 1
 								i=i+1
-
+								script_1.alpha = 1
 							else
 								
 								script_1:removeEventListener("touch",next)
