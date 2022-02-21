@@ -75,9 +75,13 @@ function scene:create( event )
 				else
 					composer.removeScene("view12Plan")
 					composer.removeScene("View13Plan")
-					composer.gotoScene("view01_month",options)
+					composer.gotoScene("likeability",options)
 
 				end
+			elseif loadedSettings.month==4 then
+					composer.removeScene("view12Plan")
+					composer.removeScene("View13Plan")
+					composer.gotoScene("likeability",options)
 
 			elseif loadedSettings.month==5 then
 					composer.removeScene("view12Plan")
@@ -87,7 +91,7 @@ function scene:create( event )
 			elseif loadedSettings.month == 6 then 
 				composer.removeScene("view12Plan")
 				composer.removeScene("View13Plan")
-				composer.gotoScene("view99end")
+				composer.gotoScene("likeability")
 
 			else
 				composer.removeScene("view12Plan")
