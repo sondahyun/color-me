@@ -132,7 +132,10 @@ function scene:create( event )
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
 				composer.removeScene("view1Map")
-				composer.gotoScene( "view03Store" )
+				composer.gotoScene( "view04Store" )
+
+			elseif color == "8" then
+				composer.showOverlay("zopup_update")
 
 			else
 				local click01 = audio.play(click1)
