@@ -364,6 +364,34 @@ function scene:create( event )
 		end
 	end
 
+	local function present_stat_good(color)
+		if color == 1 then
+			loadedSettings.red = loadedSettings.red + 4
+		elseif color == 2 then
+			loadedSettings.yellow = loadedSettings.yellow + 4
+		elseif color == 3 then
+			loadedSettings.green = loadedSettings.green + 4
+		elseif color == 4 then
+			loadedSettings.blue = loadedSettings.blue + 4
+		elseif color == 5 then
+			loadedSettings.purple = loadedSettings.purple + 4
+		end
+	end
+
+	local function present_stat_soso(color)
+		if color == 1 then
+			loadedSettings.red = loadedSettings.red + 2
+		elseif color == 2 then
+			loadedSettings.yellow = loadedSettings.yellow + 2
+		elseif color == 3 then
+			loadedSettings.green = loadedSettings.green + 2
+		elseif color == 4 then
+			loadedSettings.blue = loadedSettings.blue + 2
+		elseif color == 5 then
+			loadedSettings.purple = loadedSettings.purple + 2
+		end
+	end
+
 
 	my_daesapan.alpha = 0
 	daesapan[color].alpha = 1
@@ -381,23 +409,26 @@ function scene:create( event )
 			birthday_bad[color].alpha = 1
 			awkward[color].alpha = 1
 		end
-		loadsave.saveTable(loadedSettings, "settings.json")
+		
 
 	else
 		if respones(item_name,1,2) == 1 then
 			perfect[color].alpha = 1
 			happy[color].alpha = 1
 			default[color].alpha = 0
+			present_stat_good(color)
 		elseif respones(item_name,3,6) == 1 then 
 			default[color].alpha = 1
 			soso[color].alpha = 1
+			present_stat_soso(color)
 		else
 			bad[color].alpha = 1
 			default[color].alpha = 0
 			awkward[color].alpha = 1
 		end
 	end
-
+	
+	loadsave.saveTable(loadedSettings, "settings.json")
 	local function go_back(event)
 		if event.phase == "began" then
 			composer.removeScene("viewgift_finish")

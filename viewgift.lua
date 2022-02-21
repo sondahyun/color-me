@@ -16,6 +16,8 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	mainName = loadedSettings.name
+	loadedSettings.gift_num = loadedSettings.gift_num+1
+	loadsave.saveTable(loadedSettings, "settings.json")
 
 	
 	local color = composer.getVariable("color")
