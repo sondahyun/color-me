@@ -14,7 +14,7 @@ function scene:create( event )
 	local loadedItems= loadsave.loadTable( "items.json" )
 
 	
-	local background = display.newImage("이미지/상점/배경.png")
+	local background = display.newImage("이미지/상점/배경(가격).png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
 
