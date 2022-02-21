@@ -33,7 +33,7 @@ function scene:create( event )
 				loadedEndings.bgMusic = "음악/myBday.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
 				composer.removeScene("view01_month")
-				composer.gotoScene("view17myBirthday")	
+				composer.gotoScene("viewmonth_birthday")	
 			elseif num == 0 then
 				audio.pause(home)
 				audio.setVolume( loadedEndings.logValue )
