@@ -504,7 +504,7 @@ function scene:create( event )
 
 
 
-	local color = "2"--composer.getVariable("color")
+	local color = "3"--composer.getVariable("color")
 
 	if color == "1" then
 
@@ -683,6 +683,12 @@ function scene:create( event )
 								daewha42[2].alpha = 0
 								daewha42[3].alpha = 1
 								j = j+1
+								choose41.alpha = 0
+								choose42.alpha = 0
+								daewha42[1].alpha = 0
+								daewha43[1].alpha = 0
+								script_4.alpha = 1
+								script_4:addEventListener("touch",next1_1)
 							else
 								composer.removeScene("viewmonth4_script")
 								composer.gotoScene("view01Map",options)
@@ -705,7 +711,8 @@ function scene:create( event )
 							daewha43[1].alpha = 0
 							daewha42[2].alpha = 1
 							choose41:removeEventListener("touch",next1)
-							script_4:addEventListener("touch",next1_1)
+							script_4.alpha = 0
+							my_daesapan:addEventListener("touch",next1_1)
 						end
 
 					end
@@ -723,6 +730,12 @@ function scene:create( event )
 								daewha43[2].alpha = 0
 								daewha43[3].alpha = 1
 								j = j+1
+								choose41.alpha = 0
+								choose42.alpha = 0
+								daewha42[1].alpha = 0
+								daewha43[1].alpha = 0
+								script_4.alpha = 1
+								script_4:addEventListener("touch",next1_2)
 							else
 								composer.removeScene("viewmonth4_script")
 								composer.gotoScene("view01Map",options)
@@ -743,7 +756,8 @@ function scene:create( event )
 							daewha42[1].alpha = 0
 							daewha43[2].alpha = 1
 							choose42:removeEventListener("touch",next1)
-							script_4:addEventListener("touch",next1_2)
+							script_4.alpha = 0
+							my_daesapan:addEventListener("touch",next1_2)
 						end
 
 					end
@@ -760,7 +774,9 @@ function scene:create( event )
 								my.alpha = 0
 								daewha41[2].alpha = 1
 								i=i+1
-
+								script_4.alpha = 1
+								script_4:addEventListener("touch",next)
+							
 							elseif i == 1 then
 
 								daewha41[2].alpha = 0
@@ -768,6 +784,8 @@ function scene:create( event )
 								my.alpha = 1
 								daewha41[3].alpha = 1
 								i=i+1
+								script_4.alpha = 0
+								my_daesapan:addEventListener("touch",next)
 
 							elseif i == 2 then
 								daewha41[3].alpha = 0
@@ -775,8 +793,8 @@ function scene:create( event )
 								my.alpha = 0
 								daewha41[4].alpha = 1
 								i=i+1
-
-
+								script_4.alpha = 1
+								script_4:addEventListener("touch",next)
 							else
 								
 								script_4:removeEventListener("touch",next)
@@ -807,7 +825,8 @@ function scene:create( event )
 					my.alpha = 1
 					daewha41.alpha = 1
 					daewha41[1].alpha = 1
-					script_4:addEventListener("touch",next)
+					script_4.alpha = 0
+					my_daesapan:addEventListener("touch",next)
 
 
 	elseif color == "3" then
@@ -834,6 +853,10 @@ function scene:create( event )
 								daewha22[2].alpha = 0
 								daewha22[3].alpha = 1
 								j = j+1
+								
+								script_2.alpha = 1
+								my_daesapan:removeEventListener("touch",next1_1)
+								script_2:addEventListener("touch",next1_1)
 							else
 								composer.removeScene("viewmonth4_script")
 								composer.gotoScene("view01Map",options)
@@ -856,7 +879,8 @@ function scene:create( event )
 							daewha23[1].alpha = 0
 							daewha22[2].alpha = 1
 							choose21:removeEventListener("touch",next1)
-							script_2:addEventListener("touch",next1_1)
+							script_2.alpha = 0
+							my_daesapan:addEventListener("touch",next1_1)
 						end
 
 					end
@@ -873,6 +897,10 @@ function scene:create( event )
 								daewha23[2].alpha = 0
 								daewha23[3].alpha = 1
 								j = j+1
+								
+								script_2.alpha = 1
+								my_daesapan:removeEventListener("touch",next1_2)
+								script_2:addEventListener("touch",next1_2)
 							else
 								script_2:removeEventListener("touch",next1_2)
 								composer.removeScene("viewmonth4_script")
@@ -894,7 +922,8 @@ function scene:create( event )
 							daewha22[1].alpha = 0
 							daewha23[2].alpha = 1
 							choose22:removeEventListener("touch",next2)
-							script_2:addEventListener("touch",next1_2)
+							script_2.alpha = 0
+							my_daesapan:addEventListener("touch",next1_2)
 						end
 
 					end
@@ -904,12 +933,13 @@ function scene:create( event )
 
 							if i == 0 then
 								daewha21[1].alpha = 0
-						
 								daewha21[2].alpha = 1
 								my_daesapan.alpha  = 1
 								my.alpha = 1
 								i=i+1
-
+								script_2.alpha = 0
+								script_2:removeEventListener("touch",next)
+								my_daesapan:addEventListener("touch",next)
 							elseif i == 1 then
 								
 								daewha21[2].alpha = 0
@@ -917,7 +947,9 @@ function scene:create( event )
 								my.alpha = 0
 								daewha21[3].alpha = 1
 								i=i+1
-
+								script_2.alpha = 1
+								my_daesapan:removeEventListener("touch",next)
+								script_2:addEventListener("touch",next)
 							
 
 							else
@@ -948,6 +980,7 @@ function scene:create( event )
 					script_2.alpha = 1
 					daewha21.alpha = 1
 					daewha21[1].alpha = 1
+					my_daesapan.alpha = 0
 					script_2:addEventListener("touch",next)
 				
 	elseif color == "4" then
