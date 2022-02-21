@@ -19,7 +19,7 @@ function scene:create( event )
 
 	local value2 = {}
 	for i=1,10 do
-		value2[i] = display.contentWidth*0.46875 + i * display.contentWidth*0.20833333
+		value2[i] = display.contentWidth*0.46875 + i * display.contentWidth*0.20833333 -500
 	end
 	
 	--배경화면
@@ -45,20 +45,20 @@ function scene:create( event )
     local walld = {}
     for i=1,10 do
         walld[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링(보라마을).png")
-        walld[i].x = value2[i]
-        walld[i].y = display.contentHeight*0.5555 + value1[i]
+        walld[i].x = value2[i]*1.3
+        walld[i].y = display.contentHeight*0.5555 + value1[i] - display.contentHeight*0.0925925
         sceneGroup:insert(walld[i])
         --physics.addBody(walld[i], "static")   
 
 		inv4[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링4(보라마을).png")
-		inv4[i].x = value2[i]
-		inv4[i].y = display.contentHeight*0.12037037 + value1[i] --130
+		inv4[i].x = value2[i]*1.3
+		inv4[i].y = display.contentHeight*0.12037037 + value1[i] - display.contentHeight*0.0925925 --130
 		sceneGroup:insert(inv4[i])
 		physics.addBody(inv4[i], "static")
 
 		inv3[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링1(보라마을).png")
-		inv3[i].x = value2[i]
-		inv3[i].y = display.contentHeight*1.004629 + value1[i] --1085
+		inv3[i].x = value2[i]*1.3
+		inv3[i].y = display.contentHeight*1.004629 + value1[i] - display.contentHeight*0.0925925 --1085
 		sceneGroup:insert(inv3[i])
 		physics.addBody(inv3[i], "static")
        

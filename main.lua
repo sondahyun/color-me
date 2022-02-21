@@ -15,7 +15,7 @@ local composer = require "composer"
 local function onFirstView( event )
     audio.play(titleMusic)
 
-	composer.gotoScene( "view21card" )
+	composer.gotoScene( "title" )
 end
 
 local function onSecondView( event )
