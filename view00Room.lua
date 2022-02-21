@@ -108,31 +108,39 @@ function scene:create( event )
 	friend:addEventListener("mouse",bigbig)
 
 -- 스탯 바 객체 생성.
-	local play = display.newRect(154,65, 200 ,25)
+	
+	--play:toFront()
+
+	
+
+	local play = display.newRect(display.contentWidth*0.12,display.contentHeight*0.085, display.contentWidth*loadedSettings.fun*0.00174 ,display.contentHeight*0.023)
 	play.anchorX,play.anchorY = 0,0.5
 	play:setFillColor(0.643,0.384,0.666)
 	sceneGroup:insert(play)
-	play:toFront()
 
-	local hobby = display.newRect(154,100, loadedSettings.hobby*2.25 ,25)
+	local hobby = display.newRect(display.contentWidth*0.12,display.contentHeight*0.14, display.contentWidth*loadedSettings.hobby*0.00174 ,display.contentHeight*0.023)
 	hobby.anchorX,hobby.anchorY = 0,0.5
 	hobby:setFillColor(0.98, 0.556 , 0.219)
 	sceneGroup:insert(hobby)
 
-	local study = display.newRect(154,150, loadedSettings.study*2.25 ,25)
+	local study = display.newRect(display.contentWidth*0.12,display.contentHeight*0.195, display.contentWidth*loadedSettings.study*0.00174 ,display.contentHeight*0.023)
 	study.anchorX,study.anchorY = 0,0.5
 	study:setFillColor(0.46,0.537,0.752)
 	sceneGroup:insert(study)
 
-	local friendly = display.newRect(154,185, loadedSettings.friendship*2.25,25)
+	local friendly = display.newRect(display.contentWidth*0.12,display.contentHeight*0.254, display.contentWidth*loadedSettings.friendship*0.00174 ,display.contentHeight*0.023)
 	friendly.anchorX,friendly.anchorY = 0,0.5
 	friendly:setFillColor(0.933,0.474,0.474)
 	sceneGroup:insert(friendly)
 
 -- 스탯창 객체
-	local stat = display.newImage("이미지/홈/스탯창.png")
+
+	local stat = display.newImage("이미지/홈/스탯창2.png")
 	stat.x, stat.y = display.contentWidth*0.18,display.contentHeight*0.15
 	sceneGroup:insert(stat)
+	
+
+	
 
 -- 코인 창 객체 
 	local coin = display.newImage("이미지/공통/코인표시창.png")
