@@ -41,7 +41,7 @@ function scene:create( event )
 	local pf = 0
 	local gf = 0
 
-	local my = display.newText(mainName,display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
+	local my = display.newText(mainName,display.contentWidth*0.17,display.contentHeight*0.75,"font/잘풀리는오늘 Medium.ttf")
 	my.anchorX,anchorY=0,0
 	my.size = 45
 	my.alpha = 0
@@ -90,7 +90,7 @@ function scene:create( event )
 
 	--파란마을 버튼클릭
 	local function b1ClickBlue(event)
-		my.alpha = 0
+		my.alpha = 1
 		bf = 1
 		j = 5
 		c[3].alpha = 0
@@ -290,12 +290,12 @@ function scene:create( event )
 		if j == 4 then
 			b1.alpha = 1
 			b2.alpha = 1
-			bt1 = display.newText("위즈라면 왠지…\n『박쥐와 베란다에 매달리기』", display.contentWidth*0.2,display.contentHeight*0.48, "font/NanumSquare_acB.ttf", 25)
+			bt1 = display.newText("위즈라면 왠지…\n『박쥐와 베란다에 매달리기』", display.contentWidth*0.23,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
 			bt1:setFillColor(1)
 			bt1.anchorX,bt1.anchorY = 0.5,0.5
 			sceneGroup:insert(bt1)
 			b1:addEventListener("touch",b1ClickBlue)
-			bt2 = display.newText("가장 기본적인 게 좋겠지?\n『과학의 정석』", display.contentWidth*0.8,display.contentHeight*0.48, "font/NanumSquare_acB.ttf", 25)
+			bt2 = display.newText("가장 기본적인 게 좋겠지?\n『과학의 정석』", display.contentWidth*0.77,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
 			bt2:setFillColor(1)
 			bt2.anchorX,bt2.anchorY = 0.5,0.5
 			sceneGroup:insert(bt2)
@@ -518,7 +518,7 @@ function scene:create( event )
 					c[5] = display.newImage("이미지/캐릭터/위즈/난감.png", display.contentWidth/2,display.contentHeight*0.5)
 
 					--대화창
-					s[1] = display.newImage("이미지/대화/대화창/위즈.png", display.contentWidth/2,display.contentHeight*0.7176)
+					s[1] = display.newImage("이미지/대화/대화창/주인공.png", display.contentWidth/2,display.contentHeight*0.7176)
 					s[2] = display.newImage("이미지/대화/대화창/위즈.png", display.contentWidth/2,display.contentHeight*0.7176)
 					s[3] = display.newImage("이미지/대화/대화창/주인공.png", display.contentWidth/2,display.contentHeight*0.7176)
 					s[4] = display.newImage("이미지/대화/대화창/위즈.png", display.contentWidth/2,display.contentHeight*0.7176)
@@ -706,9 +706,6 @@ function scene:create( event )
 					green_bg.x, green_bg.y = display.contentWidth/2,display.contentHeight/2
 					sceneGroup:insert(green_bg)
 
-					local script_bg = display.newImage("이미지/대화/대화창/솔리.png")
-					script_bg.x, script_bg.y = display.contentWidth/2,display.contentHeight*0.7176
-					sceneGroup:insert(script_bg)
 					--캐릭터
 					c[1] = display.newImage("이미지/캐릭터/솔리/기본.png", display.contentWidth/2,display.contentHeight*0.5)
 					c[2] = display.newImage("이미지/캐릭터/솔리/기본.png", display.contentWidth/2,display.contentHeight*0.5)
