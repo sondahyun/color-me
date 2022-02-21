@@ -304,7 +304,7 @@ function scene:create( event )
 
 		if j == 7 and bf == 1 then
 			composer.removeScene("viewmonth1_script")
-         	composer.gotoScene("viewmonth_event_gift")
+         	composer.gotoScene("view01Map")
 		end
 	end
 
