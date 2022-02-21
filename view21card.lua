@@ -69,28 +69,28 @@ function scene:create( event )
 	time1 = timer.performWithDelay( 1000, timeAttack,0)
 
 
-	gameUI[0] = graphics.newImageSheet( "image/card1.jpg", {width=95, height=151, numFrames=10} )
+	gameUI[0] = graphics.newImageSheet( "이미지/미니게임/미니게임_초록마을/미니게임_카드게임 카드모음(초록마을).png", {width=144, height=227, numFrames=10} ) ---수정필요
 	
 
-	backUI[1] = display.newImageRect(gameUI[0], 1, 90, 140)
-	backUI[1].x, backUI[1].y = display.contentWidth/2 - backUI[1].width*3.5 - 70 + 85, display.contentHeight/2 - backUI[1].height/2 + 20
+	backUI[1] = display.newImageRect(gameUI[0], 1, 143, 227)
+	backUI[1].x, backUI[1].y = display.contentWidth/2 - backUI[1].width*3.5, display.contentHeight/2.06 - backUI[1].height/2 
 	backUI[2] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[2].x, backUI[2].y = backUI[1].x+backUI[1].width+20, backUI[1].y
+	backUI[2].x, backUI[2].y = backUI[1].x+backUI[1].width + display.contentWidth*0.0260, backUI[1].y 
 	backUI[3] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[3].x, backUI[3].y = backUI[2].x+backUI[1].width+20, backUI[1].y
+	backUI[3].x, backUI[3].y = backUI[2].x+backUI[1].width+display.contentWidth*0.0260, backUI[1].y
 	backUI[4] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[4].x, backUI[4].y = backUI[3].x+backUI[1].width+20, backUI[1].y
+	backUI[4].x, backUI[4].y = backUI[3].x+backUI[1].width+display.contentWidth*0.0260, backUI[1].y
 	backUI[5] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[5].x, backUI[5].y = backUI[4].x+backUI[1].width+20, backUI[1].y
+	backUI[5].x, backUI[5].y = backUI[4].x+backUI[1].width+display.contentWidth*0.0260, backUI[1].y
 	backUI[6] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[6].x, backUI[6].y = backUI[5].x+backUI[1].width+20, backUI[1].y
+	backUI[6].x, backUI[6].y = backUI[5].x+backUI[1].width+display.contentWidth*0.0260, backUI[1].y
 	backUI[7] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[7].x, backUI[7].y = backUI[2].x, backUI[1].y - 150
+	backUI[7].x, backUI[7].y = backUI[2].x, backUI[1].y - display.contentHeight * 0.23148148
 	backUI[8] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[8].x, backUI[8].y = backUI[5].x, backUI[1].y - 150
+	backUI[8].x, backUI[8].y = backUI[5].x, backUI[1].y - display.contentHeight * 0.23148148
 
 	backUI[9] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[9].x, backUI[9].y = backUI[1].x, backUI[1].y+backUI[1].height+20
+	backUI[9].x, backUI[9].y = backUI[1].x, backUI[1].y+backUI[1].height + display.contentHeight*0.018518
 	backUI[10] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
 	backUI[10].x, backUI[10].y = backUI[2].x, backUI[9].y
 	backUI[11] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
@@ -102,9 +102,9 @@ function scene:create( event )
 	backUI[14] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
 	backUI[14].x, backUI[14].y = backUI[6].x, backUI[9].y
 	backUI[15] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[15].x, backUI[15].y = backUI[11].x, backUI[9].y + 150
+	backUI[15].x, backUI[15].y = backUI[11].x, backUI[9].y + display.contentHeight * 0.23148148 --수정필요
 	backUI[16] = display.newImageRect(gameUI[0], 1, backUI[1].width, backUI[1].height)
-	backUI[16].x, backUI[16].y = backUI[12].x, backUI[9].y + 150
+	backUI[16].x, backUI[16].y = backUI[12].x, backUI[9].y + display.contentHeight * 0.23148148 --수정필요
 
 	
 
