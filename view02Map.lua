@@ -492,25 +492,25 @@ function scene:create( event )
 		sceneGroup:insert(redui)
 		button()
 
-	elseif color ==2 then
+	elseif color ==4 then
 		blueui = display.newImage("이미지/마을/방문창/파랑.png")
 		blueui.x,blueui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(blueui)
 		button()
 
-	elseif color ==3 then
+	elseif color ==2 then
 		yellowui = display.newImage("이미지/마을/방문창/노랑.png")
 		yellowui.x,yellowui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(yellowui)
 		button()
 
-	elseif color ==4 then
+	elseif color ==5 then
 		purpleui = display.newImage("이미지/마을/방문창/보라.png")
 		purpleui.x,purpleui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(purpleui)
 		button()
 
-	elseif color ==5 then
+	elseif color ==3 then
 		greenui = display.newImage("이미지/마을/방문창/초록.png")
 		greenui.x,greenui.y = display.contentWidth/2,display.contentHeight*0.496
 		sceneGroup:insert(greenui)

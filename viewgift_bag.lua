@@ -13,7 +13,8 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
-	
+	local color = composer.getVariable("color")
+
 	local update = display.newImage("이미지/가방/배경.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
@@ -23,146 +24,15 @@ function scene:create( event )
 	}
 
 	local function click( event )
+		composer.setVariable("color",color)
 		composer.setVariable("location",event.target.name)
 		composer.setVariable("item",event.target.id)
 		composer.showOverlay( "viewgift_bag_popup",options)
 	end
 
 	--[[
-	local items = {}
-	
-	items[1] = loadedItems.item1--/loadedSettings.item1
-	items[2] = loadedItems.item2--/loadedSettings.item1	
-	items[3] = loadedItems.item3--/loadedSettings.item1		
-	items[4] = loadedItems.item4--/loadedSettings.item1		
-	items[5] = loadedItems.item5--/loadedSettings.item1		
-	items[6] = loadedItems.item6--/loadedSettings.item1		
-	items[7] = loadedItems.item7--/loadedSettings.item1		
-	items[8] = loadedItems.item8--/loadedSettings.item1		
-	items[9] = loadedItems.item9--/loadedSettings.item1		
-	items[10] = loadedItems.item10--/loadedSettings.item1		
-	items[11] = loadedItems.item11--/loadedSettings.item1		
-	items[12] = loadedItems.item12--/loadedSettings.item1
 
-	local function openPop(event)
-		if event.phase == "began" then
-			composer.setVariable("name", loadedItems.itemPop)--아이템 전달
-			--local i = location
-			items[location] = ""
-			print(location)
-			print("yes버튼 눌렀을때")
-			if location == 1 then
-				loadedItems.item1 = items[2]
-				loadedItems.item2 = items[3]
-				loadedItems.item3 = items[4]
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 2 then
-				loadedItems.item2 = items[3]
-				loadedItems.item3 = items[4]
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 3 then
-				loadedItems.item3 = items[4]
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 4 then
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 5 then	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 6 then	
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 7 then	
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 8 then	
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 9 then	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 10 then	
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 11 then	
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = ""
-			elseif location == 12 then	
-				loadedItems.item12 = ""
-			end
-
-			loadedItems.itemCount = loadedItems.itemCount - 1
-			loadsave.saveTable(loadedItems,"items.json")
-			
-			what = composer.getVariable("what")
-			composer.removeScene("viewmonth_event_위즈_birthday_상점_사용")
-			if what == 1 then
-				composer.gotoScene("viewz_bully") -- 선물 고르고 이동
-			elseif what == 2 then
-				composer.gotoScene("viewz_joy") -- 선물 고르고 이동
-			elseif what == 3 then
-				composer.gotoScene("viewz_solly") -- 선물 고르고 이동
-			elseif what == 4 then
-				composer.gotoScene("viewz_wiz") -- 선물 고르고 이동
-			elseif what == 5 then
-				composer.gotoScene("viewz_lay") -- 선물 고르고 이동
-			end
-		end
-	end
 	]]--
-
 
 	--반복문 정리--
 	local function image( num )
