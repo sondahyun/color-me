@@ -15,93 +15,93 @@ function scene:create( event )
 	sceneGroup:insert(back)
 
 	--무지개 엔딩 --
-	local rainbow = display.newImage("엔딩카드-히든엔딩/무지개.png")
+	local rainbow = display.newImage("이미지/엔딩/엔딩카드/무지개.png")
 	rainbow.x, rainbow.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(rainbow)
 	rainbow.alpha = 0
 
-	local mix_red = display.newImage("엔딩카드-우정엔딩/빨강.png")
+	local mix_red = display.newImage("이미지/엔딩/엔딩카드/우정빨강.png")
 	mix_red.x, mix_red.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(mix_red)
 	mix_red.alpha = 0
 
-	local mix_yellow = display.newImage("엔딩카드-우정엔딩/노랑.png")
+	local mix_yellow = display.newImage("이미지/엔딩/엔딩카드/우정노랑.png")
 	mix_yellow.x, mix_yellow.y =display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(mix_yellow)
 	mix_yellow.alpha =0
-	local mix_blue = display.newImage("엔딩카드-우정엔딩/파랑1.png")
+	local mix_blue = display.newImage("이미지/엔딩/엔딩카드/우정파랑.png")
 	mix_blue.x,mix_blue.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(mix_blue)
 	mix_blue.alpha = 0
-	local mix_purple = display.newImage("엔딩카드-우정엔딩/보라1.png")
+	local mix_purple = display.newImage("이미지/엔딩/엔딩카드/우정보라.png")
 	mix_purple.x, mix_purple.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(mix_purple)
 	mix_purple.alpha = 0
-	local mix_green = display.newImage("엔딩카드-우정엔딩/초록1.png")
+	local mix_green = display.newImage("이미지/엔딩/엔딩카드/우정초록.png")
 	mix_green.x, mix_green.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(mix_green)
 	mix_green.alpha = 0
 
 	--혼합엔딩--
 
-	local violet = display.newImage("엔딩카드-혼합엔딩/바이올렛.png")
+	local violet = display.newImage("이미지/엔딩/엔딩카드/혼합(공부)바이올렛.png")
 	violet.x, violet.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(violet)
 	violet.alpha = 0
 
-	local act_violet = display.newImage("엔딩카드-혼합엔딩/활동-바이올렛.png")
+	local act_violet = display.newImage("이미지/엔딩/엔딩카드/혼합(활동)바이올렛.png")
  	act_violet.x, act_violet.y = display.contentWidth/2,display.contentHeight/2 
  	sceneGroup:insert(act_violet)
  	act_violet.alpha = 0
 
-	local orange = display.newImage("엔딩카드-혼합엔딩/주황.png")
+	local orange = display.newImage("이미지/엔딩/엔딩카드/혼합(공부)주황.png")
 	orange.x, orange.y =  display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(orange)
 	orange.alpha = 0
 
-	local act_orange = display.newImage("엔딩카드-혼합엔딩/활동-주황.png")
+	local act_orange = display.newImage("이미지/엔딩/엔딩카드/혼합(활동)주황.png")
 	act_orange.x, act_orange.y =display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(act_orange)
 	act_orange.alpha = 0
 
-	local chung = display.newImage("엔딩카드-혼합엔딩/청록1.png")
+	local chung = display.newImage("이미지/엔딩/엔딩카드/혼합(공부)청록.png")
 	chung.x, chung.y =  display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(chung)
 	chung.alpha = 0
 
-	local act_chung = display.newImage("엔딩카드-혼합엔딩/활청.png")
+	local act_chung = display.newImage("이미지/엔딩/엔딩카드/혼합(활동)청록.png")
 	act_chung.x, act_chung.y =display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(act_chung)
 	act_chung.alpha = 0
 
 	--히든엔딩
 
-	local good = display.newImage("엔딩카드-히든엔딩/굿.png")
+	local good = display.newImage("이미지/엔딩/엔딩카드/굿.png")
 	good.x, good.y = display.contentWidth/2,display.contentHeight/2 
 	sceneGroup:insert(good)
 	good.alpha = 0
 
-	local bad = display.newImage("엔딩카드-히든엔딩/배드.png")
+	local bad = display.newImage("이미지/엔딩/엔딩카드/배드.png")
 	bad.x, bad.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(bad)
 	bad.alpha = 0
 
-	local pastell_yellow = display.newImage("엔딩카드-히든엔딩/파스텔노랑.png")
+	local pastell_yellow = display.newImage("이미지/엔딩/엔딩카드/파스텔노랑.png")
 	pastell_yellow.x, pastell_yellow.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(pastell_yellow)
 	pastell_yellow.alpha = 0
 
-	local pastell_purple = display.newImage("엔딩카드-히든엔딩/파스텔보라.png")
+	local pastell_purple = display.newImage("이미지/엔딩/엔딩카드/파스텔보라.png")
 	pastell_purple.x, pastell_purple.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(pastell_purple)
 	pastell_purple.alpha = 0
 
-	local pastell_red = display.newImage("엔딩카드-히든엔딩/파스텔빨강.png")
+	local pastell_red = display.newImage("이미지/엔딩/엔딩카드/파스텔빨강.png")
 	pastell_red.x, pastell_red.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(pastell_red)
 	pastell_red.alpha = 0
 
-	local pastell_blue = display.newImage("엔딩카드-히든엔딩/파스텔파랑.png")
+	local pastell_blue = display.newImage("이미지/엔딩/엔딩카드/파스텔파랑.png")
 	pastell_blue.x, pastell_blue.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(pastell_blue)
 	pastell_blue.alpha =0
@@ -140,7 +140,6 @@ function scene:create( event )
 		end
 	end
 
-
 --활동/공부/취미 엔딩 (혼합)
 	if (study >= 80) and (hobby >= 80) and (fun >= 80) and (friendship >= 80) then
 		transition.to(rainbow,{time=2000,alpha=1})
@@ -177,7 +176,6 @@ function scene:create( event )
 
 --우정엔딩
 	elseif (friendship >= study) and (friendship >= fun) and (friendship >= hobby) and (friendship >= 70) then
-		print("dd11111")
 		if  (red >= yellow) and (red >= green) and (red >= blue) and (red >= purple) and (red >= 50) then
 			transition.to(mix_red,{time=2000,alpha=1})
 			 loadedEndings.red =1
@@ -208,6 +206,9 @@ function scene:create( event )
 		elseif loadedSettings.badWhite == 1 then
 			loadedEndings.bad = 1
 			transition.to(bad,{time=2000,alpha=1})
+		else
+			loadedEndings.bad = 1
+			transition.to(bad,{time=2000,alpha=1})
 		end
 		
 --파스텔 엔딩
@@ -225,16 +226,20 @@ function scene:create( event )
 	end
 
 -- 화면이 점차 밝아짐
-	local title = display.newImage("image/타이틀돌.png")
-	title.x,title.y = 1225,70
+	local title = display.newImage("이미지/엔딩/타이틀로.png")
+	title.x,title.y = display.contentWidth*0.0180,display.contentHeight*0.0277
 	sceneGroup:insert(title)
 	title.alpha = 0
+	title.anchorX, title.anchorY = 0,0
 	title:addEventListener("touch",goback)
-	transition.to(title,{time=2000,alpha=1})
+	transition.to(title,{time=2000,alpha=1,delay=3000})
 
 -- 모든 엔딩 봤을 떄 bonus 엔딩 확인 가능
 	if (best == 1) and (friend1 == 1) and (friend2==2) and (friend3==1) and (friend4==1) and (friend5 == 1) and (mix1 == 1) and (mix2 == 1) and (mix3 == 1) and (mix4 == 1) and (mix5 == 1) and (mix6 == 1) and (pastel1==1) and (pastel2 == 1) and (pastel3==1) and (pastel4 == 1) and (pastel5 == 1) and (hidden1==1) and (hidden2 == 1) then
 		loadedEndings.bonus = 1 
+	end
+	if loadedEndings.end_num == 0 then 
+		loadedEndings.end_num=loadedEndings.end_num+1
 	end
 
 	loadsave.saveTable(loadedEndings,"endings.json")

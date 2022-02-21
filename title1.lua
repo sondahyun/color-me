@@ -218,60 +218,67 @@ function scene:create( event )
 	for i=1,18 do
 		pen[1][i] = display.newImage(image3[i])
 		if i > 10 then
-			pen[1][i].x, pen[1][i].y = (display.contentWidth*0.25)*(i-11), display.contentHeight*0.37
+			pen[1][i].x, pen[1][i].y = display.contentWidth*0.2314+(display.contentWidth*0.05094)*(i-11), display.contentHeight*0.5578
 		else
-			pen[1][i].x, pen[1][i].y = (display.contentWidth*0.25)*(i-1), display.contentHeight*0.37
+			pen[1][i].x, pen[1][i].y = display.contentWidth*0.2314+(display.contentWidth*0.05094)*(i-1), display.contentHeight*0.2313
 		end 
+		pen[1][i].anchorX,pen[1][i].anchorY = 0,0
 		sceneGroup:insert(pen[1][i])
 		pen[1][i].alpha =color[1][i]
 		pen[1][i].name = i
 		pen[1][i]:addEventListener("touch",popup)
 		
 	end
-
+	
 --2번째 index 색연필들	
 	for i=1,5 do
 		pen[2][i] = display.newImage(image4[i])
-		pen[2][i].x,pen[2][i].y =  328 + 139*(i-1), 395
+		pen[2][i].x,pen[2][i].y =  display.contentWidth*0.258+(display.contentWidth*0.094)*(i-1), display.contentHeight*0.25590
 		sceneGroup:insert(pen[2][i])
+		pen[2][i].anchorX,pen[2][i].anchorY = 0,0
 		pen[2][i].alpha = 0
 		pen[2][i].name = i
+		pen[2][i].anchorX,pen[2][i].anchorY = 0,0
 		pen[2][i]:addEventListener("touch",popup)
 	end
 --3번째 index 색연필들
 	for i=1,2 do
 		pen[3][i] = display.newImage(image5[i])
-		pen[3][i].x, pen[3][i].y = 515 + 182*(i-1), 395
+		pen[3][i].x, pen[3][i].y = display.contentWidth*0.385+(display.contentWidth*0.1228)*(i-1), display.contentHeight*0.25590
 		pen[3][i].alpha = 0
 		--hidden[i]
 		pen[3][i].name = i+16
+		pen[3][i].anchorX,pen[3][i].anchorY = 0,0
 		sceneGroup:insert(pen[3][i])
 		pen[3][i]:addEventListener("touch",popup)
 	end
 --4번째 index 색연필들
 	for i=1,6 do
 		pen[4][i] = display.newImage(image6[i])
-		pen[4][i].x, pen[4][i].y = 260 + 138.3*(i-1), 395
+		pen[4][i].x, pen[4][i].y = display.contentWidth*0.212+(display.contentWidth*0.09355)*(i-1), display.contentHeight*0.25590
 		pen[4][i].alpha = 0
 		pen[4][i].name = i+10
+		pen[4][i].anchorX,pen[4][i].anchorY=0,0
 		sceneGroup:insert(pen[4][i])
 		pen[4][i]:addEventListener("touch",popup)
 	end
 --5번째 index 색연필들
 	for i=1,5 do
 		pen[5][i] = display.newImage(image7[i])
-		pen[5][i].x, pen[5][i].y = 328 + 139*(i-1), 395
+		pen[5][i].x, pen[5][i].y =display.contentWidth*0.258+(display.contentWidth*0.094)*(i-1), display.contentHeight*0.25590
 		pen[5][i].alpha = 0
 		pen[5][i].name = i+5
 		sceneGroup:insert(pen[5][i])
+		pen[5][i].anchorX,pen[5][i].anchorY =0,0
 		pen[5][i]:addEventListener("touch",popup)
 	end
 --6번째 index 색연필들
 	for i=1,2 do
 		pen[6][i] = display.newImage(image8[i])
-		pen[6][i].x, pen[6][i].y = 515 + 182*(i-1), 395
+		pen[6][i].x, pen[6][i].y = display.contentWidth*0.385+(display.contentWidth*0.1228)*(i-1), display.contentHeight*0.25590
 		pen[6][i].alpha = 0
 		pen[6][i].name = i+18
+		pen[6][i].anchorX, pen[6][i].anchorY = 0,0
 		sceneGroup:insert(pen[6][i])
 		pen[6][i]:addEventListener("touch",popup)
 	end
