@@ -14,6 +14,7 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	local location = composer.getVariable("location")
+	local color = composer.getVariable("color")
 
 	local items = {}
 	
@@ -135,6 +136,7 @@ function scene:create( event )
 			loadedItems.itemCount = loadedItems.itemCount - 1
 			loadsave.saveTable(loadedItems,"items.json")
 			composer.setVariable("item",item)
+			composer.setVariable("color",color)
 			composer.removeScene("viewgift_bag")
 			composer.removeScene("viewgift_bag_popup")
 			composer.gotoScene("viewgift_finish")

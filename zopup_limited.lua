@@ -5,13 +5,12 @@
 -----------------------------------------------------------------------------------------
 local composer = require( "composer" )
 local scene = composer.newScene()
-local loadsave = require( "loadsave" )
-local json = require( "json" )
+
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local loadedSettings = loadsave.loadTable( "settings.json" )
-	
+
+
 	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
 	black.alpha = 0.5
 	black:setFillColor(0)
@@ -19,14 +18,15 @@ function scene:create( event )
 
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.hideOverlay("view04Storestop")
+			--composer.removeScene("zopup_update")
+			composer.hideOverlay("zopup_update")
 		end
 	end
 	
 	
 
 
-	local update = display.newImage("이미지/공통/팝업창/코인부족.png")
+	local update = display.newImage("이미지/공통/업데이트.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 

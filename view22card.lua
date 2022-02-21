@@ -18,7 +18,7 @@ function scene:create( event )
 	-- create a white background to fill screen
 
 --배경화면
-	local background = display.newImageRect("image/BG_Forest.png", display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("이미지/미니게임/미니게임_초록마을/미니게임_카드게임 배경(초록마을).png", display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
 
@@ -32,16 +32,16 @@ function scene:create( event )
 	
 
 
-	local board =display.newImageRect("image/finish.png",display.contentWidth/2.4, display.contentHeight/2)
+	local board =display.newImageRect("이미지/미니게임/미니게임_게임완료창.png",display.contentWidth/3.6294896, display.contentHeight/2.83122739)
 	board.x , board.y = display.contentWidth/2, display.contentHeight/2
 	board.alpha = 0.5
 	transition.to(board,{alpha=1,time=1000})
 	sceneGroup:insert(board)
 
 	local score3 = composer.getVariable("score2")
-	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/2 + 35,"font/잘풀리는오늘 Medium.ttf") 
+	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/1.9,"font/잘풀리는오늘 Medium.ttf") 
 	showScore1:setFillColor(1,0,0)--,0,0
-	showScore1.size = 90
+	showScore1.size = 60
 	sceneGroup:insert(showScore1)
 
 	
@@ -57,8 +57,8 @@ function scene:create( event )
 		end
 	end
 
-	local backtomap =display.newImageRect("image/backtomap.png",280,50)
-	backtomap.x, backtomap.y =display.contentWidth/2,470
+	local backtomap =display.newImageRect("이미지/미니게임/미니게임_지도로 돌아가기 버튼.png",display.contentWidth/6.112,display.contentHeight/17.3050)
+	backtomap.x, backtomap.y = display.contentWidth/2, display.contentHeight/1.65466
 	sceneGroup:insert(backtomap)
 	backtomap:addEventListener("touch",gomap)
 	

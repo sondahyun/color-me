@@ -46,16 +46,39 @@ function scene:create( event )
         loadsave.saveTable(loadedEndings,"endings.json")
         audio.setVolume( settings["bgvolume"]  )
     end
+
+    local background_image = display.newImage("이미지/설정창/소리조절칸.png")
+    background_image.x, background_image.y = display.contentWidth*0.375,display.contentHeight*0.55
+    sceneGroup:insert(background_image)
+
+    local options = {
+    frames = {
+        { x=0, y=0, width=41, height=41 },
+        { x=41, y=0, width=41, height=41 },
+        { x=82, y=0, width=41, height=41 },
+        { x=123, y=0, width=41, height=41 },
+        { x=164, y=0, width=41, height=41 }
+    },
+    sheetContentWidth = 205,
+    sheetContentHeight = 41
+    }
+    local sliderSheet = graphics.newImageSheet( "이미지/설정창/sound.png", options )
     
     -- 볼륨슬라이더
     local bgSlider = widget.newSlider{
-        top = 380,   left = 580,      
-        width=220,  height=10,      
+        sheet = sliderSheet,
+        leftFrame = 1,
+        middleFrame = 2,
+        rightFrame = 3,
+        fillFrame = 4,
+        frameWidth = 41,
+        frameHeight = 41,
+        handleFrame = 5,
+        handleWidth = 41,
+        handleHeight = 41,
+        top = 380,    x = display.contentCenterX*0.75,      
+        width=380,  y=display.contentCenterY*1.1,      
         value=loadedEndings.slider,
-        background = "이미지/타이틀/설정/소리조절칸.png",
-        fillWidth = 2, leftWidth = 16,
-        handle = "이미지/타이틀/설정/소리조절.png",
-        handleWidth = 32, handleHeight = 32,
         listener = bgSliderListener
     }
     sceneGroup:insert( bgSlider )

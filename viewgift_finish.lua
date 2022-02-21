@@ -16,8 +16,7 @@ function scene:create( event )
 	mainName = loadedSettings.name
 
 	
-	--local color = composer.getVariable("color")
-	color = 1
+	local color = composer.getVariable("color")
 	local color_name = {
 		"블리",
 		"조이",
@@ -140,11 +139,11 @@ function scene:create( event )
 		item = "물속 불 피우기 실험키트"
 	elseif item_name == "향수" then
 		item = "블랙체리 향수"
-	elseif item_name == "파이" then
-		item = "봄 피는 꽃 화분"
+	elseif item_name == "호랑이" then
+		item = "호랑이 가죽"
 	elseif item_name == "화분" then
 		item = "봄피는 꽃 화분"
-	elseif item_name == "호랑이" then
+	elseif item_name == "파이" then
 		item = "마마손 파이"
 	elseif item_name == "스피커" then
 		item = "두배로 스피커"
@@ -164,6 +163,7 @@ function scene:create( event )
 	
 
 	local item_list ={}
+	local present_list = {}
 
 	-- 블리
 
@@ -213,6 +213,16 @@ function scene:create( event )
 		"블록"
 	}
 
+	
+	present_list={
+		"향수",
+		"스피커",
+		"화분",
+		"실험세트",
+		"호랑이"
+	}
+
+
 
 
 	-- 대화 내용 -- 
@@ -227,6 +237,9 @@ function scene:create( event )
 	local perfect_respone = 0
 	local soso_respone = 0
 	local bad_respone = 0
+
+	local birthday_good = {}
+	local birthday_bad = {}
 	
 
 	local text_1 = {
@@ -251,6 +264,22 @@ function scene:create( event )
 		item .. "? 으응... 고 고마워... 다음부턴 이 선물은 나보다 더 필요한 사람에게 주는 것도 나쁘지 않을 것 같아..!",
 		"으악, " .. item .. "?! ...성의는 고맙지만 나에게 어울리는 물건은 아닌 것 같아. 피에로 옷을 입은 갈릴레오 같은 느낌이랄까... (이건... 연구 대상으로도 삼기 힘들겠는걸.)",
 		"엇... " .. item .. "이네... ...으음... 어떻게 사용해야 할지 곤란한 걸... ...그, 그래도 고마워..!"
+	}
+
+	local text_4 = {
+		"꺄아! 이거 내 생일 선물이야? 내가 좋아하는 달달한 체리향 향수잖아! 세상이 빨간 하트로 차오르는 기분이야.",
+		"세상에, 두배로 스피커! 내가 제일 갖고 싶었던 거야! 고마워, 얼른 스피커로 노래 틀자! 뭐가 좋을까? 오늘은 발라드를 틀어도 신날 것 같아!",
+		"우와아, 이거 나한테 꼭 필요한 거야! 어떻게 내 마음을 읽었어? 신기하다…. 정말 고마워!",
+		"이야- ‘물 속에서 불 피우기’라니! 멋진걸! 다음 연구 주제는 이걸로 해야겠어! 최고다! 고마워!",
+		"내 생일 선물이야? 고마워! 네 선물 덕분에 좀 더 용감한 색연필이 될 수 있을 것 같아!"
+	}
+
+	local text_5 = {
+		"이거… 내 선물이야? … 그래, 고마워.",
+		"으음…. 고마워…. 지금부터 이걸 가지고 어떻게 신나게 놀지 생각해볼게…!",
+		"내 선물이구나…! 정말 고마워…. 자, 잘… 쓸게.",
+		"아, 선물… 고마워. 그런데 다른 선물이 더 좋았을 것 같기도… 아냐, 신경 쓰지 마.",
+		"우, 우와 선물 고마워…! 그, 그런데 나 오늘 망토를 빨아야 해서 바쁘거든…. 먼저 가볼게!"
 	}
 
 	for i = 1,5 do
@@ -280,6 +309,24 @@ function scene:create( event )
 		sceneGroup:insert(bad[i])
 	end
 
+	for i = 1,5 do
+		birthday_good[i] = display.newText(text_4[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
+		birthday_good[i].anchorX,birthday_good[i].anchorY = 0,0
+		birthday_good[i]:setFillColor(0)
+		birthday_good[i].alpha = 0
+		birthday_good[i].size = 30
+		sceneGroup:insert(birthday_good[i])
+	end
+
+	for i = 1,5 do
+		birthday_bad[i] = display.newText(text_5[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
+		birthday_bad[i].anchorX,birthday_bad[i].anchorY = 0,0
+		birthday_bad[i]:setFillColor(0)
+		birthday_bad[i].alpha = 0
+		birthday_bad[i].size = 30
+		sceneGroup:insert(birthday_bad[i])
+	end
+
 	-- 반응 함수 --
 
 
@@ -294,23 +341,94 @@ function scene:create( event )
 		return answer
 	end
 
-	
-	-- perfect 반응 -- 
-	my_daesapan.alpha = 0
-	daesapan[color].alpha = 1
-	if respones(item_name,1,2) == 1 then
-		perfect[color].alpha = 1
-		happy[color].alpha = 1
-		default[color].alpha = 0
-	elseif respones(item_name,3,6) == 1 then 
-		default[color].alpha = 1
-		soso[color].alpha = 1
-	else
-		bad[color].alpha = 1
-		default[color].alpha = 0
-		awkward[color].alpha = 1
+	local function find_birth(color, month)
+		local answer = 0
+		if ((color==1) and (loadedSettings.month==1)) or ((color == 2) and (loadedSettings.month==2)) or ((color == 3) and (loadedSettings.month==3)) or ((color == 4) and (loadedSettings.month==0)) or ((color == 5) and (loadedSettings.month==5)) then
+			answer = 1
+		end
+		return answer
 	end
 
+	local function color_stat(color)
+		loadedSettings.friendship = loadedSettings.friendship + 8
+		if color == 1 then
+			loadedSettings.red = loadedSettings.red + 8
+		elseif color == 2 then
+			loadedSettings.yellow = loadedSettings.yellow + 8
+		elseif color == 3 then
+			loadedSettings.green = loadedSettings.green + 8
+		elseif color == 4 then
+			loadedSettings.blue = loadedSettings.blue + 8
+		elseif color == 5 then
+			loadedSettings.purple = loadedSettings.purple + 8
+		end
+	end
+
+	local function present_stat_good(color)
+		if color == 1 then
+			loadedSettings.red = loadedSettings.red + 4
+		elseif color == 2 then
+			loadedSettings.yellow = loadedSettings.yellow + 4
+		elseif color == 3 then
+			loadedSettings.green = loadedSettings.green + 4
+		elseif color == 4 then
+			loadedSettings.blue = loadedSettings.blue + 4
+		elseif color == 5 then
+			loadedSettings.purple = loadedSettings.purple + 4
+		end
+	end
+
+	local function present_stat_soso(color)
+		if color == 1 then
+			loadedSettings.red = loadedSettings.red + 2
+		elseif color == 2 then
+			loadedSettings.yellow = loadedSettings.yellow + 2
+		elseif color == 3 then
+			loadedSettings.green = loadedSettings.green + 2
+		elseif color == 4 then
+			loadedSettings.blue = loadedSettings.blue + 2
+		elseif color == 5 then
+			loadedSettings.purple = loadedSettings.purple + 2
+		end
+	end
+
+
+	my_daesapan.alpha = 0
+	daesapan[color].alpha = 1
+	-- perfect 반응 -- 
+
+
+	if find_birth(color,loadedSettings.month) == 1 then
+		default[color].alpha = 0
+		if item_name == present_list[color] then
+			color_stat(color)
+			happy[color].alpha = 1
+			birthday_good[color].alpha = 1
+		else
+			loadedSettings.friendship = loadedSettings.friendship + 3
+			birthday_bad[color].alpha = 1
+			awkward[color].alpha = 1
+		end
+		
+
+	else
+		if respones(item_name,1,2) == 1 then
+			perfect[color].alpha = 1
+			happy[color].alpha = 1
+			default[color].alpha = 0
+			present_stat_good(color)
+		elseif respones(item_name,3,6) == 1 then 
+			default[color].alpha = 1
+			soso[color].alpha = 1
+			present_stat_soso(color)
+		else
+			bad[color].alpha = 1
+			default[color].alpha = 0
+			awkward[color].alpha = 1
+		end
+	end
+	
+	loadsave.saveTable(loadedSettings, "settings.json")
 	local function go_back(event)
 		if event.phase == "began" then
 			composer.removeScene("viewgift_finish")

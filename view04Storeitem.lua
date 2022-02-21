@@ -13,7 +13,7 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 
-	local background = display.newImage("이미지/상점/배경.png")
+	local background = display.newImage("이미지/상점/배경(가격).png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
 
@@ -28,9 +28,9 @@ function scene:create( event )
 	coin.x, coin.y = display.contentWidth*0.1, display.contentHeight*0.08
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",display.contentWidth*0.13, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
+	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
-	money.anchorX = 0
+	money.anchorX = 1
 	money.text = loadedSettings.money 
 	money.size = 53
 	sceneGroup:insert(money)
@@ -132,7 +132,7 @@ function scene:create( event )
 
 	local function take_stuff(event)
 		if event.phase == "began" then 
-			if (loadedSettings.money - money) >= 0 and loadedItems.itemCount < 12 then
+			if (loadedSettings.money - money) >= 0 and loadedItems.itemCount < 16 then
 				loadedItems.itemCount = loadedItems.itemCount + 1
 				if loadedItems.itemCount == 1 then
 					loadedItems.item1 = item
@@ -175,8 +175,8 @@ function scene:create( event )
 				composer.removeScene("view04Storeitem")
 				composer.gotoScene("view04Store")
 			else 
-				composer.removeScene("view04Storeitem")
-				composer.gotoScene("view04Storestop")
+				--composer.removeScene("view04Storeitem")
+				composer.showOverlay("view04Storestop")
 			end
 		end
 	end

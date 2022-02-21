@@ -16,10 +16,11 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	mainName = loadedSettings.name
+	loadedSettings.gift_num = loadedSettings.gift_num+1
+	loadsave.saveTable(loadedSettings, "settings.json")
 
 	
-	--local color = composer.getVariable("color")
-	color = 1
+	local color = composer.getVariable("color")
 	local color_name = {
 		"블리",
 		"조이",
@@ -258,6 +259,7 @@ function scene:create( event )
 					daewha[5].alpha = 1
 					u =u +1
 				else 
+					composer.setVariable("color",color)
 					composer.removeScene("viewgift")
 					composer.gotoScene("viewgift_bag")
 				end
