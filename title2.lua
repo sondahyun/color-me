@@ -106,7 +106,7 @@ function scene:create( event )
 
 	local exit1 = display.newImage("이미지/공통/x버튼.png")
 	sceneGroup:insert(exit1)
-	exit1.x, exit1.y = display.contentWidth*0.77, display.contentHeight*0.16
+	exit1.x, exit1.y = display.contentWidth*0.68, display.contentHeight*0.28
 	exit1:addEventListener("touch",gotomap)
 
 	

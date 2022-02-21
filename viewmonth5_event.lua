@@ -480,16 +480,7 @@ function scene:create( event )
    end
    my:toFront()
 
-   --샘플 볼륨 이미지
-    local volumeButton = display.newImageRect("image_volume/icon.png", 100, 100)
-    volumeButton.x,volumeButton.y = 70,70
-    sceneGroup:insert(volumeButton)
-
-    --샘플볼륨함수--
-    local function setVolume(event)
-        composer.showOverlay( "volumeControl", options )
-    end
-    volumeButton:addEventListener("tap",setVolume)
+   
 end
 
 function scene:show( event )

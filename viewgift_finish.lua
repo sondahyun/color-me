@@ -427,8 +427,9 @@ function scene:create( event )
 			awkward[color].alpha = 1
 		end
 	end
-	
+
 	loadsave.saveTable(loadedSettings, "settings.json")
+	
 	local function go_back(event)
 		if event.phase == "began" then
 			composer.removeScene("viewgift_finish")
