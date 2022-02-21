@@ -234,7 +234,7 @@ function scene:create( event )
 	my_daesapan.alpha=0
 	my_daesapan.anchorY = 0
 
-	local my = display.newText(mainName,display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
+	local my = display.newText(mainName,display.contentWidth*0.17,display.contentHeight*0.75,"font/잘풀리는오늘 Medium.ttf")
 	my.anchorX,my.anchorY = 0,0
 	my.size = 45
 	my.alpha = 0
@@ -634,14 +634,16 @@ function scene:create( event )
 								choose11.alpha = 1
 								daewha12[1].alpha = 1
 								daewha12[1]:setFillColor(1)
+								daewha12[1].size=36
 								daewha12[1].anchorX,daewha12[1].anchorY = 0.5,0.5
-								daewha12[1].x,daewha12[1].y = display.contentWidth*0.2,display.contentHeight*0.47
+								daewha12[1].x,daewha12[1].y = display.contentWidth*0.23,display.contentHeight*0.47
 				
 								choose12.alpha = 1
 								daewha13[1].alpha = 1
 								daewha13[1]:setFillColor(1)
+								daewha13[1].size=36
 								daewha13[1].anchorX,daewha13[1].anchorY = 0.5,0.5
-								daewha13[1].x,daewha13[1].y = display.contentWidth*0.8,display.contentHeight*0.47
+								daewha13[1].x,daewha13[1].y = display.contentWidth*0.77,display.contentHeight*0.47
 
 								choose11:addEventListener("touch",next1)
 								choose12:addEventListener("touch",next2)
@@ -801,14 +803,16 @@ function scene:create( event )
 								choose41.alpha = 1
 								daewha42[1].alpha = 1
 								daewha42[1]:setFillColor(1)
+								daewha42[1].size=36
 								daewha42[1].anchorX,daewha42[1].anchorY = 0.5,0.5
-								daewha42[1].x,daewha42[1].y = display.contentWidth*0.2,display.contentHeight*0.47
+								daewha42[1].x,daewha42[1].y = display.contentWidth*0.23,display.contentHeight*0.47
 				
 								choose42.alpha = 1
 								daewha43[1].alpha = 1
 								daewha43[1]:setFillColor(1)
+								daewha43[1].size=36
 								daewha43[1].anchorX,daewha43[1].anchorY = 0.5,0.5
-								daewha43[1].x,daewha43[1].y = display.contentWidth*0.8,display.contentHeight*0.47
+								daewha43[1].x,daewha43[1].y = display.contentWidth*0.77,display.contentHeight*0.47
 
 								choose41:addEventListener("touch",next1)
 								choose42:addEventListener("touch",next2)
@@ -958,14 +962,16 @@ function scene:create( event )
 								choose21.alpha = 1
 								daewha22[1].alpha = 1
 								daewha22[1]:setFillColor(1)
+								daewha22[1].size=36
 								daewha22[1].anchorX,daewha22[1].anchorY = 0.5,0.5
-								daewha22[1].x,daewha22[1].y = display.contentWidth*0.2,display.contentHeight*0.47
+								daewha22[1].x,daewha22[1].y = display.contentWidth*0.23,display.contentHeight*0.47
 				
 								choose22.alpha = 1
 								daewha23[1].alpha = 1
 								daewha23[1]:setFillColor(1)
+								daewha23[1].size=36
 								daewha23[1].anchorX,daewha23[1].anchorY = 0.5,0.5
-								daewha23[1].x,daewha23[1].y = display.contentWidth*0.8,display.contentHeight*0.47
+								daewha23[1].x,daewha23[1].y = display.contentWidth*0.77,display.contentHeight*0.47
 
 								choose21:addEventListener("touch",next1)
 								choose22:addEventListener("touch",next2)
@@ -1110,14 +1116,16 @@ function scene:create( event )
 								choose51.alpha = 1
 								daewha52[1].alpha = 1
 								daewha52[1]:setFillColor(1)
+								daewha52[1].size=36
 								daewha52[1].anchorX,daewha52[1].anchorY = 0.5,0.5
-								daewha52[1].x,daewha52[1].y = display.contentWidth*0.2,display.contentHeight*0.47
+								daewha52[1].x,daewha52[1].y = display.contentWidth*0.23,display.contentHeight*0.47
 				
 								choose52.alpha = 1
 								daewha53[1].alpha = 1
 								daewha53[1]:setFillColor(1)
+								daewha53[1].size=36
 								daewha53[1].anchorX,daewha53[1].anchorY = 0.5,0.5
-								daewha53[1].x,daewha53[1].y = display.contentWidth*0.8,display.contentHeight*0.47
+								daewha53[1].x,daewha53[1].y = display.contentWidth*0.77,display.contentHeight*0.47
 
 								choose51:addEventListener("touch",next1)
 								choose52:addEventListener("touch",next2)
@@ -1249,14 +1257,16 @@ function scene:create( event )
 								choose31.alpha = 1
 								daewha32[1].alpha = 1
 								daewha32[1]:setFillColor(1)
+								daewha32[1].size=36
 								daewha32[1].anchorX,daewha32[1].anchorY = 0.5,0.5
-								daewha32[1].x,daewha32[1].y = display.contentWidth*0.2,display.contentHeight*0.47
+								daewha32[1].x,daewha32[1].y = display.contentWidth*0.23,display.contentHeight*0.47
 				
 								choose32.alpha = 1
 								daewha33[1].alpha = 1
 								daewha33[1]:setFillColor(1)
+								daewha33[1].size=36
 								daewha33[1].anchorX,daewha33[1].anchorY = 0.5,0.5
-								daewha33[1].x,daewha33[1].y = display.contentWidth*0.8,display.contentHeight*0.47
+								daewha33[1].x,daewha33[1].y = display.contentWidth*0.77,display.contentHeight*0.47
 
 								choose31:addEventListener("touch",next1)
 								choose32:addEventListener("touch",next2)
