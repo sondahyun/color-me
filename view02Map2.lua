@@ -133,7 +133,7 @@ function scene:create( event )
 			if loadedSettings.game_num ~= 1 then
 				if color == "1" then
 				--빨강게임 이동
-					duduinfo = display.newImage("이미지/미니게임/마을지도_게임설명창/미니게임_게임설명(빨강마을).png")
+					duduinfo = display.newImage("마을지도_게임설명창/미니게임_게임설명(빨강마을).png")
 					duduinfo.x, duduinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(duduinfo)
 
@@ -143,7 +143,7 @@ function scene:create( event )
 
 				elseif color == "2" then
 				-- 파랑게임 이동
-					local numinfo = display.newImage("이미지/미니게임/마을지도_게임설명창/미니게임_게임설명(파랑마을).png")
+					local numinfo = display.newImage("마을지도_게임설명창/미니게임_게임설명(파랑마을).png")
 					numinfo.x, numinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(numinfo)
 
@@ -153,7 +153,7 @@ function scene:create( event )
 					
 				elseif color == "3" then
 					-- 노랑게임 이동
-					local lemoninfo = display.newImage("이미지/미니게임/마을지도_게임설명창/미니게임_게임설명(노랑마을).png")
+					local lemoninfo = display.newImage("마을지도_게임설명창/미니게임_게임설명(노랑마을).png")
 					lemoninfo.x, lemoninfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(lemoninfo)
 
@@ -163,7 +163,7 @@ function scene:create( event )
 				elseif color == "4" then
 				-- 보라게임 이동
 					print("보라")
-					local ringinfo = display.newImage("이미지/미니게임/마을지도_게임설명창/미니게임_게임설명(보라마을).png")
+					local ringinfo = display.newImage("마을지도_게임설명창/미니게임_게임설명(보라마을).png")
 					ringinfo.x, ringinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(ringinfo)
 
@@ -173,7 +173,7 @@ function scene:create( event )
 				elseif color == "5" then
 				-- 초록게임 이동
 					print("초록")
-					local miniinfo = display.newImage("이미지/미니게임/마을지도_게임설명창/미니게임_게임설명(초록마을).png")
+					local miniinfo = display.newImage("마을지도_게임설명창/미니게임_게임설명(초록마을).png")
 					miniinfo.x, miniinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(miniinfo)
 
