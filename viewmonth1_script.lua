@@ -104,7 +104,7 @@ function scene:create( event )
 
 	--파란마을 버튼클릭
 	local function b1ClickBlue(event)
-		my.alpha = 1
+		my:removeSelf()
 		bf = 1
 		j = 5
 		c[3].alpha = 0
@@ -243,8 +243,8 @@ function scene:create( event )
 	--print("what" .. loadedSettings.friendship)
 
 
-	local color = composer.getVariable("color")
-
+	--local color = composer.getVariable("color")
+	
 	-- 빨간마을화면전환
 	local function redPage()
 		if j > 1 and j < 4 then
@@ -286,6 +286,7 @@ function scene:create( event )
 
 	-- 파란마을화면전환
 	local function bluePage()
+		--print(j)
 		if j > 1 and j < 4 then
 			c[j - 1].alpha = 0
 			s[j - 1].alpha = 0
@@ -318,7 +319,7 @@ function scene:create( event )
 
 		if j == 7 and bf == 1 then
 			composer.removeScene("viewmonth1_script")
-         	composer.gotoScene("view01Map")
+         	composer.gotoScene("view01Map",options)
 		end
 	end
 
@@ -436,7 +437,7 @@ function scene:create( event )
 		end
 	end
 
-
+	color = "5"
 	if color == "1" then
 
 					loadedSettings.red_num = loadedSettings.red_num + 1
@@ -490,6 +491,7 @@ function scene:create( event )
 					b2.x, b2.y = display.contentWidth*0.77,display.contentHeight*0.47
 					sceneGroup:insert(b2)
 					b2.alpha = 0
+					my.alpha = 0
 
 
 					for i = 1, 5 do
@@ -632,6 +634,7 @@ function scene:create( event )
 					b2.x, b2.y = display.contentWidth*0.77,display.contentHeight*0.47
 					sceneGroup:insert(b2)
 					b2.alpha = 0
+					my.alpha = 0
 
 
 					for i = 1, 5 do
@@ -699,6 +702,7 @@ function scene:create( event )
 					b2.x, b2.y = display.contentWidth*0.77,display.contentHeight*0.47
 					sceneGroup:insert(b2)
 					b2.alpha = 0
+					my.alpha = 0
 
 
 					for i = 1, 5 do
@@ -750,9 +754,9 @@ function scene:create( event )
 					--대사
 					t[1] = display.newText(mainName  .."! 어서 와. 같이 쌍둥이 바 먹자.", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
 					t[2] = display.newText("응!", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
-					t[3] = display.newText("솔리가 아이스크림을 반으로 나눈다.\n아이스크림이 비대칭으로 나눠진다.\n솔리가 주인공에게 큰 쪽을 내민다.", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
-					t[4] = display.newText("솔리가 환하게 웃는다. “나에게 양보해주는거야? 정말 고마워 "..  mainName  .. "!”", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
-					t[5] = display.newText("솔리가 웃는다. “맛있게 먹어, " ..  mainName  ..".”", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
+					t[3] = display.newText("(솔리가 아이스크림을 반으로 나눈다. 아이스크림이 비대칭으로 나눠지고, 솔리가 " .. mainName .. "에게 큰 쪽을 내민다.)", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
+					t[4] = display.newText("나에게 양보해주는거야? 정말 고마워 "..  mainName  .. "!", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
+					t[5] = display.newText("맛있게 먹어! " ..  mainName  ..".", display.contentWidth*0.0833,display.contentHeight*0.8009, "font/NanumSquare_acB.ttf", 30)
 
 					--버튼
 					b1 = display.newImage("이미지/대화/선택지/솔리.png")
@@ -763,6 +767,7 @@ function scene:create( event )
 					b2.x, b2.y = display.contentWidth*0.77,display.contentHeight*0.47
 					sceneGroup:insert(b2)
 					b2.alpha = 0
+					my.alpha = 0
 
 
 					for i = 1, 5 do
