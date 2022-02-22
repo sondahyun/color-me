@@ -554,7 +554,7 @@ function scene:create( event )
 
 
 
-  local color ="5" composer.getVariable("color")
+  local color = composer.getVariable("color")
 
   if color == "1" then
 

@@ -1121,8 +1121,8 @@ function scene:create( event )
               loadedSettings.green = loadedSettings.green + 2
               loadsave.saveTable(loadedSettings,"settings.json")    
               daewha31[2].alpha = 0
-              my_daesapan.alpha=1
-              my.alpha = 1
+              my_daesapan.alpha=0
+              my.alpha = 0
               choose31.alpha = 0
               choose32.alpha = 0
               soli.alpha = 0
