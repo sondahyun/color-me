@@ -1069,7 +1069,7 @@ function scene:create( event )
 								choose52.alpha = 1
 								daewha53[1].alpha = 1
 								daewha53[1]:setFillColor(1)
-								daewha52[1].size=36
+								daewha53[1].size=36
 								daewha53[1].anchorX,daewha53[1].anchorY = 0.5,0.5
 								daewha53[1].x,daewha53[1].y = display.contentWidth*0.77,display.contentHeight*0.47
 
