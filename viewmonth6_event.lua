@@ -151,6 +151,9 @@ function scene:create( event )
 				if n == 3 then
 					my_daesapan.alpha=0
 					my.alpha = 0
+					daesapan.alpha = 1
+					my_daesapan:removeEventListener("touch",next1_1)
+					daesapan:addEventListener("touch",next1_1)
 
 				else
 					lay_daesapan.alpha = 1
@@ -185,8 +188,9 @@ function scene:create( event )
 			daewha2[1].alpha = 0
 			daewha3[1].alpha = 0
 			daewha2[2].alpha = 1
+			daesapan.alpha = 0
 			choose1:removeEventListener("touch",next1)
-			daesapan:addEventListener("touch",next1_1)
+			my_daesapan:addEventListener("touch",next1_1)
 		end
 
 	end
@@ -221,14 +225,26 @@ function scene:create( event )
 				if n == 3 then
 					my_daesapan.alpha=0
 					my.alpha = 0
+					daesapan.alpha = 1
+					my_daesapan:removeEventListener("touch",next2_1)
+					daesapan:addEventListener("touch",next2_1)
 				elseif n == 4 then
 					my_daesapan.alpha=1
 					my.alpha = 1
+					daesapan.alpha = 0
+					lay_daesapan.alpha = 0
+					daesapan:removeEventListener("touch",next2_1)
+					my_daesapan:addEventListener("touch",next2_1)
 				elseif n == 5 then
 					my_daesapan.alpha=0
 					my.alpha = 0
+					daesapan.alpha = 1
+					lay_daesapan.alpha = 0
+					my_daesapan:removeEventListener("touch",next2_1)
+					daesapan:addEventListener("touch",next2_1)
 				else
 					lay_daesapan.alpha = 1
+
 				end
 				daewha3[n-1].alpha = 0
 				daewha3[n].alpha = 1
@@ -260,9 +276,9 @@ function scene:create( event )
 			daewha3[2].alpha = 1
 			my_daesapan.alpha=1
 			my.alpha = 1
-			
+			daesapan.alpha = 0
 			choose1:removeEventListener("touch",next2)
-			daesapan:addEventListener("touch",next2_1)
+			my_daesapan:addEventListener("touch",next2_1)
 		end
 
 	end
@@ -275,6 +291,9 @@ function scene:create( event )
 				my_daesapan.alpha=0
 				my.alpha = 0
 				lay_daesapan.alpha=0
+				daesapan.alpha = 1
+				my_daesapan:removeEventListener("touch",next)
+				daesapan:addEventListener("touch",next)
 			else
 				lay_daesapan.alpha=1
 			end
@@ -312,8 +331,8 @@ function scene:create( event )
 			daewha[1].alpha = 1
 			my_daesapan.alpha = 1
 			my.alpha = 1
-			daesapan.alpha = 1
-			daesapan:addEventListener("touch",next)
+			daesapan.alpha = 0
+			my_daesapan:addEventListener("touch",next)
 			background:removeEventListener("touch",num1)
 		end
 
