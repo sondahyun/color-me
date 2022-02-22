@@ -46,6 +46,8 @@ function scene:create( event )
 	my.size = 45
 	my.alpha = 0
 	my:setFillColor(1)
+
+	
 	local function touch4(event)
 		for i = 2, 5 do
 			t[i].alpha = 0

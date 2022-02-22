@@ -236,11 +236,21 @@ function scene:create( event )
 	my_daesapan.alpha=0
 	my_daesapan.anchorY=0
 
-	local my = display.newText(mainName,display.contentWidth*0.17,display.contentHeight*0.77,"font/잘풀리는오늘 Medium.ttf")
-	my.anchorX,my.anchorY=0,0
-	my.size = 45
-	my.alpha = 0
-	my:setFillColor(1)
+	local option = {
+      text = mainName,
+      x = display.contentWidth*0.175,
+      y = display.contentHeight*0.73,
+      font = "font/NanumSquareRoundB",
+      fontSize =45,
+      align="center"
+   } 
+
+   local my = display.newText(option)
+   my.anchorY = 0
+   my.size = 45
+   my.alpha = 0
+   my:setFillColor(1)
+   sceneGroup:insert(my)
 
 	local daewha11 = {}
 	local daewha12 = {}
