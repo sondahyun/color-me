@@ -19,7 +19,7 @@ function scene:create( event )
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	mainName = loadedSettings.name
-
+	--mainName="sdfsdsd"
 	--loadedSettings.month = loadedSettings.month + 1
 	
 	--loadedSettings.money = loadedSettings.money + score3
@@ -41,14 +41,26 @@ function scene:create( event )
 	local pf = 0
 	local gf = 0
 
-	local my = display.newText(mainName,display.contentWidth*0.17,display.contentHeight*0.75,"font/잘풀리는오늘 Medium.ttf")
-	my.anchorX,anchorY=0,0
-	my.size = 45
-	my.alpha = 0
-	my:setFillColor(1)
+
+	local option ={
+		text = mainName,
+		x = display.contentWidth*0.175,
+      	y = display.contentHeight*0.73,
+      	font = "font/NanumSquareRoundB",
+      	fontSize =45,
+      	align="center"
+	}
+
+ 	local my = display.newText(option)
+	my.anchorY = 0
+ 	my.alpha = 1
+    my:setFillColor(1)
+  	sceneGroup:insert(my)
+
 
 	
 	local function touch4(event)
+
 		for i = 2, 5 do
 			t[i].alpha = 0
 		end
@@ -757,6 +769,7 @@ function scene:create( event )
 						t[i].alpha = 0
 					end
 	end
+	my:toFront()
 end
 function scene:show( event )
 	local sceneGroup = self.view

@@ -3,23 +3,38 @@
 -- view2.lua
 --
 -----------------------------------------------------------------------------------------
-
 local composer = require( "composer" )
 local scene = composer.newScene()
-local loadsave = require( "loadsave" )
-local json = require( "json" )
+
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local loadedSettings = loadsave.loadTable( "settings.json" )
-	
-	local background = display.newImage("이미지/스케줄/배경요소/배경.png")
-	background.x, background.y = display.contentWidth/2, display.contentHeight/2
-	sceneGroup:insert(background)
+	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
+	black.alpha = 0.5
+	black:setFillColor(0)
+	sceneGroup:insert(black)
 
-	local study = display.newImage("이미지/애니매이션/공부_과학.png")
-	study.x, study.y = display.contentWidth/2, display.contentHeight/2
-	sceneGroup:insert(study)
+	local function go_back(event)
+		if event.phase == "began" then
+			composer.hideOverlay("zopup_noitem")
+		end
+	end
+	
+	
+
+
+	local update = display.newImage("이미지/공통/팝업창/아이템없음.png")
+	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
+	sceneGroup:insert(update)
+
+	local exit = display.newImage("이미지/공통/x버튼.png")
+	exit.x, exit.y = display.contentWidth*0.645, display.contentHeight*0.368
+	sceneGroup:insert(exit)
+	exit:addEventListener("touch",go_back)
+
+
+
+
 end
 
 function scene:show( event )

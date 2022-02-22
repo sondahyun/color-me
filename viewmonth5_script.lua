@@ -60,12 +60,12 @@ function scene:create( event )
   nangam_blli.alpha = 0
 
   local choose11 = display.newImage("이미지/대화/선택지/블리.png")
-  choose11.x, choose11.y = display.contentWidth*0.2,display.contentHeight*0.47
+  choose11.x, choose11.y = display.contentWidth*0.23,display.contentHeight*0.47
   sceneGroup:insert(choose11)
   choose11.alpha = 0
 
   local choose12 = display.newImage("이미지/대화/선택지/블리.png")
-  choose12.x, choose12.y = display.contentWidth*0.8,display.contentHeight*0.47
+  choose12.x, choose12.y = display.contentWidth*0.77,display.contentHeight*0.47
   sceneGroup:insert(choose12)
   choose12.alpha = 0
 
@@ -92,12 +92,12 @@ function scene:create( event )
   sad_joy.alpha = 0
 
   local choose21 = display.newImage("이미지/대화/선택지/조이.png")
-  choose21.x, choose21.y = display.contentWidth*0.2,display.contentHeight*0.47
+  choose21.x, choose21.y = display.contentWidth*0.23,display.contentHeight*0.47
   sceneGroup:insert(choose21)
   choose21.alpha = 0
 
   local choose22 = display.newImage("이미지/대화/선택지/조이.png")
-  choose22.x, choose22.y = display.contentWidth*0.8,display.contentHeight*0.47
+  choose22.x, choose22.y = display.contentWidth*0.77,display.contentHeight*0.47
   sceneGroup:insert(choose22)
   choose22.alpha = 0
 
@@ -123,12 +123,12 @@ function scene:create( event )
   sad_soli.alpha = 0
 
   local choose31 = display.newImage("이미지/대화/선택지/솔리.png")
-  choose31.x, choose31.y = display.contentWidth*0.2,display.contentHeight*0.47
+  choose31.x, choose31.y = display.contentWidth*0.3,display.contentHeight*0.47
   sceneGroup:insert(choose31)
   choose31.alpha = 0
 
   local choose32 = display.newImage("이미지/대화/선택지/솔리.png")
-  choose32.x, choose32.y = display.contentWidth*0.8,display.contentHeight*0.47
+  choose32.x, choose32.y = display.contentWidth*0.77,display.contentHeight*0.47
   sceneGroup:insert(choose32)
   choose32.alpha = 0
 
@@ -156,12 +156,12 @@ function scene:create( event )
   sad_wiz.alpha = 0
 
   local choose41 = display.newImage("이미지/대화/선택지/위즈.png")
-  choose41.x, choose41.y = display.contentWidth*0.2,display.contentHeight*0.47
+  choose41.x, choose41.y = display.contentWidth*0.23,display.contentHeight*0.47
   sceneGroup:insert(choose41)
   choose41.alpha = 0
 
   local choose42 = display.newImage("이미지/대화/선택지/위즈.png")
-  choose42.x, choose42.y = display.contentWidth*0.8,display.contentHeight*0.47
+  choose42.x, choose42.y = display.contentWidth*0.77,display.contentHeight*0.47
   sceneGroup:insert(choose42)
   choose42.alpha = 0
 
@@ -188,46 +188,52 @@ function scene:create( event )
   sad_lay.alpha = 0
 
   local choose51 = display.newImage("이미지/대화/선택지/레이.png")
-  choose51.x, choose51.y = display.contentWidth*0.2,display.contentHeight*0.47
+  choose51.x, choose51.y = display.contentWidth*0.23,display.contentHeight*0.47
   sceneGroup:insert(choose51)
   choose51.alpha = 0
 
   local choose52 = display.newImage("이미지/대화/선택지/레이.png")
-  choose52.x, choose52.y = display.contentWidth*0.8,display.contentHeight*0.47
+  choose52.x, choose52.y = display.contentWidth*0.77,display.contentHeight*0.47
   sceneGroup:insert(choose52)
   choose52.alpha = 0
 
 
 
   local script_1 = display.newImage("이미지/대화/대화창/블리.png")
-  script_1.x,script_1.y =  display.contentWidth/2,display.contentHeight*0.8
+  script_1.x,script_1.y =  display.contentWidth/2,display.contentHeight*0.7176
   sceneGroup:insert(script_1)
   script_1.alpha = 0
+  script_1.anchorY = 0
 
   local script_2 = display.newImage("이미지/대화/대화창/조이.png")
-  script_2.x, script_2.y = display.contentWidth/2,display.contentHeight*0.8
+  script_2.x, script_2.y = display.contentWidth/2,display.contentHeight*0.7176
   sceneGroup:insert(script_2)
   script_2.alpha = 0
+  script_2.anchorY = 0
 
   local script_3 = display.newImage("이미지/대화/대화창/솔리.png")
-  script_3.x, script_3.y =  display.contentWidth/2,display.contentHeight*0.8
+  script_3.x, script_3.y =  display.contentWidth/2,display.contentHeight*0.7176
   sceneGroup:insert(script_3)
   script_3.alpha = 0
+  script_3.anchorY = 0
 
   local script_4 = display.newImage("이미지/대화/대화창/위즈.png")
-  script_4.x, script_4.y =  display.contentWidth/2,display.contentHeight*0.8
+  script_4.x, script_4.y =  display.contentWidth/2,display.contentHeight*0.7176
   sceneGroup:insert(script_4)
   script_4.alpha = 0
+  script_4.anchorY = 0
 
   local script_5 = display.newImage("이미지/대화/대화창/레이.png")
-  script_5.x, script_5.y =  display.contentWidth/2,display.contentHeight*0.8
+  script_5.x, script_5.y =  display.contentWidth/2,display.contentHeight*0.7176
   sceneGroup:insert(script_5)
   script_5.alpha = 0
+  script_5.anchorY = 0
 
   local my_daesapan = display.newImage("이미지/대화/대화창/주인공.png")
-  my_daesapan.x, my_daesapan.y = display.contentWidth/2,display.contentHeight*0.8
+  my_daesapan.x, my_daesapan.y = display.contentWidth/2,display.contentHeight*0.7176
   sceneGroup:insert(my_daesapan)
   my_daesapan.alpha=0
+  my_daesapan.anchorY = 0
 
   local option = {
       text = mainName,
@@ -268,17 +274,16 @@ function scene:create( event )
   }
 
   for i = 1,3 do
-    daewha11[i] = display.newText(text11[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha11[i] = display.newText(text11[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha11[i].anchorX,daewha11[i].anchorY = 0,0
     daewha11[i]:setFillColor(0)
     daewha11[i].alpha = 0
-    daewha11[i].size = 25
-    daewha11[i].x, daewha11[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
+    daewha11[i].size = 30
     sceneGroup:insert(daewha11[i])
   end
 
   for i = 1,3 do
-    daewha12[i] = display.newText(text12[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha12[i] = display.newText(text12[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha12[i].anchorX,daewha12[i].anchorY = 0,0
     daewha12[i]:setFillColor(0)
     daewha12[i].alpha = 0
@@ -287,12 +292,11 @@ function scene:create( event )
     else
       daewha12[i].size = 30
      end
-    daewha12[i].x, daewha12[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha12[i])
   end
 
   for i =1,3 do
-    daewha13[i] = display.newText(text13[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha13[i] = display.newText(text13[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha13[i].anchorX,daewha13[i].anchorY = 0,0
     daewha13[i]:setFillColor(0)
     daewha13[i].alpha = 0
@@ -301,7 +305,6 @@ function scene:create( event )
     else
       daewha13[i].size = 30
      end
-    daewha13[i].x, daewha13[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha13[i])
   end
 
@@ -330,17 +333,16 @@ function scene:create( event )
   }
 
   for i = 1,3 do
-    daewha21[i] = display.newText(text21[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha21[i] = display.newText(text21[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha21[i].anchorX,daewha21[i].anchorY = 0,0
     daewha21[i]:setFillColor(0)
     daewha21[i].alpha = 0
-    daewha21[i].size = 25
-    daewha21[i].x, daewha21[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
+    daewha21[i].size = 30
     sceneGroup:insert(daewha21[i])
   end
 
   for i = 1,3 do
-    daewha22[i] = display.newText(text22[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha22[i] = display.newText(text22[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha22[i].anchorX,daewha22[i].anchorY = 0,0
     daewha22[i]:setFillColor(0)
     daewha22[i].alpha = 0
@@ -349,12 +351,11 @@ function scene:create( event )
     else
       daewha22[i].size = 30
      end
-    daewha22[i].x, daewha22[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha22[i])
   end
 
   for i =1,3 do
-    daewha23[i] = display.newText(text23[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha23[i] = display.newText(text23[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha23[i].anchorX,daewha23[i].anchorY = 0,0
     daewha23[i]:setFillColor(0)
     daewha23[i].alpha = 0
@@ -363,7 +364,6 @@ function scene:create( event )
     else
       daewha23[i].size = 30
      end
-    daewha23[i].x, daewha23[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha23[i])
   end
 
@@ -392,17 +392,16 @@ function scene:create( event )
   }
 
   for i = 1,4 do
-    daewha31[i] = display.newText(text31[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha31[i] = display.newText(text31[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha31[i].anchorX,daewha31[i].anchorY = 0,0
     daewha31[i]:setFillColor(0)
     daewha31[i].alpha = 0
     daewha31[i].size = 25
-    daewha31[i].x, daewha31[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha31[i])
   end
 
   for i = 1,3 do
-    daewha32[i] = display.newText(text32[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha32[i] = display.newText(text32[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha32[i].anchorX,daewha32[i].anchorY = 0,0
     daewha32[i]:setFillColor(0)
     daewha32[i].alpha = 0
@@ -411,12 +410,11 @@ function scene:create( event )
     else
       daewha32[i].size = 30
      end
-    daewha32[i].x, daewha32[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha32[i])
   end
 
   for i =1,3 do
-    daewha33[i] = display.newText(text33[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha33[i] = display.newText(text33[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha33[i].anchorX,daewha33[i].anchorY = 0,0
     daewha33[i]:setFillColor(0)
     daewha33[i].alpha = 0
@@ -425,7 +423,6 @@ function scene:create( event )
     else
       daewha33[i].size = 30
      end
-    daewha33[i].x, daewha33[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha33[i])
   end
 
@@ -456,17 +453,16 @@ function scene:create( event )
   }
 
   for i = 1,3 do
-    daewha41[i] = display.newText(text41[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha41[i] = display.newText(text41[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha41[i].anchorX,daewha41[i].anchorY = 0,0
     daewha41[i]:setFillColor(0)
     daewha41[i].alpha = 0
     daewha41[i].size = 25
-    daewha41[i].x, daewha41[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha41[i])
   end
 
   for i = 1,3 do
-    daewha42[i] = display.newText(text42[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha42[i] = display.newText(text42[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha42[i].anchorX,daewha42[i].anchorY = 0,0
     daewha42[i]:setFillColor(0)
     daewha42[i].alpha = 0
@@ -475,12 +471,11 @@ function scene:create( event )
     else
       daewha42[i].size = 30
      end
-    daewha42[i].x, daewha42[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha42[i])
   end
 
   for i =1,3 do
-    daewha43[i] = display.newText(text43[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha43[i] = display.newText(text43[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha43[i].anchorX,daewha43[i].anchorY = 0,0
     daewha43[i]:setFillColor(0)
     daewha43[i].alpha = 0
@@ -489,7 +484,6 @@ function scene:create( event )
     else
       daewha43[i].size = 30
      end
-    daewha43[i].x, daewha43[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha43[i])
   end
 
@@ -514,17 +508,16 @@ function scene:create( event )
   }
 
   for i = 1,2 do
-    daewha51[i] = display.newText(text51[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha51[i] = display.newText(text51[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha51[i].anchorX,daewha51[i].anchorY = 0,0
     daewha51[i]:setFillColor(0)
     daewha51[i].alpha = 0
-    daewha51[i].size = 25
-    daewha51[i].x, daewha51[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
+    daewha51[i].size = 30
     sceneGroup:insert(daewha51[i])
   end
 
   for i = 1,3 do
-    daewha52[i] = display.newText(text52[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha52[i] = display.newText(text52[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha52[i].anchorX,daewha52[i].anchorY = 0,0
     daewha52[i]:setFillColor(0)
     daewha52[i].alpha = 0
@@ -533,12 +526,11 @@ function scene:create( event )
     else
       daewha52[i].size = 30
      end
-    daewha52[i].x, daewha52[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha52[i])
   end
 
   for i =1,3 do
-    daewha53[i] = display.newText(text53[i],105,550,"font/NanumSquare_acB.ttf")
+    daewha53[i] = display.newText(text53[i],display.contentWidth*0.0833,display.contentHeight*0.8009,"font/NanumSquare_acB.ttf")
     daewha53[i].anchorX,daewha53[i].anchorY = 0,0
     daewha53[i]:setFillColor(0)
     daewha53[i].alpha = 0
@@ -547,7 +539,6 @@ function scene:create( event )
     else
       daewha53[i].size = 30
      end
-    daewha53[i].x, daewha53[i].y = display.contentWidth * 0.084,display.contentHeight*0.752
     sceneGroup:insert(daewha53[i])
   end
 

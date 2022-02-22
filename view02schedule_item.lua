@@ -13,9 +13,11 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
-	local location = composer.getVariable("location")
-	local color = composer.getVariable("color")
+	location = composer.getVariable("location")
+	i = composer.getVariable("number")
+	item = composer.getVariable("item")
 
+	format = composer.getVariable("format")
 	local items = {}
 	
 	items[1] = loadedItems.item1--/loadedSettings.item1
@@ -37,7 +39,17 @@ function scene:create( event )
 
 	local function goback_bag(event)
 		if event.phase == "began" then 
-			composer.hideOverlay("viewgift_bag_popup")
+			composer.setVariable("number",i)
+			composer.setVariable("useornot",0)
+			composer.removeScene("view02schedule")
+			composer.removeScene("view02schedule_item")
+			if format == 1 then 
+				composer.gotoScene("view03")
+			elseif format == 2 then
+				composer.gotoScene("view03_fun")
+			else 
+				composer.gotoScene("view03_hobby")
+			end
 		end
 	end
 
@@ -205,16 +217,25 @@ function scene:create( event )
 
 			loadedItems.itemCount = loadedItems.itemCount - 1
 			loadsave.saveTable(loadedItems,"items.json")
+			composer.setVariable("number",i)
 			composer.setVariable("item",item)
-			composer.setVariable("color",color)
-			composer.removeScene("viewgift_bag")
-			composer.removeScene("viewgift_bag_popup")
-			composer.gotoScene("viewgift_finish")
+			composer.setVariable("useornot",1)
+			composer.removeScene("view02schedule")
+			composer.removeScene("view02schedule_item")
+			if format == 1 then 
+				composer.gotoScene("view03")
+			elseif format == 2 then
+				composer.gotoScene("view03_fun")
+			else 
+				composer.gotoScene("view03_hobby")
+			end
+			
+			
 		end
 	end
 
 
-	item = composer.getVariable("item")
+	
 	local use_popup = display.newImage("이미지/공통/사용.png")
 	use_popup.x, use_popup.y = display.contentWidth*0.5, display.contentHeight*0.5
 

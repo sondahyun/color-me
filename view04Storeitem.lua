@@ -19,6 +19,10 @@ function scene:create( event )
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
+	local option1={
+		isModal=true
+	}
+
 	local background = display.newImage("이미지/상점/배경(가격).png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
@@ -182,7 +186,7 @@ function scene:create( event )
 				composer.gotoScene("view04Store")
 			else 
 				--composer.removeScene("view04Storeitem")
-				composer.showOverlay("view04Storestop")
+				composer.showOverlay("view04Storestop",option1)
 			end
 		end
 	end
