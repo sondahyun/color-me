@@ -699,8 +699,8 @@ function scene:create( event )
               loadedSettings.blue = loadedSettings.blue + 2
               loadsave.saveTable(loadedSettings,"settings.json")
               daewha41[4].alpha = 0
-              my_daesapan.alpha=1
-              my.alpha = 1
+              my_daesapan.alpha=0
+              my.alpha = 0
               choose41.alpha = 0
               choose42.alpha = 0
               daewha42[1].alpha = 0
@@ -731,8 +731,8 @@ function scene:create( event )
               loadedSettings.blue = loadedSettings.blue + 5
               loadsave.saveTable(loadedSettings,"settings.json")          
               daewha41[4].alpha = 0
-              my_daesapan.alpha=1
-              my.alpha = 1
+              my_daesapan.alpha=0
+              my.alpha = 0
               choose41.alpha = 0
               choose42.alpha = 0
               wiz.alpha = 0
@@ -768,8 +768,8 @@ function scene:create( event )
               elseif i == 2 then
 
                 daewha41[3].alpha = 0
-                my_daesapan.alpha = 0
-                my.alpha = 0
+                my_daesapan.alpha = 1
+                my.alpha = 1
                 daewha41[4].alpha = 1
                 i=i+1
 
