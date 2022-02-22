@@ -100,10 +100,10 @@ function scene:create( event )
 
 	for i = 1,4 do
 		if i == 1 then
-			daewha2[i] = display.newText(text2[i],105,550,"font/NanumSquareRoundB.ttf")
+			daewha2[i] = display.newText(text2[i],105,550,"font/NanumSquare_acB.ttf")
 			daewha2[i].size = 36
 		else
-			daewha2[i] = display.newText(text2[i],105,550,"font/NanumSquareRoundR.ttf")
+			daewha2[i] = display.newText(text2[i],105,550,"font/NanumSquare_acB.ttf")
 			daewha2[i].size = 30
 		end
 		daewha2[i].anchorX,daewha2[i].anchorY = 0,0
@@ -115,10 +115,10 @@ function scene:create( event )
 
 	for i =1,6 do
 		if i == 1 then
-			daewha3[i] = display.newText(text3[i],105,550,"font/NanumSquareRoundB.ttf")
+			daewha3[i] = display.newText(text3[i],105,550,"font/NanumSquare_acB.ttf")
 			daewha3[i].size = 36
 		else
-			daewha3[i] = display.newText(text3[i],105,550,"font/NanumSquareRoundR.ttf")
+			daewha3[i] = display.newText(text3[i],105,550,"font/NanumSquare_acB.ttf")
 			daewha3[i].size = 30
 		end
 		daewha3[i].x, daewha3[i].y = display.contentWidth * 0.084,display.contentHeight*0.8
