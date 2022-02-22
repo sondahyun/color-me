@@ -46,27 +46,28 @@ function scene:create( event )
 		loadedSettings.hobby5_num 
 	}
 
-	local function save() 
-		loadedSettings.study1_num = study[1]
-		loadedSettings.study2_num = study[2]
-		loadedSettings.study3_num = study[3]
-		loadedSettings.study4_num = study[4]
-		loadedSettings.study5_num = study[5]
+	local loadedItems= loadsave.loadTable( "items.json" )
+	
+	-- 활동 시 필요한 아이템 확인을 위한 객체 생성
 
-		loadedSettings.play1_num = play[1]
-		loadedSettings.play2_num = play[2]
-		loadedSettings.play3_num = play[3] 
-		loadedSettings.play4_num = play[4]
-		loadedSettings.play5_num = play[5]
-
-		loadedSettings.hobby1_num = hobby[1]
-		loadedSettings.hobby2_num = hobby[2]
-		loadedSettings.hobby3_num = hobby[3]
-		loadedSettings.hobby4_num = hobby[4]
-		loadedSettings.hobby5_num = hobby[5]
-
-		loadsave.saveTable(loadedSettings,"settings.json")
-	end
+	local items = {}
+	
+	items[1] = loadedItems.item1--/loadedSettings.item1
+	items[2] = loadedItems.item2--/loadedSettings.item1	
+	items[3] = loadedItems.item3--/loadedSettings.item1		
+	items[4] = loadedItems.item4--/loadedSettings.item1		
+	items[5] = loadedItems.item5--/loadedSettings.item1		
+	items[6] = loadedItems.item6--/loadedSettings.item1		
+	items[7] = loadedItems.item7--/loadedSettings.item1		
+	items[8] = loadedItems.item8--/loadedSettings.item1		
+	items[9] = loadedItems.item9--/loadedSettings.item1		
+	items[10] = loadedItems.item10--/loadedSettings.item1		
+	items[11] = loadedItems.item11--/loadedSettings.item1		
+	items[12] = loadedItems.item12--/loadedSettings.item1
+	items[13] = loadedItems.item10--/loadedSettings.item1		
+	items[14] = loadedItems.item11--/loadedSettings.item1		
+	items[15] = loadedItems.item12--/loadedSettings.item1
+	items[16] = loadedItems.item10--/loadedSettings.item1		
 
 
 
@@ -225,9 +226,26 @@ function scene:create( event )
 		if event.phase == "began" then 
 			local i = event.target.name 
 			if (study[i] == 0) and (stat_num<4) then
+				local location = 0
+
+				for i=1,16 do
+					if items[i] == "연필" then 
+						location = i
+						break
+					end
+				end
+
 				composer.setVariable("number",i)
-				composer.removeScene("view02schedule")
-				composer.gotoScene("view02schedule_animation")
+				--composer.removeScene("view02schedule")
+
+				if k == 0 then 
+					composer.gotoScene("view03")
+				else
+					composer.setVariable("item","연필")
+					composer.setVariable("format",1)
+					composer.setVariable("location",location)
+					composer.showOverlay("view02schedule_item",option)
+				end
 			else
 				composer.showOverlay("view02schedule_alarm",option)
 			end
@@ -238,20 +256,61 @@ function scene:create( event )
 	local function play_function(event)
 		if event.phase == "began" then 
 			local i = event.target.name
+			local item_name = event.target.id
 			if (play[i] == 0) and (stat_num<4) then
-				print("다음화면으로!")
+				local location = 0
+
+				for i=1,16 do
+					if items[i] == item_name then 
+						location = i
+						break
+					end
+				end
+
+				composer.setVariable("number",i)
+				--composer.removeScene("view02schedule")
+
+				if k == 0 then 
+					composer.gotoScene("view03_fun")
+				else
+					composer.setVariable("item",item_name)
+					composer.setVariable("format",2)
+					composer.setVariable("location",location)
+					composer.showOverlay("view02schedule_item",option)
+				end
 			else
 				composer.showOverlay("view02schedule_alarm",option)
 			end
 		end
 	end
 
+
 	--취미 함수--
 	local function hobby_function(event)
 		if event.phase == "began" then 
 			local i = event.target.name 
+			local item_name = event.target.id
 			if (hobby[i] == 0) and (stat_num<4) then
-				print("다음화면으로!")
+				local location = 0
+
+				for i=1,16 do
+					if items[i] == item_name then 
+						location = i
+						break
+					end
+				end
+
+				composer.setVariable("number",i)
+				--composer.removeScene("view02schedule")
+
+				if k == 0 then 
+					composer.gotoScene("view03_hobby")
+				else
+					composer.setVariable("item",item_name)
+					composer.setVariable("format",3)
+					composer.setVariable("location",location)
+					composer.showOverlay("view02schedule_item",option)
+				end
 			else
 				composer.showOverlay("view02schedule_alarm",option)
 			end
@@ -274,12 +333,20 @@ function scene:create( event )
 	-- 놀이 버튼
 
 	local play_button = {}
+	local play_item = {
+		"머리핀",
+		"오리",
+		"사료",
+		"안경닦이",
+		"망토"
+	}
 
 	for i=1,5 do
 		play_button[i]  = display.newImage("이미지/스케줄/놀이버튼/놀이" .. i .. ".png")
 		play_button[i].x, play_button[i].y = display.contentWidth*0.0560,display.contentHeight*0.4848+display.contentHeight*0.0722*(i-1)
 		play_button[i].anchorX,play_button[i].anchorY = 0,0
 		play_button[i].name = i
+		play_button[i].id = play_item[i]
 		sceneGroup:insert(play_button[i])
 		play_button[i]:addEventListener("touch",play_function)
 	end
@@ -287,6 +354,13 @@ function scene:create( event )
 	-- 취미 버튼
 
 	local hobby_button = {}
+	local hobby_item = {
+		"민초",
+		"응원봉",
+		"블록",
+		"헤드셋",
+		"파이"
+	}
 
 	for i=1,5 do
 		hobby_button[i]  = display.newImage("이미지/스케줄/취미버튼/취미" .. i .. ".png")
@@ -294,6 +368,7 @@ function scene:create( event )
 		hobby_button[i].anchorX,hobby_button[i].anchorY = 0,0
 		sceneGroup:insert(hobby_button[i])
 		hobby_button[i].name = i
+		hobby_button[i].id = hobby_item[i]
 		hobby_button[i]:addEventListener("touch",hobby_function)
 	end
 
