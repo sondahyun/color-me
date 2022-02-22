@@ -169,7 +169,7 @@ function scene:create( event )
     -- 화면전환 이펙트
     local options1={
         effect = "fade",
-        time = 20
+        time = 2000
     }
 
 
