@@ -577,6 +577,7 @@ function scene:create( event )
               daewha11[3].alpha = 0
               my_daesapan.alpha= 0 
               my.alpha = 0
+              script_1.alpha = 1
               choose11.alpha = 0
               choose12.alpha = 0
               happy_blli.alpha = 0
@@ -627,6 +628,7 @@ function scene:create( event )
                 daewha11[1].alpha = 0
                 my_daesapan.alpha = 1
                 my.alpha = 1
+                script_1.alpha = 0
                 daewha11[2].alpha = 1
                 i = i+1
 
@@ -635,11 +637,12 @@ function scene:create( event )
                 daewha11[2].alpha = 0
                 my_daesapan.alpha = 0
                 my.alpha = 0
+                script_1.alpha = 1
                 daewha11[3].alpha = 1
                 i=i+1
 
               else
-                
+                my_daesapan:removeEventListener("touch",next)
                 script_1:removeEventListener("touch",next)
                 choose11.alpha = 1
                 daewha12[1].alpha = 1
@@ -669,6 +672,7 @@ function scene:create( event )
           daewha11.alpha = 1
           daewha11[1].alpha = 1
           script_1:addEventListener("touch",next)
+          my_daesapan:addEventListener("touch",next)
 
   elseif color == "2" then
       -- 파랑마을 이동
@@ -701,6 +705,7 @@ function scene:create( event )
               daewha41[4].alpha = 0
               my_daesapan.alpha=0
               my.alpha = 0
+              script_4.alpha = 1
               choose41.alpha = 0
               choose42.alpha = 0
               daewha42[1].alpha = 0
@@ -733,6 +738,7 @@ function scene:create( event )
               daewha41[4].alpha = 0
               my_daesapan.alpha=0
               my.alpha = 0
+              script_4.alpha =1
               choose41.alpha = 0
               choose42.alpha = 0
               wiz.alpha = 0
@@ -754,6 +760,7 @@ function scene:create( event )
                 daewha41[1].alpha = 0
                 my_daesapan.alpha = 1
                 my.alpha = 1
+                script_4.alpha = 0
                 daewha41[2].alpha = 1
                 i=i+1
 
@@ -762,6 +769,7 @@ function scene:create( event )
                 daewha41[2].alpha = 0
                 my_daesapan.alpha = 0
                 my.alpha = 0
+                script_4.alpha = 1
                 daewha41[3].alpha = 1
                 i=i+1
 
@@ -770,11 +778,12 @@ function scene:create( event )
                 daewha41[3].alpha = 0
                 my_daesapan.alpha = 1
                 my.alpha = 1
+                script_4.alpha = 0
                 daewha41[4].alpha = 1
                 i=i+1
 
               else
-                
+                my_daesapan:removeEventListener("touch",next)
                 script_4:removeEventListener("touch",next)
                 choose41.alpha = 1
                 daewha42[1].alpha = 1
@@ -805,7 +814,7 @@ function scene:create( event )
           daewha41.alpha = 1
           daewha41[1].alpha = 1
           script_4:addEventListener("touch",next)
-
+          my_daesapan:addEventListener("touch",next)
 
         
   elseif color == "3" then
@@ -899,11 +908,12 @@ function scene:create( event )
                 daewha21[2].alpha = 0
                 my_daesapan.alpha  = 1
                 my.alpha = 1
+                script_2.alpha = 0
                 daewha21[3].alpha = 1
                 i=i+1
 
               elseif i == 2 then
-                
+                script_2.alpha = 1
                 daewha21[3].alpha = 0
                 my_daesapan.alpha  = 0
                 my.alpha = 0
@@ -912,7 +922,7 @@ function scene:create( event )
               
 
               else
-                
+                my_daesapan:removeEventListener("touch",next)
                 script_2:removeEventListener("touch",next)
                 choose21.alpha = 1
                 daewha22[1].alpha = 1
@@ -938,13 +948,13 @@ function scene:create( event )
 
           background_2.alpha = 1
           joy.alpha = 1
-          script_2.alpha = 1
+          --script_2.alpha = 1
           daewha21.alpha = 1
           daewha21[1].alpha = 1
           my_daesapan.alpha=1
           my.alpha=1
           script_2:addEventListener("touch",next)
-        
+          my_daesapan:addEventListener("touch",next)
   elseif color == "4" then
       -- 보라마을 이동
           loadedSettings.purple_num = loadedSettings.purple_num + 1
@@ -962,7 +972,7 @@ function scene:create( event )
             if event.phase == "began" then
               composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("view01Map")
+              composer.gotoScene("view01Map",options)
             end
           end
 
@@ -975,6 +985,7 @@ function scene:create( event )
               daewha51[2].alpha = 0
               my_daesapan.alpha= 0
               my.alpha = 0
+              script_5.alpha = 1
               choose51.alpha = 0
               choose52.alpha = 0
               lay.alpha = 0
@@ -993,7 +1004,7 @@ function scene:create( event )
             if event.phase == "began" then
               composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("view01Map")
+              composer.gotoScene("view01Map",options)
             end
           end
 
@@ -1004,6 +1015,7 @@ function scene:create( event )
               daewha51[2].alpha = 0
               my_daesapan.alpha= 0
               my.alpha = 0
+              script_5.alpha = 1
               choose51.alpha = 0
               choose52.alpha = 0
               lay.alpha = 0
@@ -1025,11 +1037,12 @@ function scene:create( event )
                 daewha51[1].alpha = 0
                 my_daesapan.alpha = 1
                 my.alpha = 1
+                script_5.alpha = 0
                 daewha51[2].alpha = 1
                 i=i+1
 
               else
-                
+                my_daesapan:removeEventListener("touch",next)
                 script_5:removeEventListener("touch",next)
                 choose51.alpha = 1
                 daewha52[1].alpha = 1
@@ -1061,7 +1074,7 @@ function scene:create( event )
           my.alpha = 0
           daewha51[1].alpha = 1
           script_5:addEventListener("touch",next)
-
+          my_daesapan:addEventListener("touch",next)
         
   elseif color == "5" then
     --초록마을 이동
@@ -1094,6 +1107,7 @@ function scene:create( event )
               daewha31[2].alpha = 0
               my_daesapan.alpha=1
               my.alpha = 1
+              script_3.alpha = 0
               choose31.alpha = 0
               choose32.alpha = 0
               soli.alpha = 0
@@ -1102,7 +1116,7 @@ function scene:create( event )
               daewha33[1].alpha = 0
               daewha32[2].alpha = 1
               choose31:removeEventListener("touch",next1)
-              script_3:addEventListener("touch",next1_1)
+              my_daesapan:addEventListener("touch",next1_1)
             end
 
           end
@@ -1123,6 +1137,7 @@ function scene:create( event )
               daewha31[2].alpha = 0
               my_daesapan.alpha=0
               my.alpha = 0
+              script_3.alpha = 1
               choose31.alpha = 0
               choose32.alpha = 0
               soli.alpha = 0
@@ -1144,11 +1159,12 @@ function scene:create( event )
                 daewha31[1].alpha = 0
                 my_daesapan.alpha = 0
                 my.alpha = 0
+                script_3.alpha = 1
                 daewha31[2].alpha = 1
                 i=i+1
 
               else
-                
+                my_daesapan:removeEventListener("touch",next)
                 script_3:removeEventListener("touch",next)
                 choose31.alpha = 1
                 daewha32[1].alpha = 1
@@ -1174,12 +1190,13 @@ function scene:create( event )
 
           background_3.alpha = 1
           soli.alpha = 1
-          script_3.alpha = 1
+          script_3.alpha = 0
           my_daesapan.alpha = 1
           my.alpha = 1
           daewha31.alpha = 1
           daewha31[1].alpha = 1
           script_3:addEventListener("touch",next)
+          my_daesapan:addEventListener("touch",next)
         end
 end
 
