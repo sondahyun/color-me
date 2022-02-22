@@ -251,7 +251,7 @@ function scene:create( event )
    local my = display.newText(option)
    my.anchorY = 0
    my.size = 45
-   my.alpha = 1
+   my.alpha = 0
    my:setFillColor(1)
    sceneGroup:insert(my)
 
@@ -837,8 +837,8 @@ function scene:create( event )
               loadedSettings.yellow = loadedSettings.yellow + 2
               loadsave.saveTable(loadedSettings,"settings.json")
               daewha21[4].alpha = 0
-              my_daesapan.alpha=1
-              my.alpha = 1
+              my_daesapan.alpha=0
+              my.alpha = 0
               choose21.alpha = 0
               choose22.alpha = 0
               joy.alpha = 0
@@ -868,8 +868,8 @@ function scene:create( event )
               loadedSettings.yellow = loadedSettings.yellow + 5
               loadsave.saveTable(loadedSettings,"settings.json")        
               daewha21[4].alpha = 0
-              my_daesapan.alpha=1
-              my.alpha = 1
+              my_daesapan.alpha=0
+              my.alpha = 0
               choose21.alpha = 0
               choose22.alpha = 0
               joy.alpha = 0
@@ -888,17 +888,17 @@ function scene:create( event )
 
               if i == 0 then
                 daewha21[1].alpha = 0
-            
+                my_daesapan.alpha=0
                 daewha21[2].alpha = 1
-                my_daesapan.alpha  = 1
-                my.alpha = 1
+                script_2.alpha  = 1
+                my.alpha = 0
                 i=i+1
 
               elseif i == 1 then
                 
                 daewha21[2].alpha = 0
-                my_daesapan.alpha  = 0
-                my.alpha = 0
+                my_daesapan.alpha  = 1
+                my.alpha = 1
                 daewha21[3].alpha = 1
                 i=i+1
 
@@ -941,6 +941,8 @@ function scene:create( event )
           script_2.alpha = 1
           daewha21.alpha = 1
           daewha21[1].alpha = 1
+          my_daesapan.alpha=1
+          my.alpha=1
           script_2:addEventListener("touch",next)
         
   elseif color == "4" then
@@ -960,7 +962,7 @@ function scene:create( event )
             if event.phase == "began" then
               composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("viewmonth_event_gift")
+              composer.gotoScene("view01Map")
             end
           end
 
@@ -991,7 +993,7 @@ function scene:create( event )
             if event.phase == "began" then
               composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("viewmonth_event_gift")
+              composer.gotoScene("view01Map")
             end
           end
 
