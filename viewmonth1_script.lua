@@ -243,7 +243,7 @@ function scene:create( event )
 	--print("what" .. loadedSettings.friendship)
 
 
-	--local color = composer.getVariable("color")
+	local color = composer.getVariable("color")
 	
 	-- 빨간마을화면전환
 	local function redPage()
@@ -437,7 +437,6 @@ function scene:create( event )
 		end
 	end
 
-	color = "5"
 	if color == "1" then
 
 					loadedSettings.red_num = loadedSettings.red_num + 1
