@@ -89,23 +89,24 @@ function scene:create( event )
 	background.x, background.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(background)
 
+
 	local options = {
-		width = 1920,
-		height = 1080,
+		width = 1536,
+		height = 864,
 		numFrames = 30,
-		sheetContentWidth=9600, sheetContentHeight=6480
+		sheetContentWidth=7680, sheetContentHeight=5184
 	}
 
 	if i == 1 then
-		motion = graphics.newImageSheet("애니매이션/공부/1.png",options)
+		motion = graphics.newImageSheet("애니매이션/수정/11.png",options)
 	elseif i == 2 then
-		motion = graphics.newImageSheet("애니매이션/공부/2.png",options)
+		motion = graphics.newImageSheet("애니매이션/수정/12.png",options)
 	elseif i == 3 then
-		motion = graphics.newImageSheet("애니매이션/공부/3.png",options)
+		motion = graphics.newImageSheet("애니매이션/수정/13.png",options)
 	elseif i == 4 then
-		motion = graphics.newImageSheet("애니매이션/공부/4.png",options)
+		motion = graphics.newImageSheet("애니매이션/수정/14.png",options)
 	elseif i == 5 then
-		motion = graphics.newImageSheet("애니매이션/공부/5.png",options)
+		motion = graphics.newImageSheet("애니매이션/수정/15.png",options)
 	end
 
  
@@ -121,6 +122,7 @@ function scene:create( event )
 	
 	local study_motion = display.newSprite(motion,data)
 	study_motion.x, study_motion.y = display.contentWidth/2,display.contentHeight/2
+	--study_motion.width = study_motion.width*2
 	sceneGroup:insert(study_motion)
 
 
@@ -132,7 +134,7 @@ function scene:create( event )
 		--timer.cancelAll()
 		study_motion:pause()
 		composer.removeScene("view03")
-		composer.gotoScene("view02_스케줄창")
+		composer.gotoScene("view02schedule")
 	end
 
 	timer.performWithDelay(2000,gotoback)
