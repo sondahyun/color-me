@@ -123,7 +123,7 @@ function scene:create( event )
   sad_soli.alpha = 0
 
   local choose31 = display.newImage("이미지/대화/선택지/솔리.png")
-  choose31.x, choose31.y = display.contentWidth*0.3,display.contentHeight*0.47
+  choose31.x, choose31.y = display.contentWidth*0.23,display.contentHeight*0.47
   sceneGroup:insert(choose31)
   choose31.alpha = 0
 
@@ -396,7 +396,7 @@ function scene:create( event )
     daewha31[i].anchorX,daewha31[i].anchorY = 0,0
     daewha31[i]:setFillColor(0)
     daewha31[i].alpha = 0
-    daewha31[i].size = 25
+    daewha31[i].size = 30
     sceneGroup:insert(daewha31[i])
   end
 
@@ -457,7 +457,7 @@ function scene:create( event )
     daewha41[i].anchorX,daewha41[i].anchorY = 0,0
     daewha41[i]:setFillColor(0)
     daewha41[i].alpha = 0
-    daewha41[i].size = 25
+    daewha41[i].size = 30
     sceneGroup:insert(daewha41[i])
   end
 
@@ -554,7 +554,7 @@ function scene:create( event )
 
 
 
-  local color = composer.getVariable("color")
+  local color ="5" composer.getVariable("color")
 
   if color == "1" then
 
