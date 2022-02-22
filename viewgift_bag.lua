@@ -13,7 +13,20 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
-	local color = composer.getVariable("color")
+
+	local color_char = composer.getVariable("color_char")
+	if color_char == "1" then
+		color = 1 
+	elseif color_char == "2" then
+		color = 2
+	elseif color_char == "3" then
+		color = 3
+	elseif color_char == "4" then
+		color = 4
+	elseif color_char == "5" then
+		color = 5
+	end
+	--local color = composer.getVariable("color")
 
 	local update = display.newImage("이미지/가방/배경.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5

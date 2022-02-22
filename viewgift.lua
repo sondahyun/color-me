@@ -256,7 +256,7 @@ function scene:create( event )
 		if event.phase == "began" then
 			
 			if u == 1 then
-
+				print(loadedItems.itemCount)
 				choose1[color].alpha = 0
 				choose2[color].alpha = 0
 				daewha[j].alpha = 0
@@ -267,6 +267,7 @@ function scene:create( event )
 				--local gift = 1
 				-- 선물이 없을 때
 				if loadedItems.itemCount == 0 then
+					
 					daewha[5].alpha = 1
 					u =u +1
 				else 
