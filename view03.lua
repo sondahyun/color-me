@@ -122,6 +122,7 @@ function scene:create( event )
 	
 	local study_motion = display.newSprite(motion,data)
 	study_motion.x, study_motion.y = display.contentWidth/2,display.contentHeight/2
+	--study_motion.width = study_motion.width*2
 	sceneGroup:insert(study_motion)
 
 
