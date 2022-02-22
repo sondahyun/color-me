@@ -227,7 +227,7 @@ function scene:create( event )
 			if (study[i] == 0) and (stat_num<4) then
 				composer.setVariable("number",i)
 				composer.removeScene("view02schedule")
-				composer.gotoScene("view03")
+				composer.gotoScene("view02schedule_animation")
 			else
 				composer.showOverlay("view02schedule_alarm",option)
 			end
