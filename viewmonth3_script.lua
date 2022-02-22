@@ -512,8 +512,8 @@ function scene:create( event )
 
 
 
-	--local color = composer.getVariable("color")
-	color = "5"
+	local color = composer.getVariable("color")
+
 	if color == "1" then
 
 					loadedSettings.red_num = loadedSettings.red_num + 1
