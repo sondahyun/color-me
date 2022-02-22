@@ -75,13 +75,25 @@ function scene:create( event )
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
-	study[i] = 1
+	hobby[i] = 1
 	stat_num = stat_num + 1
+
+
 	if friend_stat[i] <101 then 
-		friend_stat[i] = friend_stat[i] + 3
+		if i == 1 then
+			friend_stat[3] = friend_stat[3] + 3
+		elseif i == 2 then
+			friend_stat[1] = friend_stat[1] + 3
+		elseif i == 3 then
+			friend_stat[4] = friend_stat[4] + 3
+		elseif i == 4 then
+			friend_stat[2] = friend_stat[2] + 3
+		else
+			friend_stat[5] = friend_stat[5] + 3
+		end
 	end
 	if stat_num < 101 then
-		loadedSettings.study = loadedSettings.study +4
+		loadedSettings.hobby = loadedSettings.hobby +4
 	end
 
 	save()
@@ -97,20 +109,20 @@ function scene:create( event )
 
 
 	local options = {
-		width = 1536,
-		height = 864,
+		width = 1728,
+		height = 972,
 		numFrames = 30,
-		sheetContentWidth=7680, sheetContentHeight=5184
+		sheetContentWidth=8640, sheetContentHeight=5832
 	}
+
 
 	useornot = composer.getVariable("useornot")
 
 	if useornot == 1 then
-		motion = graphics.newImageSheet("애니매이션/수정/1" .. i .. ".png",options)
+		motion = graphics.newImageSheet("이미지/수정/취미/" .. i .. "템.png",options)
 	else
-		motion = graphics.newImageSheet("애니매이션/수정/1" .. i .. ".png",options)
+		motion = graphics.newImageSheet("이미지/수정/취미/" .. i .. ".png",options)
 	end
-	
 
  
 	local data = {
@@ -141,7 +153,7 @@ function scene:create( event )
 				loadedSettings.month3_event = loadedSettings.month3_event + 1
 				loadsave.saveTable(loadedSettings,"settings.json")
 
-				composer.removeScene("view03")
+				composer.removeScene("view03_hobby")
 				composer.gotoScene("viewmonth3_event")
 				
 
@@ -149,20 +161,21 @@ function scene:create( event )
 				loadedSettings.month4_event = loadedSettings.month4_event + 1
 				loadsave.saveTable(loadedSettings,"settings.json")
 
-				composer.removeScene("view03")
+				composer.removeScene("view03_hobby")
 				composer.gotoScene("viewmonth4_event")
 
 			elseif loadedSettings.month5_event == 1 then
 				loadedSettings.month5_event = loadedSettings.month5_event + 1
 				loadsave.saveTable(loadedSettings,"settings.json")
 
-				composer.removeScene("view03")
+				composer.removeScene("view03_hobby")
 				composer.gotoScene("viewmonth5_event")
 
 			else 
-				composer.removeScene("view03")
+				composer.removeScene("view03_hobby")
 				composer.gotoScene("view02schedule")
 			end
+
 	end
 
 	timer.performWithDelay(3000,gotoback)
