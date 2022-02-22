@@ -41,8 +41,9 @@ function scene:create( event )
 	local pf = 0
 	local gf = 0
 
+
 	local option ={
-		text = "mainName",
+		text = mainName,
 		x = display.contentWidth*0.175,
       	y = display.contentHeight*0.73,
       	font = "font/NanumSquareRoundB",
@@ -56,7 +57,10 @@ function scene:create( event )
     my:setFillColor(1)
   	sceneGroup:insert(my)
 
-  	local function touch4(event)
+
+	
+	local function touch4(event)
+
 		for i = 2, 5 do
 			t[i].alpha = 0
 		end
