@@ -533,7 +533,9 @@ function scene:create( event )
 					if loadedSettings.limited_num == 1 then
 						loadedSettings.show6 = 1
 					end
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 
 					local i = 0
@@ -681,7 +683,9 @@ function scene:create( event )
 					if loadedSettings.limited_num == 1 then
 						loadedSettings.show6 = 1
 					end
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0
@@ -823,7 +827,9 @@ function scene:create( event )
 					if loadedSettings.limited_num == 1 then
 						loadedSettings.show6 = 1
 					end
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0
@@ -987,7 +993,9 @@ function scene:create( event )
 					if loadedSettings.limited_num == 1 then
 						loadedSettings.show6 = 1
 					end
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0
@@ -1144,7 +1152,9 @@ function scene:create( event )
 					if loadedSettings.limited_num == 1 then
 						loadedSettings.show6 = 1
 					end
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0

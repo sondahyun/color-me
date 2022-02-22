@@ -446,7 +446,9 @@ function scene:create( event )
 						loadedSettings.show6 = 1
 					end
 					Runtime:addEventListener("tap", redPage)
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+						loadedSettings.friendship = loadedSettings.friendship + 8
+					end
 					print("1번째")
 					print(loadedSettings.limited_num)
 					loadsave.saveTable(loadedSettings,"settings.json")
@@ -516,7 +518,9 @@ function scene:create( event )
 					end
 					Runtime:addEventListener("tap", bluePage)
 
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					print(loadedSettings.limited_num)
 					print("1번째")
 					loadsave.saveTable(loadedSettings,"settings.json")
@@ -585,7 +589,9 @@ function scene:create( event )
 					end
 					Runtime:addEventListener("tap", yellowPage)
 
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					print("1번째")
 					print(loadedSettings.limited_num)
 					loadsave.saveTable(loadedSettings,"settings.json")
@@ -651,7 +657,9 @@ function scene:create( event )
 					end
 					Runtime:addEventListener("tap", purplePage)
 
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					print("1번째")
 					loadsave.saveTable(loadedSettings,"settings.json")
 					local purple_bg = display.newImage("이미지/대화/우정배경/보라.png")
@@ -713,7 +721,9 @@ function scene:create( event )
 						loadedSettings.show6 = 1
 					end
 					Runtime:addEventListener("tap", greenPage)
-					loadedSettings.friendship = loadedSettings.friendship + 8
+					if loadedSettings.friendship <101 then
+                  		loadedSettings.friendship = loadedSettings.friendship + 8
+               		end
 					print("1번째")
 					loadsave.saveTable(loadedSettings,"settings.json")
 					local green_bg = display.newImage("이미지/대화/우정배경/초록.png")
