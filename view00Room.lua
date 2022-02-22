@@ -8,6 +8,9 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 
+	
+
+
 	composer.getVariable("home")
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -238,7 +241,6 @@ function scene:create( event )
     volumeButton:addEventListener("tap",setVolume)
 
     
-	
 
 	
 

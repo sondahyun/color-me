@@ -22,7 +22,17 @@ function scene:create( event )
 	chosenColor = loadedSettings.color
 	mainName = loadedSettings.name
 
-   local my = display.newText(mainName,display.contentWidth*0.1386,display.contentHeight*0.73,"font/잘풀리는오늘 Medium.ttf")
+   local option = {
+      text = mainName,
+      x = display.contentWidth*0.175,
+      y = display.contentHeight*0.682,
+      font = "font/NanumSquareRoundB",
+      fontSize =45,
+      align="center"
+   } 
+
+   local my = display.newText(option)
+   my.anchorY = 0
    my.size = 45
    my.alpha = 0
    my:setFillColor(1)
@@ -180,21 +190,44 @@ function scene:create( event )
          b3 = display.newImage("이미지/대화/선택지/주인공.png")
          b3.x, b3.y = display.contentWidth*0.832,display.contentHeight*0.505
          sceneGroup:insert(b3)
-         bt1 = display.newText("친구들을 실망시키기 싫어!\n내가 갖고 있던 도토리 사탕을\n바구니에 둔다.",105,493, "font/NanumSquareRoundB.ttf", 36)
+
+
+
+         local option2 = {
+         text = "친구들을 실망시키기 싫어!\n내가 갖고 있던 도토리 사탕을\n바구니에 둔다.",
+         x = display.contentWidth*0.17,
+         y = display.contentHeight*0.5,
+         font = "font/NanumSquareRoundB",
+         fontSize =36,
+         align="center"
+         } 
+
+         bt1 = display.newText(option2)
          bt1:setFillColor(1)
-         bt1.align=center
-         bt1.anchorX,bt1.anchorY = 0,0
          sceneGroup:insert(bt1)
+
          b1:addEventListener("touch",b1Click)
-         bt2 = display.newText("친구들의 주의를 끌어서\n관심을 돌리자! 친구들의 앞에서\n춤추고 노래한다.",790,493, "font/NanumSquareRoundB.ttf", 36)
+
+         local option3 = {
+         text = "친구들을 실망시키기 싫어!\n내가 갖고 있던 도토리 사탕을\n바구니에 둔다.",
+         x = display.contentWidth*0.5,
+         y = display.contentHeight*0.5,
+         font = "font/NanumSquareRoundB",
+         fontSize =36,
+         align="center"
+         } 
+
+         bt2 = display.newText(option3)
          bt2:setFillColor(1)
-         bt2.anchorX,bt2.anchorY = 0,0
          sceneGroup:insert(bt2)
+
          b2:addEventListener("touch",b2Click)
+
          bt3 = display.newText("어떡하지, 어떡하지?!\n망설이다 도망친다.",1440,505, "font/NanumSquareRoundB.ttf", 36)
          bt3:setFillColor(1)
          bt3.anchorX,bt3.anchorY = 0,0
          sceneGroup:insert(bt3)
+
          b3:addEventListener("touch",b3Click)
       end
    end
