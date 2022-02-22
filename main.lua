@@ -15,7 +15,7 @@ point=0
 local function onFirstView( event )
     audio.play(titleMusic)
 
-	composer.gotoScene( "title" )
+	composer.gotoScene( "viewmonth5_script" )
 end
 
 local function onSecondView( event )
