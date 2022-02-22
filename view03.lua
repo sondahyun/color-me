@@ -106,7 +106,7 @@ function scene:create( event )
 	useornot = composer.getVariable("useornot")
 
 	if useornot == 1 then
-		motion = graphics.newImageSheet("애니매이션/수정/1" .. i .. ".png",options)
+		motion =graphics.newImageSheet("이미지/수정/공부/" .. i .. "템.png",options)
 	else
 		motion = graphics.newImageSheet("애니매이션/수정/1" .. i .. ".png",options)
 	end
