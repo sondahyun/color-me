@@ -13,6 +13,7 @@ point=0
 
 -- event listeners for tab buttons:
 local function onFirstView( event )
+	local titleMusic = audio.loadStream( "음악/타이틀.mp3" )
     audio.play(titleMusic)
 
 	composer.gotoScene( "title" )
