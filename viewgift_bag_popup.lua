@@ -236,7 +236,6 @@ function scene:create( event )
 	sceneGroup:insert(no_button)
 	no_button:addEventListener("touch",goback_bag)
 	
-	
 end
 
 function scene:show( event )

@@ -30,7 +30,7 @@ function scene:create( event )
     bgImage.y = display.contentHeight  / 2; 
     sceneGroup:insert(bgImage)
     
-    -- 볼륨리스너  
+    -- 배경음볼륨리스너  
     local function bgSliderListener( event )
         local sliderValue = event.value
         loadedEndings.slider = sliderValue
@@ -51,6 +51,10 @@ function scene:create( event )
     background_image.x, background_image.y = display.contentWidth*0.375,display.contentHeight*0.55
     sceneGroup:insert(background_image)
 
+    local background_image2 = display.newImage("이미지/설정창/소리조절칸.png")
+    background_image2.x, background_image2.y = display.contentWidth * 0.62, display.contentHeight * 0.53
+    sceneGroup:insert(background_image2)
+
     local options = {
     frames = {
         { x=0, y=0, width=41, height=41 },
@@ -64,7 +68,7 @@ function scene:create( event )
     }
     local sliderSheet = graphics.newImageSheet( "이미지/설정창/sound.png", options )
     
-    -- 볼륨슬라이더
+    -- 배경음볼륨슬라이더
     local bgSlider = widget.newSlider{
         sheet = sliderSheet,
         leftFrame = 1,
@@ -82,6 +86,50 @@ function scene:create( event )
         listener = bgSliderListener
     }
     sceneGroup:insert( bgSlider )
+
+    -- 효과음볼륨리스너
+    local function fgSliderListener( event )
+        local sliderValue = event.value
+        loadedEndings.slider_effect = sliderValue
+        local logValue
+        if sliderValue == nil then sliderValue = 0 end
+        if (sliderValue > 0) then
+            logValue = (math.pow(3,sliderValue/100)-1)/(3-1)
+        else
+            logValue = 0.0
+        end
+        settings["fxvolume"] = logValue
+        loadedEndings.logValue_effect = logValue
+        loadsave.saveTable(loadedEndings,"endings.json")
+        if settings["fxvolume"] > 0.0 then
+            local availableChannel = audio.findFreeChannel(2)
+            if (availableChannel == 2) then 
+                -- Only use channel 2 for this, which means that we won't play the sound unless it's already done playing
+                audio.setVolume( settings["fxvolume"], { channel=availableChannel } )
+                audio.play( tapSound, {channel=availableChannel}) 
+            end
+        end
+    end
+    
+    -- 효과음볼륨슬라이더
+    local fxSlider = widget.newSlider{
+        sheet = sliderSheet,
+        leftFrame = 1,
+        middleFrame = 2,
+        rightFrame = 3,
+        fillFrame = 4,
+        frameWidth = 41,
+        frameHeight = 41,
+        handleFrame = 5,
+        handleWidth = 41,
+        handleHeight = 41,
+        top = 380,    x = display.contentWidth * 0.62,      
+        width=380,  y= display.contentHeight * 0.53,      
+        value=loadedEndings.slider_effect,
+        listener = fgSliderListener
+    }
+    sceneGroup:insert( fxSlider )
+
 
     -- exit 버튼 눌렀을 때 volumeControl.lua파일에서 벗어나기
     local function goback(event)
