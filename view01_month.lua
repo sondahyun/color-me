@@ -25,7 +25,7 @@ function scene:create( event )
 	local function touch(event)
 
 		if event.phase == "began" then
-			if loadedSettings.month == 4 and num == 0 then
+			if loadedSettings.month == 5 and num == 0 then
 				audio.pause(home)
 				local myBday = audio.loadStream("음악/myBday.mp3")
 				audio.setVolume( loadedEndings.logValue )

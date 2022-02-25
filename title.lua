@@ -75,7 +75,9 @@ function scene:create( event )
             end_num = 0,
             bgMusic = "음악/튜토리얼.mp3",
             logValue = "0.5",
-            slider = 50
+            slider = 50,
+            logValue_effect = "0.5",
+            slider_effect = 50
         }
         loadsave.saveTable( endings, "endings.json" )
     end

@@ -186,7 +186,19 @@ function scene:create( event )
 		image(i)
 	end
 
-	
+	-- exit 버튼 눌렀을 때 벗어나기
+    local function goback(event)
+        if event.phase == "began" then
+			composer.removeScene("viewgift_bag")
+			composer.gotoScene("view01Map")        
+		end
+    end
+
+    -- exit 버튼 생성 및 버튼에 이벤트 리스너 추가
+    local exit = display.newImage("이미지/공통/x버튼.png")
+    exit.x, exit.y = display.contentWidth*0.94, display.contentHeight*0.1
+    sceneGroup:insert(exit)
+    exit:addEventListener("touch",goback)
 	
 end
 
