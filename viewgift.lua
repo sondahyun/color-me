@@ -25,9 +25,9 @@ function scene:create( event )
 		color = 1 
 	elseif color_char == "2" then
 		color = 2
-	elseif color_char == "3" then
-		color = 3
 	elseif color_char == "4" then
+		color = 3
+	elseif color_char == "3" then
 		color = 4
 	elseif color_char == "5" then
 		color = 5

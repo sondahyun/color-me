@@ -238,7 +238,7 @@ function scene:create( event )
 				composer.setVariable("number",i)
 				--composer.removeScene("view02schedule")
 
-				if k == 0 then 
+				if k == 0 or (loadedItems.itemCount == 0) then 
 					composer.gotoScene("view03")
 				else
 					composer.setVariable("item","연필")
@@ -270,7 +270,7 @@ function scene:create( event )
 				composer.setVariable("number",i)
 				--composer.removeScene("view02schedule")
 
-				if k == 0 then 
+				if k == 0 or (loadedItems.itemCount == 0) then 
 					composer.gotoScene("view03_fun")
 				else
 					composer.setVariable("item",item_name)
@@ -303,7 +303,7 @@ function scene:create( event )
 				composer.setVariable("number",i)
 				--composer.removeScene("view02schedule")
 
-				if k == 0 then 
+				if k == 0 or (loadedItems.itemCount == 0) then 
 					composer.gotoScene("view03_hobby")
 				else
 					composer.setVariable("item",item_name)
