@@ -170,9 +170,11 @@ function scene:create( event )
 			if h == 4 then
 				my_daesapan.alpha = 1
 				my.alpha = 1
+				daesapan.alpha=0
 			else
 				my_daesapan.alpha =0
 				my.alpha = 0
+				daesapan.alpha=1
 			end
 
 			if h < 6 then
@@ -184,6 +186,7 @@ function scene:create( event )
 
 			if h == 8 then
 				daesapan:removeEventListener("touch",second_2)
+				my_daesapan:removeEventListener("touch",second_2)
 				composer.removeScene("viewmonth2_event")
 				composer.gotoScene("likeability",options)
 			end
@@ -202,8 +205,10 @@ function scene:create( event )
 			daewha2[2].alpha = 1
 			my_daesapan.alpha =1
 			my.alpha = 1
+			daesapan.alpha=0
 
 			daesapan:addEventListener("touch",second_2)
+			my_daesapan:addEventListener("touch",second_2)
 			choose1:removeEventListener("touch",one_box)
 
 
@@ -213,13 +218,15 @@ function scene:create( event )
 	local function third_2(event)
 
 		if event.phase == "began" then
-
+			
 			if h == 3 then
 				my_daesapan.alpha = 0
 				my.alpha = 0
+				daesapan.alpha=1
 			else
 				my_daesapan.alpha =1
 				my.alpha = 1
+				daesapan.alpha=0
 			end
 
 			if h < 5 then
@@ -231,6 +238,7 @@ function scene:create( event )
 
 			if h == 6 then
 				daesapan:removeEventListener("touch",third_2)
+				my_daesapan:removeEventListener("touch",third_2)
 				composer.removeScene("viewmonth2_event")
 				composer.gotoScene("likeability",options)
 			end
@@ -238,6 +246,7 @@ function scene:create( event )
 
 		
 	end
+
 
 	local function two_box(event)
 		if event.phase == "began" then
@@ -253,8 +262,10 @@ function scene:create( event )
 			daewha3[2].alpha = 1
 			my_daesapan.alpha =1
 			my.alpha = 1
+			daesapan.alpha=0
 
 			daesapan:addEventListener("touch",third_2)
+			my_daesapan:addEventListener("touch",third_2)
 			choose1:removeEventListener("touch",one_box)
 			choose2:removeEventListener("touch",two_box)
 
@@ -267,9 +278,11 @@ function scene:create( event )
 			if n == 2 then 
 				my_daesapan.alpha = 1
 				my.alpha = 1
+				daesapan.alpha=0
 			else
 				my_daesapan.alpha = 0
 				my.alpha = 0
+				daesapan.alpha=1
 
 			end
 
@@ -280,6 +293,7 @@ function scene:create( event )
 			if n == 5 then
 
 				daesapan:removeEventListener("touch",second_1)
+				my_daesapan:removeEventListener("touch",second_1)
 
 				choose1.alpha = 1
 				choose2.alpha = 2
@@ -318,6 +332,7 @@ function scene:create( event )
 				daewha1[1].alpha = 1
 				background:removeEventListener("touch",next_back)
 				daesapan:addEventListener("touch",second_1)
+				my_daesapan:addEventListener("touch",second_1)
 			end
 
 		end
@@ -338,20 +353,25 @@ function scene:create( event )
 
 				daewha0[4].alpha = 1
 				my_daesapan.alpha = 1
+				daesapan.alpha=0
 				my.alpha = 1
 				choose1:removeEventListener("touch",second)
 				daesapan:addEventListener("touch",second)
+				my_daesapan:addEventListener("touch",second)
 				--choose3:removeEventListener("touch",bye)
 				k = k+1
 			else
 				my_daesapan.alpha = 0
 				my.alpha = 0
-				background_1.alpha = 1
+				daesapan.alpha=1
+				--background_1.alpha = 1
+				transition.to(background_1,{alpha=1,time=1000})
 				blli.alpha = 0
 				daewha0[4].alpha = 0
 				daesapan.alpha = 0
 				background:addEventListener("touch",next_back)
 				daesapan:removeEventListener("touch",second)
+				my_daesapan:removeEventListener("touch",second)
 			end
 		end
 
@@ -363,7 +383,8 @@ function scene:create( event )
 		if event.phase == "began" then 
 			if v == 1 then
 				choose1:removeEventListener("touch",bye)
-				daesapan:addEventListener("touch",bye)
+				my_daesapan:addEventListener("touch",bye)
+				daesapan.alpha=0
 				daewha0[1].alpha = 0
 				choose1.alpha = 0
 				choose3.alpha = 0
@@ -404,12 +425,14 @@ function scene:create( event )
 			choose1:addEventListener("touch",second)
 			choose3:addEventListener("touch",bye)
 			daesapan:removeEventListener("touch",first)
+			my_daesapan:removeEventListener("touch",first)
 
 		end
 
 	end
 
 	daesapan:addEventListener("touch",first)
+	my_daesapan:addEventListener("touch",first)
 
 end
 
