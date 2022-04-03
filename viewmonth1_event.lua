@@ -15,6 +15,26 @@ function scene:create( event )
 		time=1000
 	}
 
+	  --샘플 볼륨 이미지
+    local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", option )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+	 local option = {
+        isModal = true
+        
+    }
+
+	local eventMusic = audio.loadStream( "음악/계절.mp3" )
+ 	audio.setVolume( loadedEndings.logValue )
+    audio.play(eventMusic)
+
 	local background = display.newImageRect("이미지/마을/배경2.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -201,12 +221,14 @@ function scene:create( event )
 			if n == 4 then
 				--loadsave.saveTable(loadedSettings, "settings.json")
 				composer.removeScene("viewmonth1_event")
+				audio.pause(eventMusic)
 				composer.gotoScene("view01Map",options)
 			else
 				wiz.alpha = 0
 				happy_wiz.alpha = 1
 				my.alpha = 0
 				my_daesapan.alpha=0
+				daesapan.alpha=1
 				daewha2[n-1].alpha = 0
 				daewha2[n].alpha = 1
 				n= n+ 1
@@ -222,6 +244,7 @@ function scene:create( event )
 			daewha[6].alpha = 0
 			my.alpha = 1
 			my_daesapan.alpha=1
+			daesapan.alpha=0
 			choose1.alpha = 0
 			choose2.alpha = 0
 			daewha2[1].alpha = 0
@@ -239,6 +262,7 @@ function scene:create( event )
 				if n == 3 then
 					my.alpha = 0
 					my_daesapan.alpha = 0
+					daesapan.alpha=1
 					nangam_wiz.alpha = 1
 					happy_wiz.alpha = 0
 				elseif n == 4 then
@@ -246,9 +270,11 @@ function scene:create( event )
 					wiz.alpha = 1
 					my.alpha = 1
 					my_daesapan.alpha=1
+					daesapan.alpha=0
 				else
 					my.alpha = 0
 					my_daesapan.alpha=0
+					daesapan.alpha=1
 				end
 				daewha3[n-1].alpha = 0
 				daewha3[n].alpha = 1
@@ -256,6 +282,7 @@ function scene:create( event )
 			else
 
 				composer.removeScene("viewmonth1_event")
+				audio.pause(eventMusic)
 				composer.gotoScene("view01Map",options)
 			end
 		end
@@ -273,6 +300,7 @@ function scene:create( event )
 			daewha3[2].alpha = 1
 			my.alpha = 1
 			my_daesapan.alpha=1
+			daesapan.alpha=0
 
 			loadedSettings.blue = loadedSettings.blue + 1
 			loadsave.saveTable(loadedSettings, "settings.json")
@@ -286,13 +314,17 @@ function scene:create( event )
 	local function next(event)
 		if event.phase == "began" then
 
-			if i == 2 or i == 4 then
+			if i == 1 then
+				my_daesapan.alpha=0
+				daesapan.alpha =1
+			elseif i == 2 or i == 4 then
 				my_daesapan.alpha=1
 				my.alpha = 1
-
+				daesapan.alpha=0
 			else
 				my.alpha = 0
 				my_daesapan.alpha=0
+				daesapan.alpha=1
 				if i == 6 then
 					wiz.alpha = 0
 					happy_wiz.alpha = 1
@@ -327,7 +359,7 @@ function scene:create( event )
 			end
 		end
 	end
-
+	my_daesapan:addEventListener("touch",next)
 	daesapan:addEventListener("touch",next)
 	
 

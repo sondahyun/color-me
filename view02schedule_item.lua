@@ -11,6 +11,7 @@ local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
+	print("스케줄item")
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	location = composer.getVariable("location")

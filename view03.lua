@@ -135,13 +135,36 @@ function scene:create( event )
 
 	local function gotoback()
 		--timer.cancelAll()
+		print(loadedSettings.month)
+		print("month")
 		study_motion:pause()
+	if loadedSettings.month == 2 then
+			if loadedSettings.activity_num == 2 then 
+				print(stat_num)
+				print("in")
+				loadedSettings.month3_event = 1
+				loadsave.saveTable(loadedSettings,"settings.json")
+			--composer.removeScene("view02schedule")
+			--composer.gotoScene("view03")
+			end
+		elseif loadedSettings.month == 4 then
+			if loadedSettings.activity_num == 3 then 
+				print(stat_num)
+				print("in")
+				loadedSettings.month4_event = 1
+				loadsave.saveTable(loadedSettings,"settings.json")
+			--composer.removeScene("view02schedule")
+			--composer.gotoScene("view03")
+			end
+		end
+
 			if loadedSettings.month3_event == 1 then
 
 				loadedSettings.month3_event = loadedSettings.month3_event + 1
 				loadsave.saveTable(loadedSettings,"settings.json")
 
 				composer.removeScene("view03")
+				audio.pause(loadedEndings.bgMusic)
 				composer.gotoScene("viewmonth3_event")
 				
 
@@ -150,6 +173,7 @@ function scene:create( event )
 				loadsave.saveTable(loadedSettings,"settings.json")
 
 				composer.removeScene("view03")
+				audio.pause(loadedEndings.bgMusic)
 				composer.gotoScene("viewmonth4_event")
 
 			elseif loadedSettings.month5_event == 1 then
@@ -157,6 +181,7 @@ function scene:create( event )
 				loadsave.saveTable(loadedSettings,"settings.json")
 
 				composer.removeScene("view03")
+				audio.pause(loadedEndings.bgMusic)
 				composer.gotoScene("viewmonth5_event")
 
 			else 

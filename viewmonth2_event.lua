@@ -14,6 +14,26 @@ function scene:create( event )
 		time=1000
 	}
 
+	  --샘플 볼륨 이미지
+    local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", option )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+	 local option = {
+        isModal = true
+        
+    }
+
+	local eventMusic = audio.loadStream( "음악/계절.mp3" )
+ 	audio.setVolume( loadedEndings.logValue )
+    audio.play(eventMusic)
+
 	local background = display.newImage("이미지/대화/우정배경/빨강.png")
 	background.x, background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -185,6 +205,10 @@ function scene:create( event )
 			if h == 8 then
 				daesapan:removeEventListener("touch",second_2)
 				composer.removeScene("viewmonth2_event")
+				audio.pause(eventMusic)
+				local home = audio.loadStream( "음악/집.mp3" )
+ 				audio.setVolume( loadedEndings.logValue )
+                audio.play(home)
 				composer.gotoScene("likeability",options)
 			end
 		end
@@ -232,6 +256,10 @@ function scene:create( event )
 			if h == 6 then
 				daesapan:removeEventListener("touch",third_2)
 				composer.removeScene("viewmonth2_event")
+				audio.pause(eventMusic)
+				local home = audio.loadStream( "음악/집.mp3" )
+ audio.setVolume( loadedEndings.logValue )
+                audio.play(home)
 				composer.gotoScene("likeability",options)
 			end
 		end
@@ -376,6 +404,10 @@ function scene:create( event )
 			else
 				daesapan:removeEventListener("touch",bye)
 				composer.removeScene("viewmonth2_event")
+				audio.pause(eventMusic)
+				local home = audio.loadStream( "음악/집.mp3" )
+ audio.setVolume( loadedEndings.logValue )
+                audio.play(home)
 				composer.gotoScene("likeability",options)
 			end
 		end

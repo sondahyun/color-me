@@ -14,6 +14,27 @@ function scene:create( event )
 	-- e.g. add display objects to 'sceneGroup', add touch listeners, etc.
 	
 	-- create a white background to fill screen
+
+	  --샘플 볼륨 이미지
+    local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", option )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+	 local option = {
+        isModal = true
+        
+    }
+
+	local eventMusic = audio.loadStream( "음악/계절.mp3" )
+ 	audio.setVolume( loadedEndings.logValue )
+    audio.play(eventMusic)
+
 	local background = display.newImage("이미지/홈/배경/가구포함.png")
 	background.x, background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -317,6 +338,10 @@ function scene:create( event )
 			else 
 				daesapan:removeEventListener("touch",last)
 				composer.removeScene("viewmonth3_event")
+				audio.pause(eventMusic)
+				local home = audio.loadStream( "음악/집.mp3" )
+ audio.setVolume( loadedEndings.logValue )
+                audio.play(home)
 				composer.gotoScene("view02schedule")
 			end
 
@@ -450,7 +475,7 @@ function scene:create( event )
 			choose2.alpha = 0
 			daewha1[4].alpha = 0
 			select_daewha1[2].alpha =0
-				select_daewha2[2].alpha = 0
+			select_daewha2[2].alpha = 0
 			daewha3[2].alpha = 1
 			my_daesapan.alpha =1
 			my.alpha = 1
@@ -483,7 +508,7 @@ function scene:create( event )
 				daesapan:removeEventListener("touch",second_1)
 
 				choose1.alpha = 1
-				choose2.alpha = 2
+				choose2.alpha = 1
 
 				
 
@@ -521,8 +546,8 @@ function scene:create( event )
 	local function bye(event)
 		if event.phase == "began" then 
 			if v == 1 then
-				choose1:removeEventListener("touch",bye)
-				daesapan:addEventListener("touch",bye)
+				print("b1")
+				choose1:removeEventListener("touch",second)
 				daewha0[2].alpha = 0
 				choose1.alpha = 0
 				choose2.alpha = 0
@@ -534,7 +559,14 @@ function scene:create( event )
 				my.alpha = 1
 				v = v+1
 			else
+				print("b2")
 				daesapan:removeEventListener("touch",bye)
+				composer.removeScene("viewmonth3_event")
+				audio.pause(eventMusic)
+				local home = audio.loadStream( "음악/집.mp3" )
+ 				audio.setVolume( loadedEndings.logValue )
+                audio.play(home)
+				composer.gotoScene("view02schedule")
 				--composer.removeScene("viewmonth3_event - 복사본")
 				--composer.gotoScene("view12Plan")
 			end
@@ -542,7 +574,7 @@ function scene:create( event )
 	end
 
 	local function second(event)
-
+		print("second func")
 		if event.phase == "began" then
 
 			if k == 0 then
@@ -553,7 +585,6 @@ function scene:create( event )
 				select_daewha2[1].alpha =0
 
 				daewha0[5].alpha = 1
-		
 				choose1:removeEventListener("touch",second)
 				daesapan:addEventListener("touch",second)
 				choose2:removeEventListener("touch",bye)

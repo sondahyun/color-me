@@ -13,6 +13,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 
+	print("스케줄2")
 	--터치 제한
 
 	local option = {
@@ -196,7 +197,10 @@ function scene:create( event )
 		sceneGroup:insert(stated_button[i])
 	end
 
+
 	for i=1,stat_num do
+		print(loadedSettings.month)
+		print("안ㄴ녕")
 		stated_button[i].alpha = 1
 	end
 

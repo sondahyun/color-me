@@ -16,6 +16,27 @@ function scene:create( event )
 		time=1000
 	}
 
+	  --샘플 볼륨 이미지
+    local volumeButton = display.newImage("이미지/타이틀/설정.png")
+    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
+    sceneGroup:insert(volumeButton)
+
+    --샘플볼륨함수--
+    local function setVolume(event)
+        composer.showOverlay( "volumeControl", option )
+    end
+    volumeButton:addEventListener("tap",setVolume)
+
+	 local option = {
+        isModal = true
+        
+    }
+
+	local eventMusic = audio.loadStream( "음악/계절.mp3" )
+ 	audio.setVolume( loadedEndings.logValue )
+    audio.play(eventMusic)
+
+
 	-- 배경 --
 	local background = display.newImageRect("이미지/홈/배경/가구포함.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
@@ -349,6 +370,11 @@ function scene:create( event )
 				green_daesapan.alpha = 1
 			elseif i == 18 then 
 				composer.removeScene("viewmonth4_event")
+				audio.pause(eventMusic)
+				local home = audio.loadStream( "음악/집.mp3" )
+ audio.setVolume( loadedEndings.logValue )
+                audio.play(home)
+				composer.gotoScene("view02schedule")
 			end
 		end
 	end
@@ -470,6 +496,11 @@ function scene:create( event )
 				my_daesapan:addEventListener("touch",bye)
 			elseif j == 2 then
 				composer.removeScene("viewmonth4_event")
+				audio.pause(eventMusic)
+				local home = audio.loadStream( "음악/집.mp3" )
+				 audio.setVolume( loadedEndings.logValue )
+                audio.play(home)
+				composer.gotoScene("view02schedule")
 			end
 		end
 	end
@@ -504,6 +535,7 @@ function scene:create( event )
 				select_daewha1[1].alpha = 0
 				select_daewha2[1].alpha = 0
 				i = i+1
+				
 				select1:removeEventListener("touch",first_scence)
 				select2:removeEventListener("touch",bye)
 				green_daesapan:removeEventListener("touch",first_scence)
@@ -516,11 +548,17 @@ function scene:create( event )
 				my_daesapan.alpha = 0
 				my.alpha = 0
 
+				month.alpha = 0
+				former.alpha=0
+				former2.alpha=0
+				next1.alpha=0
+				next2.alpha=0
 			 	select_daewha1[1]:removeEventListener("touch",first_scence)
 			 	background_1:addEventListener("touch",first_scence)
 			 	i = i+1
 			elseif i == 4 then
 			 	print(i)
+
 			 	my_daesapan.alpha = 1
 			 	my.alpha = 1
 			 	green_default.alpha = 1
