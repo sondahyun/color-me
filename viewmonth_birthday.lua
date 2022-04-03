@@ -115,13 +115,13 @@ function scene:create( event )
    sceneGroup:insert(my)
 
 	local select1 = display.newImage("이미지/대화/선택지/주인공.png")
-	select1.x, select1.y = display.contentWidth*0.0998, display.contentHeight*0.3500
+	select1.x, select1.y = display.contentWidth*0.02, display.contentHeight*0.3500
 	select1.anchorY, select1.anchorX = 0,0
 	select1.alpha = 0
 	sceneGroup:insert(select1)
 
 	local select2 = display.newImage("이미지/대화/선택지/주인공.png")
-	select2.x, select2.y = display.contentWidth*0.6326, display.contentHeight*0.3500
+	select2.x, select2.y = display.contentWidth*0.707, display.contentHeight*0.3500
 	select2.anchorY, select2.anchorX = 0,0
 	select2.alpha = 0
 	sceneGroup:insert(select2)
@@ -131,7 +131,7 @@ function scene:create( event )
 	
 		option1 = {
 			text = "친구들과 나눠먹자",
-			x=233,
+			x=90,
 			y=490,
 			width=438,
 			height=143,
@@ -141,7 +141,7 @@ function scene:create( event )
 		}
 		option2 = {
 			text = "혼자 먹자",
-			x=1254.73,
+			x=1400,
 			y=490,
 			width=438,
 			height=143,

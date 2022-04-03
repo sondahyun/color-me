@@ -242,7 +242,47 @@ function scene:create( event )
 
 	--print("what" .. loadedSettings.friendship)
 
-
+	local options ={}
+	local options2 ={}
+	local choice_text = {
+		"잠자는 물 속의 공주",
+		"위즈라면 왠지…\n『박쥐와 베란다에 매달리기』",
+		"오랜만에 도서관이나 갈까?\n재밌는 책이 많을 거야.",
+		"혼자 다녀오는 경험도\n해봐야 하지 않을까?\n혼자 다녀와 봐! 괜찮을거야.",
+		"내가 큰 쪽을 먹고 싶지만…\n  솔리에게 양보할래.\n  [작은 쪽을 선택한다.]"
+	}
+	local choice_text2 = {
+		"잠자는 물 속의 공주",
+		"가장 기본적인 게 좋겠지?\n『과학의 정석』",
+		"기분전환엔 이만한 곳이 없지! \n노래방에 가자.",
+		"그, 그건 나도 무서운데….\n하지만 둘이 간다면\n덜 무서울지도 몰라.",
+		"쌍둥이 바 큰 쪽! 아싸~\n  [큰 쪽을 선택한다.]"
+	}
+	for i=1,5 do
+		options[i]={
+		text = choice_text[i],     
+	    x = display.contentWidth*0.23,
+	    y = display.contentHeight*0.5,
+	    width = 438,
+	    height = 143,
+	    font = "font/NanumSquare_acB.ttf",   
+	    fontSize = 36,
+	    align = "center"  -- Alignment parameter
+		}
+	end
+	for i=1,5 do
+		options2[i]={
+		text = choice_text2[i],     
+	    x = display.contentWidth*0.77,
+	    y = display.contentHeight*0.5,
+	    width = 438,
+	    height = 143,
+	    font = "font/NanumSquare_acB.ttf",   
+	    fontSize = 36,
+	    align = "center"  -- Alignment parameter
+		}
+	end
+	
 	local color = composer.getVariable("color")
 	
 	-- 빨간마을화면전환
@@ -305,12 +345,12 @@ function scene:create( event )
 		if j == 4 then
 			b1.alpha = 1
 			b2.alpha = 1
-			bt1 = display.newText("위즈라면 왠지…\n『박쥐와 베란다에 매달리기』", display.contentWidth*0.23,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt1 = display.newText(options[2])
 			bt1:setFillColor(1)
 			bt1.anchorX,bt1.anchorY = 0.5,0.5
 			sceneGroup:insert(bt1)
 			b1:addEventListener("touch",b1ClickBlue)
-			bt2 = display.newText("가장 기본적인 게 좋겠지?\n『과학의 정석』", display.contentWidth*0.77,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt2 = display.newText(options2[2])
 			bt2:setFillColor(1)
 			bt2.anchorX,bt2.anchorY = 0.5,0.5
 			sceneGroup:insert(bt2)
@@ -343,12 +383,12 @@ function scene:create( event )
 		if j == 4 then
 			b1.alpha = 1
 			b2.alpha = 1
-			bt1 = display.newText("오랜만에 도서관이나 갈까?\n재밌는 책이 많을 거야.", display.contentWidth*0.23,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt1 = display.newText(options[3])
 			bt1:setFillColor(1)
 			bt1.anchorX,bt1.anchorY = 0.5,0.5
 			sceneGroup:insert(bt1)
 			b1:addEventListener("touch",b1ClickYellow)
-			bt2 = display.newText("기분전환엔 이만한 곳이 없지! \n노래방에 가자. ", display.contentWidth*0.77,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt2 = display.newText(options2[3])
 			bt2:setFillColor(1)
 			bt2.anchorX,bt2.anchorY = 0.5,0.5
 			sceneGroup:insert(bt2)
@@ -381,14 +421,16 @@ function scene:create( event )
 		if j == 4 then
 			b1.alpha = 1
 			b2.alpha = 1
-			bt1 = display.newText("혼자 다녀오는 경험도\n해봐야 하지 않을까?\n혼자 다녀와 봐! 괜찮을거야.", display.contentWidth*0.23,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt1 = display.newText(options[4])
 			bt1:setFillColor(1)
 			bt1.anchorX,bt1.anchorY = 0.5,0.5
+			bt1.y = display.contentHeight*0.48
 			sceneGroup:insert(bt1)
 			b1:addEventListener("touch",b1ClickPurple)
-			bt2 = display.newText("그, 그건 나도 무서운데….\n하지만 둘이 간다면\n덜 무서울지도 몰라.", display.contentWidth*0.77,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt2 = display.newText(options2[4])
 			bt2:setFillColor(1)
 			bt2.anchorX,bt2.anchorY = 0.5,0.5
+			bt2.y = display.contentHeight*0.48
 			sceneGroup:insert(bt2)
 			b2:addEventListener("touch",b2ClickPurple)
 		end
@@ -419,14 +461,16 @@ function scene:create( event )
 		if j == 4 then
 			b1.alpha = 1
 			b2.alpha = 1
-			bt1 = display.newText("내가 큰 쪽을 먹고 싶지만…\n솔리에게 양보할래.\n[작은 쪽을 선택한다.]", display.contentWidth*0.23,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt1 = display.newText(options[5])
 			bt1:setFillColor(1)
 			bt1.anchorX,bt1.anchorY = 0.5,0.5
+			bt1.y = display.contentHeight*0.48
 			sceneGroup:insert(bt1)
 			b1:addEventListener("touch",b1ClickGreen)
-			bt2 = display.newText("쌍둥이 바 큰 쪽! 아싸~\n[큰 쪽을 선택한다.]", display.contentWidth*0.77,display.contentHeight*0.47, "font/NanumSquare_acB.ttf", 36)
+			bt2 = display.newText(options2[5])
 			bt2:setFillColor(1)
 			bt2.anchorX,bt2.anchorY = 0.5,0.5
+			
 			sceneGroup:insert(bt2)
 			b2:addEventListener("touch",b2ClickGreen)
 		end

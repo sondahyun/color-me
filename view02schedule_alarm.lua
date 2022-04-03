@@ -32,8 +32,12 @@ function scene:create( event )
 	-- create a white background to fill screen
 	local background = display.newImage("이미지/스케줄/제한/횟수제한.png")
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
-	background:addEventListener("touch",go_back)
 	sceneGroup:insert(background)
+
+	local exit = display.newImage("이미지/공통/x버튼.png")
+	exit.x, exit.y = display.contentWidth*0.695, display.contentHeight*0.38
+	sceneGroup:insert(exit)
+	exit:addEventListener("touch",go_back)
 end
 
 function scene:show( event )
