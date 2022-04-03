@@ -26,7 +26,7 @@ function scene:create( event )
 	sceneGroup:insert(popup)
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.5, display.contentHeight*0.59
+	exit.x, exit.y = display.contentWidth*0.645, display.contentHeight*0.368
 	exit.width = exit.width*0.85
 	exit.height = exit.height*0.85
 	sceneGroup:insert(exit)

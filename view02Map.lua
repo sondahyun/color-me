@@ -386,17 +386,19 @@ function scene:create( event )
 
 	local function go_present(event)
 		if event.phase == "began" then
-			if loadedSettings.gift_num ~= 1 then
-				if loadedItems.itemCount == 0 then
-					composer.showOverlay("zopup_noitem",optioned)
-				else 	
-					composer.setVariable("color_char",color)
-					composer.removeScene("view02Map")
-					composer.gotoScene("viewgift_bag")
-				end
+			print(loadedSettings.gift_num)
+			if loadedItems.itemCount == 0 then
+				print("아이템없")
+				composer.showOverlay("zopup_noitem",optioned)
+			elseif loadedSettings.gift_num == 1 then
+				print("dfasd")
+				composer.showOverlay("zopup_gift_limited",optioned)
 			else
-				composer.showOverlay( "zopup_limited",optioned)
+				composer.setVariable("color_char",color)
+				composer.removeScene("view02Map")
+				composer.gotoScene("viewgift_bag")
 			end
+			
 		end
 	end
 

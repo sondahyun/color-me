@@ -252,6 +252,8 @@ function scene:create( event )
 			daewha2[2].alpha = 1
 			choose1:removeEventListener("touch",next1)
 			daesapan:addEventListener("touch",next1_1)
+			my_daesapan:addEventListener("touch",next1_1)
+			
 		end
 
 	end
@@ -306,6 +308,7 @@ function scene:create( event )
 			loadsave.saveTable(loadedSettings, "settings.json")
 			choose1:removeEventListener("touch",next2)
 			daesapan:addEventListener("touch",next2_1)
+			my_daesapan:addEventListener("touch",next2_1)
 		end
 
 	end
@@ -319,10 +322,12 @@ function scene:create( event )
 				daesapan.alpha =1
 			elseif i == 2 or i == 4 then
 				my_daesapan.alpha=1
+				daesapan.alpha=0
 				my.alpha = 1
 				daesapan.alpha=0
 			else
 				my.alpha = 0
+				daesapan.alpha=1
 				my_daesapan.alpha=0
 				daesapan.alpha=1
 				if i == 6 then
@@ -341,6 +346,7 @@ function scene:create( event )
 
 			if i == 8 then
 				daesapan:removeEventListener("touch",next)
+				my_daesapan:removeEventListener("touch",next)
 				choose1.alpha = 1
 				daewha2[1].alpha = 1
 				daewha2[1]:setFillColor(1)
@@ -361,6 +367,7 @@ function scene:create( event )
 	end
 	my_daesapan:addEventListener("touch",next)
 	daesapan:addEventListener("touch",next)
+	my_daesapan:addEventListener("touch",next)
 	
 
 end

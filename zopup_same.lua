@@ -5,13 +5,10 @@
 -----------------------------------------------------------------------------------------
 local composer = require( "composer" )
 local scene = composer.newScene()
-local loadsave = require( "loadsave" )
-local json = require( "json" )
+
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local loadedSettings = loadsave.loadTable( "settings.json" )
-	
 	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
 	black.alpha = 0.5
 	black:setFillColor(0)
@@ -19,19 +16,19 @@ function scene:create( event )
 
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.hideOverlay("view04Storestop")
+			composer.hideOverlay("zopup_same")
 		end
 	end
 	
 	
+	print("fdas")
 
-
-	local update = display.newImage("이미지/공통/팝업창/코인부족.png")
+	local update = display.newImage("이미지/공통/팝업창/같은활동선택.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y =display.contentWidth*0.645, display.contentHeight*0.38
+	exit.x, exit.y = display.contentWidth*0.695, display.contentHeight*0.41
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
