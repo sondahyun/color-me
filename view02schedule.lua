@@ -247,8 +247,11 @@ function scene:create( event )
 					composer.setVariable("location",location)
 					composer.showOverlay("view02schedule_item",option)
 				end
-			else
+			elseif (stat_num>=4) then
 				composer.showOverlay("view02schedule_alarm",option)
+			else
+				print("dfsadsf")
+				composer.showOverlay("zopup_same",option)
 			end
 		end
 	end
@@ -280,8 +283,10 @@ function scene:create( event )
 					composer.setVariable("location",location)
 					composer.showOverlay("view02schedule_item",option)
 				end
-			else
+			elseif (stat_num>=4) then
 				composer.showOverlay("view02schedule_alarm",option)
+			else
+				composer.showOverlay("zopup_same",option)
 			end
 		end
 	end
@@ -314,8 +319,10 @@ function scene:create( event )
 					composer.setVariable("location",location)
 					composer.showOverlay("view02schedule_item",option)
 				end
-			else
+			elseif (stat_num>=4) then
 				composer.showOverlay("view02schedule_alarm",option)
+			else
+				composer.showOverlay("zopup_same",option)
 			end
 		end
 	end
