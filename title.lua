@@ -6,7 +6,7 @@ local json = require( "json" )
 function scene:create( event )
     local sceneGroup = self.view
 -- 객체 생성
-
+    print("title")
     -- showoverlay 함수 사용 option
     local options = {
         isModal = true

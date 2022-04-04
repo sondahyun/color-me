@@ -13,6 +13,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	
+	print("스케줄 alarm")
 	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
 	black.alpha = 0.5
 	black:setFillColor(0)

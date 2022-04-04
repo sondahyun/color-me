@@ -13,7 +13,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 	
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-
+print("스케줄end")
 	local options = {
 		effect="fade",
 		time = 1000
@@ -71,6 +71,7 @@ function scene:create( event )
 				if loadedSettings.month2_event==1 then
 					composer.removeScene("view02schedule")
 					composer.removeScene("view02schedule_end")
+					audio.pause(loadedEndings.bgMusic)
 					composer.gotoScene("viewmonth2_event",options)
 				else
 					composer.removeScene("view02schedule")
@@ -86,11 +87,13 @@ function scene:create( event )
 			elseif loadedSettings.month==5 then
 					composer.removeScene("view02schedule")
 					composer.removeScene("view02schedule_end")
+					audio.pause(loadedEndings.bgMusic)
 					composer.gotoScene("viewmonth5_event",options)
 
 			elseif loadedSettings.month == 6 then 
 				composer.removeScene("view02schedule")
 				composer.removeScene("view02schedule_end")
+				audio.pause(loadedEndings.bgMusic)
 				composer.gotoScene("view99end")
 
 			else

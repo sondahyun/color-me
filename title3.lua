@@ -7,6 +7,7 @@ local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
+	print("title3")
 -- 엔딩 이미지 객체 생성
 	--무지개 엔딩 --
 	local rainbow = display.newImage("이미지/엔딩/엔딩카드/무지개.png")

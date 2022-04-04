@@ -8,6 +8,7 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 
+	print("title2_1")
 	local background = display.newImageRect("이미지/타이틀/메인.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -38,26 +39,23 @@ function scene:create( event )
 	titleButton.alpha = 0
 	sceneGroup:insert(titleButton)
 
-	local exit1 = display.newImage("이미지/공통/x버튼.png")
-	sceneGroup:insert(exit1)
-	exit1.x, exit1.y = display.contentWidth*0.77, display.contentHeight*0.16
-	
 
 	local function gohome(event)
 		if event.phase == "began" then
 				composer.removeScene("title2_1")
+				exit.alpha=0
 				composer.gotoScene("title2")
 				
 		end
 	end	
 
 	newError = display.newImage("이미지/공통/팝업창/이름입력.png")
-			sceneGroup:insert(newError)
-			newError.x, newError.y = display.contentWidth/2,display.contentHeight/2
-			exit = display.newImage("이미지/공통/x버튼.png")
-			sceneGroup:insert(exit)
-			exit.x, exit.y = display.contentWidth*0.715, display.contentHeight*0.325
-			exit:addEventListener("touch",gohome)
+	sceneGroup:insert(newError)
+	newError.x, newError.y = display.contentWidth/2,display.contentHeight/2
+	exit = display.newImage("이미지/공통/x버튼.png")
+	sceneGroup:insert(exit)
+	exit.x, exit.y = display.contentWidth*0.645, display.contentHeight*0.375
+	exit:addEventListener("touch",gohome)
 	
 
 end

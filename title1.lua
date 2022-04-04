@@ -8,7 +8,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 
 	
-
+	print("title1")
     loadedEndings = loadsave.loadTable( "endings.json" )
 
     -- 배경 객체 생성

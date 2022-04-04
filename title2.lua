@@ -6,6 +6,7 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 
+	print("title2")
 	--로드
 	local loadedEndings = loadsave.loadTable( "endings.json" )
 
