@@ -104,11 +104,11 @@ function scene:create( event )
 	}
 
 	useornot = composer.getVariable("useornot")
-
+	print("useornot" .. useornot)
 	if useornot == 1 then
 		motion =graphics.newImageSheet("이미지/수정/공부/" .. i .. "템.png",options)
 	else
-		motion = graphics.newImageSheet("애니매이션/수정/1" .. i .. ".png",options)
+		motion = graphics.newImageSheet("이미지/수정/공부/" .. i .. ".png",options)
 	end
 	
 
@@ -134,10 +134,11 @@ function scene:create( event )
 
 
 	local function gotoback()
-		--timer.cancelAll()
-		print(loadedSettings.month)
-		print("month")
 		study_motion:pause()
+		study_motion:removeSelf()
+		study_motion=nil
+		motion=nil
+		
 	if loadedSettings.month == 2 then
 			if loadedSettings.activity_num == 2 then 
 				print(stat_num)
@@ -157,7 +158,7 @@ function scene:create( event )
 			--composer.gotoScene("view03")
 			end
 		end
-
+		--composer.removeScene("view03")
 			if loadedSettings.month3_event == 1 then
 
 				loadedSettings.month3_event = loadedSettings.month3_event + 1
@@ -227,7 +228,8 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
-	
+	--motion:removeSelf()
+	--composer.removeScene("view03")
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 
 	-- INSERT code here to cleanup the scene

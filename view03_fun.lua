@@ -107,8 +107,10 @@ function scene:create( event )
 	useornot = composer.getVariable("useornot")
 
 	if useornot == 1 then
+		print("아이템있음, userornot" .. useornot)
 		motion = graphics.newImageSheet("이미지/수정/놀이/" .. i .. "템.png",options)
 	else
+		print("아이템없음, userornot" .. useornot)
 		motion = graphics.newImageSheet("이미지/수정/놀이/" .. i .. ".png",options)
 	end
 	
@@ -138,46 +140,35 @@ function scene:create( event )
 
 
 	local function gotoback()
-		--timer.cancelAll()
-		print(loadedSettings.month)
-		print("month")
 		study_motion:pause()
+		study_motion:removeSelf()
+		study_motion=nil
+		motion=nil
+
 		if loadedSettings.month == 2 then
 			if loadedSettings.activity_num == 2 then 
-				print(stat_num)
-				print("in")
 				loadedSettings.month3_event = 1
 				loadsave.saveTable(loadedSettings,"settings.json")
-			--composer.removeScene("view02schedule")
-			--composer.gotoScene("view03")
 			end
+
 		elseif loadedSettings.month == 4 then
 			if loadedSettings.activity_num == 3 then 
-				print(stat_num)
-				print("in")
 				loadedSettings.month4_event = 1
 				loadsave.saveTable(loadedSettings,"settings.json")
-			--composer.removeScene("view02schedule")
-			--composer.gotoScene("view03")
 			end
 		end
-
-
+		composer.removeScene("view03_fun")
 			if loadedSettings.month3_event == 1 then
 
 				loadedSettings.month3_event = loadedSettings.month3_event + 1
 				loadsave.saveTable(loadedSettings,"settings.json")
-
-				composer.removeScene("view03_fun")
+				--composer.removeScene("view03_fun")
 				audio.pause(loadedEndings.bgMusic)
 				composer.gotoScene("viewmonth3_event")
-				
-
 			elseif loadedSettings.month4_event == 1 then
 				loadedSettings.month4_event = loadedSettings.month4_event + 1
 				loadsave.saveTable(loadedSettings,"settings.json")
-
-				composer.removeScene("view03_fun")
+				--composer.removeScene("view03_fun")
 				audio.pause(loadedEndings.bgMusic)
 				composer.gotoScene("viewmonth4_event")
 
@@ -185,12 +176,12 @@ function scene:create( event )
 				loadedSettings.month5_event = loadedSettings.month5_event + 1
 				loadsave.saveTable(loadedSettings,"settings.json")
 
-				composer.removeScene("view03_fun")
+				--composer.removeScene("view03_fun")
 				audio.pause(loadedEndings.bgMusic)
 				composer.gotoScene("viewmonth5_event")
 
 			else 
-				composer.removeScene("view03_fun")
+				--composer.removeScene("view03_fun")
 				composer.gotoScene("view02schedule")
 			end
 	end

@@ -11,9 +11,10 @@ local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
+	composer.removeHidden()
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 
-	print("스케줄2")
+	
 	--터치 제한
 
 	local option = {
@@ -199,8 +200,6 @@ function scene:create( event )
 
 
 	for i=1,stat_num do
-		print(loadedSettings.month)
-		print("안ㄴ녕")
 		stated_button[i].alpha = 1
 	end
 
@@ -228,8 +227,12 @@ function scene:create( event )
 	-- 공부 함수
 	local function study_function(event)
 		if event.phase == "began" then 
-			local i = event.target.name 
-			if (study[i] == 0) and (stat_num<4) then
+			local i = event.target.name
+			if (stat_num>=4) then
+				composer.showOverlay("view02schedule_alarm",option)
+			elseif (study[i]>0) then
+				composer.showOverlay("zopup_same",option)
+			else
 				local location = 0
 
 				for i=1,16 do
@@ -240,9 +243,10 @@ function scene:create( event )
 				end
 
 				composer.setVariable("number",i)
-				--composer.removeScene("view02schedule")
 
-				if (k == 0) or (loadedItems.itemCount == 0) then
+
+				if (location == 0) or (loadedItems.itemCount == 0) then
+					composer.setVariable("useornot",0)
 					composer.removeScene("view02schedule")
 					composer.gotoScene("view03")
 				else
@@ -251,11 +255,6 @@ function scene:create( event )
 					composer.setVariable("location",location)
 					composer.showOverlay("view02schedule_item",option)
 				end
-			elseif (stat_num>=4) then
-				composer.showOverlay("view02schedule_alarm",option)
-			else
-				print("dfsadsf")
-				composer.showOverlay("zopup_same",option)
 			end
 		end
 	end
@@ -265,7 +264,12 @@ function scene:create( event )
 		if event.phase == "began" then 
 			local i = event.target.name
 			local item_name = event.target.id
-			if (play[i] == 0) and (stat_num<4) then
+
+			if (stat_num>=4) then
+				composer.showOverlay("view02schedule_alarm",option)
+			elseif (play[i]>0) then
+				composer.showOverlay("zopup_same",option)
+			else
 				local location = 0
 
 				for i=1,16 do
@@ -275,10 +279,11 @@ function scene:create( event )
 					end
 				end
 
+				print(item_name .. ":" .. location)
 				composer.setVariable("number",i)
-				--composer.removeScene("view02schedule")
 
-				if (k == 0) or (loadedItems.itemCount == 0) then
+				if (location == 0) or (loadedItems.itemCount == 0) then
+					composer.setVariable("useornot",0)
 					composer.removeScene("view02schedule")
 					composer.gotoScene("view03_fun")
 				else
@@ -287,10 +292,7 @@ function scene:create( event )
 					composer.setVariable("location",location)
 					composer.showOverlay("view02schedule_item",option)
 				end
-			elseif (stat_num>=4) then
-				composer.showOverlay("view02schedule_alarm",option)
-			else
-				composer.showOverlay("zopup_same",option)
+			
 			end
 		end
 	end
@@ -301,7 +303,11 @@ function scene:create( event )
 		if event.phase == "began" then 
 			local i = event.target.name 
 			local item_name = event.target.id
-			if (hobby[i] == 0) and (stat_num<4) then
+			if (stat_num>=4) then
+				composer.showOverlay("view02schedule_alarm",option)
+			elseif (hobby[i]>0) then
+				composer.showOverlay("zopup_same",option)
+			else
 				local location = 0
 
 				for i=1,16 do
@@ -314,7 +320,8 @@ function scene:create( event )
 				composer.setVariable("number",i)
 				--composer.removeScene("view02schedule")
 
-				if (k == 0) or (loadedItems.itemCount == 0) then
+				if (location == 0) or (loadedItems.itemCount == 0) then
+					composer.setVariable("useornot",0)
 					composer.removeScene("view02schedule") 
 					composer.gotoScene("view03_hobby")
 				else
@@ -323,10 +330,7 @@ function scene:create( event )
 					composer.setVariable("location",location)
 					composer.showOverlay("view02schedule_item",option)
 				end
-			elseif (stat_num>=4) then
-				composer.showOverlay("view02schedule_alarm",option)
-			else
-				composer.showOverlay("zopup_same",option)
+			
 			end
 		end
 	end
