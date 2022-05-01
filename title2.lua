@@ -125,7 +125,7 @@ function scene:create( event )
 				loadedEndings.end_num = 0
 				loadsave.saveTable(loadedEndings,"endings.json")
 				local gameSettings = {
-    				money = 200,
+    				money = 2000,
     				fun = 0,
     				hobby = 0,
     				study = 0,
@@ -197,7 +197,35 @@ function scene:create( event )
     				test = 0
 				}
 				loadsave.saveTable( gameSettings, "settings.json" )
-					local items = {
+					local interior = {
+						interiorCount = 23,
+						wallpaper1 = "없음",
+						wallpaper2 = "없음",
+						wallpaper3 = "없음",
+						floor1 = "없음",
+						floor2 = "없음",
+						floor3 = "없음",
+						blanket1 = "없음",
+						blanket2 = "없음",
+						blanket3 = "없음",
+						carpet1 = "없음",
+						carpet2 = "없음",
+						carpet3 = "없음",
+						plant1 = "없음",
+						plant2 = "없음",
+						plant3 = "없음",
+						plant4 = "없음",
+						doll1 = "없음",
+						doll2 = "없음",
+						frame1 = "없음",
+						frame2 = "없음",
+						frame3 = "없음",
+						frame4 = "없음",
+						frame5 = "없음"
+					}
+				loadsave.saveTable( interior, "items.json" )
+
+				local itmes = {
 						itemCount = 0,
 						item1 = "없음",
 						item2 = "없음",
@@ -217,7 +245,7 @@ function scene:create( event )
 						item16 = "없음",
 						item17 = "없음"
 					}
-				loadsave.saveTable( items, "items.json" )
+				loadsave.saveTable( decoration, "items.json" )
 				composer.setVariable("name",defaultField.text)
 				defaultField:removeSelf()
 				defaultField = nil

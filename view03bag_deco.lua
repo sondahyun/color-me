@@ -28,28 +28,37 @@ function scene:create( event )
 	
 	local function go_popup(event)
 		if event.phase == "began" then
-			composer.removeScene("view03bag")
-			composer.gotoScene("view03bag_deco")
+			composer.removeScene("view03bag_deco")
+			composer.gotoScene("view03bag")
 		end
 	end
 
 
-	local update = display.newImage("이미지/가방/배경.png")
+	local update = display.newImage("이미지/가방/꾸미기배경1.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
-	local basic_button= display.newImage("이미지/가방/일반_완료.png")
+	local basic_button= display.newImage("이미지/가방/일반.png")
 	basic_button.x, basic_button.y = display.contentWidth*0.3066, display.contentHeight*0.0774
 	basic_button.anchorX,basic_button.anchorY=0,0
+	basic_button:addEventListener("touch",go_popup)
 
 	sceneGroup:insert(basic_button)
 
-	local pretty_button= display.newImage("이미지/가방/꾸미기.png")
+	local pretty_button= display.newImage("이미지/가방/꾸미기_완료.png")
 	pretty_button.x, pretty_button.y = display.contentWidth*0.5, display.contentHeight*0.0774
 	sceneGroup:insert(pretty_button)
 	pretty_button.anchorX,pretty_button.anchorY=0,0
-	pretty_button:addEventListener("touch",go_popup)
 
+	local left_button = display.newImage("이미지/가방/가구버튼1_클릭.png")
+	left_button.x, left_button.y = display.contentWidth*0.444,display.contentHeight*0.8966
+	sceneGroup:insert(left_button)
+	left_button.anchorX,left_button.anchorY=0,0
+
+	local right_button = display.newImage("이미지/가방/가구버튼2.png")
+	right_button.x, right_button.y = display.contentWidth*0.4795,display.contentHeight*0.8966
+	sceneGroup:insert(right_button)
+	right_button.anchorX,right_button.anchorY=0,0
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
@@ -58,18 +67,13 @@ function scene:create( event )
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
-	local function click( event )
+	--[[local function click( event )
 		composer.setVariable("item",event.target.id)
 		composer.showOverlay( "view03bag_popup",options)
-	end
+	end]]--
 
-	local function check_kit(target_name,item)
-		if(target_name=="실험세트") then
-			item.x=item.x-3
-		end
-	end
-
-	--반복문 정리--
+	--반복문 정리---
+	--[[
 	local function image( num )
 		if num == 1 then
 			local item1 = display.newImage("이미지/가방/아이템/" .. loadedItems.item1 .. ".png")
@@ -209,7 +213,7 @@ function scene:create( event )
 	end
 
 
-
+	]]--
 
 end
 

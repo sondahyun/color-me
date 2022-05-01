@@ -47,6 +47,7 @@ function scene:create( event )
 	sceneGroup:insert(coin)
 	coin.x, coin.y = display.contentWidth*0.1, display.contentHeight*0.08
 
+	loadedSettings.money=loadedSettings.money+1000
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
 	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
