@@ -197,7 +197,7 @@ function scene:create( event )
     				test = 0
 				}
 				loadsave.saveTable( gameSettings, "settings.json" )
-					local interior = {
+				local interior = {
 						interiorCount = 23,
 						wallpaper1 = "없음",
 						wallpaper2 = "없음",
@@ -245,7 +245,7 @@ function scene:create( event )
 						item16 = "없음",
 						item17 = "없음"
 					}
-				loadsave.saveTable( decoration, "items.json" )
+				loadsave.saveTable( itmes, "items.json" )
 				composer.setVariable("name",defaultField.text)
 				defaultField:removeSelf()
 				defaultField = nil

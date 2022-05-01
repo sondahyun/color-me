@@ -33,16 +33,44 @@ function scene:create( event )
 		end
 	end
 
+	
+
 
 	local update = display.newImage("이미지/가방/꾸미기배경1.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
+	local update1 = display.newImage("이미지/가방/꾸미기배경2.png")
+	update1.x, update1.y = display.contentWidth*0.5, display.contentHeight*0.5
+	sceneGroup:insert(update1)
+	update1.alpha=0
+
+	local function go_one(event)
+		if event.phase == "began" then
+			update.alpha =1 
+			update1.alpha=0
+			right_buttoned.alpha=0
+			left_button.alpha=0
+			right_button.alpha=1
+			left_buttoned.alpha=1
+		end
+	end
+
+	local function go_two(event)
+		if event.phase == "began" then
+			update.alpha =0 
+			update1.alpha=1
+			right_buttoned.alpha=1
+			left_button.alpha=1
+			right_button.alpha=0
+			left_buttoned.alpha=0
+		end
+	end
+
 	local basic_button= display.newImage("이미지/가방/일반.png")
 	basic_button.x, basic_button.y = display.contentWidth*0.3066, display.contentHeight*0.0774
 	basic_button.anchorX,basic_button.anchorY=0,0
 	basic_button:addEventListener("touch",go_popup)
-
 	sceneGroup:insert(basic_button)
 
 	local pretty_button= display.newImage("이미지/가방/꾸미기_완료.png")
@@ -50,15 +78,31 @@ function scene:create( event )
 	sceneGroup:insert(pretty_button)
 	pretty_button.anchorX,pretty_button.anchorY=0,0
 
-	local left_button = display.newImage("이미지/가방/가구버튼1_클릭.png")
+	local left_button = display.newImage("이미지/가방/가구버튼1.png")
 	left_button.x, left_button.y = display.contentWidth*0.444,display.contentHeight*0.8966
 	sceneGroup:insert(left_button)
+	left_button.alpha = 0
+	left_button:addEventListener("touch",go_one)
 	left_button.anchorX,left_button.anchorY=0,0
+
+	local left_buttoned = display.newImage("이미지/가방/가구버튼1_클릭.png")
+	left_buttoned.x, left_buttoned.y = display.contentWidth*0.444,display.contentHeight*0.8966
+	sceneGroup:insert(left_buttoned)
+	left_buttoned.anchorX,left_buttoned.anchorY=0,0
+
+	local right_buttoned = display.newImage("이미지/가방/가구버튼2_클릭.png")
+	right_buttoned.x, right_buttoned.y = display.contentWidth*0.4795,display.contentHeight*0.8966
+	sceneGroup:insert(right_buttoned)
+	right_buttoned.anchorX,right_buttoned.anchorY=0,0
+	right_buttoned.alpha = 1
 
 	local right_button = display.newImage("이미지/가방/가구버튼2.png")
 	right_button.x, right_button.y = display.contentWidth*0.4795,display.contentHeight*0.8966
 	sceneGroup:insert(right_button)
+	right_button:addEventListener("touch",go_two)
 	right_button.anchorX,right_button.anchorY=0,0
+
+	
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
