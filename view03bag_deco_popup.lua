@@ -21,6 +21,20 @@ function scene:create( event )
 			composer.hideOverlay("view03bag_popup")
 		end
 	end
+
+	local i = 0
+
+	local function apply_function(event)
+		if event.phase == "began" then
+			if (i==0) then 
+				event.target.fill = {type="image",filename="이미지/가방/적용중.png"}
+				i=i+1
+			else
+				event.target.fill = {type="image",filename="이미지/가방/적용하기.png"}
+				i=i-1
+			end
+		end
+	end
 	
 	local popup = display.newImage("이미지/가방/가구팝업창/" .. item .. ".png")
 	popup.x, popup.y = display.contentWidth*0.5, display.contentHeight*0.5
@@ -38,6 +52,12 @@ function scene:create( event )
 	exit.height = exit.height*0.85
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
+
+	local apply = display.newImage("이미지/가방/적용하기.png")
+	apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.59
+	sceneGroup:insert(apply)
+	apply:addEventListener("touch",apply_function)
+
 
 
 
