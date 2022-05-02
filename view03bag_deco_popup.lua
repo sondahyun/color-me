@@ -15,7 +15,6 @@ function scene:create( event )
 	
 	item = composer.getVariable("item")
 	two_check = composer.getVariable("two_check")
-	apply_count = loadedItems.apply
 
 	if (item == "도트벽지") then
 		apply_count =loadedItems.grid_apply
