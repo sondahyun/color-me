@@ -13,11 +13,11 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 
-
-
 	local options = {
 		isModal = true
 	}
+
+	--버튼 함수--
 
 	local function go_back(event)
 		if event.phase == "began" then
@@ -33,39 +33,19 @@ function scene:create( event )
 		end
 	end
 
-	
-
+	local function go_two(event)
+		if event.phase == "began" then
+			composer.removeScene("view03bag_deco")
+			composer.gotoScene("view03bag_deco2")
+		end
+	end
 
 	local update = display.newImage("이미지/가방/꾸미기배경1.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
-	local update1 = display.newImage("이미지/가방/꾸미기배경2.png")
-	update1.x, update1.y = display.contentWidth*0.5, display.contentHeight*0.5
-	sceneGroup:insert(update1)
-	update1.alpha=0
 
-	local function go_one(event)
-		if event.phase == "began" then
-			update.alpha =1 
-			update1.alpha=0
-			right_buttoned.alpha=0
-			left_button.alpha=0
-			right_button.alpha=1
-			left_buttoned.alpha=1
-		end
-	end
-
-	local function go_two(event)
-		if event.phase == "began" then
-			update.alpha =0 
-			update1.alpha=1
-			right_buttoned.alpha=1
-			left_button.alpha=1
-			right_button.alpha=0
-			left_buttoned.alpha=0
-		end
-	end
+	--일반/꾸미기 전환 버튼--
 
 	local basic_button= display.newImage("이미지/가방/일반.png")
 	basic_button.x, basic_button.y = display.contentWidth*0.3066, display.contentHeight*0.0774
@@ -78,23 +58,12 @@ function scene:create( event )
 	sceneGroup:insert(pretty_button)
 	pretty_button.anchorX,pretty_button.anchorY=0,0
 
-	local left_button = display.newImage("이미지/가방/가구버튼1.png")
-	left_button.x, left_button.y = display.contentWidth*0.444,display.contentHeight*0.8966
-	sceneGroup:insert(left_button)
-	left_button.alpha = 0
-	left_button:addEventListener("touch",go_one)
-	left_button.anchorX,left_button.anchorY=0,0
+	--목록 전환 버튼--
 
 	local left_buttoned = display.newImage("이미지/가방/가구버튼1_클릭.png")
 	left_buttoned.x, left_buttoned.y = display.contentWidth*0.444,display.contentHeight*0.8966
 	sceneGroup:insert(left_buttoned)
 	left_buttoned.anchorX,left_buttoned.anchorY=0,0
-
-	local right_buttoned = display.newImage("이미지/가방/가구버튼2_클릭.png")
-	right_buttoned.x, right_buttoned.y = display.contentWidth*0.4795,display.contentHeight*0.8966
-	sceneGroup:insert(right_buttoned)
-	right_buttoned.anchorX,right_buttoned.anchorY=0,0
-	right_buttoned.alpha = 1
 
 	local right_button = display.newImage("이미지/가방/가구버튼2.png")
 	right_button.x, right_button.y = display.contentWidth*0.4795,display.contentHeight*0.8966
@@ -102,162 +71,117 @@ function scene:create( event )
 	right_button:addEventListener("touch",go_two)
 	right_button.anchorX,right_button.anchorY=0,0
 
-	
-
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
 	exit.anchorX, exit.anchorY = 0,0
-	
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
-	--[[local function click( event )
-		composer.setVariable("item",event.target.id)
-		composer.showOverlay( "view03bag_popup",options)
-	end]]--
 
-	--반복문 정리---
+	--아이템 목록--
+
+	local wallpaperImage = {}
+	local floorImage = {}
+	local blanketImage = {}
+	local carpetImage = {}
+	
+	--[[wallpaperImage[1] = loadedItems.wallpaper1
+	wallpaperImage[2] = loadedItems.wallpaper2
+	wallpaperImage[3] = loadedItems.wallpaper3
+
+	floorImage[1] = loadedItems.floor1
+	floorImage[2] = loadedItems.floor2
+	floorImage[3] = loadedItems.floor3
+
+	blanketImage[1] = loadedItems.blanket1
+	blanketImage[2] = loadedItems.blanket2
+	blanketImage[3] = loadedItems.blanket3
+
+	carpetImage[1] = loadedItems.carpet1
+	carpetImage[2] = loadedItems.carpet2
+	carpetImage[3] = loadedItems.carpet3
+
+	]]--
+
+	wallpaperImage[1] = "격자벽지"
+	wallpaperImage[2] = "도트벽지"
+	wallpaperImage[3] = "흰색벽지"
+
+	floorImage[1] = "나무바닥"
+	floorImage[2] = "푸른바닥"
+	floorImage[3] = "흰색바닥"
+
+	blanketImage[1] = "꽃무늬이불"
+	blanketImage[2] = "줄무늬이불"
+	blanketImage[3] = "파랑이불"
+
+	carpetImage[1] = "네모카펫"
+	carpetImage[2] = "둥근카펫"
+	carpetImage[3] = "하트카펫"
+
+	local wallpaper = {}
+	local floor = {}
+	local blanket = {}
+	local carpet = {}
+
+	local wallpaperCount = 3
+	local floorCount = 3
+	local blanketCount = 3
+	local carpetCount = 3
+
 	--[[
-	local function image( num )
-		if num == 1 then
-			local item1 = display.newImage("이미지/가방/아이템/" .. loadedItems.item1 .. ".png")
-			item1.x, item1.y =  display.contentWidth*0.0516, display.contentHeight*0.2818
-			item1.id = loadedItems.item1
-			item1.anchorX, item1.anchorY = 0,0
-			sceneGroup:insert(item1)
-			check_kit(loadedItems.item1,item1)
-			item1:addEventListener("touch", click)
-		elseif num == 2 then
-			local item2 = display.newImage("이미지/가방/아이템/" .. loadedItems.item2 .. ".png")
-			item2.x, item2.y =  display.contentWidth*0.1670, display.contentHeight*0.2818
-			item2.id = loadedItems.item2
-			item2.anchorX, item2.anchorY = 0,0
-			sceneGroup:insert(item2)
-			check_kit(loadedItems.item2,item2)
-			item2:addEventListener("touch", click)
-		elseif num == 3 then
-			local item3 = display.newImage("이미지/가방/아이템/" .. loadedItems.item3 .. ".png")
-			item3.x, item3.y =  display.contentWidth*0.2823, display.contentHeight*0.2818
-			sceneGroup:insert(item3)
-			item3.id = loadedItems.item3
-			item3.anchorX, item3.anchorY = 0,0
-			check_kit(loadedItems.item3,item3)
-			item3:addEventListener("touch", click)
-		elseif num == 4 then
-			local item4 = display.newImage("이미지/가방/아이템/" .. loadedItems.item4 .. ".png")
-			item4.x, item4.y =  display.contentWidth*0.3977, display.contentHeight*0.2818
-			sceneGroup:insert(item4)
-			item4.id = loadedItems.item4
-			item4.anchorX, item4.anchorY = 0,0
-			check_kit(loadedItems.item4,item4)
-			item4:addEventListener("touch", click)
-		elseif num == 5 then
-			local item5 = display.newImage("이미지/가방/아이템/" .. loadedItems.item5 .. ".png")
-			item5.x, item5.y =  display.contentWidth*0.5130, display.contentHeight*0.2818
-			sceneGroup:insert(item5)
-			item5.id = loadedItems.item5
-			item5.anchorX, item5.anchorY = 0,0
-			check_kit(loadedItems.item5,item5)
-			item5:addEventListener("touch", click)
-		elseif num == 6 then
-			local item6 = display.newImage("이미지/가방/아이템/" .. loadedItems.item6 .. ".png")
-			item6.x, item6.y =  display.contentWidth*0.6283, display.contentHeight*0.2818
-			sceneGroup:insert(item6)
-			item6.id = loadedItems.item6
-			item6.anchorX, item6.anchorY = 0,0
-			check_kit(loadedItems.item6,item6)
-			item6:addEventListener("touch", click)
-		elseif num == 7 then
-			local item7 = display.newImage("이미지/가방/아이템/" .. loadedItems.item7 .. ".png")
-			item7.x, item7.y =  display.contentWidth*0.7437, display.contentHeight*0.2818
-			sceneGroup:insert(item7)
-			item7.id = loadedItems.item7
-			item7.anchorX, item7.anchorY = 0,0
-			check_kit(loadedItems.item7,item7)
-			item7:addEventListener("touch", click)
-		elseif num == 8 then
-			local item8 = display.newImage("이미지/가방/아이템/" .. loadedItems.item8 .. ".png")
-			item8.x, item8.y =  display.contentWidth*0.8590, display.contentHeight*0.2818
-			sceneGroup:insert(item8)
-			item8.id = loadedItems.item8
-			item8.anchorX, item8.anchorY = 0,0
-			check_kit(loadedItems.item8,item8)
-			item8:addEventListener("touch", click)
-		elseif num == 9 then
-			local item9 = display.newImage("이미지/가방/아이템/" .. loadedItems.item9 .. ".png")
-			item9.x, item9.y =  display.contentWidth*0.0516, display.contentHeight*0.6178
-			sceneGroup:insert(item9)
-			item9.id = loadedItems.item9
-			item9.anchorX, item9.anchorY = 0,0
-			check_kit(loadedItems.item9,item9)
-			item9:addEventListener("touch", click)
-		elseif num == 10 then
-			local item10 = display.newImage("이미지/가방/아이템/" .. loadedItems.item10 .. ".png")
-			item10.x, item10.y =  display.contentWidth*0.1670, display.contentHeight*0.6178
-			sceneGroup:insert(item10)
-			item10.id = loadedItems.item10
-			check_kit(loadedItems.item10,item10)
-			item10.anchorX, item10.anchorY = 0,0
-			item10:addEventListener("touch", click)
-		elseif num == 11 then
-			local item11 = display.newImage("이미지/가방/아이템/" .. loadedItems.item11 .. ".png")
-			item11.x, item11.y =  display.contentWidth*0.2823, display.contentHeight*0.6178
-			sceneGroup:insert(item11)
-			item11.id = loadedItems.item11
-			item11.anchorX, item11.anchorY = 0,0
-			check_kit(loadedItems.item11,item11)
-			item11:addEventListener("touch", click)
-		elseif num == 12 then
-			local item12 = display.newImage("이미지/가방/아이템/" .. loadedItems.item12 .. ".png")
-			item12.x, item12.y =  display.contentWidth*0.3977, display.contentHeight*0.6178
-			sceneGroup:insert(item12)
-			item12.id = loadedItems.item12
-			item12.anchorX, item12.anchorY = 0,0
-			check_kit(loadedItems.item12,item12)
-			item12:addEventListener("touch", click)
-		elseif num == 13 then
-			local item13 = display.newImage("이미지/가방/아이템/" .. loadedItems.item13 .. ".png")
-			item13.x, item13.y =  display.contentWidth*0.513, display.contentHeight*0.6178
-			sceneGroup:insert(item13)
-			item13.id = loadedItems.item13
-			item13.anchorX, item13.anchorY = 0,0
-			check_kit(loadedItems.item13,item13)
-			item13:addEventListener("touch", click)
-		elseif num == 14 then
-			local item14 = display.newImage("이미지/가방/아이템/" .. loadedItems.item14 .. ".png")
-			item14.x, item14.y =  display.contentWidth*0.6283, display.contentHeight*0.6178
-			sceneGroup:insert(item14)
-			item14.id = loadedItems.item14
-			item14.anchorX, item14.anchorY = 0,0
-			check_kit(loadedItems.item14,item14)
-			item14:addEventListener("touch", click)
-		elseif num == 15 then
-			local item15 = display.newImage("이미지/가방/아이템/" .. loadedItems.item15 .. ".png")
-			item15.x, item15.y =  display.contentWidth*0.7437, display.contentHeight*0.6178
-			sceneGroup:insert(item15)
-			item15.id = loadedItems.item15
-			item15.anchorX, item15.anchorY = 0,0
-			check_kit(loadedItems.item15,item15)
-			item15:addEventListener("touch", click)
-		elseif num == 16 then
-			local item16 = display.newImage("이미지/가방/아이템/" .. loadedItems.item16 .. ".png")
-			item16.x, item16.y =  display.contentWidth*0.8590, display.contentHeight*0.6178
-			sceneGroup:insert(item16)
-			item16.anchorX, item16.anchorY = 0,0
-			item16.id = loadedItems.item16
-			check_kit(loadedItems.item16,item16)
-			item16:addEventListener("touch", click)
+	loadedItems.wallpaperCount
+	loadedItems.floorCount
+	loadedItems.blanketCount
+	loadedItems.carpetCount
+	]]--
+
+
+	--아이템 함수--
+	local function popup(event)
+		if event.phase == "began" then
+			composer.setVariable("item",event.target.id)
+			composer.setVariable("two_check",0)
+			composer.showOverlay("view03bag_deco_popup",options)
 		end
 	end
 
-	local count = loadedItems.itemCount
-
-	for i=1,count do 
-		image(i)
+	for i=1,wallpaperCount do
+		 wallpaper[i] = display.newImage("이미지/가방/가구템/" .. wallpaperImage[i] .. ".png")
+		 wallpaper[i].x,wallpaper[i].y = display.contentWidth*0.0937 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.2816
+		 sceneGroup:insert(wallpaper[i])
+		 wallpaper[i].id = wallpaperImage[i]
+		 wallpaper[i]:addEventListener("touch",popup)
+		 wallpaper[i].anchorX,wallpaper[i].anchorY = 0,0
 	end
 
+	for i=1,floorCount do
+		 floor[i] = display.newImage("이미지/가방/가구템/" .. floorImage[i] .. ".png")
+		 floor[i].x,floor[i].y = display.contentWidth*0.5717 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.2816
+		 sceneGroup:insert(floor[i])
+		 floor[i].id = floorImage[i]
+		 floor[i]:addEventListener("touch",popup)
+		 floor[i].anchorX,floor[i].anchorY = 0,0
+	end
 
-	]]--
+	for i=1,blanketCount do
+		 blanket[i] = display.newImage("이미지/가방/가구템/" .. blanketImage[i] .. ".png")
+		 blanket[i].x,blanket[i].y = display.contentWidth*0.0937 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.6153
+		 sceneGroup:insert(blanket[i])
+		 blanket[i].id = blanketImage[i]
+		 blanket[i]:addEventListener("touch",popup)
+		 blanket[i].anchorX,blanket[i].anchorY = 0,0
+	end
+
+	for i=1,carpetCount do
+		 carpet[i] = display.newImage("이미지/가방/가구템/" .. carpetImage[i] .. ".png")
+		 carpet[i].x,carpet[i].y = display.contentWidth*0.5717 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.6153
+		 sceneGroup:insert(carpet[i])
+		 carpet[i].id = carpetImage[i]
+		 carpet[i]:addEventListener("touch",popup)
+		 carpet[i].anchorX,carpet[i].anchorY = 0,0
+	end
+
 
 end
 

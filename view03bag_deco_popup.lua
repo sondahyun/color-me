@@ -14,6 +14,7 @@ function scene:create( event )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	
 	item = composer.getVariable("item")
+	two_check = composer.getVariable("two_check")
 
 	local function go_back(event)
 		if event.phase == "began" then
@@ -21,16 +22,24 @@ function scene:create( event )
 		end
 	end
 	
-	local popup = display.newImage("이미지/가방/팝업창/" .. item .. ".png")
+	local popup = display.newImage("이미지/가방/가구팝업창/" .. item .. ".png")
 	popup.x, popup.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(popup)
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.5, display.contentHeight*0.59
+	if(two_check==1) then
+		exit.x = display.contentWidth*0.628
+	else
+		exit.x = display.contentWidth*0.72
+	end
+
+	exit.y = display.contentHeight*0.34
 	exit.width = exit.width*0.85
 	exit.height = exit.height*0.85
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
+
+
 
 
 
