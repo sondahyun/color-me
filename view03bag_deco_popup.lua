@@ -15,14 +15,121 @@ function scene:create( event )
 	
 	item = composer.getVariable("item")
 	two_check = composer.getVariable("two_check")
+	apply_count = loadedItems.apply
 
+	if (item == "도트벽지") then
+		apply_count =loadedItems.grid_apply
+	elseif (item == "격자벽지") then
+		apply_count =loadedItems.dot_apply
+	elseif (item == "흰색벽지") then
+		apply_count =loadedItems.white_apply
+	elseif (item == "꽃무늬이불") then
+		apply_count =loadedItems.flower_apply
+	elseif (item == "줄무늬이불") then
+		apply_count =loadedItems.sprite_apply
+	elseif (item == "파랑이불") then
+		apply_count =loadedItems.blue_apply
+	elseif (item == "나무바닥") then
+		apply_count =loadedItems.tree_apply
+	elseif (item == "푸른바닥") then
+		apply_count =loadedItems.fblue_apply
+	elseif (item == "흰색바닥") then
+		apply_count =loadedItems.fwhite_apply
+	elseif (item == "네모카펫") then
+		apply_count =loadedItems.square_apply
+	elseif (item == "둥근카펫") then
+		apply_count =loadedItems.circle_apply
+	elseif (item == "하트카펫") then
+		apply_count =loadedItems.heart_apply
+	elseif (item == "선인장화분") then
+		apply_count =loadedItems.cactus_apply
+	elseif (item == "제비꽃화분") then
+		apply_count =loadedItems.violet_apply
+	elseif (item == "해바라기화분") then
+		apply_count =loadedItems.sunflower_apply
+	elseif (item == "클로버화분") then
+		apply_count =loadedItems.clover_apply
+	elseif (item == "곰인형") then
+		apply_count =loadedItems.bear_apply
+	elseif (item == "토끼인형") then
+		apply_count =loadedItems.rabbit_apply
+	elseif (item == "레이액자") then
+		apply_count =loadedItems.lay_apply
+	elseif (item == "위즈액자") then
+		apply_count =loadedItems.wiz_apply
+	elseif (item == "솔리액자") then
+		apply_count =loadedItems.soli_apply
+	elseif (item == "조이액자") then
+		apply_count =loadedItems.joy_apply
+	elseif (item == "블리액자") then
+		apply_count =loadedItems.bly_apply
+	end
+
+	if (apply_count==0) then
+		i=0
+	else
+		i=1
+	end
+
+	local function put_apply() 
+		if (item == "도트벽지") then
+			loadedItems.grid_apply = i
+		elseif (item == "격자벽지") then
+			loadedItems.dot_apply= i
+		elseif (item == "흰색벽지") then
+			loadedItems.white_apply= i
+		elseif (item == "꽃무늬이불") then
+			loadedItems.flower_apply= i
+		elseif (item == "줄무늬이불") then
+			loadedItems.sprite_apply= i
+		elseif (item == "파랑이불") then
+			loadedItems.blue_apply= i
+		elseif (item == "나무바닥") then
+			loadedItems.tree_apply= i
+		elseif (item == "푸른바닥") then
+			loadedItems.fblue_apply= i
+		elseif (item == "흰색바닥") then
+			loadedItems.fwhite_apply= i
+		elseif (item == "네모카펫") then
+			loadedItems.square_apply= i
+		elseif (item == "둥근카펫") then
+			loadedItems.circle_apply= i
+		elseif (item == "하트카펫") then
+			loadedItems.heart_apply= i
+		elseif (item == "선인장화분") then
+			loadedItems.cactus_apply= i
+		elseif (item == "제비꽃화분") then
+			loadedItems.violet_apply= i
+		elseif (item == "해바라기화분") then
+			loadedItems.sunflower_apply= i
+		elseif (item == "클로버화분") then
+			loadedItems.clover_apply= i
+		elseif (item == "곰인형") then
+			loadedItems.bear_apply= i
+		elseif (item == "토끼인형") then
+			loadedItems.rabbit_apply= i
+		elseif (item == "레이액자") then
+			loadedItems.lay_apply= i
+		elseif (item == "위즈액자") then
+			loadedItems.wiz_apply= i
+		elseif (item == "솔리액자") then
+			loadedItems.soli_apply= i
+		elseif (item == "조이액자") then
+			loadedItems.joy_apply= i
+		elseif (item == "블리액자") then
+			loadedItems.bly_apply= i
+		end
+	end
+	
 	local function go_back(event)
 		if event.phase == "began" then
+			put_apply()
+			loadsave.saveTable(loadedItems,"items.json")
 			composer.hideOverlay("view03bag_popup")
 		end
 	end
 
-	local i = 0
+	
 
 	local function apply_function(event)
 		if event.phase == "began" then
@@ -53,16 +160,14 @@ function scene:create( event )
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
-	local apply = display.newImage("이미지/가방/적용하기.png")
+	if (apply_count==0) then
+		apply = display.newImage("이미지/가방/적용하기.png")
+	else
+		apply = display.newImage("이미지/가방/적용중.png")
+	end
 	apply.x, apply.y = display.contentWidth*0.5, display.contentHeight*0.59
 	sceneGroup:insert(apply)
 	apply:addEventListener("touch",apply_function)
-
-
-
-
-
-
 
 end
 

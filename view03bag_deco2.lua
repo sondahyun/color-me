@@ -154,7 +154,7 @@ function scene:create( event )
 		 frame[i].x,frame[i].y = display.contentWidth*0.2079 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.6153
 		 sceneGroup:insert(frame[i])
 		 frame[i].id = frameImage[i]
-		 --frame[i]:addEventListener("touch",popup)
+		 frame[i]:addEventListener("touch",popup)
 		 frame[i].anchorX,frame[i].anchorY = 0,0
 	end
 

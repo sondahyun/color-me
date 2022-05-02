@@ -197,7 +197,26 @@ function scene:create( event )
     				test = 0
 				}
 				loadsave.saveTable( gameSettings, "settings.json" )
-				local interior = {
+				local itmes = {
+						itemCount = 0,
+						item1 = "없음",
+						item2 = "없음",
+						item3 = "없음",
+						item4 = "없음",
+						item5 = "없음",
+						item6 = "없음",
+						item7 = "없음",
+						item8 = "없음",
+						item9 = "없음",
+						item10 = "없음",
+						item11 = "없음",
+						item12 = "없음",
+						item13 = "없음",
+						item14 = "없음",
+						item15 = "없음",
+						item16 = "없음",
+						item17 = "없음",
+
 						interiorCount = 23,
 						wallpaper1 = "없음",
 						wallpaper2 = "없음",
@@ -228,29 +247,37 @@ function scene:create( event )
 						frame3 = "없음",
 						frame4 = "없음",
 						frame5 = "없음",
-						frameCount = 0
-					}
-				loadsave.saveTable( interior, "items.json" )
+						frameCount = 0,
+						
+						grid_apply = 0,
+						dot_apply = 0,
+						white_apply = 0,
 
-				local itmes = {
-						itemCount = 0,
-						item1 = "없음",
-						item2 = "없음",
-						item3 = "없음",
-						item4 = "없음",
-						item5 = "없음",
-						item6 = "없음",
-						item7 = "없음",
-						item8 = "없음",
-						item9 = "없음",
-						item10 = "없음",
-						item11 = "없음",
-						item12 = "없음",
-						item13 = "없음",
-						item14 = "없음",
-						item15 = "없음",
-						item16 = "없음",
-						item17 = "없음"
+						flower_apply = 0,
+						sprite_apply = 0,
+						blue_apply = 0,
+
+						tree_apply = 0,
+						fblue_apply = 0,
+						fwhite_apply = 0,
+
+						square_apply=0,
+						circle_apply=0,
+						heart_apply=0,
+
+						cactus_apply=0,
+						violet_apply=0,
+						sunflower_apply=0,
+						clover_apply=0,
+
+						bear_apply=0,
+						rabbit_apply=0,
+
+						lay_apply=0,
+						wiz_apply=0,
+						soli_apply=0,
+						bly_apply=0,
+						joy_apply=0
 					}
 				loadsave.saveTable( itmes, "items.json" )
 				composer.setVariable("name",defaultField.text)
