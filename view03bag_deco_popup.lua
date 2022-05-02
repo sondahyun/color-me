@@ -15,6 +15,7 @@ function scene:create( event )
 	
 	item = composer.getVariable("item")
 	two_check = composer.getVariable("two_check")
+	j=0
 
 	if (item == "도트벽지") then
 		apply_count =loadedItems.grid_apply
@@ -70,52 +71,164 @@ function scene:create( event )
 		i=1
 	end
 
+	local function wallpaper_clear()
+		loadedItems.grid_apply=0
+		loadedItems.dot_apply=0
+		loadedItems.white_apply=0
+	end
+
+	local function floor_clear()
+		loadedItems.fblue_apply=0
+		loadedItems.tree_apply=0
+		loadedItems.fwhite_apply=0
+	end
+
+	local function blanket_clear()
+		loadedItems.flower_apply=0
+		loadedItems.sprite_apply=0
+		loadedItems.blue_apply=0
+	end
+
+	local function carpet_clear()
+		loadedItems.square_apply=0
+		loadedItems.circle_apply=0
+		loadedItems.heart_apply=0
+	end
+
+	local function plant_clear()
+		loadedItems.cactus_apply=0
+		loadedItems.sunflower_apply=0
+		loadedItems.clover_apply=0
+	end
+
+	local function doll_clear()
+		loadedItems.bear_apply=0
+		loadedItems.rabbit_apply=0
+	end
+
+	local function frame_clear()
+		loadedItems.lay_apply=0
+		loadedItems.wiz_apply= 0
+		loadedItems.soli_apply= 0
+		loadedItems.joy_apply= 0
+		loadedItems.bly_apply= 0
+	end
+
 	local function put_apply() 
 		if (item == "도트벽지") then
+			if (j==1) then
+				wallpaper_clear()
+			end
 			loadedItems.grid_apply = i
 		elseif (item == "격자벽지") then
+			if (j==1) then
+				wallpaper_clear()
+			end
 			loadedItems.dot_apply= i
 		elseif (item == "흰색벽지") then
+			if (j==1) then
+				wallpaper_clear()
+			end
 			loadedItems.white_apply= i
 		elseif (item == "꽃무늬이불") then
+			if (j==1) then
+				blanket_clear()
+			end
 			loadedItems.flower_apply= i
 		elseif (item == "줄무늬이불") then
+			if (j==1) then
+				blanket_clear()
+			end
 			loadedItems.sprite_apply= i
 		elseif (item == "파랑이불") then
+			if (j==1) then
+				blanket_clear()
+			end
 			loadedItems.blue_apply= i
 		elseif (item == "나무바닥") then
+			if (j==1) then
+				floor_clear()
+			end
 			loadedItems.tree_apply= i
 		elseif (item == "푸른바닥") then
+			if (j==1) then
+				floor_clear()
+			end
 			loadedItems.fblue_apply= i
 		elseif (item == "흰색바닥") then
+			if (j==1) then
+				floor_clear()
+			end
 			loadedItems.fwhite_apply= i
 		elseif (item == "네모카펫") then
+			if (j==1) then
+				carpet_clear()
+			end
 			loadedItems.square_apply= i
 		elseif (item == "둥근카펫") then
+			if (j==1) then
+				carpet_clear()
+			end
 			loadedItems.circle_apply= i
 		elseif (item == "하트카펫") then
+			if (j==1) then
+				carpet_clear()
+			end
 			loadedItems.heart_apply= i
 		elseif (item == "선인장화분") then
+			if (j==1) then
+				plant_clear()
+			end
 			loadedItems.cactus_apply= i
 		elseif (item == "제비꽃화분") then
+			if (j==1) then
+				plant_clear()
+			end
 			loadedItems.violet_apply= i
 		elseif (item == "해바라기화분") then
+			if (j==1) then
+				plant_clear()
+			end
 			loadedItems.sunflower_apply= i
 		elseif (item == "클로버화분") then
+			if (j==1) then
+				plant_clear()
+			end
 			loadedItems.clover_apply= i
 		elseif (item == "곰인형") then
+			if (j==1) then
+				doll_clear()
+			end
 			loadedItems.bear_apply= i
 		elseif (item == "토끼인형") then
+			if (j==1) then
+				doll_clear()
+			end
 			loadedItems.rabbit_apply= i
 		elseif (item == "레이액자") then
+			if (j==1) then
+				frame_clear()
+			end
 			loadedItems.lay_apply= i
 		elseif (item == "위즈액자") then
+			if (j==1) then
+				frame_clear()
+			end
 			loadedItems.wiz_apply= i
 		elseif (item == "솔리액자") then
+			if (j==1) then
+				frame_clear()
+			end
 			loadedItems.soli_apply= i
 		elseif (item == "조이액자") then
+			if (j==1) then
+				frame_clear()
+			end
 			loadedItems.joy_apply= i
 		elseif (item == "블리액자") then
+			if (j==1) then
+				frame_clear()
+			end
 			loadedItems.bly_apply= i
 		end
 	end
@@ -128,10 +241,12 @@ function scene:create( event )
 		end
 	end
 
-	
-
 	local function apply_function(event)
 		if event.phase == "began" then
+			if (j==0) then 
+				j=1
+			end
+
 			if (i==0) then 
 				event.target.fill = {type="image",filename="이미지/가방/적용중.png"}
 				i=i+1
