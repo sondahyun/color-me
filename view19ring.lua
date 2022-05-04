@@ -13,12 +13,12 @@ function scene:create( event )
 	physics.start()
 
 	local value1 = {}
-	for i=1,10 do
+	for i=1,15 do
 		value1[i] = math.random(0,400)
 	end
 
 	local value2 = {}
-	for i=1,10 do
+	for i=1,15 do
 		value2[i] = display.contentWidth*0.46875 + i * display.contentWidth*0.20833333 -500
 	end
 	
@@ -27,6 +27,7 @@ function scene:create( event )
     bg.x = display.contentWidth/2
     bg.y = display.contentHeight/2
     sceneGroup:insert(bg)
+
 
 	--객체
 	local user = display.newImageRect("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 플레이어(보라마을).png", display.contentWidth/13, display.contentHeight/4)
@@ -40,15 +41,36 @@ function scene:create( event )
 	local rint = {}
 	local rintGroup = display.newGroup()
 	
+	local inv6 = {}
+    local inv5 = {}
     local inv4 = {}
 	local inv3 = {}
-    local walld = {}
-    for i=1,10 do
-        walld[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링(보라마을).png")
+    --local walld = {}
+    for i=1,15 do
+        --[[walld[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링(보라마을).png")
         walld[i].x = value2[i]*1.3
         walld[i].y = display.contentHeight*0.5555 + value1[i] - display.contentHeight*0.0925925
-        sceneGroup:insert(walld[i])
+        sceneGroup:insert(walld[i])--]]
         --physics.addBody(walld[i], "static")   
+
+		inv5[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링3(보라마을).png")
+		inv5[i].x = value2[i]*1.3 - display.contentWidth*0.02190
+		inv5[i].y = display.contentHeight*0.37959 + value1[i] - display.contentHeight*0.0925925 --130
+		sceneGroup:insert(inv5[i])
+		--physics.addBody(inv5[i], "static")
+
+        inv6[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링2(보라마을).png")
+		inv6[i].x = value2[i]*1.3 + display.contentWidth*0.02190
+		inv6[i].y = display.contentHeight*0.37959 + value1[i] - display.contentHeight*0.0925925 --130
+		sceneGroup:insert(inv6[i])
+		--physics.addBody(inv6[i], "static")
+
+		
+		inv3[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링1(보라마을).png")
+		inv3[i].x = value2[i]*1.3
+		inv3[i].y = display.contentHeight*1.004629 + value1[i] - display.contentHeight*0.0925925 --1085
+		sceneGroup:insert(inv3[i])
+		physics.addBody(inv3[i], "static")
 
 		inv4[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링4(보라마을).png")
 		inv4[i].x = value2[i]*1.3
@@ -56,12 +78,10 @@ function scene:create( event )
 		sceneGroup:insert(inv4[i])
 		physics.addBody(inv4[i], "static")
 
-		inv3[i] = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 링1(보라마을).png")
-		inv3[i].x = value2[i]*1.3
-		inv3[i].y = display.contentHeight*1.004629 + value1[i] - display.contentHeight*0.0925925 --1085
-		sceneGroup:insert(inv3[i])
-		physics.addBody(inv3[i], "static")
-       
+		bg:toBack()
+		inv6[i]:toBack()
+		--user:toFront()
+		--inv5[i]:toFront()
 	end
 
     
@@ -91,13 +111,17 @@ function scene:create( event )
 		end
     end
     
-    for i=1, 10 do
-        walld[i].enterFrame = movewall
-        Runtime:addEventListener("enterFrame", walld[i])
+    for i=1, 15 do
+      --[[  walld[i].enterFrame = movewall
+        Runtime:addEventListener("enterFrame", walld[i])--]]
         inv3[i].enterFrame = movewall
         Runtime:addEventListener("enterFrame", inv3[i])
         inv4[i].enterFrame = movewall
         Runtime:addEventListener("enterFrame", inv4[i])
+        inv5[i].enterFrame = movewall
+        Runtime:addEventListener("enterFrame", inv5[i])
+        inv6[i].enterFrame = movewall
+        Runtime:addEventListener("enterFrame", inv6[i])
     end
 
 	function activeUser(self, event)
@@ -129,13 +153,17 @@ function scene:create( event )
 			inv1:removeEventListener( "collision" )
 			inv2:removeEventListener( "collision" )
 
-			for i=1,10 do
+			for i=1,15 do
     
        			inv3[i]:removeEventListener( "collision" )
         		inv4[i]:removeEventListener( "collision" )
+        		--[[inv5[i]:removeEventListener( "collision" )
+        		inv6[i]:removeEventListener( "collision" )--]]
         		Runtime:removeEventListener("enterFrame", inv3[i])
         		Runtime:removeEventListener("enterFrame", inv4[i])
-        		Runtime:removeEventListener("enterFrame", walld[i])
+        		Runtime:removeEventListener("enterFrame", inv5[i])
+        		Runtime:removeEventListener("enterFrame", inv6[i])
+        		--Runtime:removeEventListener("enterFrame", walld[i])
 			end
 
 			Runtime:removeEventListener("touch",touchScreen)
@@ -164,13 +192,16 @@ function scene:create( event )
 			inv1:removeEventListener( "collision" )
 			inv2:removeEventListener( "collision" )
 
-			for i=1,10 do
+			for i=1,15 do
     
        			inv3[i]:removeEventListener( "collision" )
         		inv4[i]:removeEventListener( "collision" )
+        		
         		Runtime:removeEventListener("enterFrame", inv3[i])
         		Runtime:removeEventListener("enterFrame", inv4[i])
-        		Runtime:removeEventListener("enterFrame", walld[i])
+        		Runtime:removeEventListener("enterFrame", inv5[i])
+        		Runtime:removeEventListener("enterFrame", inv6[i])
+        		--Runtime:removeEventListener("enterFrame", walld[i])
 			end
 
 			composer.setVariable("score", time)
@@ -199,13 +230,17 @@ function scene:create( event )
 	inv2.collision = onLocalCollision
 	inv2:addEventListener( "collision" )
 
-    for i=1,10 do
+    for i=1,15 do
         --walld[i].collision = onLocalCollision
         --walld[i]:addEventListener( "collision" )
         inv3[i].collision = onLocalCollision
         inv3[i]:addEventListener( "collision" )
         inv4[i].collision = onLocalCollision
         inv4[i]:addEventListener( "collision" )
+       --[[ inv5[i].collision = onLocalCollision
+        inv5[i]:addEventListener( "collision" )
+        inv6[i].collision = onLocalCollision
+        inv6[i]:addEventListener( "collision" )--]]
 	end
 	
 	
