@@ -21,7 +21,7 @@ function scene:create( event )
 
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.removeScene("view03bag")
+			composer.removeScene("view03bag_deco")
 			composer.gotoScene("view00Room")
 		end
 	end
@@ -85,7 +85,7 @@ function scene:create( event )
 	local blanketImage = {}
 	local carpetImage = {}
 	
-	--[[wallpaperImage[1] = loadedItems.wallpaper1
+	wallpaperImage[1] = loadedItems.wallpaper1
 	wallpaperImage[2] = loadedItems.wallpaper2
 	wallpaperImage[3] = loadedItems.wallpaper3
 
@@ -101,8 +101,10 @@ function scene:create( event )
 	carpetImage[2] = loadedItems.carpet2
 	carpetImage[3] = loadedItems.carpet3
 
-	]]--
 
+
+	
+	--[[
 	wallpaperImage[1] = "격자벽지"
 	wallpaperImage[2] = "도트벽지"
 	wallpaperImage[3] = "흰색벽지"
@@ -118,23 +120,33 @@ function scene:create( event )
 	carpetImage[1] = "네모카펫"
 	carpetImage[2] = "둥근카펫"
 	carpetImage[3] = "하트카펫"
-
+	]]--
 	local wallpaper = {}
 	local floor = {}
 	local blanket = {}
 	local carpet = {}
 
+	--[[
 	local wallpaperCount = 3
 	local floorCount = 3
 	local blanketCount = 3
 	local carpetCount = 3
 
-	--[[
-	loadedItems.wallpaperCount
-	loadedItems.floorCount
-	loadedItems.blanketCount
-	loadedItems.carpetCount
 	]]--
+	wallpaperCount=loadedItems.wallpaperCount
+	floorCount=loadedItems.floorCount
+	blanketCount=loadedItems.blanketCount
+	carpetCount=loadedItems.carpetCount
+
+	for i=1,wallpaperCount do
+		print(wallpaperImage[i])
+	end
+
+	for i=1,blanketCount do
+		print(blanketImage[i])
+		print(blanketCount)
+	end
+	
 
 
 	--아이템 함수--

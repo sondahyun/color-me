@@ -271,18 +271,18 @@ function scene:create( event )
 
 
 						interiorCount = 23,
-						wallpaper1 = "없음",
+						wallpaper1 = "흰색벽지",
 						wallpaper2 = "없음",
 						wallpaper3 = "없음",
-						wallpaperCount = 0,
-						floor1 = "없음",
+						wallpaperCount = 1,
+						floor1 = "푸른바닥",
 						floor2 = "없음",
 						floor3 = "없음",
-						floorCount = 0,
-						blanket1 = "없음",
+						floorCount = 1,
+						blanket1 = "파랑이불",
 						blanket2 = "없음",
 						blanket3 = "없음",
-						blanketCount = 0,
+						blanketCount = 1,
 						carpet1 = "없음",
 						carpet2 = "없음",
 						carpet3 = "없음",
@@ -304,15 +304,15 @@ function scene:create( event )
 						
 						grid_apply = 0,
 						dot_apply = 0,
-						white_apply = 0,
+						white_apply = 1,
 
 						flower_apply = 0,
 						sprite_apply = 0,
-						blue_apply = 0,
+						blue_apply = 1,
 
 						tree_apply = 0,
 						fblue_apply = 0,
-						fwhite_apply = 0,
+						fwhite_apply = 1,
 
 						square_apply=0,
 						circle_apply=0,
