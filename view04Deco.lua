@@ -71,18 +71,7 @@ function scene:create( event )
 			composer.setVariable("item", item)
 			composer.setVariable("money",money)
 			composer.removeScene("view04Deco")
-			composer.gotoScene("view04Decoitem_s")
-		end
-	end
-
-	local function popup2(event)
-		if event.phase == "began" then
-			item = event.target.name
-			money = event.target.id
-			composer.setVariable("item", item)
-			composer.setVariable("money",money)
-			composer.removeScene("view04Deco")
-			composer.gotoScene("view04Decoitem_L")
+			composer.gotoScene("view04Decoitem")
 		end
 	end
 
@@ -92,123 +81,285 @@ function scene:create( event )
 	flowerBlanket.anchorX,flowerBlanket.anchorY = 0.5,0.5
 	flowerBlanket.name = "꽃무늬 이불세트"
 	flowerBlanket.id = 10
+	flowerBlanket.alpha=loadedItems.d1Sold+0.5
 	sceneGroup:insert(flowerBlanket)
-	flowerBlanket:addEventListener("touch",popup2)
+	if loadedItems.d1Sold==1 then 
+		flowerBlanket:addEventListener("touch",popup)	
+	else
+		flowerBlanket:removeEventListener("touch",popup)
+	end
+
 
 	local stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬 이불세트.png")
 	stripeBlanket.x,stripeBlanket.y = display.contentWidth*0.288, display.contentHeight*0.301
 	stripeBlanket.anchorX,stripeBlanket.anchorY = 0.5,0.5
 	stripeBlanket.name = "줄무늬 이불세트"
 	stripeBlanket.id = 16
+	stripeBlanket.alpha=loadedItems.d2Sold+0.5
 	sceneGroup:insert(stripeBlanket)
-	stripeBlanket:addEventListener("touch",popup2)
+	if loadedItems.d2Sold==1 then 
+		stripeBlanket:addEventListener("touch",popup)	
+	else
+		stripeBlanket:removeEventListener("touch",popup)
+	end
 
 	local cactus = display.newImage("이미지/상점/아이템/선인장화분.png")
 	cactus.x,cactus.y = display.contentWidth*0.427, display.contentHeight*0.295
 	cactus.anchorX,cactus.anchorY = 0.5,0.5
 	cactus.id = 15
+	cactus.alpha=loadedItems.d3Sold+0.5
 	sceneGroup:insert(cactus)
 	cactus.name = "선인장화분"
-	cactus:addEventListener("touch",popup)
+	if loadedItems.d3Sold==1 then 
+		cactus:addEventListener("touch",popup)	
+	else
+		cactus:removeEventListener("touch",popup)
+	end
 
 	local sunflower = display.newImage("이미지/상점/아이템/해바라기화분.png")
 	sunflower.x,sunflower.y = display.contentWidth*0.571, display.contentHeight*0.285
 	sunflower.anchorX,sunflower.anchorY = 0.5,0.5
+	sunflower.alpha=loadedItems.d4Sold+0.5
 	sceneGroup:insert(sunflower)
-	sunflower.name = "오리"
+	sunflower.name = "해바라기화분"
 	sunflower.id = 14
-	sunflower:addEventListener("touch",popup)
+	if loadedItems.d4Sold==1 then 
+		sunflower:addEventListener("touch",popup)	
+	else
+		sunflower:removeEventListener("touch",popup)
+	end
 
 	local clover = display.newImage("이미지/상점/아이템/클로버화분.png")
 	clover.x,clover.y = display.contentWidth*0.713, display.contentHeight*0.295
 	clover.anchorX,clover.anchorY = 0.5,0.5
+	clover.alpha=loadedItems.d5Sold+0.5
 	sceneGroup:insert(clover)
 	clover.name = "클로버화분"
 	clover.id = 18
-	clover:addEventListener("touch",popup)
+	if loadedItems.d5Sold==1 then 
+		clover:addEventListener("touch",popup)	
+	else
+		clover:removeEventListener("touch",popup)
+	end
 
 	local violet= display.newImage("이미지/상점/아이템/제비꽃화분.png")
 	violet.x,violet.y = display.contentWidth*0.852, display.contentHeight*0.317
 	violet.anchorX,violet.anchorY = 0.5,0.5
+	violet.alpha=loadedItems.d6Sold+0.5
 	sceneGroup:insert(violet)
 	violet.name = "제비꽃화분"
 	violet.id = 20
-	violet:addEventListener("touch",popup)
+	if loadedItems.d6Sold==1 then 
+		violet:addEventListener("touch",popup)	
+	else
+		violet:removeEventListener("touch",popup)
+	end
 
 	-- 2행
 
 	local heartCarpet = display.newImage("이미지/상점/아이템/하트카펫.png")
 	heartCarpet.x,heartCarpet.y = display.contentWidth*0.17, display.contentHeight*0.537
 	heartCarpet.anchorX,heartCarpet.anchorY = 0.5,0.5
+	heartCarpet.alpha=loadedItems.d7Sold+0.5
 	sceneGroup:insert(heartCarpet)
 	heartCarpet.name = "하트카펫"
 	heartCarpet.id = 10
-	heartCarpet:addEventListener("touch",popup2)
+	if loadedItems.d7Sold==1 then 
+		heartCarpet:addEventListener("touch",popup)	
+	else
+		heartCarpet:removeEventListener("touch",popup)
+	end
 
 	local roundCarpet = display.newImage("이미지/상점/아이템/둥근카펫.png")
 	roundCarpet.x,roundCarpet.y = display.contentWidth*0.347, display.contentHeight*0.537
 	roundCarpet.anchorX,roundCarpet.anchorY = 0.5,0.5
+	roundCarpet.alpha=loadedItems.d8Sold+0.5
 	sceneGroup:insert(roundCarpet)
 	roundCarpet.name = "둥근카펫"
 	roundCarpet.id = 16
-	roundCarpet:addEventListener("touch",popup2)
+	if loadedItems.d8Sold==1 then 
+		roundCarpet:addEventListener("touch",popup)	
+	else
+		roundCarpet:removeEventListener("touch",popup)
+	end
 
 	local squareCarpet = display.newImage("이미지/상점/아이템/네모카펫.png")
 	squareCarpet.x,squareCarpet.y = display.contentWidth*0.542, display.contentHeight*0.553
 	squareCarpet.anchorX,squareCarpet.anchorY = 0.5,0.5
+	squareCarpet.alpha=loadedItems.d9Sold+0.5
 	sceneGroup:insert(squareCarpet)
 	squareCarpet.name = "네모카펫"
 	squareCarpet.id = 25
-	squareCarpet:addEventListener("touch",popup2)
+	if loadedItems.d9Sold==1 then 
+		squareCarpet:addEventListener("touch",popup)	
+	else
+		squareCarpet:removeEventListener("touch",popup)
+	end
 
 	local teddybear = display.newImage("이미지/상점/아이템/곰인형.png")
 	teddybear.x,teddybear.y = display.contentWidth*0.71, display.contentHeight*0.54
 	teddybear.anchorX,teddybear.anchorY = 0.5,0.5
+	teddybear.alpha=loadedItems.d10Sold+0.5
 	sceneGroup:insert(teddybear)
 	teddybear.name = "곰인형"
 	teddybear.id = 20
-	teddybear:addEventListener("touch",popup)
+	if loadedItems.d10Sold==1 then 
+		teddybear:addEventListener("touch",popup)	
+	else
+		teddybear:removeEventListener("touch",popup)
+	end
 
 	local bunny = display.newImage("이미지/상점/아이템/토끼인형.png")
 	bunny.x,bunny.y = display.contentWidth*0.848, display.contentHeight*0.529
 	bunny.anchorX,bunny.anchorY = 0.5,0.5
+	bunny.alpha=loadedItems.d11Sold+0.5
 	sceneGroup:insert(bunny)
 	bunny.name = "토끼인형"
 	bunny.id = 20
-	bunny:addEventListener("touch",popup)
+	if loadedItems.d11Sold==1 then 
+		bunny:addEventListener("touch",popup)	
+	else
+		bunny:removeEventListener("touch",popup)
+	end
 
 	--3행
 	local dotWallpaper = display.newImage("이미지/상점/아이템/도트무늬벽지.png")
 	dotWallpaper.x,dotWallpaper.y = display.contentWidth*0.149, display.contentHeight*0.766
 	dotWallpaper.anchorX,dotWallpaper.anchorY = 0.5,0.5
+	dotWallpaper.alpha=loadedItems.d12Sold+0.5
 	sceneGroup:insert(dotWallpaper)
 	dotWallpaper.name = "도트무늬벽지"
 	dotWallpaper.id = 25
-	dotWallpaper:addEventListener("touch",popup2)
+	if loadedItems.d12Sold==1 then 
+		dotWallpaper:addEventListener("touch",popup)	
+	else
+		dotWallpaper:removeEventListener("touch",popup)
+	end
 
 	local plaidWallpaper = display.newImage("이미지/상점/아이템/격자무늬벽지.png")
 	plaidWallpaper.x,plaidWallpaper.y = display.contentWidth*0.29, display.contentHeight*0.766
 	plaidWallpaper.anchorX,plaidWallpaper.anchorY = 0.5,0.5
+	plaidWallpaper.alpha=loadedItems.d13Sold+0.5
 	sceneGroup:insert(plaidWallpaper)
 	plaidWallpaper.name = "격자무늬벽지"
 	plaidWallpaper.id = 25
-	plaidWallpaper:addEventListener("touch",popup2)
+	if loadedItems.d13Sold==1 then 
+		plaidWallpaper:addEventListener("touch",popup)	
+	else
+		plaidWallpaper:removeEventListener("touch",popup)
+	end
 
 	local whiteFloor = display.newImage("이미지/상점/아이템/흰색바닥.png")
 	whiteFloor.x,whiteFloor.y = display.contentWidth*0.433, display.contentHeight*0.777
 	whiteFloor.anchorX,whiteFloor.anchorY = 0.5,0.5
+	whiteFloor.alpha=loadedItems.d14Sold+0.5
 	sceneGroup:insert(whiteFloor)
 	whiteFloor.name = "흰색바닥"
 	whiteFloor.id = 25
-	whiteFloor:addEventListener("touch",popup2)
+	if loadedItems.d14Sold==1 then 
+		whiteFloor:addEventListener("touch",popup)	
+	else
+		whiteFloor:removeEventListener("touch",popup)
+	end
 
 	local woodFloor = display.newImage("이미지/상점/아이템/나무바닥.png")
 	woodFloor.x,woodFloor.y = display.contentWidth*0.571, display.contentHeight*0.777
 	woodFloor.anchorX,woodFloor.anchorY = 0.5,0.5
+	woodFloor.alpha=loadedItems.d15Sold+0.5
 	sceneGroup:insert(woodFloor)
 	woodFloor.name = "나무바닥"
 	woodFloor.id = 25
-	woodFloor:addEventListener("touch",popup2)
+	if loadedItems.d15Sold==1 then 
+		woodFloor:addEventListener("touch",popup)	
+	else
+		woodFloor:removeEventListener("touch",popup)
+	end
+
+	local sold={}
+   sold[1] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[1].x,sold[1].y = display.contentWidth*0.1459, display.contentHeight*0.411
+   sold[2] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[2].x,sold[2].y = display.contentWidth*0.287, display.contentHeight*0.411
+   sold[3] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[3].x,sold[3].y = display.contentWidth*0.428, display.contentHeight*0.411
+   sold[4] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[4].x,sold[4].y = display.contentWidth*0.569, display.contentHeight*0.411
+   sold[5] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[5].x,sold[5].y = display.contentWidth*0.710, display.contentHeight*0.411
+   sold[6] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[6].x,sold[6].y = display.contentWidth*0.851, display.contentHeight*0.411
+   sold[7] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[7].x,sold[7].y = display.contentWidth*0.17, display.contentHeight*0.647
+   sold[8] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[8].x,sold[8].y = display.contentWidth*0.347, display.contentHeight*0.647
+   sold[9] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[9].x,sold[9].y = display.contentWidth*0.543, display.contentHeight*0.647
+   sold[10] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[10].x,sold[10].y = display.contentWidth*0.71, display.contentHeight*0.647
+   sold[11] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[11].x,sold[11].y = display.contentWidth*0.851, display.contentHeight*0.647
+   sold[12] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[12].x,sold[12].y = display.contentWidth*0.149, display.contentHeight*0.886
+   sold[13] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[13].x,sold[13].y = display.contentWidth*0.29, display.contentHeight*0.886
+   sold[14] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[14].x,sold[14].y = display.contentWidth*0.43, display.contentHeight*0.886
+   sold[15] = display.newImage("이미지/상점/상점_soldout.png")
+   sold[15].x,sold[15].y = display.contentWidth*0.571, display.contentHeight*0.886
+
+   for i=1,15 do
+   	sold[i].alpha=0
+      sceneGroup:insert(sold[i])
+   end
+
+    if loadedItems.d1Sold==0 then
+   		sold[1].alpha=1
+   	end
+   	if loadedItems.d2Sold==0 then
+   		sold[2].alpha=1
+   	end
+   	if loadedItems.d3Sold==0 then
+   		sold[3].alpha=1
+   	end
+   	if loadedItems.d4Sold==0 then
+   		sold[4].alpha=1
+   	end
+   	if loadedItems.d5Sold==0 then
+   		sold[5].alpha=1
+   	end
+   	if loadedItems.d6Sold==0 then
+   		sold[6].alpha=1
+   	end
+   	if loadedItems.d7Sold==0 then
+   		sold[7].alpha=1
+   	end
+   	if loadedItems.d8Sold==0 then
+   		sold[8].alpha=1
+   	end
+   	if loadedItems.d9Sold==0 then
+   		sold[9].alpha=1
+   	end
+   	if loadedItems.d10Sold==0 then
+   		sold[10].alpha=1
+   	end
+   	if loadedItems.d11Sold==0 then
+   		sold[11].alpha=1
+   	end
+   	if loadedItems.d12Sold==0 then
+   		sold[12].alpha=1
+   	end
+   	if loadedItems.d13Sold==0 then
+   		sold[13].alpha=1
+   	end
+   	if loadedItems.d14Sold==0 then
+   		sold[14].alpha=1
+   	end
+   	if loadedItems.d15Sold==0 then
+   		sold[15].alpha=1
+   	end
+
+
+
 
 end
 
