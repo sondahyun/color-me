@@ -311,8 +311,8 @@ function scene:create( event )
 						blue_apply = 1,
 
 						tree_apply = 0,
-						fblue_apply = 0,
-						fwhite_apply = 1,
+						fblue_apply = 1,
+						fwhite_apply = 0,
 
 						square_apply=0,
 						circle_apply=0,
