@@ -255,50 +255,86 @@ function scene:create( event )
 				end
 
 				if item=="꽃무늬 이불세트" then 
-					loadedItems.blanketCount=loadedItems.blanketCount+1
 					loadedItems.d1Sold=0
 				elseif item=="줄무늬 이불세트" then 
-					loadedItems.blanketCount=loadedItems.blanketCount+1
 					loadedItems.d2Sold=0
 				elseif item=="선인장화분" then 
-					loadedItems.plantCount=loadedItems.plantCount+1
 					loadedItems.d3Sold=0
 				elseif item=="해바라기화분" then 
-					loadedItems.plantCount=loadedItems.plantCount+1
 					loadedItems.d4Sold=0
 				elseif item=="클로버화분" then 
-					loadedItems.plantCount=loadedItems.plantCount+1
 					loadedItems.d5Sold=0
 				elseif item=="제비꽃화분" then 
-					loadedItems.plantCount=loadedItems.plantCount+1
 					loadedItems.d6Sold=0
 				elseif item=="하트카펫" then 
-					loadedItems.carpetCount=loadedItems.carpetCount+1
 					loadedItems.d7Sold=0
 				elseif item=="둥근카펫" then 
-					loadedItems.carpetCount=loadedItems.carpetCount+1
 					loadedItems.d8Sold=0
 				elseif item=="네모카펫" then
-					loadedItems.carpetCount=loadedItems.carpetCount+1 
 					loadedItems.d9Sold=0
 				elseif item=="곰인형" then 
-					loadedItems.dollCount=loadedItems.dollCount+1 
 					loadedItems.d10Sold=0
 				elseif item=="토끼인형" then 
-					loadedItems.dollCount=loadedItems.dollCount+1
 					loadedItems.d11Sold=0
-				elseif item=="도트무늬벽지" then 
-					loadedItems.wallpaperCount=loadedItems.wallpaperCount+1
+				elseif item=="도트무늬벽지" then
 					loadedItems.d12Sold=0
 				elseif item=="격자무늬벽지" then 
-					loadedItems.wallpaperCount=loadedItems.wallpaperCount+1
 					loadedItems.d13Sold=0
 				elseif item=="흰색바닥" then 
-					loadedItems.floorCount=loadedItems.floorCount+1
 					loadedItems.d14Sold=0
 				elseif item=="나무바닥" then 
-					loadedItems.floorCount=loadedItems.floorCount+1
 					loadedItems.d15Sold=0
+				end
+
+				if item=="꽃무늬 이불세트" or "줄무늬 이불 세트" then 
+					loadedItems.blanketCount=loadedItems.blanketCount+1
+					if loadedItems.blanketCount==1 then 
+						loadedItems.blanket1=item 
+					elseif loadedItems.blanketCount==2 then 
+						loadedItems.blanket2=item
+					end
+				elseif item=="선인장화분" or "해바라기화분" or "클로버화분" or "제비꽃화분" then 
+					loadedItems.plantCount=loadedItems.plantCount+1
+					if loadedItems.plantCount==1 then 
+						loadedItems.plant1=item 
+					elseif loadedItems.blanketCount==2 then 
+						loadedItems.plant2=item
+					elseif loadedItems.blanketCount==3 then 
+						loadedItems.plant3=item
+					elseif loadedItems.blanketCount==4 then 
+						loadedItems.plant4=item
+					end
+				elseif item=="하트카펫" or "둥근카펫" or "네모카펫" then 
+					loadedItems.carpetCount=loadedItems.carpetCount+1
+					if loadedItems.carpetCount==1 then 
+						loadedItems.carpet1=item 
+					elseif loadedItems.blanketCount==2 then 
+						loadedItems.carpet2=item
+					elseif loadedItems.blanketCount==3 then 
+						loadedItems.carpet3=item
+					end
+				elseif item=="곰인형" or "토끼인형" then 
+					loadedItems.dollCount=loadedItems.dollCount+1
+					if loadedItems.dollCount==1 then 
+						loadedItems.doll1=item 
+					elseif loadedItems.dollCount==2 then 
+						loadedItems.doll2=item
+					end
+				elseif item=="도트무늬벽지" or "격자무늬벽지" then 
+					loadedItems.wallpaperCount=loadedItems.wallpaperCount+1
+					if loadedItems.wallpaperCount==1 then 
+						loadedItems.wallpaper1=item 
+					elseif loadedItems.wallpaperCount==2 then 
+						loadedItems.wallpaper2=item
+					end
+				elseif item=="흰색바닥" or "나무바닥" then 
+					loadedItems.floorCount=loadedItems.floorCount+1
+					if loadedItems.floorCount==1 then 
+						loadedItems.floor1=item 
+					elseif loadedItems.floorCount==2 then 
+						loadedItems.floor2=item
+					end
+				
 				end
 
 				loadedSettings.money = loadedSettings.money - money
