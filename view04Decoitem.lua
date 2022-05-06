@@ -292,7 +292,7 @@ function scene:create( event )
 
 				print("loadedItems.blanketCount" .. loadedItems.blanketCount)
 
-				if item=="꽃무늬이불" or "줄무늬이불" then 
+				if (item=="꽃무늬이불") or (item=="줄무늬이불") then 
 					loadedItems.blanketCount=loadedItems.blanketCount+1
 					if loadedItems.blanketCount==2 then 
 						loadedItems.blanket2=item 
@@ -300,7 +300,7 @@ function scene:create( event )
 						loadedItems.blanket3=item
 					end
 				end
-				if item=="선인장화분" or "해바라기화분" or "클로버화분" or "제비꽃화분" then 
+				if (item=="선인장화분") or (item=="해바라기화분") or (item=="클로버화분") or (item=="제비꽃화분") then 
 					loadedItems.plantCount=loadedItems.plantCount+1
 					if loadedItems.plantCount==1 then 
 						loadedItems.plant1=item 
@@ -312,7 +312,7 @@ function scene:create( event )
 						loadedItems.plant4=item
 					end
 				end
-				if item=="하트카펫" or "둥근카펫" or "네모카펫" then 
+				if (item=="하트카펫") or (item=="둥근카펫") or (item=="네모카펫") then 
 					loadedItems.carpetCount=loadedItems.carpetCount+1
 					if loadedItems.carpetCount==1 then 
 						loadedItems.carpet1=item 
@@ -322,7 +322,7 @@ function scene:create( event )
 						loadedItems.carpet3=item
 					end
 				end
-				if item=="곰인형" or "토끼인형" then 
+				if (item=="곰인형") or (item=="토끼인형")then 
 					loadedItems.dollCount=loadedItems.dollCount+1
 					if loadedItems.dollCount==1 then 
 						loadedItems.doll1=item 
@@ -330,7 +330,7 @@ function scene:create( event )
 						loadedItems.doll2=item
 					end
 				end
-				if item=="도트벽지" or item=="격자벽지" then 
+				if (item=="도트벽지") or (item=="격자벽지") then 
 					loadedItems.wallpaperCount=loadedItems.wallpaperCount+1
 					if loadedItems.wallpaperCount==2 then 
 						loadedItems.wallpaper2=item 
@@ -338,14 +338,13 @@ function scene:create( event )
 						loadedItems.wallpaper3=item
 					end
 				end
-				if item=="흰색바닥" or "나무바닥" then 
+				if (item=="흰색바닥") or (item=="나무바닥") then 
 					loadedItems.floorCount=loadedItems.floorCount+1
 					if loadedItems.floorCount==2 then 
 						loadedItems.floor2=item 
 					elseif loadedItems.floorCount==3 then 
 						loadedItems.floor3=item
 					end
-				end
 				end
 
 				loadedSettings.money = loadedSettings.money - money

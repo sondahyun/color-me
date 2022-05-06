@@ -84,9 +84,10 @@ function scene:create( event )
 	local dollImage = {}
 	local frameImage = {}
 	
-	--[[plantImage[1] = loadedItems.plant1
+	plantImage[1] = loadedItems.plant1
 	plantImage[2] = loadedItems.plant2
 	plantImage[3] = loadedItems.plant3
+	plantImage[4] = loadedItems.plant4
 
 	dollImage[1] = loadedItems.doll1
 	dollImage[2] = loadedItems.doll2
@@ -95,32 +96,9 @@ function scene:create( event )
 	frameImage[2] = loadedItems.frame2
 	frameImage[3] = loadedItems.frame3
 
-	]]--
-
-	plantImage[1] = "선인장화분"
-	plantImage[2] = "제비꽃화분"
-	plantImage[3] = "해바라기화분"
-	plantImage[4] = "클로버화분"
-
-	dollImage[1] = "곰인형"
-	dollImage[2] = "토끼인형"
-
-	frameImage[1] = "레이액자"
-	frameImage[2] = "위즈액자"
-	frameImage[3] = "솔리액자"
-	frameImage[4] = "블리액자"
-	frameImage[5] = "조이액자"
-
-	local plantCount = 4
-	local dollCount = 2
-	local frameCount = 5
-
-	--[[
-	loadedItems.plantCount
-	loadedItems.dollCount
-	loadedItems.frameCount
-	]]--
-
+	plantCount=loadedItems.plantCount
+	dollCount=loadedItems.dollCount
+	frameCount=loadedItems.frameCount
 
 	--아이템 함수--
 	local function popup(event)
