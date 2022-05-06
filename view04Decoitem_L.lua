@@ -13,278 +13,121 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 
-	if loadedSettings.month == 5 then
-		if loadedSettings.month6_event == 0 then
-			loadedSettings.month6_event = loadedSettings.month6_event + 1
-			loadsave.saveTable(loadedSettings,"settings.json")
-		end
+	if (loadedSettings.month == 0) and (loadedSettings.month1_event==0) then
+		--print("이벤트!!")
+		loadedSettings.month1_event = loadedSettings.month1_event + 1
+		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
-	
+	local option1={
+		isModal=true
+	}
+
 	local background = display.newImage("이미지/상점/꾸미기배경.png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
 
-	local storeMusic = audio.loadStream( "음악/상점.mp3" )
-	
-	local function go_back(event)
-		if event.phase == "began" then
-			audio.pause(storeMusic)
-			composer.removeScene("view04Deco")
-			composer.gotoScene("view01Map")
-		end
-	end
-	
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
 	exit.anchorX, exit.anchorY = 0,0
 	sceneGroup:insert(exit)
-	exit:addEventListener("touch",go_back)
 
+    --옷 보러가기 버튼
+	local goCloset = display.newImage("이미지/상점/옷상점버튼.png")
+	sceneGroup:insert(goCloset)
+	goCloset.x, goCloset.y = display.contentWidth*0.865, display.contentHeight*0.851
 
 -- 코인 창 객체 
-	local goCloset = display.newImage("이미지/공통/코인표시창.png")
-	sceneGroup:insert(goCloset)
-	goCloset.x, goCloset.y = display.contentWidth*0.1, display.contentHeight*0.08
-
-	loadedSettings.money=loadedSettings.money+1000
+	local coin = display.newImage("이미지/공통/코인표시창.png")
+	sceneGroup:insert(coin)
+	coin.x, coin.y = display.contentWidth*0.1, display.contentHeight*0.08
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
 	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
 	money.anchorX = 1
-	money.text = loadedSettings.money
+	money.text = loadedSettings.money 
 	money.size = 53
 	sceneGroup:insert(money)
-
-	--옷 보러가기 버튼
-	local goCloset = display.newImage("이미지/상점/옷상점버튼.png")
-	sceneGroup:insert(goCloset)
-	goCloset.x, goCloset.y = display.contentWidth*0.865, display.contentHeight*0.851
-
-	-- 진열
-
-	local function popup(event)
-		if event.phase == "began" then
-			item = event.target.name
-			money = event.target.id
-			composer.setVariable("item", item)
-			composer.setVariable("money",money)
-			composer.removeScene("view04Deco")
-			composer.gotoScene("view04Decoitem")
-		end
-	end
-
-	local function popup2(event)
-		if event.phase == "began" then
-			item = event.target.name
-			money = event.target.id
-			composer.setVariable("item", item)
-			composer.setVariable("money",money)
-			composer.removeScene("view04Deco")
-			composer.gotoScene("view04Decoitem_L")
-		end
-	end
 
 	--1행
 	local flowerBlanket = display.newImage("이미지/상점/아이템/꽃무늬 이불세트.png")
 	flowerBlanket.x,flowerBlanket.y = display.contentWidth*0.145, display.contentHeight*0.3
-	flowerBlanket.anchorX,flowerBlanket.anchorY = 0.5,0.5
-	flowerBlanket.name = "꽃무늬 이불세트"
-	flowerBlanket.id = 10
 	flowerBlanket.alpha=loadedItems.d1Sold+0.5
 	sceneGroup:insert(flowerBlanket)
-	if loadedItems.d1Sold==1 then 
-		flowerBlanket:addEventListener("touch",popup2)	
-	else
-		flowerBlanket:removeEventListener("touch",popup2)
-	end
-
 
 	local stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬 이불세트.png")
 	stripeBlanket.x,stripeBlanket.y = display.contentWidth*0.288, display.contentHeight*0.301
-	stripeBlanket.anchorX,stripeBlanket.anchorY = 0.5,0.5
-	stripeBlanket.name = "줄무늬 이불세트"
-	stripeBlanket.id = 16
 	stripeBlanket.alpha=loadedItems.d2Sold+0.5
 	sceneGroup:insert(stripeBlanket)
-	if loadedItems.d2Sold==1 then 
-		stripeBlanket:addEventListener("touch",popup2)	
-	else
-		stripeBlanket:removeEventListener("touch",popup2)
-	end
 
 	local cactus = display.newImage("이미지/상점/아이템/선인장화분.png")
 	cactus.x,cactus.y = display.contentWidth*0.427, display.contentHeight*0.295
-	cactus.anchorX,cactus.anchorY = 0.5,0.5
-	cactus.id = 15
 	cactus.alpha=loadedItems.d3Sold+0.5
 	sceneGroup:insert(cactus)
-	cactus.name = "선인장화분"
-	if loadedItems.d3Sold==1 then 
-		cactus:addEventListener("touch",popup)	
-	else
-		cactus:removeEventListener("touch",popup)
-	end
 
 	local sunflower = display.newImage("이미지/상점/아이템/해바라기화분.png")
 	sunflower.x,sunflower.y = display.contentWidth*0.571, display.contentHeight*0.285
-	sunflower.anchorX,sunflower.anchorY = 0.5,0.5
 	sunflower.alpha=loadedItems.d4Sold+0.5
 	sceneGroup:insert(sunflower)
-	sunflower.name = "해바라기화분"
-	sunflower.id = 14
-	if loadedItems.d4Sold==1 then 
-		sunflower:addEventListener("touch",popup)	
-	else
-		sunflower:removeEventListener("touch",popup)
-	end
 
 	local clover = display.newImage("이미지/상점/아이템/클로버화분.png")
 	clover.x,clover.y = display.contentWidth*0.713, display.contentHeight*0.295
-	clover.anchorX,clover.anchorY = 0.5,0.5
 	clover.alpha=loadedItems.d5Sold+0.5
 	sceneGroup:insert(clover)
-	clover.name = "클로버화분"
-	clover.id = 18
-	if loadedItems.d5Sold==1 then 
-		clover:addEventListener("touch",popup)	
-	else
-		clover:removeEventListener("touch",popup)
-	end
 
 	local violet= display.newImage("이미지/상점/아이템/제비꽃화분.png")
 	violet.x,violet.y = display.contentWidth*0.852, display.contentHeight*0.317
-	violet.anchorX,violet.anchorY = 0.5,0.5
 	violet.alpha=loadedItems.d6Sold+0.5
 	sceneGroup:insert(violet)
-	violet.name = "제비꽃화분"
-	violet.id = 20
-	if loadedItems.d6Sold==1 then 
-		violet:addEventListener("touch",popup)	
-	else
-		violet:removeEventListener("touch",popup)
-	end
 
 	-- 2행
 
 	local heartCarpet = display.newImage("이미지/상점/아이템/하트카펫.png")
 	heartCarpet.x,heartCarpet.y = display.contentWidth*0.17, display.contentHeight*0.537
-	heartCarpet.anchorX,heartCarpet.anchorY = 0.5,0.5
 	heartCarpet.alpha=loadedItems.d7Sold+0.5
 	sceneGroup:insert(heartCarpet)
-	heartCarpet.name = "하트카펫"
-	heartCarpet.id = 10
-	if loadedItems.d7Sold==1 then 
-		heartCarpet:addEventListener("touch",popup2)	
-	else
-		heartCarpet:removeEventListener("touch",popup2)
-	end
 
 	local roundCarpet = display.newImage("이미지/상점/아이템/둥근카펫.png")
 	roundCarpet.x,roundCarpet.y = display.contentWidth*0.347, display.contentHeight*0.537
-	roundCarpet.anchorX,roundCarpet.anchorY = 0.5,0.5
 	roundCarpet.alpha=loadedItems.d8Sold+0.5
 	sceneGroup:insert(roundCarpet)
-	roundCarpet.name = "둥근카펫"
-	roundCarpet.id = 16
-	if loadedItems.d8Sold==1 then 
-		roundCarpet:addEventListener("touch",popup2)	
-	else
-		roundCarpet:removeEventListener("touch",popup2)
-	end
 
 	local squareCarpet = display.newImage("이미지/상점/아이템/네모카펫.png")
 	squareCarpet.x,squareCarpet.y = display.contentWidth*0.542, display.contentHeight*0.553
-	squareCarpet.anchorX,squareCarpet.anchorY = 0.5,0.5
 	squareCarpet.alpha=loadedItems.d9Sold+0.5
 	sceneGroup:insert(squareCarpet)
-	squareCarpet.name = "네모카펫"
-	squareCarpet.id = 25
-	if loadedItems.d9Sold==1 then 
-		squareCarpet:addEventListener("touch",popup2)	
-	else
-		squareCarpet:removeEventListener("touch",popup2)
-	end
 
 	local teddybear = display.newImage("이미지/상점/아이템/곰인형.png")
 	teddybear.x,teddybear.y = display.contentWidth*0.71, display.contentHeight*0.54
-	teddybear.anchorX,teddybear.anchorY = 0.5,0.5
 	teddybear.alpha=loadedItems.d10Sold+0.5
 	sceneGroup:insert(teddybear)
-	teddybear.name = "곰인형"
-	teddybear.id = 20
-	if loadedItems.d10Sold==1 then 
-		teddybear:addEventListener("touch",popup)	
-	else
-		teddybear:removeEventListener("touch",popup)
-	end
 
 	local bunny = display.newImage("이미지/상점/아이템/토끼인형.png")
 	bunny.x,bunny.y = display.contentWidth*0.848, display.contentHeight*0.529
-	bunny.anchorX,bunny.anchorY = 0.5,0.5
 	bunny.alpha=loadedItems.d11Sold+0.5
 	sceneGroup:insert(bunny)
-	bunny.name = "토끼인형"
-	bunny.id = 20
-	if loadedItems.d11Sold==1 then 
-		bunny:addEventListener("touch",popup)	
-	else
-		bunny:removeEventListener("touch",popup)
-	end
 
 	--3행
 	local dotWallpaper = display.newImage("이미지/상점/아이템/도트무늬벽지.png")
 	dotWallpaper.x,dotWallpaper.y = display.contentWidth*0.149, display.contentHeight*0.766
-	dotWallpaper.anchorX,dotWallpaper.anchorY = 0.5,0.5
 	dotWallpaper.alpha=loadedItems.d12Sold+0.5
 	sceneGroup:insert(dotWallpaper)
-	dotWallpaper.name = "도트무늬벽지"
-	dotWallpaper.id = 25
-	if loadedItems.d12Sold==1 then 
-		dotWallpaper:addEventListener("touch",popup2)	
-	else
-		dotWallpaper:removeEventListener("touch",popup2)
-	end
 
 	local plaidWallpaper = display.newImage("이미지/상점/아이템/격자무늬벽지.png")
 	plaidWallpaper.x,plaidWallpaper.y = display.contentWidth*0.29, display.contentHeight*0.766
-	plaidWallpaper.anchorX,plaidWallpaper.anchorY = 0.5,0.5
 	plaidWallpaper.alpha=loadedItems.d13Sold+0.5
 	sceneGroup:insert(plaidWallpaper)
-	plaidWallpaper.name = "격자무늬벽지"
-	plaidWallpaper.id = 25
-	if loadedItems.d13Sold==1 then 
-		plaidWallpaper:addEventListener("touch",popup2)	
-	else
-		plaidWallpaper:removeEventListener("touch",popup2)
-	end
 
 	local whiteFloor = display.newImage("이미지/상점/아이템/흰색바닥.png")
 	whiteFloor.x,whiteFloor.y = display.contentWidth*0.433, display.contentHeight*0.777
-	whiteFloor.anchorX,whiteFloor.anchorY = 0.5,0.5
 	whiteFloor.alpha=loadedItems.d14Sold+0.5
 	sceneGroup:insert(whiteFloor)
-	whiteFloor.name = "흰색바닥"
-	whiteFloor.id = 25
-	if loadedItems.d14Sold==1 then 
-		whiteFloor:addEventListener("touch",popup2)	
-	else
-		whiteFloor:removeEventListener("touch",popup2)
-	end
 
 	local woodFloor = display.newImage("이미지/상점/아이템/나무바닥.png")
 	woodFloor.x,woodFloor.y = display.contentWidth*0.571, display.contentHeight*0.777
-	woodFloor.anchorX,woodFloor.anchorY = 0.5,0.5
 	woodFloor.alpha=loadedItems.d15Sold+0.5
 	sceneGroup:insert(woodFloor)
-	woodFloor.name = "나무바닥"
-	woodFloor.id = 25
-	if loadedItems.d15Sold==1 then 
-		woodFloor:addEventListener("touch",popup2)	
-	else
-		woodFloor:removeEventListener("touch",popup2)
-	end
 
 	local sold={}
    sold[1] = display.newImage("이미지/상점/상점_soldout.png")
@@ -368,6 +211,120 @@ function scene:create( event )
    	if loadedItems.d15Sold==0 then
    		sold[15].alpha=1
    	end
+
+	item = composer.getVariable("item")
+	money = composer.getVariable("money")
+
+
+	local function take_stuff(event)
+		if event.phase == "began" then 
+			if (loadedSettings.money - money) >= 0 and loadedItems.decoCount < 15 then
+				loadedItems.decoCount = loadedItems.decoCount + 1
+				if loadedItems.decoCount == 1 then
+					loadedItems.deco1 = item
+				elseif loadedItems.decoCount == 2 then
+					loadedItems.deco2 = item
+				elseif loadedItems.decoCount == 3 then
+					loadedItems.deco3 = item
+				elseif loadedItems.decoCount == 4 then
+					loadedItems.deco4 = item
+				elseif loadedItems.decoCount == 5 then
+					loadedItems.deco5 = item
+				elseif loadedItems.decoCount == 6 then
+					loadedItems.deco6 = item
+				elseif loadedItems.decoCount == 7 then
+					loadedItems.deco7 = item
+				elseif loadedItems.decoCount == 8 then
+					loadedItems.deco8 = item
+				elseif loadedItems.decoCount == 9 then
+					loadedItems.deco9 = item
+				elseif loadedItems.decoCount == 10 then
+					loadedItems.deco10 = item
+				elseif loadedItems.decoCount == 11 then
+					loadedItems.deco11 = item
+				elseif loadedItems.decoCount == 12 then
+					loadedItems.deco12 = item
+				elseif loadedItems.decoCount == 13 then
+					loadedItems.deco13 = item
+				elseif loadedItems.decoCount == 14 then
+					loadedItems.deco14 = item
+				elseif loadedItems.decoCount == 15 then
+					loadedItems.deco15 = item
+				end
+
+				if item=="꽃무늬 이불세트" then 
+					loadedItems.d1Sold=0
+				elseif item=="줄무늬 이불세트" then 
+					loadedItems.d2Sold=0
+				elseif item=="선인장화분" then 
+					loadedItems.d3Sold=0
+				elseif item=="해바라기화분" then 
+					loadedItems.d4Sold=0
+				elseif item=="클로버화분" then 
+					loadedItems.d5Sold=0
+				elseif item=="제비꽃화분" then 
+					loadedItems.d6Sold=0
+				elseif item=="하트카펫" then 
+					loadedItems.d7Sold=0
+				elseif item=="둥근카펫" then 
+					loadedItems.d8Sold=0
+				elseif item=="네모카펫" then 
+					loadedItems.d9Sold=0
+				elseif item=="곰인형" then 
+					loadedItems.d10Sold=0
+				elseif item=="토끼인형" then 
+					loadedItems.d11Sold=0
+				elseif item=="도트무늬벽지" then 
+					loadedItems.d12Sold=0
+				elseif item=="격자무늬벽지" then 
+					loadedItems.d13Sold=0
+				elseif item=="흰색바닥" then 
+					loadedItems.d14Sold=0
+				elseif item=="나무바닥" then 
+					loadedItems.d15Sold=0
+				end
+
+				loadedSettings.money = loadedSettings.money - money
+				loadsave.saveTable(loadedSettings,"settings.json")
+				loadsave.saveTable(loadedItems,"items.json")
+				composer.removeScene("view04Decoitem_L")
+				composer.gotoScene("view04Deco")
+			else 
+				--composer.removeScene("view04Storeitem")
+				composer.showOverlay("view04Decostop",option1)
+			end
+		end
+	end
+
+
+	
+
+
+	local popup = display.newImage("이미지/상점/팝업창/" .. item .. ".png")
+	popup.x,popup.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(popup)
+
+	local function goback_Deco(event)
+		if event.phase == "began" then
+			composer.removeScene("view04Decoitem_L")
+			composer.gotoScene("view04Deco")
+		end
+	end
+
+
+
+
+	local exit2 = display.newImage("이미지/공통/x버튼.png")
+	exit2.x, exit2.y = display.contentWidth*0.693, display.contentHeight*0.29
+	exit2.anchorX, exit2.anchorY = 0,0
+	sceneGroup:insert(exit2)
+	exit2:addEventListener("touch",goback_Deco)
+
+	local button = display.newImage("이미지/상점/구매버튼.png")
+	button.x, button.y = display.contentWidth*0.44, display.contentHeight*0.59
+	button.anchorX, button.anchorY = 0,0
+	sceneGroup:insert(button)
+	button:addEventListener("touch",take_stuff)
 
 
 
