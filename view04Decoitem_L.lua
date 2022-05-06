@@ -168,7 +168,7 @@ function scene:create( event )
       sceneGroup:insert(sold[i])
    end
 
-    if loadedItems.d1Sold==0 then
+    	if loadedItems.d1Sold==0 then
    		sold[1].alpha=1
    	end
    	if loadedItems.d2Sold==0 then
@@ -293,7 +293,8 @@ function scene:create( event )
 					elseif loadedItems.blanketCount==2 then 
 						loadedItems.blanket2=item
 					end
-				elseif item=="선인장화분" or "해바라기화분" or "클로버화분" or "제비꽃화분" then 
+				end
+				if item=="선인장화분" or "해바라기화분" or "클로버화분" or "제비꽃화분" then 
 					loadedItems.plantCount=loadedItems.plantCount+1
 					if loadedItems.plantCount==1 then 
 						loadedItems.plant1=item 
@@ -304,7 +305,8 @@ function scene:create( event )
 					elseif loadedItems.blanketCount==4 then 
 						loadedItems.plant4=item
 					end
-				elseif item=="하트카펫" or "둥근카펫" or "네모카펫" then 
+				end
+				if item=="하트카펫" or "둥근카펫" or "네모카펫" then 
 					loadedItems.carpetCount=loadedItems.carpetCount+1
 					if loadedItems.carpetCount==1 then 
 						loadedItems.carpet1=item 
@@ -313,28 +315,31 @@ function scene:create( event )
 					elseif loadedItems.blanketCount==3 then 
 						loadedItems.carpet3=item
 					end
-				elseif item=="곰인형" or "토끼인형" then 
+				end
+				if item=="곰인형" or "토끼인형" then 
 					loadedItems.dollCount=loadedItems.dollCount+1
 					if loadedItems.dollCount==1 then 
 						loadedItems.doll1=item 
 					elseif loadedItems.dollCount==2 then 
 						loadedItems.doll2=item
 					end
-				elseif item=="도트무늬벽지" or "격자무늬벽지" then 
+				end
+				if item=="도트무늬벽지" or "격자무늬벽지" then 
 					loadedItems.wallpaperCount=loadedItems.wallpaperCount+1
 					if loadedItems.wallpaperCount==1 then 
 						loadedItems.wallpaper1=item 
 					elseif loadedItems.wallpaperCount==2 then 
 						loadedItems.wallpaper2=item
 					end
-				elseif item=="흰색바닥" or "나무바닥" then 
+				end
+				if item=="흰색바닥" or "나무바닥" then 
 					loadedItems.floorCount=loadedItems.floorCount+1
 					if loadedItems.floorCount==1 then 
 						loadedItems.floor1=item 
 					elseif loadedItems.floorCount==2 then 
 						loadedItems.floor2=item
 					end
-				
+				end
 				end
 
 				loadedSettings.money = loadedSettings.money - money
