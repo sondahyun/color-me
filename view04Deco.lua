@@ -87,10 +87,10 @@ function scene:create( event )
 	end
 
 	--1행
-	local flowerBlanket = display.newImage("이미지/상점/아이템/꽃무늬 이불세트.png")
+	local flowerBlanket = display.newImage("이미지/상점/아이템/꽃무늬이불.png")
 	flowerBlanket.x,flowerBlanket.y = display.contentWidth*0.145, display.contentHeight*0.3
 	flowerBlanket.anchorX,flowerBlanket.anchorY = 0.5,0.5
-	flowerBlanket.name = "꽃무늬 이불세트"
+	flowerBlanket.name = "꽃무늬이불"
 	flowerBlanket.id = 10
 	flowerBlanket.alpha=loadedItems.d1Sold+0.5
 	sceneGroup:insert(flowerBlanket)
@@ -101,10 +101,10 @@ function scene:create( event )
 	end
 
 
-	local stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬 이불세트.png")
+	local stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬이불.png")
 	stripeBlanket.x,stripeBlanket.y = display.contentWidth*0.288, display.contentHeight*0.301
 	stripeBlanket.anchorX,stripeBlanket.anchorY = 0.5,0.5
-	stripeBlanket.name = "줄무늬 이불세트"
+	stripeBlanket.name = "줄무늬이불"
 	stripeBlanket.id = 16
 	stripeBlanket.alpha=loadedItems.d2Sold+0.5
 	sceneGroup:insert(stripeBlanket)
@@ -234,12 +234,12 @@ function scene:create( event )
 	end
 
 	--3행
-	local dotWallpaper = display.newImage("이미지/상점/아이템/도트무늬벽지.png")
+	local dotWallpaper = display.newImage("이미지/상점/아이템/도트벽지.png")
 	dotWallpaper.x,dotWallpaper.y = display.contentWidth*0.149, display.contentHeight*0.766
 	dotWallpaper.anchorX,dotWallpaper.anchorY = 0.5,0.5
 	dotWallpaper.alpha=loadedItems.d12Sold+0.5
 	sceneGroup:insert(dotWallpaper)
-	dotWallpaper.name = "도트무늬벽지"
+	dotWallpaper.name = "도트벽지"
 	dotWallpaper.id = 25
 	if loadedItems.d12Sold==1 then 
 		dotWallpaper:addEventListener("touch",popup2)	
@@ -247,12 +247,12 @@ function scene:create( event )
 		dotWallpaper:removeEventListener("touch",popup2)
 	end
 
-	local plaidWallpaper = display.newImage("이미지/상점/아이템/격자무늬벽지.png")
+	local plaidWallpaper = display.newImage("이미지/상점/아이템/격자벽지.png")
 	plaidWallpaper.x,plaidWallpaper.y = display.contentWidth*0.29, display.contentHeight*0.766
 	plaidWallpaper.anchorX,plaidWallpaper.anchorY = 0.5,0.5
 	plaidWallpaper.alpha=loadedItems.d13Sold+0.5
 	sceneGroup:insert(plaidWallpaper)
-	plaidWallpaper.name = "격자무늬벽지"
+	plaidWallpaper.name = "격자벽지"
 	plaidWallpaper.id = 25
 	if loadedItems.d13Sold==1 then 
 		plaidWallpaper:addEventListener("touch",popup2)	

@@ -53,12 +53,12 @@ function scene:create( event )
 	sceneGroup:insert(money)
 
 	--1행
-	local flowerBlanket = display.newImage("이미지/상점/아이템/꽃무늬 이불세트.png")
+	local flowerBlanket = display.newImage("이미지/상점/아이템/꽃무늬이불.png")
 	flowerBlanket.x,flowerBlanket.y = display.contentWidth*0.145, display.contentHeight*0.3
 	flowerBlanket.alpha=loadedItems.d1Sold+0.5
 	sceneGroup:insert(flowerBlanket)
 
-	local stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬 이불세트.png")
+	local stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬이불.png")
 	stripeBlanket.x,stripeBlanket.y = display.contentWidth*0.288, display.contentHeight*0.301
 	stripeBlanket.alpha=loadedItems.d2Sold+0.5
 	sceneGroup:insert(stripeBlanket)
@@ -111,12 +111,12 @@ function scene:create( event )
 	sceneGroup:insert(bunny)
 
 	--3행
-	local dotWallpaper = display.newImage("이미지/상점/아이템/도트무늬벽지.png")
+	local dotWallpaper = display.newImage("이미지/상점/아이템/도트벽지.png")
 	dotWallpaper.x,dotWallpaper.y = display.contentWidth*0.149, display.contentHeight*0.766
 	dotWallpaper.alpha=loadedItems.d12Sold+0.5
 	sceneGroup:insert(dotWallpaper)
 
-	local plaidWallpaper = display.newImage("이미지/상점/아이템/격자무늬벽지.png")
+	local plaidWallpaper = display.newImage("이미지/상점/아이템/격자벽지.png")
 	plaidWallpaper.x,plaidWallpaper.y = display.contentWidth*0.29, display.contentHeight*0.766
 	plaidWallpaper.alpha=loadedItems.d13Sold+0.5
 	sceneGroup:insert(plaidWallpaper)
@@ -254,9 +254,9 @@ function scene:create( event )
 					loadedItems.deco15 = item
 				end
 
-				if item=="꽃무늬 이불세트" then 
+				if item=="꽃무늬이불" then 
 					loadedItems.d1Sold=0
-				elseif item=="줄무늬 이불세트" then 
+				elseif item=="줄무늬이불" then 
 					loadedItems.d2Sold=0
 				elseif item=="선인장화분" then 
 					loadedItems.d3Sold=0
@@ -276,9 +276,9 @@ function scene:create( event )
 					loadedItems.d10Sold=0
 				elseif item=="토끼인형" then 
 					loadedItems.d11Sold=0
-				elseif item=="도트무늬벽지" then
+				elseif item=="도트벽지" then
 					loadedItems.d12Sold=0
-				elseif item=="격자무늬벽지" then 
+				elseif item=="격자벽지" then 
 					loadedItems.d13Sold=0
 				elseif item=="흰색바닥" then 
 					loadedItems.d14Sold=0
@@ -286,23 +286,28 @@ function scene:create( event )
 					loadedItems.d15Sold=0
 				end
 
-				if item=="꽃무늬 이불세트" or "줄무늬 이불 세트" then 
+				print(blanketCount)
+				print(wallpaperCount)
+				print(floorCount)
+				print(item)
+
+				if item=="꽃무늬이불" or "줄무늬이불" then 
 					loadedItems.blanketCount=loadedItems.blanketCount+1
-					if loadedItems.blanketCount==1 then 
-						loadedItems.blanket1=item 
-					elseif loadedItems.blanketCount==2 then 
-						loadedItems.blanket2=item
+					if loadedItems.blanketCount==2 then 
+						loadedItems.blanket2=item 
+					elseif loadedItems.blanketCount==3 then 
+						loadedItems.blanket3=item
 					end
 				end
 				if item=="선인장화분" or "해바라기화분" or "클로버화분" or "제비꽃화분" then 
 					loadedItems.plantCount=loadedItems.plantCount+1
 					if loadedItems.plantCount==1 then 
 						loadedItems.plant1=item 
-					elseif loadedItems.blanketCount==2 then 
+					elseif loadedItems.plantCount==2 then 
 						loadedItems.plant2=item
-					elseif loadedItems.blanketCount==3 then 
+					elseif loadedItems.plantCount==3 then 
 						loadedItems.plant3=item
-					elseif loadedItems.blanketCount==4 then 
+					elseif loadedItems.plantCount==4 then 
 						loadedItems.plant4=item
 					end
 				end
@@ -310,9 +315,9 @@ function scene:create( event )
 					loadedItems.carpetCount=loadedItems.carpetCount+1
 					if loadedItems.carpetCount==1 then 
 						loadedItems.carpet1=item 
-					elseif loadedItems.blanketCount==2 then 
+					elseif loadedItems.carpetCount==2 then 
 						loadedItems.carpet2=item
-					elseif loadedItems.blanketCount==3 then 
+					elseif loadedItems.carpetCount==3 then 
 						loadedItems.carpet3=item
 					end
 				end
@@ -324,20 +329,20 @@ function scene:create( event )
 						loadedItems.doll2=item
 					end
 				end
-				if item=="도트무늬벽지" or "격자무늬벽지" then 
+				if item=="도트벽지" or "격자벽지" then 
 					loadedItems.wallpaperCount=loadedItems.wallpaperCount+1
-					if loadedItems.wallpaperCount==1 then 
-						loadedItems.wallpaper1=item 
-					elseif loadedItems.wallpaperCount==2 then 
-						loadedItems.wallpaper2=item
+					if loadedItems.wallpaperCount==2 then 
+						loadedItems.wallpaper2=item 
+					elseif loadedItems.wallpaperCount==3 then 
+						loadedItems.wallpaper3=item
 					end
 				end
 				if item=="흰색바닥" or "나무바닥" then 
 					loadedItems.floorCount=loadedItems.floorCount+1
-					if loadedItems.floorCount==1 then 
-						loadedItems.floor1=item 
-					elseif loadedItems.floorCount==2 then 
-						loadedItems.floor2=item
+					if loadedItems.floorCount==2 then 
+						loadedItems.floor2=item 
+					elseif loadedItems.floorCount==3 then 
+						loadedItems.floor3=item
 					end
 				end
 				end
