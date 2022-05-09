@@ -242,7 +242,7 @@ function scene:create( event )
 	dotWallpaper.name = "도트벽지"
 	dotWallpaper.id = 25
 	if loadedItems.d12Sold==1 then 
-		dotWallpaper:addEventListener("touch",popup2)	
+		dotWallpaper:addEventListener("touch",popup2)
 	else
 		dotWallpaper:removeEventListener("touch",popup2)
 	end

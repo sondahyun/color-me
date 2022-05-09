@@ -7,10 +7,10 @@ local json = require( "json" )
 
 function scene:create( event )
 	local sceneGroup = self.view
-
+	local loadedItems= loadsave.loadTable( "items.json" )
 	
-
-
+	item = composer.getVariable("item")
+	two_check = composer.getVariable("two_check")
 	composer.getVariable("home")
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -81,9 +81,94 @@ function scene:create( event )
 	end
 	
 -- 배경 객체
-	local background = display.newImageRect("이미지/홈/배경/가구포함.png",display.contentWidth, display.contentHeight)
+	local background = display.newImageRect("이미지/홈/배경/기본.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
+
+--------벽지
+
+	local  wall_grid = display.newImage("이미지/홈/홈화면꾸미기/격자무늬벽지.png")
+	wall_grid.x,wall_grid.y = display.contentWidth*0.5,display.contentHeight*0.3537
+	sceneGroup:insert(wall_grid)
+	wall_grid.alpha = 0
+
+	local  wall_dot = display.newImage("이미지/홈/홈화면꾸미기/도트무늬벽지.png")
+	wall_dot.x,wall_dot.y = display.contentWidth*0.5,display.contentHeight*0.3537
+	sceneGroup:insert(wall_dot)
+	wall_dot.alpha = 0
+
+	if loadedItems.grid_apply == 1 then 
+		wall_grid.alpha = 1
+		wall_dot.alpha = 0
+	elseif loadedItems.dot_apply == 1 then 
+		wall_grid.alpha = 0
+		wall_dot.alpha = 1
+	elseif loadedItems.white_apply == 1 then 
+		wall_grid.alpha = 0
+		wall_dot.alpha = 0
+	elseif loadedItems.dot_apply == 0 and loadedItems.grid_apply == 0 then 
+		wall_grid.alpha = 0
+		wall_dot.alpha = 0
+	end 
+
+---------바닥
+	local  floor_white = display.newImage("이미지/홈/홈화면꾸미기/흰색바닥.png")
+	floor_white.x,floor_white.y = display.contentWidth*0.5,display.contentHeight*0.854
+	sceneGroup:insert(floor_white)
+	floor_white.alpha = 0
+
+	local  floor_wood = display.newImage("이미지/홈/홈화면꾸미기/나무바닥.png")
+	floor_wood.x,floor_wood.y = display.contentWidth*0.5,display.contentHeight*0.854
+	sceneGroup:insert(floor_wood)
+	floor_wood.alpha = 0
+
+	if loadedItems.tree_apply == 1 then 
+		floor_wood.alpha = 1
+		floor_white.alpha = 0
+	elseif loadedItems.fwhite_apply == 1 then 
+		floor_wood.alpha = 0
+		floor_white.alpha = 1
+	elseif loadedItems.fblue_apply == 1 then 
+		floor_wood.alpha = 0
+		floor_white.alpha = 0
+	elseif loadedItems.fwhite_apply == 0 and loadedItems.tree_apply == 0 then 
+		floor_wood.alpha = 0
+		floor_white.alpha = 0
+	end
+
+---------카페트
+	local carpet_hrt = display.newImage("이미지/홈/홈화면꾸미기/하트카펫.png")
+	carpet_hrt.x,carpet_hrt.y = display.contentWidth/2,display.contentHeight*0.853
+	sceneGroup:insert(carpet_hrt)
+	carpet_hrt.alpha = 0
+	
+	local carpet_rnd = display.newImage("이미지/홈/홈화면꾸미기/둥근카펫.png")
+	carpet_rnd.x,carpet_rnd.y = display.contentWidth/2,display.contentHeight*0.853
+	sceneGroup:insert(carpet_rnd)
+	carpet_rnd.alpha = 0
+	
+	local carpet_sqr = display.newImage("이미지/홈/홈화면꾸미기/네모카펫.png")
+	carpet_sqr.x,carpet_sqr.y = display.contentWidth/2,display.contentHeight*0.853
+	sceneGroup:insert(carpet_sqr)
+	carpet_sqr.alpha = 0
+
+	if loadedItems.square_apply == 1 then 
+		carpet_sqr.alpha = 1
+		carpet_rnd.alpha = 0
+		carpet_hrt.alpha = 0
+	elseif loadedItems.circle_apply == 1 then 
+		carpet_sqr.alpha = 0
+		carpet_rnd.alpha = 1
+		carpet_hrt.alpha = 0
+	elseif loadedItems.heart_apply == 1 then 
+		carpet_sqr.alpha = 0
+		carpet_rnd.alpha = 0
+		carpet_hrt.alpha = 1
+	elseif loadedItems.square_apply == 0 and loadedItems.circle_apply == 0 and loadedItems.heart_apply == 0 then 
+		carpet_sqr.alpha = 0
+		carpet_rnd.alpha = 0
+		carpet_hrt.alpha = 0
+	end
 
 -- 버튼 객체 및 리스너 추가
 	local sch = display.newImage("이미지/홈/버튼/스케줄.png")
@@ -141,9 +226,202 @@ function scene:create( event )
 	local stat = display.newImage("이미지/홈/스탯창2.png")
 	stat.x, stat.y = display.contentWidth*0.18,display.contentHeight*0.15
 	sceneGroup:insert(stat)
-	
 
+--가구 배치
+	local  schedule = display.newImage("이미지/홈/가구/일정표.png")
+	schedule.x,schedule.y = display.contentWidth*0.692,display.contentHeight*0.238
+	sceneGroup:insert(schedule)
+
+	local  bed = display.newImage("이미지/홈/가구/침대.png")
+	bed.x,bed.y = display.contentWidth*0.1632,display.contentHeight*0.5634
+	sceneGroup:insert(bed)
+
+	local  desk = display.newImage("이미지/홈/가구/책상.png")
+	desk.x,desk.y = display.contentWidth*0.8286,display.contentHeight*0.6185
+	sceneGroup:insert(desk)
+
+	local  rack = display.newImage("이미지/홈/가구/선반.png")
+	rack.x,rack.y = display.contentWidth*0.4755,display.contentHeight*0.625
+	sceneGroup:insert(rack)
+
+	local  speaker = display.newImage("이미지/홈/가구/스피커.png")
+	speaker.x,speaker.y = display.contentWidth*0.58,display.contentHeight*0.479
+	sceneGroup:insert(speaker)
+
+	local  chair = display.newImage("이미지/홈/가구/의자.png")
+	chair.x,chair.y = display.contentWidth*0.7794,display.contentHeight*0.602
+	sceneGroup:insert(chair)
+
+	local  television = display.newImage("이미지/홈/가구/티비.png")
+	television.x,television.y = display.contentWidth*0.4297,display.contentHeight*0.362
+	sceneGroup:insert(television)
+
+	local  bookShelf = display.newImage("이미지/홈/가구/책장.png")
+	bookShelf.x,bookShelf.y = display.contentWidth*0.923,display.contentHeight*0.4597
+	sceneGroup:insert(bookShelf)
 	
+	local woodTable = display.newImage("이미지/홈/가구/테이블.png")
+	woodTable.x,woodTable.y = display.contentWidth*0.281,display.contentHeight*0.8056
+	sceneGroup:insert(woodTable)
+	
+------이불
+    local  blan_str = display.newImage("이미지/홈/홈화면꾸미기/줄무늬 이불세트.png")
+	blan_str.x,blan_str.y = display.contentWidth*0.1685,display.contentHeight*0.552
+	sceneGroup:insert(blan_str)
+	blan_str.alpha =0
+
+ 	local  blan_flower = display.newImage("이미지/홈/홈화면꾸미기/꽃무늬 이불세트.png")
+	blan_flower.x,blan_flower.y = display.contentWidth*0.167,display.contentHeight*0.55
+	sceneGroup:insert(blan_flower)
+	blan_flower.alpha =0
+
+	if loadedItems.flower_apply == 1 then 
+		blan_flower.alpha = 1
+		blan_str.alpha = 0
+	elseif loadedItems.sprite_apply == 1 then 
+		blan_flower.alpha = 0
+		blan_str.alpha = 1
+	elseif loadedItems.white_apply == 1 then 
+		blan_flower.alpha = 0
+		blan_str.alpha = 0
+	elseif loadedItems.sprite_apply == 0 and loadedItems.flower_apply == 0 then 
+		blan_flower.alpha = 0
+		blan_str.alpha = 0
+	end 
+
+----------화분
+	local clover_pot = display.newImage("이미지/홈/홈화면꾸미기/클로버화분.png")
+	clover_pot.x,clover_pot.y = display.contentWidth*0.238,display.contentHeight*0.71
+	sceneGroup:insert(clover_pot)
+	clover_pot.alpha = 0
+
+	local cactus_pot = display.newImage("이미지/홈/홈화면꾸미기/선인장화분.png")
+	cactus_pot.x,cactus_pot.y = display.contentWidth*0.238,display.contentHeight*0.713
+	sceneGroup:insert(cactus_pot)
+	cactus_pot.alpha = 0
+
+	local violet_pot = display.newImage("이미지/홈/홈화면꾸미기/제비꽃화분.png")
+	violet_pot.x,violet_pot.y = display.contentWidth*0.238,display.contentHeight*0.734
+	sceneGroup:insert(violet_pot)
+	violet_pot.alpha = 0
+
+	local sunflower_pot = display.newImage("이미지/홈/홈화면꾸미기/해바라기화분.png")
+	sunflower_pot.x,sunflower_pot.y = display.contentWidth*0.238,display.contentHeight*0.7
+	sceneGroup:insert(sunflower_pot)
+	sunflower_pot.alpha = 0
+
+	if loadedItems.cactus_apply == 1 then 
+		cactus_pot.alpha = 1
+		violet_pot.alpha = 0
+		sunflower_pot.alpha = 0
+		clover_pot.alpha = 0
+	elseif loadedItems.violet_apply == 1 then 
+		cactus_pot.alpha = 0
+		violet_pot.alpha = 1
+		sunflower_pot.alpha = 0
+		clover_pot.alpha = 0
+	elseif loadedItems.sunflower_apply == 1 then 
+		cactus_pot.alpha = 0
+		violet_pot.alpha = 0
+		sunflower_pot.alpha = 1
+		clover_pot.alpha = 0
+	elseif loadedItems.clover_apply == 1 then 
+		cactus_pot.alpha = 0
+		violet_pot.alpha = 0
+		sunflower_pot.alpha = 0
+		clover_pot.alpha = 1
+	elseif loadedItems.clover_apply == 0 and loadedItems.sunflower_apply == 0 and loadedItems.violet_apply == 0 and loadedItems.cactus_apply == 0 then 
+		cactus_pot.alpha = 0
+		violet_pot.alpha = 0
+		sunflower_pot.alpha = 0
+		clover_pot.alpha = 0
+	end
+
+-----------액자
+	local frame_b = display.newImage("이미지/홈/홈화면꾸미기/액자(블리).png")
+	frame_b.x,frame_b.y = display.contentWidth*0.31,display.contentHeight*0.726
+	sceneGroup:insert(frame_b)
+	frame_b.alpha = 0
+
+	local frame_l = display.newImage("이미지/홈/홈화면꾸미기/액자(레이).png")
+	frame_l.x,frame_l.y = display.contentWidth*0.31,display.contentHeight*0.726
+	sceneGroup:insert(frame_l)
+	frame_l.alpha = 0
+
+	local frame_s = display.newImage("이미지/홈/홈화면꾸미기/액자(솔리).png")
+	frame_s.x,frame_s.y = display.contentWidth*0.31,display.contentHeight*0.726
+	sceneGroup:insert(frame_s)
+	frame_s.alpha = 0
+
+	local frame_w = display.newImage("이미지/홈/홈화면꾸미기/액자(위즈).png")
+	frame_w.x,frame_w.y = display.contentWidth*0.31,display.contentHeight*0.726
+	sceneGroup:insert(frame_w)
+	frame_w.alpha = 0
+
+	local frame_j = display.newImage("이미지/홈/홈화면꾸미기/액자(조이).png")
+	frame_j.x,frame_j.y = display.contentWidth*0.31,display.contentHeight*0.726
+	sceneGroup:insert(frame_j)
+	frame_j.alpha = 0
+
+	if loadedItems.lay_apply == 1 then 
+		frame_l.alpha = 1
+		frame_w.alpha = 0
+		frame_s.alpha = 0
+		frame_j.alpha = 0
+		frame_b.alpha = 0
+	elseif loadedItems.wiz_apply == 1 then 
+		frame_l.alpha = 0
+		frame_w.alpha = 1
+		frame_s.alpha = 0
+		frame_j.alpha = 0
+		frame_b.alpha = 0
+	elseif loadedItems.soli_apply == 1 then 
+		frame_l.alpha = 0
+		frame_w.alpha = 0
+		frame_s.alpha = 1
+		frame_j.alpha = 0
+		frame_b.alpha = 0
+	elseif loadedItems.joy_apply == 1 then 
+		frame_l.alpha = 0
+		frame_w.alpha = 0
+		frame_s.alpha = 0
+		frame_j.alpha = 1
+		frame_b.alpha = 0
+	elseif loadedItems.bly_apply == 1 then 
+		frame_l.alpha = 0
+		frame_w.alpha = 0
+		frame_s.alpha = 0
+		frame_j.alpha = 0
+		frame_b.alpha = 1
+	elseif loadedItems.lay_apply == 0 and loadedItems.wiz_apply == 0 and loadedItems.soli_apply == 0 and loadedItems.joy_apply == 0 and loadedItems.bly_apply == 0 then 
+		frame_l.alpha = 0
+		frame_w.alpha = 0
+		frame_s.alpha = 0
+		frame_j.alpha = 0
+		frame_b.alpha = 0
+	end
+
+ ----인형
+	local rabbit_doll = display.newImage("이미지/홈/홈화면꾸미기/토끼인형.png")
+	rabbit_doll.x,rabbit_doll.y = display.contentWidth*0.224,display.contentHeight*0.456
+	sceneGroup:insert(rabbit_doll)
+	rabbit_doll.alpha = 0
+
+	local bear_doll = display.newImage("이미지/홈/홈화면꾸미기/곰인형.png")
+	bear_doll.x,bear_doll.y = display.contentWidth*0.224,display.contentHeight*0.456
+	sceneGroup:insert(bear_doll)
+	bear_doll.alpha = 0
+
+	if loadedItems.bear_apply == 1 then 
+		bear_doll.alpha = 1
+		rabbit_doll.alpha = 0
+	elseif loadedItems.rabbit_apply == 1 then 
+		bear_doll.alpha = 0
+		rabbit_doll.alpha = 1
+	elseif loadedItems.bear_apply == 0 and loadedItems.rabbit_apply == 0 then 
+		bear_doll.alpha = 0
+		rabbit_doll.alpha = 0
+	end 
 
 -- 코인 창 객체 
 	local coin = display.newImage("이미지/공통/코인표시창.png")
@@ -160,7 +438,7 @@ function scene:create( event )
 
 -- 주인공 객체
 	local mainpen = display.newImage("이미지/캐릭터/주인공/기본.png")
-	mainpen.x,mainpen.y = display.contentWidth/2,display.contentHeight*0.6
+	mainpen.x,mainpen.y = display.contentWidth*0.523,display.contentHeight*0.584
 	sceneGroup:insert(mainpen)
 
 -- 달력 글씨
@@ -239,8 +517,6 @@ function scene:create( event )
                 composer.showOverlay( "volumeControl", options )
     end
     volumeButton:addEventListener("tap",setVolume)
-
-    
 
 	
 
