@@ -99,6 +99,7 @@ function scene:create( event )
 		loadedItems.cactus_apply=0
 		loadedItems.sunflower_apply=0
 		loadedItems.clover_apply=0
+		loadedItems.violet_apply=0
 	end
 
 	local function doll_clear()
