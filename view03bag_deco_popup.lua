@@ -120,12 +120,12 @@ function scene:create( event )
 			if (j==1) then
 				wallpaper_clear()
 			end
-			loadedItems.grid_apply = i
+			loadedItems.dot_apply = i
 		elseif (item == "격자벽지") then
 			if (j==1) then
 				wallpaper_clear()
 			end
-			loadedItems.dot_apply= i
+			loadedItems.grid_apply= i
 		elseif (item == "흰색벽지") then
 			if (j==1) then
 				wallpaper_clear()
