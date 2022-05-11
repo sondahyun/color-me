@@ -557,9 +557,20 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_1)
 								script_1:addEventListener("touch",next1_1)
 							else
-								composer.setVariable("color", color)
-								composer.removeScene("viewmonth2_script")
-               					composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -601,9 +612,17 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_2)
 								script_1:addEventListener("touch",next1_2)
 							else
-								composer.setVariable("color", color)
-								composer.removeScene("viewmonth2_script")
-               					composer.gotoScene("view01Map",options)
+								if loadedSettings.script2 == 0 then
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -706,8 +725,20 @@ function scene:create( event )
 								script_4.alpha = 1
 								script_4:addEventListener("touch",next1_1)
 							else
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -750,8 +781,20 @@ function scene:create( event )
 								script_4.alpha = 1
 								script_4:addEventListener("touch",next1_2)
 							else
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -850,8 +893,20 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_1)
 								script_2:addEventListener("touch",next1_1)
 							else
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -894,8 +949,20 @@ function scene:create( event )
 								script_2:addEventListener("touch",next1_2)
 							else
 								script_2:removeEventListener("touch",next1_2)
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -1016,8 +1083,20 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_1)
 								script_5:addEventListener("touch",next1_1)
 							else
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -1061,8 +1140,20 @@ function scene:create( event )
 								script_5:addEventListener("touch",next1_2)
 
 							else
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -1175,8 +1266,20 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_1)
 								script_3:addEventListener("touch",next1_1)
 							else
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end
@@ -1219,8 +1322,20 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_2)
 								script_3:addEventListener("touch",next1_2)
 							else
-								composer.removeScene("viewmonth2_script")
-								composer.gotoScene("view01Map",options)
+								print("out"..loadedSettings.script2)
+								if loadedSettings.script2 == 0 then
+									print("script2 = 0일때")
+									loadedSettings.script2 = 1
+									loadsave.saveTable(loadedSettings, "settings.json")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("zcompliment_script",options)
+	               				elseif loadedSettings.script2 == 1 then
+	               					print("script2 = 1일때")
+									composer.setVariable("color", color)
+									composer.removeScene("viewmonth2_script")
+	               					composer.gotoScene("view01Map",options)
+	               				end
 							end
 						end
 					end

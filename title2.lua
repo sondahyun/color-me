@@ -194,7 +194,10 @@ function scene:create( event )
     				next1 = "",
     				next2 = "",
     				name = defaultField.text,
-    				test = 0
+    				test = 0,
+    				script2 = 0,
+    				script4 = 0,
+    				script6 = 0
 				}
 				loadsave.saveTable( gameSettings, "settings.json" )
 				local itmes = {

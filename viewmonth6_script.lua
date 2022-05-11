@@ -560,13 +560,22 @@ function scene:create( event )
           local j = 0
 
           local function next1_1(event)
-
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-
-              composer.gotoScene("view01Map",options)
-
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
@@ -594,12 +603,23 @@ function scene:create( event )
           end
 
           local function next1_2(event)
-
+            
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
@@ -693,9 +713,21 @@ function scene:create( event )
           local function next1_1(event)
 
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+                if loadedSettings.script6 == 0 then
+                  print("script6 = 0일때")
+                  loadedSettings.script6 = 1
+                  loadsave.saveTable(loadedSettings, "settings.json")
+                  composer.setVariable("color", color)
+                  composer.removeScene("viewmonth6_script")
+                  composer.gotoScene("zcompliment_script",options)
+                elseif loadedSettings.script6 == 1 then
+                  print("script6 = 1일때")
+                  composer.setVariable("color", color)
+                  composer.removeScene("viewmonth6_script")
+                  composer.gotoScene("view01Map",options)
+                end
 
             end
           end
@@ -726,12 +758,21 @@ function scene:create( event )
           local function next1_2(event)
 
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-
-
-              composer.gotoScene("view01Map",options)
-
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
@@ -838,10 +879,21 @@ function scene:create( event )
           local function next1_1(event)
 
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
@@ -871,9 +923,20 @@ function scene:create( event )
 
             if event.phase == "began" then
               script_2:removeEventListener("touch",next1_2)
-              composer.removeScene("viewmonth6_script")
-              my.alpha = 0
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
 
             end
           end
@@ -978,9 +1041,21 @@ function scene:create( event )
           local function next1_1(event)
 
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
@@ -1010,9 +1085,21 @@ function scene:create( event )
           local function next1_2(event)
 
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
@@ -1102,9 +1189,21 @@ function scene:create( event )
           local function next1_1(event)
 
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
@@ -1134,9 +1233,21 @@ function scene:create( event )
           local function next1_2(event)
 
             if event.phase == "began" then
-              composer.removeScene("viewmonth6_script")
               my.alpha = 0
-              composer.gotoScene("view01Map",options)
+              print("out"..loadedSettings.script6)
+              if loadedSettings.script6 == 0 then
+                print("script6 = 0일때")
+                loadedSettings.script6 = 1
+                loadsave.saveTable(loadedSettings, "settings.json")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("zcompliment_script",options)
+              elseif loadedSettings.script6 == 1 then
+                print("script6 = 1일때")
+                composer.setVariable("color", color)
+                composer.removeScene("viewmonth6_script")
+                composer.gotoScene("view01Map",options)
+              end
             end
           end
 
