@@ -18,9 +18,9 @@ function scene:create( event )
 	j=0
 
 	if (item == "도트벽지") then
-		apply_count =loadedItems.grid_apply
-	elseif (item == "격자벽지") then
 		apply_count =loadedItems.dot_apply
+	elseif (item == "격자벽지") then
+		apply_count =loadedItems.grid_apply
 	elseif (item == "흰색벽지") then
 		apply_count =loadedItems.white_apply
 	elseif (item == "꽃무늬이불") then
