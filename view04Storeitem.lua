@@ -142,44 +142,119 @@ function scene:create( event )
 	item = composer.getVariable("item")
 	money = composer.getVariable("money")
 
+	--중복아이템 flag 변수
+	local jungbok
 	local function take_stuff(event)
+		jungbok = 0
 		if event.phase == "began" then 
 			if (loadedSettings.money - money) >= 0 and loadedItems.itemCount < 16 then
-				loadedItems.itemCount = loadedItems.itemCount + 1
-				if loadedItems.itemCount == 1 then
-					loadedItems.item1 = item
-				elseif loadedItems.itemCount == 2 then
-					loadedItems.item2 = item
-				elseif loadedItems.itemCount == 3 then
-					loadedItems.item3 = item
-				elseif loadedItems.itemCount == 4 then
-					loadedItems.item4 = item
-				elseif loadedItems.itemCount == 5 then
-					loadedItems.item5 = item
-				elseif loadedItems.itemCount == 6 then
-					loadedItems.item6 = item
-				elseif loadedItems.itemCount == 7 then
-					loadedItems.item7 = item
-				elseif loadedItems.itemCount == 8 then
-					loadedItems.item8 = item
-				elseif loadedItems.itemCount == 9 then
-					loadedItems.item9 = item
-				elseif loadedItems.itemCount == 10 then
-					loadedItems.item10 = item
-				elseif loadedItems.itemCount == 11 then
-					loadedItems.item11 = item
-				elseif loadedItems.itemCount == 12 then
-					loadedItems.item12 = item
-				elseif loadedItems.itemCount == 13 then
-					loadedItems.item13 = item
-				elseif loadedItems.itemCount == 14 then
-					loadedItems.item14 = item
-				elseif loadedItems.itemCount == 15 then
-					loadedItems.item15 = item
-				elseif loadedItems.itemCount == 16 then
-					loadedItems.item16 = item
-				elseif loadedItems.itemCount == 17 then
-					loadedItems.item17 = item
+					--중복확인
+    				if loadedItems.item1== item then
+    					jungbok = 1
+    					loadedItems.item1Count = loadedItems.item1Count + 1
+    				elseif loadedItems.item2== item then
+    					jungbok = 1
+    					loadedItems.item2Count = loadedItems.item2Count + 1
+    				elseif loadedItems.item3== item then
+    					jungbok = 1
+    					loadedItems.item3Count = loadedItems.item3Count + 1
+    				elseif loadedItems.item4== item then
+    					jungbok = 1
+    					loadedItems.item4Count = loadedItems.item4Count + 1
+    				elseif loadedItems.item5== item then
+    					jungbok = 1
+    					loadedItems.item5Count = loadedItems.item5Count + 1
+    				elseif loadedItems.item6== item then
+    					jungbok = 1
+    					loadedItems.item6Count = loadedItems.item6Count + 1
+    				elseif loadedItems.item7== item then
+    					jungbok = 1
+    					loadedItems.item7Count = loadedItems.item7Count + 1
+    				elseif loadedItems.item8== item then
+    					jungbok = 1
+    					loadedItems.item8Count = loadedItems.item8Count + 1
+    				elseif loadedItems.item9== item then
+    					jungbok = 1
+    					loadedItems.item9Count = loadedItems.item9Count + 1
+   				elseif loadedItems.item10== item then
+    					jungbok = 1
+    					loadedItems.item10Count = loadedItems.item10Count + 1
+    				elseif loadedItems.item11== item then
+    					jungbok = 1
+    					loadedItems.item11Count = loadedItems.item11Count + 1
+    				elseif loadedItems.item12== item then
+    					jungbok = 1
+    					loadedItems.item12Count = loadedItems.item12Count + 1
+    				elseif loadedItems.item13== item then
+    					jungbok = 1
+    					loadedItems.item13Count = loadedItems.item13Count + 1
+    				elseif loadedItems.item14== item then
+    					jungbok = 1
+    					loadedItems.item14Count = loadedItems.item14Count + 1
+    				elseif loadedItems.item15== item then
+    					jungbok = 1
+    					loadedItems.item15Count = loadedItems.item15Count + 1
+    				elseif loadedItems.item16== item then
+    					jungbok = 1
+    					loadedItems.item16Count = loadedItems.item16Count + 1
+    				elseif loadedItems.item17== item then
+    					jungbok = 1
+    					loadedItems.item17Count = loadedItems.item17Count + 1
+    				end
+				if jungbok == 0 then
+					loadedItems.itemCount = loadedItems.itemCount + 1
+					if loadedItems.itemCount == 1 then
+						loadedItems.item1 = item
+						loadedItems.item1Count = 1
+					elseif loadedItems.itemCount == 2 then
+						loadedItems.item2 = item
+						loadedItems.item2Count = 1
+					elseif loadedItems.itemCount == 3 then
+						loadedItems.item3 = item
+						loadedItems.item3Count = 1
+					elseif loadedItems.itemCount == 4 then
+						loadedItems.item4 = item
+						loadedItems.item4Count = 1
+					elseif loadedItems.itemCount == 5 then
+						loadedItems.item5 = item
+						loadedItems.item5Count = 1
+					elseif loadedItems.itemCount == 6 then
+						loadedItems.item6 = item
+						loadedItems.item6Count = 1
+					elseif loadedItems.itemCount == 7 then
+						loadedItems.item7 = item
+						loadedItems.item7Count = 1
+					elseif loadedItems.itemCount == 8 then
+						loadedItems.item8 = item
+						loadedItems.item8Count = 1
+					elseif loadedItems.itemCount == 9 then
+						loadedItems.item9 = item
+						loadedItems.item9Count = 1
+					elseif loadedItems.itemCount == 10 then
+						loadedItems.item10 = item
+						loadedItems.item10Count = 1
+					elseif loadedItems.itemCount == 11 then
+						loadedItems.item11 = item
+						loadedItems.item11Count = 1
+					elseif loadedItems.itemCount == 12 then
+						loadedItems.item12 = item
+						loadedItems.item12Count = 1
+					elseif loadedItems.itemCount == 13 then
+						loadedItems.item13 = item
+						loadedItems.item13Count = 1
+					elseif loadedItems.itemCount == 14 then
+						loadedItems.item14 = item
+						loadedItems.item14Count = 1
+					elseif loadedItems.itemCount == 15 then
+						loadedItems.item15 = item
+						loadedItems.item15Count = 1
+					elseif loadedItems.itemCount == 16 then
+						loadedItems.item16 = item
+						loadedItems.item16Count = 1
+					elseif loadedItems.itemCount == 17 then
+						loadedItems.item17 = item
+						loadedItems.item17Count = 1
+					end
 				end
 				loadedSettings.money = loadedSettings.money - money
 				loadsave.saveTable(loadedSettings,"settings.json")
@@ -192,10 +267,6 @@ function scene:create( event )
 			end
 		end
 	end
-
-
-	
-
 
 	local popup = display.newImage("이미지/상점/팝업창/" .. item .. ".png")
 	popup.x,popup.y = display.contentWidth/2,display.contentHeight/2
