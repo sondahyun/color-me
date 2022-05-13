@@ -155,6 +155,7 @@ function scene:create( event )
 			--중복
 			local jungbok5 = display.newImage("이미지/가방/중복.png")
 			jungbok5.x, jungbok5.y =  display.contentWidth*0.5927, display.contentHeight*0.3019
+			sceneGroup:insert(jungbok5)
 			--중복 몇개?
 			local jungbok5Count = display.newText("",display.contentWidth*0.5922, display.contentHeight*0.3037,"font/잘풀리는오늘 Medium.ttf")
 			jungbok5Count:setFillColor(0.9, 0.76, 0.83)
