@@ -35,7 +35,6 @@ function scene:create( event )
 	local function touch2(event)
 		composer.removeScene("view00Room")
 		composer.gotoScene( "view03bag" )
-
 	end
 
 	-- 음악
@@ -436,10 +435,46 @@ function scene:create( event )
 	money.size = 53
 	sceneGroup:insert(money)
 
--- 주인공 객체
+	-- 주인공 객체
 	local mainpen = display.newImage("이미지/캐릭터/주인공/기본.png")
 	mainpen.x,mainpen.y = display.contentWidth*0.523,display.contentHeight*0.584
 	sceneGroup:insert(mainpen)
+	-- 모션
+	local options = {
+		width = 700,
+		height = 800,
+		numFrames = 17,
+		sheetContentWidth=4200, sheetContentHeight=2400
+	}
+
+	local data = {
+		name = "main",
+		start = 1,
+		count = 17,
+		time = 1000,
+		loopCount = 3,
+		loopDirection = "forward"
+	}
+
+	local function gotoback()
+		main_motion:pause()
+		main_motion:removeSelf()
+		main_motion=nil
+		motion=nil
+		mainpen.alpha = 1;
+	end
+
+	local function mainMotion(event)
+		local i = math.random(1, 5)
+		mainpen.alpha = 0;
+		motion = graphics.newImageSheet("애니매이션/모션/주인공/" .. i .. ".png", options)
+		main_motion = display.newSprite(motion,data)
+		main_motion.x, main_motion.y = display.contentWidth*0.523,display.contentHeight*0.566
+		sceneGroup:insert(main_motion)	
+		main_motion:play()
+		timer.performWithDelay(3000,gotoback)
+	end
+	mainpen:addEventListener("touch",mainMotion)
 
 -- 달력 글씨
 	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
