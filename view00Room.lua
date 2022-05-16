@@ -8,7 +8,6 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedItems= loadsave.loadTable( "items.json" )
-	
 	item = composer.getVariable("item")
 	two_check = composer.getVariable("two_check")
 	composer.getVariable("home")

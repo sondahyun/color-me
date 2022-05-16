@@ -201,6 +201,7 @@ function scene:create( event )
 				}
 				loadsave.saveTable( gameSettings, "settings.json" )
 				local itmes = {
+
 						itemCount = 0,
 						item1 = "없음",
 						item2 = "없음",
@@ -335,6 +336,7 @@ function scene:create( event )
 						bly_apply=0,
 						joy_apply=0
 					}
+
 				loadsave.saveTable( itmes, "items.json" )
 				composer.setVariable("name",defaultField.text)
 				defaultField:removeSelf()

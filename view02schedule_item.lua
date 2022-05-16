@@ -15,11 +15,13 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	location = composer.getVariable("location")
+
 	i = composer.getVariable("number")
 	item = composer.getVariable("item")
 
 	format = composer.getVariable("format")
 	local items = {}
+	local itemCount = {}
 	
 	items[1] = loadedItems.item1--/loadedSettings.item1
 	items[2] = loadedItems.item2--/loadedSettings.item1	
@@ -38,6 +40,23 @@ function scene:create( event )
 	items[15] = loadedItems.item15--/loadedSettings.item1
 	items[16] = loadedItems.item16--/loadedSettings.item1
 
+	itemCount[1] = loadedItems.item1Count--/loadedSettings.item1
+	itemCount[2] = loadedItems.item2Count--/loadedSettings.item1	
+	itemCount[3] = loadedItems.item3Count--/loadedSettings.item1		
+	itemCount[4] = loadedItems.item4Count--/loadedSettings.item1		
+	itemCount[5] = loadedItems.item5Count--/loadedSettings.item1		
+	itemCount[6] = loadedItems.item6Count--/loadedSettings.item1		
+	itemCount[7] = loadedItems.item7Count--/loadedSettings.item1		
+	itemCount[8] = loadedItems.item8Count--/loadedSettings.item1		
+	itemCount[9] = loadedItems.item9Count--/loadedSettings.item1		
+	itemCount[10] = loadedItems.item10Count--/loadedSettings.item1		
+	itemCount[11] = loadedItems.item11Count--/loadedSettings.item1		
+	itemCount[12] = loadedItems.item12Count--/loadedSettings.item1
+	itemCount[13] = loadedItems.item13Count--/loadedSettings.item1		
+	itemCount[14] = loadedItems.item14Count--/loadedSettings.item1		
+	itemCount[15] = loadedItems.item15Count--/loadedSettings.item1
+	itemCount[16] = loadedItems.item16Count--/loadedSettings.item1
+
 	local function goback_bag(event)
 		if event.phase == "began" then 
 			composer.setVariable("number",i)
@@ -54,169 +73,110 @@ function scene:create( event )
 		end
 	end
 
+	-- 아이템 정렬 함수
+	local function arrange()
+		if location <= 1 then
+			loadedItems.item1 = items[2]
+		end
+		if location <= 2 then
+			loadedItems.item2 = items[3]
+		end
+		if location <= 3 then
+			loadedItems.item3 = items[4]
+		end
+		if location <= 4 then
+			loadedItems.item4 = items[5]
+		end
+		if location <= 5 then
+			loadedItems.item5 = items[6]
+		end
+		if location <= 6 then
+			loadedItems.item6 = items[7]
+		end
+		if location <= 7 then
+			loadedItems.item7 = items[8]
+		end
+		if location <= 8 then
+			loadedItems.item8 = items[9]
+		end
+		if location <= 9 then
+			loadedItems.item9 = items[10]
+		end
+		if location <= 10 then
+			loadedItems.item10 = items[11]
+		end
+		if location <= 11 then
+			loadedItems.item11 = items[12]
+		end
+		if location <= 12 then
+			loadedItems.item12 = items[13]
+		end
+		if location <= 13 then
+			loadedItems.item13 = items[14]
+		end
+		if location <= 14 then
+			loadedItems.item14 = items[15]
+		end
+		if location <= 15 then
+			loadedItems.item15 = items[16]
+		end
+		if location <= 16 then
+			loadedItems.item16 = ""
+		end
+
+	end
+
+	-- 해당 아이템 개수 차감 저장
+	local function substract_save()
+		itemCount[location] = itemCount[location]-1
+		if location == 1 then
+			loadedItems.item1Count = itemCount[location]
+		elseif location ==2 then
+			loadedItems.item2Count = itemCount[location]
+		elseif location ==3 then
+			loadedItems.item3Count = itemCount[location]
+		elseif location ==4 then
+			loadedItems.item4Count = itemCount[location]
+		elseif location ==5 then
+			loadedItems.item5Count = itemCount[location]
+		elseif location ==6 then
+			loadedItems.item6Count = itemCount[location]
+		elseif location ==7 then
+			loadedItems.item7Count = itemCount[location]
+		elseif location ==8 then
+			loadedItems.item8Count = itemCount[location]
+		elseif location ==9 then
+			loadedItems.item9Count = itemCount[location]
+		elseif location ==10 then
+			loadedItems.item10Count = itemCount[location]
+		elseif location ==11 then
+			loadedItems.item11Count = itemCount[location]
+		elseif location ==12 then
+			loadedItems.item12Count = itemCount[location]
+		elseif location ==13 then
+			loadedItems.item13Count = itemCount[location]
+		elseif location ==14 then
+			loadedItems.item14Count = itemCount[location]
+		elseif location ==15 then
+			loadedItems.item15Count = itemCount[location]
+		elseif location ==16 then
+			loadedItems.item16Count = itemCount[location]
+		end
+
+	end
+
 	local function use_stuff(event)
 		if event.phase == "began" then
 			items[location] = ""
 
-			if location == 1 then
-				loadedItems.item1 = items[2]
-				loadedItems.item2 = items[3]
-				loadedItems.item3 = items[4]
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 2 then
-				loadedItems.item2 = items[3]
-				loadedItems.item3 = items[4]
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 3 then
-				loadedItems.item3 = items[4]
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 4 then
-				loadedItems.item4 = items[5]	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 5 then	
-				loadedItems.item5 = items[6]
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 6 then	
-				loadedItems.item6 = items[7]
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 7 then	
-				loadedItems.item7 = items[8]
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 8 then	
-				loadedItems.item8 = items[9]	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 9 then	
-				loadedItems.item9 = items[10]
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 10 then	
-				loadedItems.item10 = items[11]
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 11 then	
-				loadedItems.item11 = items[12]
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 12 then	
-				loadedItems.item12 = items[13] --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 13 then	
-			 --/loadedSettings.item1		
-				loadedItems.item13 = items[14] --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 14 then	
-				 --/loadedSettings.item1		
-				loadedItems.item14 = items[15]
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 15 then	
-				
-				loadedItems.item15 = items[16]--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
-			elseif location == 16 then	
-				--/loadedSettings.item1--/loadedSettings.item1
-				loadedItems.item16 = ""
+			if (itemCount[location]==1) then
+				arrange()
+				loadedItems.itemCount = loadedItems.itemCount - 1
+			-- 아이템 정렬
+			else 
+				substract_save()
 			end
-
-			loadedItems.itemCount = loadedItems.itemCount - 1
+			
 			loadsave.saveTable(loadedItems,"items.json")
 			composer.setVariable("number",i)
 			composer.setVariable("item",item)
