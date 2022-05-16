@@ -63,51 +63,67 @@ function scene:create( event )
 	local function arrange()
 		if location <= 1 then
 			loadedItems.item1 = items[2]
+			loadedItems.item1Count = itemCount[2]
 		end
 		if location <= 2 then
 			loadedItems.item2 = items[3]
+			loadedItems.item2Count = itemCount[3]
 		end
 		if location <= 3 then
 			loadedItems.item3 = items[4]
+			loadedItems.item3Count = itemCount[4]
 		end
 		if location <= 4 then
 			loadedItems.item4 = items[5]
+			loadedItems.item4Count = itemCount[5]
 		end
 		if location <= 5 then
 			loadedItems.item5 = items[6]
+			loadedItems.item5Count = itemCount[6]
 		end
 		if location <= 6 then
 			loadedItems.item6 = items[7]
+			loadedItems.item6Count = itemCount[7]
 		end
 		if location <= 7 then
 			loadedItems.item7 = items[8]
+			loadedItems.item7Count = itemCount[8]
 		end
 		if location <= 8 then
 			loadedItems.item8 = items[9]
+			loadedItems.item8Count = itemCount[9]
 		end
 		if location <= 9 then
 			loadedItems.item9 = items[10]
+			loadedItems.item9Count = itemCount[10]
 		end
 		if location <= 10 then
 			loadedItems.item10 = items[11]
+			loadedItems.item10Count = itemCount[11]
 		end
 		if location <= 11 then
 			loadedItems.item11 = items[12]
+			loadedItems.item11Count = itemCount[12]
 		end
 		if location <= 12 then
 			loadedItems.item12 = items[13]
+			loadedItems.item12Count = itemCount[13]
 		end
 		if location <= 13 then
 			loadedItems.item13 = items[14]
+			loadedItems.item13Count = itemCount[14]
 		end
 		if location <= 14 then
 			loadedItems.item14 = items[15]
+			loadedItems.item14Count = itemCount[15]
 		end
 		if location <= 15 then
 			loadedItems.item15 = items[16]
+			loadedItems.item15Count = itemCount[16]
 		end
 		if location <= 16 then
 			loadedItems.item16 = ""
+			loadedItems.item16Count = ""
 		end
 
 	end
