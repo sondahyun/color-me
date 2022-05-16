@@ -66,10 +66,10 @@ function scene:create( event )
 	items[10] = loadedItems.item10--/loadedSettings.item1		
 	items[11] = loadedItems.item11--/loadedSettings.item1		
 	items[12] = loadedItems.item12--/loadedSettings.item1
-	items[13] = loadedItems.item10--/loadedSettings.item1		
-	items[14] = loadedItems.item11--/loadedSettings.item1		
-	items[15] = loadedItems.item12--/loadedSettings.item1
-	items[16] = loadedItems.item10--/loadedSettings.item1		
+	items[13] = loadedItems.item13--/loadedSettings.item1		
+	items[14] = loadedItems.item14--/loadedSettings.item1		
+	items[15] = loadedItems.item15--/loadedSettings.item1
+	items[16] = loadedItems.item16--/loadedSettings.item1		
 
 
 
