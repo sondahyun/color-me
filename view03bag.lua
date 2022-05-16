@@ -129,6 +129,7 @@ function scene:create( event )
 				jungbok3Count:setFillColor(0.9, 0.76, 0.83)
 				jungbok3Count.text = loadedItems.item3Count
 				jungbok3Count.size = 30
+				sceneGroup:insert(jungbok3Count)
 			end
 		elseif num == 4 then
 			local item4 = display.newImage("이미지/가방/아이템/" .. loadedItems.item4 .. ".png")
