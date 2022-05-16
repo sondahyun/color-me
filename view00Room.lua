@@ -456,11 +456,13 @@ function scene:create( event )
 	}
 
 	local function gotoback()
-		main_motion:pause()
-		main_motion:removeSelf()
-		main_motion=nil
-		motion=nil
-		mainpen.alpha = 1;
+		if (main_motion ~= null) then
+			main_motion:pause()
+			main_motion:removeSelf()
+			main_motion=nil
+			motion=nil
+			mainpen.alpha = 1;
+		end
 	end
 
 	local function mainMotion(event)
