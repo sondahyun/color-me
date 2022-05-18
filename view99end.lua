@@ -6,6 +6,7 @@ local loadsave = require( "loadsave" )
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
+	local loadedEndings = loadsave.loadTable( "endings.json" )
 
 	local endingMusic = audio.loadStream("음악/엔딩.mp3" )
  	audio.setVolume( loadedEndings.logValue )
@@ -27,7 +28,6 @@ function scene:create( event )
         
     }
 
-	local loadedEndings = loadsave.loadTable( "endings.json" )
 	--우정 엔딩--
 	local back = display.newRect(display.contentWidth/2,display.contentHeight/2, display.contentWidth,display.contentHeight)
 	back:setFillColor(0)
