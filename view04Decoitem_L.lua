@@ -131,6 +131,83 @@ function scene:create( event )
 	woodFloor.alpha=loadedItems.d15Sold+0.5
 	sceneGroup:insert(woodFloor)
 
+	--가격표(추후수정)
+
+local fbprice = display.newText("10P",display.contentWidth*0.145, display.contentHeight*0.429,"font/NanumSquare_acB.ttf")
+fbprice.size = 25
+fbprice:setFillColor(0)
+sceneGroup:insert(fbprice)
+
+local sbprice = display.newText("16P",display.contentWidth*0.286, display.contentHeight*0.429,"font/NanumSquare_acB.ttf")
+sbprice.size = 25
+sbprice:setFillColor(0)
+sceneGroup:insert(sbprice)
+
+local cactusprice = display.newText("15P",display.contentWidth*0.427, display.contentHeight*0.429,"font/NanumSquare_acB.ttf")
+cactusprice.size = 25
+cactusprice:setFillColor(0)
+sceneGroup:insert(cactusprice)
+
+local sfprice = display.newText("14P",display.contentWidth*0.568, display.contentHeight*0.429,"font/NanumSquare_acB.ttf")
+sfprice.size = 25
+sfprice:setFillColor(0)
+sceneGroup:insert(sfprice)
+
+local cloverprice = display.newText("18P",display.contentWidth*0.709, display.contentHeight*0.429,"font/NanumSquare_acB.ttf")
+cloverprice.size = 25
+cloverprice:setFillColor(0)
+sceneGroup:insert(cloverprice)
+
+local violetprice = display.newText("20P",display.contentWidth*0.85, display.contentHeight*0.429,"font/NanumSquare_acB.ttf")
+violetprice.size = 25
+violetprice:setFillColor(0)
+sceneGroup:insert(violetprice)
+
+local hcprice = display.newText("10P",display.contentWidth*0.169, display.contentHeight*0.664,"font/NanumSquare_acB.ttf")
+hcprice.size = 25
+hcprice:setFillColor(0)
+sceneGroup:insert(hcprice)
+
+local rcprice = display.newText("15P",display.contentWidth*0.346, display.contentHeight*0.664,"font/NanumSquare_acB.ttf")
+rcprice.size = 25
+rcprice:setFillColor(0)
+sceneGroup:insert(rcprice)
+
+local scprice = display.newText("15P",display.contentWidth*0.542, display.contentHeight*0.664,"font/NanumSquare_acB.ttf")
+scprice.size = 25
+scprice:setFillColor(0)
+sceneGroup:insert(scprice)
+
+local tbprice = display.newText("20P",display.contentWidth*0.709, display.contentHeight*0.664,"font/NanumSquare_acB.ttf")
+tbprice.size = 25
+tbprice:setFillColor(0)
+sceneGroup:insert(tbprice)
+
+local bunnyprice = display.newText("20P",display.contentWidth*0.85, display.contentHeight*0.664,"font/NanumSquare_acB.ttf")
+bunnyprice.size = 25
+bunnyprice:setFillColor(0)
+sceneGroup:insert(bunnyprice)
+
+local dwprice = display.newText("25P",display.contentWidth*0.148, display.contentHeight*0.904,"font/NanumSquare_acB.ttf")
+dwprice.size = 25
+dwprice:setFillColor(0)
+sceneGroup:insert(dwprice)
+
+local pwprice = display.newText("25P",display.contentWidth*0.289, display.contentHeight*0.904,"font/NanumSquare_acB.ttf")
+pwprice.size = 25
+pwprice:setFillColor(0)
+sceneGroup:insert(pwprice)
+
+local whfprice = display.newText("25P",display.contentWidth*0.429, display.contentHeight*0.904,"font/NanumSquare_acB.ttf")
+whfprice.size = 25
+whfprice:setFillColor(0)
+sceneGroup:insert(whfprice)
+
+local wofprice = display.newText("25P",display.contentWidth*0.57, display.contentHeight*0.904,"font/NanumSquare_acB.ttf")
+wofprice.size = 25
+wofprice:setFillColor(0)
+sceneGroup:insert(wofprice)
+
 	local sold={}
    sold[1] = display.newImage("이미지/상점/상점_soldout.png")
    sold[1].x,sold[1].y = display.contentWidth*0.1459, display.contentHeight*0.411
