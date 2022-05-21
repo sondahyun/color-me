@@ -435,18 +435,18 @@ function scene:create( event )
 	sceneGroup:insert(money)
 
 	-- 주인공 객체
-	local mainpen = display.newImage("이미지/캐릭터/주인공/기본.png")
+	mainpen = display.newImage("이미지/캐릭터/주인공/기본.png")
 	mainpen.x,mainpen.y = display.contentWidth*0.523,display.contentHeight*0.584
 	sceneGroup:insert(mainpen)
 	-- 모션
-	local options = {
+	options = {
 		width = 700,
 		height = 800,
 		numFrames = 17,
 		sheetContentWidth=4200, sheetContentHeight=2400
 	}
 
-	local data = {
+	data = {
 		name = "main",
 		start = 1,
 		count = 17,
@@ -455,8 +455,8 @@ function scene:create( event )
 		loopDirection = "forward"
 	}
 
-	local function gotoback()
-		if (main_motion ~= null) then
+	function gotoback()
+		if (main_motion ~= nil) then
 			main_motion:pause()
 			main_motion:removeSelf()
 			main_motion=nil
@@ -465,8 +465,8 @@ function scene:create( event )
 		end
 	end
 
-	local function mainMotion(event)
-		local i = math.random(1, 5)
+	function mainMotion(event)
+		i = math.random(1, 5)
 		mainpen.alpha = 0;
 		motion = graphics.newImageSheet("애니매이션/모션/주인공/" .. i .. ".png", options)
 		main_motion = display.newSprite(motion,data)
