@@ -209,7 +209,7 @@ function scene:create( event )
          b1:addEventListener("touch",b1Click)
 
          local option3 = {
-         text = "친구들을 실망시키기 싫어!\n내가 갖고 있던 도토리 사탕을\n바구니에 둔다.",
+         text = "친구들의 주의를 끌어서\n관심을 돌리자!\n친구들 앞에서 춤추고 노래한다. ",
          x = display.contentWidth*0.5,
          y = display.contentHeight*0.5,
          font = "font/NanumSquareRoundB",
