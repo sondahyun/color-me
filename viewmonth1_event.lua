@@ -367,7 +367,6 @@ function scene:create( event )
 	end
 	my_daesapan:addEventListener("touch",next)
 	daesapan:addEventListener("touch",next)
-	my_daesapan:addEventListener("touch",next)
 	
 
 end
