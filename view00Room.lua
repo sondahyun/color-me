@@ -447,23 +447,14 @@ function scene:create( event )
 		start = 1,
 		count = 17,
 		time = 1000,
-		loopCount = 3,
-		loopDirection = "forward"
-	}
-
-	data_normal = {
-		name = "main_normal",
-		start = 1,
-		count = 17,
-		time = 1000,
 		loopCount = 0,
 		loopDirection = "forward"
 	}
 
 
 	-- 주인공 객체
-	normal = graphics.newImageSheet("애니매이션/모션/주인공/1.png", options)
-	motion_normal = display.newSprite(normal,data_normal)
+	normal = graphics.newImageSheet("애니매이션/모션/주인공(랜덤)/"..loadedItems.costume.. "/1.png", options)
+	motion_normal = display.newSprite(normal,data)
 	motion_normal.x, motion_normal.y = display.contentWidth*0.523,display.contentHeight*0.566
 	sceneGroup:insert(motion_normal)
 	motion_normal:play()
@@ -474,7 +465,7 @@ function scene:create( event )
 			main_motion:removeSelf()
 			main_motion=nil
 			motion=nil
-			motion_normal = display.newSprite(normal,data_normal)
+			motion_normal = display.newSprite(normal,data)
 			motion_normal.x, motion_normal.y = display.contentWidth*0.523,display.contentHeight*0.566
 			sceneGroup:insert(motion_normal)
 			motion_normal:play()
@@ -484,13 +475,15 @@ function scene:create( event )
 
 	function mainMotion(event)
 		i = math.random(2, 5)
-		motion_normal:pause()
-		motion_normal:removeSelf()
-		motion = graphics.newImageSheet("애니매이션/모션/주인공/" .. i .. ".png", options)
+		motion = graphics.newImageSheet("애니매이션/모션/주인공(랜덤)/"..loadedItems.costume.. "/" .. i .. ".png", options)
 		main_motion = display.newSprite(motion,data)
 		main_motion.x, main_motion.y = display.contentWidth*0.523,display.contentHeight*0.566
 		sceneGroup:insert(main_motion)	
 		main_motion:play()
+		if (motion_normal ~= nil) then
+			motion_normal:pause()
+			motion_normal:removeSelf()
+		end
 		timer.performWithDelay(3000,gotoback)
 	end
 	motion_normal:addEventListener("touch",mainMotion)

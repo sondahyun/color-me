@@ -346,7 +346,7 @@ function scene:create( event )
 						costume_troublemaker = 0,
 						costume_nerd = 0,
 						costume_princess = 0,
-						costume = "normal"
+						costume = "기본"
 					}
 
 				loadsave.saveTable( itmes, "items.json" )
