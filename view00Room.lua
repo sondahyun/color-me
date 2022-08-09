@@ -434,10 +434,6 @@ function scene:create( event )
 	money.size = 53
 	sceneGroup:insert(money)
 
-	-- 주인공 객체
-	mainpen = display.newImage("이미지/캐릭터/주인공/기본.png")
-	mainpen.x,mainpen.y = display.contentWidth*0.523,display.contentHeight*0.584
-	sceneGroup:insert(mainpen)
 	-- 모션
 	options = {
 		width = 700,
@@ -455,19 +451,41 @@ function scene:create( event )
 		loopDirection = "forward"
 	}
 
+	data_normal = {
+		name = "main_normal",
+		start = 1,
+		count = 17,
+		time = 1000,
+		loopCount = 0,
+		loopDirection = "forward"
+	}
+
+
+	-- 주인공 객체
+	normal = graphics.newImageSheet("애니매이션/모션/주인공/1.png", options)
+	motion_normal = display.newSprite(normal,data_normal)
+	motion_normal.x, motion_normal.y = display.contentWidth*0.523,display.contentHeight*0.566
+	sceneGroup:insert(motion_normal)
+	motion_normal:play()
+
 	function gotoback()
 		if (main_motion ~= nil) then
 			main_motion:pause()
 			main_motion:removeSelf()
 			main_motion=nil
 			motion=nil
-			mainpen.alpha = 1;
+			motion_normal = display.newSprite(normal,data_normal)
+			motion_normal.x, motion_normal.y = display.contentWidth*0.523,display.contentHeight*0.566
+			sceneGroup:insert(motion_normal)
+			motion_normal:play()
+			motion_normal:addEventListener("touch",mainMotion)
 		end
 	end
 
 	function mainMotion(event)
-		i = math.random(1, 5)
-		mainpen.alpha = 0;
+		i = math.random(2, 5)
+		motion_normal:pause()
+		motion_normal:removeSelf()
 		motion = graphics.newImageSheet("애니매이션/모션/주인공/" .. i .. ".png", options)
 		main_motion = display.newSprite(motion,data)
 		main_motion.x, main_motion.y = display.contentWidth*0.523,display.contentHeight*0.566
@@ -475,7 +493,7 @@ function scene:create( event )
 		main_motion:play()
 		timer.performWithDelay(3000,gotoback)
 	end
-	mainpen:addEventListener("touch",mainMotion)
+	motion_normal:addEventListener("touch",mainMotion)
 
 -- 달력 글씨
 	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
