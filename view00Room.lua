@@ -461,30 +461,25 @@ function scene:create( event )
 
 	function gotoback()
 		if (main_motion ~= nil) then
+			motion_normal.alpha = 1
 			main_motion:pause()
 			main_motion:removeSelf()
 			main_motion=nil
 			motion=nil
-			motion_normal = display.newSprite(normal,data)
-			motion_normal.x, motion_normal.y = display.contentWidth*0.523,display.contentHeight*0.566
-			sceneGroup:insert(motion_normal)
-			motion_normal:play()
-			motion_normal:addEventListener("touch",mainMotion)
 		end
 	end
 
 	function mainMotion(event)
 		i = math.random(2, 5)
+		timer.performWithDelay(3000,gotoback)
 		motion = graphics.newImageSheet("애니매이션/모션/주인공(랜덤)/"..loadedItems.costume.. "/" .. i .. ".png", options)
 		main_motion = display.newSprite(motion,data)
 		main_motion.x, main_motion.y = display.contentWidth*0.523,display.contentHeight*0.566
 		sceneGroup:insert(main_motion)	
 		main_motion:play()
 		if (motion_normal ~= nil) then
-			motion_normal:pause()
-			motion_normal:removeSelf()
+			motion_normal.alpha = 0
 		end
-		timer.performWithDelay(3000,gotoback)
 	end
 	motion_normal:addEventListener("touch",mainMotion)
 
