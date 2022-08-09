@@ -101,14 +101,7 @@ function scene:create( event )
         settings["fxvolume"] = logValue
         loadedEndings.logValue_effect = logValue
         loadsave.saveTable(loadedEndings,"endings.json")
-        if settings["fxvolume"] > 0.0 then
-            local availableChannel = audio.findFreeChannel(2)
-            if (availableChannel == 2) then 
-                -- Only use channel 2 for this, which means that we won't play the sound unless it's already done playing
-                audio.setVolume( settings["fxvolume"], { channel=availableChannel } )
-                audio.play( tapSound, {channel=availableChannel}) 
-            end
-        end
+        audio.setVolume( settings["bgvolume"]  )
     end
     
     -- 효과음볼륨슬라이더
