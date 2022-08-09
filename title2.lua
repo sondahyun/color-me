@@ -334,7 +334,19 @@ function scene:create( event )
 						wiz_apply=0,
 						soli_apply=0,
 						bly_apply=0,
-						joy_apply=0
+						joy_apply=0,
+
+						costume_normal = 1,
+						costume_walnut = 0,
+						costume_pirate = 0,
+						costume_detective = 0,
+						costume_summer = 0,
+						costume_devil = 0,
+						costume_pyjamas = 0,
+						costume_troublemaker = 0,
+						costume_nerd = 0,
+						costume_princess = 0,
+						costume = "normal"
 					}
 
 				loadsave.saveTable( itmes, "items.json" )
