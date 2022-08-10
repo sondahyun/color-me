@@ -47,7 +47,6 @@ function scene:create( event )
 	sceneGroup:insert(goCloset)
 	goCloset.x, goCloset.y = display.contentWidth*0.1, display.contentHeight*0.08
 
-	loadedSettings.money=loadedSettings.money+1000
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
 	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
@@ -57,10 +56,18 @@ function scene:create( event )
 	money.size = 53
 	sceneGroup:insert(money)
 
+	local function gotodeco(event)
+		if event.phase == "began" then
+			composer.removeScene("view04Deco")
+			composer.gotoScene("view04DecoClothes")
+		end
+	end
+
 	--옷 보러가기 버튼
 	local goCloset = display.newImage("이미지/상점/옷상점버튼.png")
 	sceneGroup:insert(goCloset)
 	goCloset.x, goCloset.y = display.contentWidth*0.865, display.contentHeight*0.851
+	goCloset:addEventListener("touch",gotodeco)
 
 	-- 진열
 

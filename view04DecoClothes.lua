@@ -50,13 +50,18 @@ function scene:create( event )
 	money.size = 53
 	sceneGroup:insert(money)
 
-	print(loadedSettings.money)
-	print(money.text)
+	local function gotodeco(event)
+		if event.phase == "began" then
+			composer.removeScene("view04DecoClothes")
+			composer.gotoScene("view04Deco")
+		end
+	end
 
 	--옷 보러가기 버튼
 	local goCloset = display.newImage("이미지/상점/옷템/가구상점으로.png")
 	sceneGroup:insert(goCloset)
 	goCloset.x, goCloset.y = display.contentWidth*0.865, display.contentHeight*0.851
+	goCloset:addEventListener("touch",gotodeco)
 
 	local options={
 		isModal=true
