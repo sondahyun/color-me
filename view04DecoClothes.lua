@@ -13,6 +13,8 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	
+	local shouldUpdate = false
+	
 	local background = display.newImage("이미지/상점/옷템/배경.png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
@@ -23,7 +25,7 @@ function scene:create( event )
 	local function go_back(event)
 		if event.phase == "began" then
 			audio.pause(storeMusic)
-			composer.removeScene("view04Deco")
+			composer.removeScene("view04DecoClothes")
 			composer.gotoScene("view01Map")
 		end
 	end
@@ -40,37 +42,6 @@ function scene:create( event )
 	sceneGroup:insert(goCloset)
 	goCloset.x, goCloset.y = display.contentWidth*0.1, display.contentHeight*0.08
 
-	loadedSettings.money=loadedSettings.money+1000
-
-	--옷 보러가기 버튼
-	local goCloset = display.newImage("이미지/상점/옷템/가구상점으로.png")
-	sceneGroup:insert(goCloset)
-	goCloset.x, goCloset.y = display.contentWidth*0.865, display.contentHeight*0.851
-
-	
-
-	
-
-end
-
-function scene:show( event )
-	local sceneGroup = self.view
-	local phase = event.phase
-	local loadedItems= loadsave.loadTable( "items.json" )
-	local loadedSettings = loadsave.loadTable( "settings.json" )
-
-	local options={
-		isModal=true
-	}
-
-	local function clothesClick(event)
-		if event.phase == "ended" then
-			tag = event.target.tag
-			composer.setVariable("tag", tag)
-			composer.showOverlay("view04DecoClothes_popup",options)
-		end
-	end
-
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
 	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
@@ -78,9 +49,30 @@ function scene:show( event )
 	money.text = loadedSettings.money
 	money.size = 53
 	sceneGroup:insert(money)
-	
-	if phase == "will" then
-		-- 옷 이미지
+
+	print(loadedSettings.money)
+	print(money.text)
+
+	--옷 보러가기 버튼
+	local goCloset = display.newImage("이미지/상점/옷템/가구상점으로.png")
+	sceneGroup:insert(goCloset)
+	goCloset.x, goCloset.y = display.contentWidth*0.865, display.contentHeight*0.851
+
+	local options={
+		isModal=true
+	}
+
+	local function clothesClick(event)
+		if event.phase == "ended" then
+			shouldUpdate = true
+			tag = event.target.tag
+			composer.setVariable("tag", tag)
+			composer.removeScene("view04DecoClothes")
+			composer.gotoScene("view04DecoClothes_popup")
+		end
+	end
+
+	-- 옷 이미지
 	local clothes_name = {
 		"꼬마악마",
 		"탐정",
@@ -141,6 +133,18 @@ function scene:show( event )
 		sold[i].alpha = loadedItems.costumeBuy[i].buy
 		sceneGroup:insert(sold[i])
 	end
+
+end
+
+function scene:show( event )
+	local sceneGroup = self.view
+	local phase = event.phase
+	local loadedItems= loadsave.loadTable( "items.json" )
+	
+	if phase == "will" then
+		for i = 1, 9 do
+			print(loadedItems.costumeBuy[i].buy)
+		end
 		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then
 		
