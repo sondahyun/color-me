@@ -21,34 +21,34 @@ function scene:create( event )
 
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.removeScene("view03bag_deco")
+			composer.removeScene("view03bag_deco3_clothes")
 			composer.gotoScene("view00Room")
 		end
 	end
 	
 	local function go_popup(event)
 		if event.phase == "began" then
-			composer.removeScene("view03bag_deco")
+			composer.removeScene("view03bag_deco3_clothes")
 			composer.gotoScene("view03bag")
 		end
 	end
 
 	local function go_two(event)
 		if event.phase == "began" then
-			composer.removeScene("view03bag_deco")
+			composer.removeScene("view03bag_deco3_clothes")
 			composer.gotoScene("view03bag_deco2")
 		end
 	end
 
-	local function go_clothes(event)
+	local function go_one(event)
 		if event.phase == "began" then
-			composer.removeScene("view03bag_deco")
-			composer.gotoScene("view03bag_deco3_clothes")
+			composer.removeScene("view03bag_deco3_clothes")
+			composer.gotoScene("view03bag_deco")
 		end
 	end
 
 
-	local update = display.newImage("이미지/가방/꾸미기배경1.png")
+	local update = display.newImage("이미지/가방/가방(꾸미기) 배경-01.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(update)
 
@@ -68,9 +68,10 @@ function scene:create( event )
 
 	--목록 전환 버튼--
 
-	local left_buttoned = display.newImage("이미지/가방/가구버튼1_클릭.png")
+	local left_buttoned = display.newImage("이미지/가방/가구버튼1.png")
 	left_buttoned.x, left_buttoned.y = display.contentWidth*0.444,display.contentHeight*0.8966
 	sceneGroup:insert(left_buttoned)
+	left_buttoned:addEventListener("touch",go_one)
 	left_buttoned.anchorX,left_buttoned.anchorY=0,0
 
 	local right_button = display.newImage("이미지/가방/가구버튼2.png")
@@ -79,10 +80,10 @@ function scene:create( event )
 	right_button:addEventListener("touch",go_two)
 	right_button.anchorX,right_button.anchorY=0,0
 
-	local clothes_button = display.newImage("이미지/가방/꾸미기(옷)버튼(클릭x).png")
+	local clothes_button = display.newImage("이미지/가방/꾸미기(옷)버튼(클릭O).png")
 	clothes_button.x, clothes_button.y = display.contentWidth* 0.5280833 ,display.contentHeight*0.8966
 	sceneGroup:insert(clothes_button)
-	clothes_button:addEventListener("touch",go_clothes)
+	--clothes_button:addEventListener("touch",go_clothes)
 	clothes_button.anchorX,clothes_button.anchorY=0,0
 
 	local exit = display.newImage("이미지/공통/x버튼.png")

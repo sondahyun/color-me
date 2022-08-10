@@ -38,6 +38,13 @@ function scene:create( event )
 		end
 	end
 
+	local function go_clothes(event)
+		if event.phase == "began" then
+			composer.removeScene("view03bag_deco")
+			composer.gotoScene("view03bag_deco3_clothes")
+		end
+	end
+
 
 	local update1 = display.newImage("이미지/가방/꾸미기배경2.png")
 	update1.x, update1.y = display.contentWidth*0.5, display.contentHeight*0.5
@@ -65,6 +72,12 @@ function scene:create( event )
 	sceneGroup:insert(right_buttoned)
 	right_buttoned.anchorX,right_buttoned.anchorY=0,0
 	right_buttoned.alpha = 1
+
+	local clothes_button = display.newImage("이미지/가방/꾸미기(옷)버튼(클릭x).png")
+	clothes_button.x, clothes_button.y = display.contentWidth* 0.5280833 ,display.contentHeight*0.8966
+	sceneGroup:insert(clothes_button)
+	clothes_button:addEventListener("touch",go_clothes)
+	clothes_button.anchorX,clothes_button.anchorY=0,0
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
 	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
