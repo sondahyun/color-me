@@ -200,7 +200,7 @@ function scene:create( event )
     				script6 = 0
 				}
 				loadsave.saveTable( gameSettings, "settings.json" )
-				local itmes = {
+				local itme = {
 
 						itemCount = 0,
 						item1 = "없음",
@@ -346,10 +346,26 @@ function scene:create( event )
 						costume_troublemaker = 0,
 						costume_nerd = 0,
 						costume_princess = 0,
-						costume = "기본"
+						costume = "기본",
+
+						costumeBuy = {{ name = "꼬마악마", buy = 0, cost = 40},
+						{ name = "탐정", buy = 0, cost = 50},
+						{ name = "해적", buy = 0, cost = 50},
+						{ name = "공주님", buy = 0, cost = 50},
+						{ name = "병정인형", buy = 0, cost = 50},
+						{ name = "수면잠옷", buy = 0, cost = 30},
+						{ name = "여름해변", buy = 0, cost = 30},
+						{ name = "말썽쟁이", buy = 0, cost = 25},
+						{ name = "모범친구", buy = 0, cost = 25}}
 					}
 
-				loadsave.saveTable( itmes, "items.json" )
+			
+				local serializedJSON = json.encode(itme)
+				local itmes = json.decode(serializedJSON)
+				--loadsave.saveTable(custumeBuy, "items.json")
+
+
+				loadsave.saveTable( itmes ,"items.json" )
 				composer.setVariable("name",defaultField.text)
 				defaultField:removeSelf()
 				defaultField = nil
