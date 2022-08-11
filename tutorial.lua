@@ -18,8 +18,7 @@ function scene:create( event )
 	-- showoverlay 함수 사용 option
     local options = {
         isModal = true
-    }
-
+    }		
 
 	--배경
 	for i = 1, 26 do
@@ -28,6 +27,13 @@ function scene:create( event )
 	bGroup.x,bGroup.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(bGroup)
 
+	composer.setVariable("find1", 0)	
+	composer.setVariable("find2", 0)	
+	composer.setVariable("find3", 0)	
+	composer.setVariable("find4", 0)	
+	composer.setVariable("find5", 0)	
+
+	loadsave.saveTable(loadedSettings,"settings.json")
 
     --대화창
  	--대사
@@ -97,7 +103,7 @@ function scene:create( event )
 
 		if j == 28 then
 			composer.removeScene("tutorial")
-			composer.gotoScene( "view01_month" )
+			composer.gotoScene("view01_month")
 		end
 	end
 

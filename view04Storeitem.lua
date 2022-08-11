@@ -142,12 +142,47 @@ function scene:create( event )
 	item = composer.getVariable("item")
 	money = composer.getVariable("money")
 
+	local color = 0
+	local i = 0
 	--중복아이템 flag 변수
 	local jungbok
 	local function take_stuff(event)
 		jungbok = 0
+		local red_num = loadedSettings.red_num
+		local yellow_num = loadedSettings.yellow_num
+		local blue_num = loadedSettings.blue_num
+		local purple_num = loadedSettings.purple_num
+		local green_num = loadedSettings.green_num
+
 		if event.phase == "began" then 
+			print(item)
 			if (loadedSettings.money - money) >= 0 and loadedItems.itemCount < 16 then
+					if item == "액자" then
+						if red_num >= 50 then
+							color = "1"
+							print("red")
+							composer.setVariable("color", color)
+							composer.setVariable("find1", 1)							
+						elseif yellow_num >= 50 then
+							print("yellow")
+							color = "3"
+							composer.setVariable("color", color)
+							composer.setVariable("find3", 1)			
+						elseif blue_num >= 50 then
+							color = "2"
+							composer.setVariable("color", color)
+							composer.setVariable("find2", 1)			
+						elseif purple_num >= 50 then
+							color = "4"
+							composer.setVariable("color", color)
+							composer.setVariable("find4", 1)			
+						elseif green_num >= 50 then
+							color = "5"
+							composer.setVariable("color", color)
+							composer.setVariable("find5", 1)			
+						end
+						loadsave.saveTable(loadedSettings,"settings.json")
+					end
 					--중복확인
     				if loadedItems.item1== item then
     					jungbok = 1
@@ -256,6 +291,7 @@ function scene:create( event )
 						loadedItems.item17Count = 1
 					end
 				end
+				
 				loadedSettings.money = loadedSettings.money - money
 				loadsave.saveTable(loadedSettings,"settings.json")
 				loadsave.saveTable(loadedItems,"items.json")

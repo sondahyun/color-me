@@ -19,6 +19,12 @@ print("스케줄end")
 		time = 1000
 	}
 
+	local find1 = composer.getVariable("find1")
+	local find2= composer.getVariable("find2")
+	local find3 = composer.getVariable("find3")
+	local find4 = composer.getVariable("find4")
+	local find5 = composer.getVariable("find5")
+
 	local function end_month(event)
 		if event.phase == "began" then
 			-- 모든 값 리셋
@@ -81,7 +87,7 @@ print("스케줄end")
 				end
 			elseif loadedSettings.month==4 then
 					composer.removeScene("view02schedule")
-					composer.removeScene("view02schedule_end")
+					dcomposer.removeScene("view02schedule_end")
 					composer.gotoScene("likeability",options)
 
 			elseif loadedSettings.month==5 then
@@ -99,7 +105,30 @@ print("스케줄end")
 			else
 				composer.removeScene("view02schedule")
 				composer.removeScene("view02schedule_end")
-				composer.gotoScene("view01_month",options)
+
+				if find1 == 1 then
+					composer.setVariable("find1", 2)	
+					loadsave.saveTable(loadedSettings,"settings.json")	
+					composer.gotoScene("item_find_event",options)
+				elseif find2 == 1 then
+					composer.setVariable("find2", 2)	
+					loadsave.saveTable(loadedSettings,"settings.json")
+					composer.gotoScene("item_find_event",options)
+				elseif find3 == 1 then
+					composer.setVariable("find3", 2)
+					loadsave.saveTable(loadedSettings,"settings.json")
+					composer.gotoScene("item_find_event",options)
+				elseif find4 == 1 then
+					composer.setVariable("find4", 2)	
+					loadsave.saveTable(loadedSettings,"settings.json")
+					composer.gotoScene("item_find_event",options)
+				elseif find5 == 1 then
+					composer.setVariable("find5", 2)
+					loadsave.saveTable(loadedSettings,"settings.json")	
+					composer.gotoScene("item_find_event",options)
+				else
+					composer.gotoScene("view01_month",options)
+				end
 			end
 		end
 	end

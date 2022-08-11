@@ -260,7 +260,7 @@ function scene:create( event )
 	my_daesapan.alpha=0
 	my_daesapan.anchorY=0
 
-	local option = {
+	local option1 = {
       text = mainName,
       x = display.contentWidth*0.175,
       y = display.contentHeight*0.73,
@@ -269,7 +269,7 @@ function scene:create( event )
       align="center"
    } 
 
-   local my = display.newText(option)
+   local my = display.newText(option1)
    my.anchorY = 0
    my.size = 45
    my.alpha = 0
@@ -540,7 +540,7 @@ local daewha21 = {}
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 
-	local color = "2"
+	local color = composer.getVariable("color")
 
 	--print(loadedSettings.limited_num)
 
