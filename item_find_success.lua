@@ -29,10 +29,6 @@ function scene:create( event )
         
     }
 
-	local eventMusic = audio.loadStream( "음악/계절.mp3" )
- 	audio.setVolume( loadedEndings.logValue )
-    audio.play(eventMusic)
-
 	local background_1 = display.newImageRect("이미지/대화/우정배경/빨강.png",display.contentWidth, display.contentHeight)
 	background_1.x,background_1.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_1)
@@ -257,21 +253,12 @@ function scene:create( event )
 	my_daesapan.alpha=0
 	my_daesapan.anchorY=0
 
-	local option = {
-      text = mainName,
-      x = display.contentWidth*0.175,
-      y = display.contentHeight*0.73,
-      font = "font/NanumSquareRoundB",
-      fontSize =45,
-      align="center"
-   } 
-
-   local my = display.newText(option)
-   my.anchorY = 0
-   my.size = 45
-   my.alpha = 0
-   my:setFillColor(1)
-   sceneGroup:insert(my)
+	local my = display.newText(mainName,190,505,"font/잘풀리는오늘 Medium.ttf")
+	my.size = 45
+	my.alpha = 0
+	my.x, my.y = display.contentWidth * 0.170,display.contentHeight*0.75
+	my:setFillColor(1)
+	sceneGroup:insert(my)
 
 	local daewha12 = {}
 
@@ -383,10 +370,14 @@ function scene:create( event )
 								daewha12[3].alpha = 1
 								j = j+1
 							else
-									script_1:removeEventListener("touch",next1)
-									loadsave.saveTable(loadedSettings, "settings.json")
-									composer.removeScene("item_find_success")
+								script_1:removeEventListener("touch",next1)
+								loadsave.saveTable(loadedSettings, "settings.json")
+								composer.removeScene("item_find_success")
+								if loadedSettings.month == 6 then 
+									composer.gotoScene("view99end")
+								else
 									composer.gotoScene("view01_month",options)
+								end
 							end
 						end
 					end
@@ -418,7 +409,11 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_success")
-								composer.gotoScene("view01_month",options)
+								if loadedSettings.month == 6 then 
+									composer.gotoScene("view99end")
+								else
+									composer.gotoScene("view01_month",options)
+								end
 							end
 						end
 					end
@@ -448,9 +443,13 @@ function scene:create( event )
 								j = j+1
 							else
 								script_2:removeEventListener("touch",next1)
-									loadsave.saveTable(loadedSettings, "settings.json")
-									composer.removeScene("item_find_success")
+								loadsave.saveTable(loadedSettings, "settings.json")
+								composer.removeScene("item_find_success")
+								if loadedSettings.month == 6 then 
+									composer.gotoScene("view99end")
+								else
 									composer.gotoScene("view01_month",options)
+								end
 							end
 						end
 					end
@@ -481,7 +480,11 @@ function scene:create( event )
 								script_5:removeEventListener("touch",next1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_success")
-								composer.gotoScene("view01_month",options)
+								if loadedSettings.month == 6 then 
+									composer.gotoScene("view99end")
+								else
+									composer.gotoScene("view01_month",options)
+								end
 							end
 						end
 					end
@@ -513,7 +516,11 @@ function scene:create( event )
 								script_3:removeEventListener("touch",next1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_success")
-								composer.gotoScene("view01_month",options)
+								if loadedSettings.month == 6 then 
+									composer.gotoScene("view99end")
+								else
+									composer.gotoScene("view01_month",options)
+								end
 							end
 						end
 					end

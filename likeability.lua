@@ -7,6 +7,12 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 
+	local find1 = composer.getVariable("find1")
+	local find2= composer.getVariable("find2")
+	local find3 = composer.getVariable("find3")
+	local find4 = composer.getVariable("find4")
+	local find5 = composer.getVariable("find5")
+
 	local background = display.newImageRect("이미지/홈/배경/가구있는배경.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -216,14 +222,58 @@ function scene:create( event )
 
 	local function touch2(event)
 		loadedSettings.month = loadedSettings.month + 1
-		composer.removeScene("likeability")
 		if loadedSettings.month == 6 then
 			print("byebye")
 			composer.removeScene("likeability")
-			composer.gotoScene("view99end",options)
+			if find1 == 1 then
+				composer.setVariable("find1", 2)	
+				loadsave.saveTable(loadedSettings,"settings.json")	
+				composer.gotoScene("item_find_event",options)
+			elseif find2 == 1 then
+				composer.setVariable("find2", 2)	
+				loadsave.saveTable(loadedSettings,"settings.json")
+				composer.gotoScene("item_find_event",options)
+			elseif find3 == 1 then
+				composer.setVariable("find3", 2)
+				loadsave.saveTable(loadedSettings,"settings.json")
+				composer.gotoScene("item_find_event",options)
+			elseif find4 == 1 then
+				composer.setVariable("find4", 2)	
+				loadsave.saveTable(loadedSettings,"settings.json")
+				composer.gotoScene("item_find_event",options)
+			elseif find5 == 1 then
+				composer.setVariable("find5", 2)
+				loadsave.saveTable(loadedSettings,"settings.json")	
+				composer.gotoScene("item_find_event",options)
+			else
+				composer.gotoScene("view99end",options)
+			end
 		else
 			composer.removeScene("likeability")
-			composer.gotoScene("view01_month",options)
+			print(find1)
+			if find1 == 1 then
+				composer.setVariable("find1", 2)	
+				loadsave.saveTable(loadedSettings,"settings.json")	
+				composer.gotoScene("item_find_event",options)
+			elseif find2 == 1 then
+				composer.setVariable("find2", 2)	
+				loadsave.saveTable(loadedSettings,"settings.json")
+				composer.gotoScene("item_find_event",options)
+			elseif find3 == 1 then
+				composer.setVariable("find3", 2)
+				loadsave.saveTable(loadedSettings,"settings.json")
+				composer.gotoScene("item_find_event",options)
+			elseif find4 == 1 then
+				composer.setVariable("find4", 2)	
+				loadsave.saveTable(loadedSettings,"settings.json")
+				composer.gotoScene("item_find_event",options)
+			elseif find5 == 1 then
+				composer.setVariable("find5", 2)
+				loadsave.saveTable(loadedSettings,"settings.json")	
+				composer.gotoScene("item_find_event",options)
+			else
+				composer.gotoScene("view01_month",options)
+			end
 		end
 	end
 

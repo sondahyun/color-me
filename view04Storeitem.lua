@@ -154,29 +154,34 @@ function scene:create( event )
 		local purple_num = loadedSettings.purple_num
 		local green_num = loadedSettings.green_num
 
+	  local find1 = composer.getVariable("find1")
+	  local find2= composer.getVariable("find2")
+	  local find3 = composer.getVariable("find3")
+	  local find4 = composer.getVariable("find4")
+	  local find5 = composer.getVariable("find5")
 		if event.phase == "began" then 
 			print(item)
 			if (loadedSettings.money - money) >= 0 and loadedItems.itemCount < 16 then
 					if item == "액자" then
-						if red_num >= 50 then
+						if red_num >= 50 and find1 == 0 then
 							color = "1"
 							print("red")
 							composer.setVariable("color", color)
 							composer.setVariable("find1", 1)							
-						elseif yellow_num >= 50 then
+						elseif yellow_num >= 50 and find3 == 0 then
 							print("yellow")
 							color = "3"
 							composer.setVariable("color", color)
 							composer.setVariable("find3", 1)			
-						elseif blue_num >= 50 then
+						elseif blue_num >= 50 and find2 == 0 then
 							color = "2"
 							composer.setVariable("color", color)
 							composer.setVariable("find2", 1)			
-						elseif purple_num >= 50 then
+						elseif purple_num >= 50 and find4 == 0 then
 							color = "4"
 							composer.setVariable("color", color)
 							composer.setVariable("find4", 1)			
-						elseif green_num >= 50 then
+						elseif green_num >= 50 and find5 == 0 then
 							color = "5"
 							composer.setVariable("color", color)
 							composer.setVariable("find5", 1)			

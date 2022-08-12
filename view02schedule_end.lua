@@ -87,7 +87,7 @@ print("스케줄end")
 				end
 			elseif loadedSettings.month==4 then
 					composer.removeScene("view02schedule")
-					dcomposer.removeScene("view02schedule_end")
+					composer.removeScene("view02schedule_end")
 					composer.gotoScene("likeability",options)
 
 			elseif loadedSettings.month==5 then
@@ -100,6 +100,30 @@ print("스케줄end")
 				composer.removeScene("view02schedule")
 				composer.removeScene("view02schedule_end")
 				audio.pause(loadedEndings.bgMusic)
+
+				if find1 == 1 then
+					composer.setVariable("find1", 2)	
+					loadsave.saveTable(loadedSettings,"settings.json")	
+					composer.gotoScene("item_find_event",options)
+				elseif find2 == 1 then
+					composer.setVariable("find2", 2)	
+					loadsave.saveTable(loadedSettings,"settings.json")
+					composer.gotoScene("item_find_event",options)
+				elseif find3 == 1 then
+					composer.setVariable("find3", 2)
+					loadsave.saveTable(loadedSettings,"settings.json")
+					composer.gotoScene("item_find_event",options)
+				elseif find4 == 1 then
+					composer.setVariable("find4", 2)	
+					loadsave.saveTable(loadedSettings,"settings.json")
+					composer.gotoScene("item_find_event",options)
+				elseif find5 == 1 then
+					composer.setVariable("find5", 2)
+					loadsave.saveTable(loadedSettings,"settings.json")	
+					composer.gotoScene("item_find_event",options)
+				else
+					composer.gotoScene("view01_month",options)
+				end
 				composer.gotoScene("view99end")
 
 			else
