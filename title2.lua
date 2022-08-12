@@ -356,7 +356,8 @@ function scene:create( event )
 						{ name = "수면잠옷", buy = 0, cost = 30},
 						{ name = "여름해변", buy = 0, cost = 30},
 						{ name = "말썽쟁이", buy = 0, cost = 25},
-						{ name = "모범친구", buy = 0, cost = 25}}
+						{ name = "모범친구", buy = 0, cost = 25},
+						{ name = "기본", buy = 1, cost = 0}}
 					}
 
 			

@@ -95,29 +95,41 @@ function scene:create( event )
 
 	--아이템 목록--
 
-	local wallpaperImage = {}
-	local floorImage = {}
-	local blanketImage = {}
-	local carpetImage = {}
+
+	--[[--악마
+	local costume_devil = loadedItems.costumeBuy[0]
+	--탐정
+	local costume_detective = loadedItems.costumeBuy[1]
+	--해적
+	local costume_pirate = loadedItems.costumeBuy[2]
+	--공주님
+	local costume_princess = loadedItems.costumeBuy[3]
+	--병정인형
+	local costume_walnut = loadedItems.costumeBuy[4]
+	--수면잠옷
+	local costume_pyjamas = loadedItems.costumeBuy[5]
+	--여름해변
+	local costume_summer = loadedItems.costumeBuy[6]
+	--말썽쟁이
+	local costume_troublemaker = loadedItems.costumeBuy[7]
+	--모범친구
+	local costume_nerd = loadedItems.costumeBuy[8]
+	--기본
+	local costume_normal = loadedItems.costumeBuy[9]--]]
+
+
+	--[[local costume_walnut = loadedItems.costume_walnut
+	local costume_pirate = loadedItems.costume_pirate
+	local costume_detective = loadedItems.costume_detective
+	local costume_summer = loadedItems.costume_summer
+	local costume_devil = loadedItems.costume_devil
+	local costume_pyjamas = loadedItems.costume_pyjamas
+	local costume_troublemaker = loadedItems.costume_troublemaker
+	local costume_nerd = loadedItems.costume_nerd
+	local costume_princess = loadedItems.costume_princess
+--]]
+
 	
-	wallpaperImage[1] = loadedItems.wallpaper1
-	wallpaperImage[2] = loadedItems.wallpaper2
-	wallpaperImage[3] = loadedItems.wallpaper3
-
-	floorImage[1] = loadedItems.floor1
-	floorImage[2] = loadedItems.floor2
-	floorImage[3] = loadedItems.floor3
-
-	blanketImage[1] = loadedItems.blanket1
-	blanketImage[2] = loadedItems.blanket2
-	blanketImage[3] = loadedItems.blanket3
-
-	carpetImage[1] = loadedItems.carpet1
-	carpetImage[2] = loadedItems.carpet2
-	carpetImage[3] = loadedItems.carpet3
-
-
-
 	
 	--[[
 	wallpaperImage[1] = "격자벽지"
@@ -136,10 +148,7 @@ function scene:create( event )
 	carpetImage[2] = "둥근카펫"
 	carpetImage[3] = "하트카펫"
 	]]--
-	local wallpaper = {}
-	local floor = {}
-	local blanket = {}
-	local carpet = {}
+	
 
 	--[[
 	local wallpaperCount = 3
@@ -148,33 +157,24 @@ function scene:create( event )
 	local carpetCount = 3
 
 	]]--
-	wallpaperCount=loadedItems.wallpaperCount
-	floorCount=loadedItems.floorCount
-	blanketCount=loadedItems.blanketCount
-	carpetCount=loadedItems.carpetCount
+	local clothes_Count = 9
 
-	for i=1,wallpaperCount do
-		print(wallpaperImage[i])
+	for i=0,clothes_Count do
+		--print(loadedItems.costumeBuy[i].buy)
 	end
 
-	for i=1,blanketCount do
-		print(blanketImage[i])
-		print(blanketCount)
-	end
-	
 
 
 	--아이템 함수--
 	local function popup(event)
 		if event.phase == "began" then
-			composer.setVariable("item",event.target.id)
-			composer.setVariable("two_check",0)
-			composer.showOverlay("view03bag_deco_popup",options)
+			composer.setVariable("tag",event.target.tag)
+			composer.showOverlay("view03bag_deco3_clothes_popup",options)
 		end
 	end
 
-	for i=1,wallpaperCount do
-		 wallpaper[i] = display.newImage("이미지/가방/가구템/" .. wallpaperImage[i] .. ".png")
+	for i=0,clothes_Count do
+		 wallpaper[i] = display.newImage("이미지/가방/의상템/" .. loadedItems.costumeBuy[i].name .. ".png")
 		 wallpaper[i].x,wallpaper[i].y = display.contentWidth*0.0937 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.2816
 		 sceneGroup:insert(wallpaper[i])
 		 wallpaper[i].id = wallpaperImage[i]
@@ -182,32 +182,6 @@ function scene:create( event )
 		 wallpaper[i].anchorX,wallpaper[i].anchorY = 0,0
 	end
 
-	for i=1,floorCount do
-		 floor[i] = display.newImage("이미지/가방/가구템/" .. floorImage[i] .. ".png")
-		 floor[i].x,floor[i].y = display.contentWidth*0.5717 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.2816
-		 sceneGroup:insert(floor[i])
-		 floor[i].id = floorImage[i]
-		 floor[i]:addEventListener("touch",popup)
-		 floor[i].anchorX,floor[i].anchorY = 0,0
-	end
-
-	for i=1,blanketCount do
-		 blanket[i] = display.newImage("이미지/가방/가구템/" .. blanketImage[i] .. ".png")
-		 blanket[i].x,blanket[i].y = display.contentWidth*0.0937 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.6153
-		 sceneGroup:insert(blanket[i])
-		 blanket[i].id = blanketImage[i]
-		 blanket[i]:addEventListener("touch",popup)
-		 blanket[i].anchorX,blanket[i].anchorY = 0,0
-	end
-
-	for i=1,carpetCount do
-		 carpet[i] = display.newImage("이미지/가방/가구템/" .. carpetImage[i] .. ".png")
-		 carpet[i].x,carpet[i].y = display.contentWidth*0.5717 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.6153
-		 sceneGroup:insert(carpet[i])
-		 carpet[i].id = carpetImage[i]
-		 carpet[i]:addEventListener("touch",popup)
-		 carpet[i].anchorX,carpet[i].anchorY = 0,0
-	end
 
 
 end
