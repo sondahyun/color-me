@@ -26,8 +26,8 @@ local function onFirstView( event )
     -- Open the file handle
     local file, errorString = io.open( path, "r" )
     
-    composer.gotoScene("title")
-    if not file then
+    composer.gotoScene("view03bag_deco3_clothes")
+    --[[if not file then
         	local titleMusic = audio.loadStream( "음악/타이틀.mp3" )
     		audio.play(titleMusic)
     		audio.setVolume( 0.5 )
@@ -37,7 +37,7 @@ local function onFirstView( event )
     		audio.play(titleMusic)
     		audio.setVolume( loadedEndings.logValue )
 			composer.gotoScene( "title" )
-    end
+    end]]
 end
 
 local function onSecondView( event )

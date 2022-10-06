@@ -13,25 +13,41 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	
-	item = composer.getVariable("tag")
+	tag = composer.getVariable("tag")
 
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.hideOverlay("view03bag_deco3_clothes_popup")
+			composer.removeScene("view03bag_deco3_clothes_popup")
+			composer.gotoScene("view03bag_deco3_clothes")
 		end
 	end
 	
-	local popup = display.newImage("이미지/가방/의상템/" .. costumeBuy[item].name .. ".png")
+	local function go_enter(event)
+		if event.phase == "began" then
+			composer.removeScene("view03bag_deco3_clothes_popup")
+			composer.gotoScene("view03bag_deco3_clothes")
+		end
+	end
+
+	print(loadedItems.costumeBuy[1].name)
+	print(tag)
+
+	local popup = display.newImage("이미지/가방/의상팝업창/" .. loadedItems.costumeBuy[1].name .. ".png")
 	popup.x, popup.y = display.contentWidth*0.5, display.contentHeight*0.5
+	popup.alpha = 1
 	sceneGroup:insert(popup)
 
 	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.5, display.contentHeight*0.59
+	exit.x, exit.y = display.contentWidth*0.66, display.contentHeight*0.31
 	exit.width = exit.width*0.85
 	exit.height = exit.height*0.85
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
+	local enter = display.newImage("이미지/가방/의상팝업창/가방(옷)-적용하기 버튼.png")
+	enter.x, enter.y = display.contentWidth*0.562, display.contentHeight*0.6
+	sceneGroup:insert(enter)
+	enter:addEventListener("touch",go_enter)
 
 
 

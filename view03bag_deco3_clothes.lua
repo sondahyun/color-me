@@ -96,8 +96,8 @@ function scene:create( event )
 	--아이템 목록--
 
 
-	--[[--악마
-	local costume_devil = loadedItems.costumeBuy[0]
+	--악마
+	--[[local costume_devil = loadedItems.costumeBuy[0]
 	--탐정
 	local costume_detective = loadedItems.costumeBuy[1]
 	--해적
@@ -158,9 +158,10 @@ function scene:create( event )
 
 	]]--
 	local clothes_Count = 9
-
-	for i=0,clothes_Count do
-		--print(loadedItems.costumeBuy[i].buy)
+	
+	for i=1, 10 do
+		print(loadedItems.costumeBuy[i].buy)
+		print(loadedItems.costumeBuy[i].name)
 	end
 
 
@@ -168,18 +169,43 @@ function scene:create( event )
 	--아이템 함수--
 	local function popup(event)
 		if event.phase == "began" then
-			composer.setVariable("tag",event.target.tag)
-			composer.showOverlay("view03bag_deco3_clothes_popup",options)
+			tag = event.target.tag
+			composer.setVariable("tag", tag)
+			composer.removeScene("view03bag_deco3_clothes")
+			composer.gotoScene("view03bag_deco3_clothes_popup")
+
+
+			--composer.showOverlay("view03bag_deco3_clothes_popup",options)
 		end
 	end
 
-	for i=0,clothes_Count do
-		 wallpaper[i] = display.newImage("이미지/가방/의상템/" .. loadedItems.costumeBuy[i].name .. ".png")
-		 wallpaper[i].x,wallpaper[i].y = display.contentWidth*0.0937 + display.contentWidth*0.1231*(i-1),display.contentHeight*0.2816
-		 sceneGroup:insert(wallpaper[i])
-		 wallpaper[i].id = wallpaperImage[i]
-		 wallpaper[i]:addEventListener("touch",popup)
-		 wallpaper[i].anchorX,wallpaper[i].anchorY = 0,0
+	local clothes_location = {
+		{267,677.92}, --악마
+		{605.96,647.92}, --탐정
+		{862.20,610.49}, --해적
+		{1175.25,700.07}, --공주
+		{1445,640.45}, --병정
+
+		{325.7,300.45}, --잠옷
+		{610.16,345.15}, --해변
+		{905,300.64}, --말썽쟁이
+		{1180.94,410}, --모범친구
+		{1467.99,470} --기본
+	}
+
+	local wallpaper = {}
+	local j=1
+
+
+	for i=1, 10 do
+		if loadedItems.costumeBuy[i].buy == 1 then
+			 wallpaper[i] = display.newImage("이미지/가방/의상템/" .. loadedItems.costumeBuy[i].name .. ".png")
+			 wallpaper[i].x,wallpaper[i].y = clothes_location[i][1], clothes_location[i][2]
+			 sceneGroup:insert(wallpaper[i])
+			 wallpaper[i]:addEventListener("touch",popup)
+			 wallpaper[i].anchorX,wallpaper[i].anchorY = 0,0
+			 j = j + 1
+		end
 	end
 
 
@@ -189,8 +215,12 @@ end
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
-	
+	local loadedItems= loadsave.loadTable( "items.json" )
+
 	if phase == "will" then
+		for i = 1, 9 do
+			print(loadedItems.costumeBuy[i].buy)
+		end
 		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then
 		-- Called when the scene is now on screen
