@@ -117,7 +117,7 @@ function scene:create( event )
 		Runtime:removeEventListener("tap", next1)
 		composer.removeScene("tutorial")
 		audio.pause(tutorialMusic)
-		composer.gotoScene( "view01_month" )
+		composer.gotoScene( "view01_guide(new)" )
 	end
 
 	skipButton:addEventListener("tap",skip_tutorial) 

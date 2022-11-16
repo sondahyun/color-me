@@ -1,4 +1,4 @@
---튜토리얼 장면 6-3부터 7-3
+--튜토리얼 장면 마지막.
 local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local scene = composer.newScene()
@@ -9,7 +9,7 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	
-	local image = display.newImage("이미지/(신)튜토리얼/6-3_7-3/" .. 0 .. ".png")
+	local image = display.newImage("이미지/(신)튜토리얼/8_8-7/" .. 0 .. ".png")
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
 	image:toBack()
 
@@ -35,62 +35,31 @@ function scene:create( event )
 
 	local finger = display.newSprite(fingerMotion,sequencesFinger)
 	finger.anchorX,finger.anchorY = 0,0
-	finger.x, finger.y = 1169.13+140,56.63 + 200
-	finger.alpha = 0
+	finger.x, finger.y = 1169.13+470,356.63 + 270
+	finger.alpha = 1
 	sceneGroup:insert(finger)
 	
 	finger:play()
-	finger.rotation = 270
-
-	--finger location & rotation--
-	local fingerLocation = {
-		{56.75 - 100 ,890.24 - 250 }, -- 활동 마치기 버튼 위
-		{1031.57 - 250 ,405.87 + 250}, -- no 버튼 아래
-		{190.53 - 100,890.97 - 250}, -- x버튼 아래
-		{1395.39 + 330,201.72 - 120}, -- 가방버튼 위
-		{87 + 800,30}, -- 일반버튼 아래
-		{87 + 800,30}, -- 꾸미기버튼 아래
-		{1169.13 + 600,56.63 + 180}, -- x버튼 아래
-	}
-
-	local isFinger = {
-		0,0,0,0,
-		1,0,1,1,1,
-		0,0,0,1,1,
-		0,0,1
-	}
-
-	local fingerRotation = {
-		360, -- 아래
-		0, --위
-		0,
-		360,
-		0,
-		0,
-		0
-	}
 
 	local index = 0
-	local i = 1
 
 	local function nextScript(event)
 		index = index +1
-		if(index > 17) then
-			composer.gotoScene("view01_guide(new)3")
+		if(index > 25) then
+			loadedSettings.money = loadedSettings.money + 10
+			loadsave.saveTable(loadedSettings,"settings.json")
+			composer.gotoScene("view00Room")
 		end
 
-		if(isFinger[index]==1) then
-			finger.alpha = 1
-			finger.x, finger.y = fingerLocation[i][1], fingerLocation[i][2]
-			finger.rotation = fingerRotation[i]
-			i = i+1
-		else
-			finger.alpha = 0
+		finger.alpha = 0
+		if(index==1) then
+			finger.x, finger.y = 1080 ,190
+			finger.rotation = 45
 		end
 
 		image.fill = {
 		 	type = "image",
-		 	filename = "이미지/(신)튜토리얼/6-3_7-3/" .. index .. ".png"
+		 	filename = "이미지/(신)튜토리얼/8_8-7/" .. index .. ".png"
 		}
 	end
 

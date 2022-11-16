@@ -80,7 +80,7 @@ function scene:create( event )
 	local function nextScript(event)
 		index = index +1
 		if(index > 17) then
-			composer.gotoScene("view00Room")
+			composer.gotoScene("view01_guide(new)2")
 		end
 
 		if(isFinger[index]==1) then
