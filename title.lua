@@ -115,8 +115,28 @@ function scene:create( event )
         end
     end
 
+    local function specialMove(event)
+        if event.phase == "began" then
+            special:removeEventListener("mouse",bigbig1)
+            composer.showOverlay("title4(special)",options)
+        end
+    end
 
--- 엔딩 이미지 객체 생성 및 move 이벤트 리스너 추가
+    --크레딧 버튼
+    local credit = display.newImage("이미지/크레딧/버튼.png")
+    credit.x, credit.y = display.contentWidth*0.95,display.contentHeight*0.9
+    sceneGroup:insert(credit)
+    credit:addEventListener("mouse",bigbig1)
+    --credit:addEventListener("touch",specialMove)
+
+    --스페셜 버튼
+    local special = display.newImage("이미지/특별일러스트/버튼.png")
+    special.x, special.y = display.contentWidth*0.13,display.contentHeight*0.9
+    sceneGroup:insert(special)
+    special:addEventListener("mouse",bigbig1)
+
+
+    -- 엔딩 이미지 객체 생성 및 move 이벤트 리스너 추가
 
     local function move(event)
         if event.phase == "began" then
@@ -126,7 +146,7 @@ function scene:create( event )
     end
 
     local ending = display.newImage("이미지/타이틀/엔딩모음.png")
-    ending.x, ending.y = display.contentWidth*0.95,display.contentHeight*0.9
+    ending.x, ending.y = display.contentWidth*0.05,display.contentHeight*0.9
     sceneGroup:insert(ending)
     ending:addEventListener("touch",move)
     ending:addEventListener("mouse",bigbig1)
