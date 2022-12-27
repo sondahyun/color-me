@@ -171,11 +171,7 @@ function scene:create( event )
 		if event.phase == "began" then
 			tag = event.target.tag
 			composer.setVariable("tag", tag)
-			composer.removeScene("view03bag_deco3_clothes")
-			composer.gotoScene("view03bag_deco3_clothes_popup")
-
-
-			--composer.showOverlay("view03bag_deco3_clothes_popup",options)
+			composer.showOverlay("view03bag_deco3_clothes_popup",options)
 		end
 	end
 
@@ -202,6 +198,7 @@ function scene:create( event )
 			 wallpaper[i] = display.newImage("이미지/가방/의상템/" .. loadedItems.costumeBuy[i].name .. ".png")
 			 wallpaper[i].x,wallpaper[i].y = clothes_location[i][1], clothes_location[i][2]
 			 sceneGroup:insert(wallpaper[i])
+			 wallpaper[i].tag = i
 			 wallpaper[i]:addEventListener("touch",popup)
 			 wallpaper[i].anchorX,wallpaper[i].anchorY = 0,0
 			 j = j + 1
