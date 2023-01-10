@@ -13,6 +13,12 @@ function scene:create( event )
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
 	image:toBack()
 
+    local noBt = display.newImage("이미지/공통/no버튼.png")
+    noBt.x,noBt.y = display.contentWidth * 0.578, display.contentHeight * 0.608
+    noBt.alpha = 0
+    noBt.height = 68
+    noBt.width = 239
+
 	-- finger animation 
 	local sheetOptions =
 	{
@@ -75,7 +81,16 @@ function scene:create( event )
 
 	local function nextScript(event)
 		index = index +1
+		if(index==7) then
+			noBt.alpha = 1
+			image:removeEventListener("tap",nextScript)
+		elseif(index==8) then
+			noBt.alpha = 0
+			image:addEventListener("tap",nextScript)	
+		end
 		if(index > 17) then
+			sceneGroup:insert(noBt)
+			composer.removeScene("view01_guide(new)2")
 			composer.gotoScene("view01_guide(new)3")
 		end
 
@@ -95,7 +110,7 @@ function scene:create( event )
 	end
 
 	image:addEventListener("tap",nextScript)
- 	
+	noBt:addEventListener("tap",nextScript) 	
 end
 
 function scene:show( event )

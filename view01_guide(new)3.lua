@@ -8,7 +8,8 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-	
+	mainName = loadedSettings.name
+
 	local image = display.newImage("이미지/(신)튜토리얼/8_8-7/" .. 0 .. ".png")
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
 	image:toBack()
@@ -41,18 +42,32 @@ function scene:create( event )
 	
 	finger:play()
 
+	local desc = display.newText("어서 와라. 처음 보는 얼굴인데, 네 이름이..."..mainName  .. "이구나.\n나는 모북. 이 상점의 주인이란다. 여기서 구입한 물건들은 활동 시 사용하거나 친구들에게 선물할 수 있지.", display.contentWidth*0.394,display.contentHeight*0.835, "font/NanumSquare_acB.ttf", 30)
+	desc:setFillColor(0)
+	desc.alpha=0
+
+
 	local index = 0
 
 	local function nextScript(event)
 		index = index +1
+		if(index==3) then
+			desc.alpha = 1
+		elseif(index==4) then
+			desc.alpha=0
+		end
 		if(index > 25) then
 			loadedSettings.money = loadedSettings.money + 10
 			loadsave.saveTable(loadedSettings,"settings.json")
+			sceneGroup:insert(desc)
+			composer.removeScene("view01_guide(new)3")
 			composer.gotoScene("view00Room")
 		end
 
 		finger.alpha = 0
 		if(index==1) then
+
+		finger.alpha = 1
 			finger.x, finger.y = 1080 ,190
 			finger.rotation = 45
 		end

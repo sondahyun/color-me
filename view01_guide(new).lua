@@ -8,10 +8,23 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-	
+
 	local image = display.newImage("이미지/(신)튜토리얼/0_6-2/" .. 0 .. ".png")
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
 	image:toBack()
+	image.alpha = 0
+
+	local image1 = display.newImage("이미지/(신)튜토리얼/0_6-2/" .. 0 .. ".png")
+	image1.x, image1.y = display.contentWidth/2,display.contentHeight/2
+	image1:toBack()
+
+    local startBt = display.newImage("이미지/(신)튜토리얼/start버튼.png")
+    startBt.x,startBt.y = display.contentWidth * 0.69, display.contentHeight * 0.42
+    startBt.alpha = 1
+
+    local skipBt = display.newImage("이미지/(신)튜토리얼/skip버튼.png")
+    skipBt.x,skipBt.y = display.contentWidth * 0.84, display.contentHeight * 0.42
+    skipBt.alpha = 1
 
 	-- finger animation 
 	local sheetOptions =
@@ -78,8 +91,18 @@ function scene:create( event )
 	local i = 1
 
 	local function nextScript(event)
+		if(index==0) then
+			startBt.alpha = 0
+			skipBt.alpha = 0
+			image.alpha=1
+			image:addEventListener("tap",nextScript)
+		end
 		index = index +1
 		if(index > 17) then
+			sceneGroup:insert(image1)
+			sceneGroup:insert(skipBt)
+			sceneGroup:insert(startBt)
+			composer.removeScene("view01_guide(new)")
 			composer.gotoScene("view01_guide(new)2")
 		end
 
@@ -96,9 +119,19 @@ function scene:create( event )
 		 	type = "image",
 		 	filename = "이미지/(신)튜토리얼/0_6-2/" .. index .. ".png"
 		}
+
 	end
 
-	image:addEventListener("tap",nextScript)
+	local function goRoom(event)
+		sceneGroup:insert(image1)
+		sceneGroup:insert(skipBt)
+		sceneGroup:insert(startBt)
+		composer.removeScene("view01_guide(new)")
+		composer.gotoScene("view00Room")
+	end
+
+	startBt:addEventListener("tap",nextScript)
+	skipBt:addEventListener("tap",goRoom)
  	
 end
 
