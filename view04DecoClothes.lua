@@ -15,7 +15,7 @@ function scene:create( event )
 	
 	local shouldUpdate = false
 	
-	local background = display.newImage("이미지/상점/옷템/배경.png")
+	local background = display.newImage("이미지/상점/옷템/배경(베타).png") -- 원래는 배경
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
 
@@ -83,11 +83,11 @@ function scene:create( event )
 		"탐정",
 		"해적",
 		"공주님",
-		"병정인형",
+		--"병정인형",
 		"수면잠옷",
 		"여름해변",
 		"말썽쟁이",
-		"모범친구"
+		--"모범친구"
 	}
 
 	local clothes_location = {
@@ -95,15 +95,14 @@ function scene:create( event )
 		{506.27,277.09},
 		{822.16,229.15},
 		{1203,333.64},
-		{1532.94,262},
+		--{1532.94,262},
 		{162.67,650.92},
 		{510.96,706.51},
 		{869.56,646.49},
-		{1211.25,780.07}
+		--{1211.25,780.07}
 	}
 
 	local clothes_image = {}
-
 	for i = 1, #clothes_name do
 		clothes_image[i] = display.newImage("이미지/상점/옷템/의상-" .. clothes_name[i] .."세트.png")
 		clothes_image[i].name = clothes_name[i]
@@ -123,7 +122,7 @@ function scene:create( event )
 	local sold = {}
 
 	local function checkLow(i)
-		if(i>5) then
+		if(i>4) then
 			return 1
 		else
 			return 0
@@ -134,7 +133,7 @@ function scene:create( event )
 	for i = 1, #clothes_name do
 		sold[i] = display.newImage("이미지/상점/옷템/매진.png")
 		sold[i].tag = i
-		sold[i].x, sold[i].y = 408 + 343*((i-1)%5),445 + 370*(checkLow(i))
+		sold[i].x, sold[i].y = 408 + 343*((i-1)%4),445 + 370*(checkLow(i))
 		sold[i].alpha = loadedItems.costumeBuy[i].buy
 		sceneGroup:insert(sold[i])
 	end
