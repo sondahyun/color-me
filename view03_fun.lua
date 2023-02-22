@@ -72,6 +72,7 @@ function scene:create( event )
 		loadedSettings.blue = friend_stat[4]
 		loadedSettings.purple = friend_stat[5]
 
+s
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
