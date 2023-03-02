@@ -61,7 +61,7 @@ function scene:create( event )
 			loadsave.saveTable(loadedSettings,"settings.json")
 			sceneGroup:insert(desc)
 			composer.removeScene("view01_guide(new)3")
-			composer.gotoScene("view00Room")
+			composer.gotoScene("view01_month")
 		end
 
 		finger.alpha = 0

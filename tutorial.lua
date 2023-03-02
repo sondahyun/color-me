@@ -103,7 +103,7 @@ function scene:create( event )
 
 		if j == 28 then
 			composer.removeScene("tutorial")
-			composer.gotoScene("view01_month")
+			composer.gotoScene("view01_guide(new)")
 		end
 	end
 

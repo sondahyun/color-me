@@ -127,7 +127,7 @@ function scene:create( event )
 		sceneGroup:insert(skipBt)
 		sceneGroup:insert(startBt)
 		composer.removeScene("view01_guide(new)")
-		composer.gotoScene("view00Room")
+		composer.gotoScene("view01_month")
 	end
 
 	startBt:addEventListener("tap",nextScript)
