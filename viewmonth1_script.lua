@@ -492,9 +492,11 @@ function scene:create( event )
 					Runtime:addEventListener("tap", redPage)
 					if loadedSettings.friendship <101 then
 						loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
 					end
 					print("1번째")
 					print(loadedSettings.limited_num)
+					print(loadedSettings.friend_num)
 					loadsave.saveTable(loadedSettings,"settings.json")
 					local red_bg = display.newImage("이미지/대화/우정배경/빨강.png")
 					red_bg.x, red_bg.y = display.contentWidth/2,display.contentHeight/2
@@ -565,9 +567,11 @@ function scene:create( event )
 
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print(loadedSettings.limited_num)
-					print("1번째")
+					print("1-2번째")
+					print(loadedSettings.friend_num)
 					loadsave.saveTable(loadedSettings,"settings.json")
 					local blue_bg = display.newImage("이미지/대화/우정배경/파랑.png")
 					blue_bg.x, blue_bg.y = display.contentWidth/2,display.contentHeight/2
@@ -636,6 +640,7 @@ function scene:create( event )
 
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print("1번째")
 					print(loadedSettings.limited_num)
@@ -705,6 +710,7 @@ function scene:create( event )
 
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print("1번째")
 					loadsave.saveTable(loadedSettings,"settings.json")
@@ -770,6 +776,7 @@ function scene:create( event )
 					Runtime:addEventListener("tap", greenPage)
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print("1번째")
 					loadsave.saveTable(loadedSettings,"settings.json")

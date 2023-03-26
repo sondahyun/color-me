@@ -34,8 +34,6 @@ function scene:create( event )
 			composer.gotoScene("viewmonth6_event")
 		end
 	end
-
-
 	
 
 
@@ -121,6 +119,7 @@ function scene:create( event )
 				audio.play(home)
 				loadedEndings.bgMusic = "음악/집.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 				composer.removeScene("view01Map")
 				composer.gotoScene( "view00Room" )
 
@@ -131,6 +130,7 @@ function scene:create( event )
 				audio.play(storeMusic);
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 				composer.removeScene("view1Map")
 				composer.gotoScene( "view04Store" )
 
@@ -141,6 +141,7 @@ function scene:create( event )
 				audio.play(storeMusic);
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 				composer.removeScene("view1Map")
 				composer.gotoScene( "view04Deco" )
 
@@ -149,6 +150,7 @@ function scene:create( event )
 				composer.setVariable("color", color)
 				composer.removeScene("view1Map")
 				composer.gotoScene("view02Map")
+			loadsave.saveTable(loadedSettings,"settings.json")
 
 			end
 		end

@@ -535,7 +535,10 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
+					print(loadedSettings.friend_num)
+					print("---1")
 					loadsave.saveTable(loadedSettings, "settings.json")
 
 					local i = 0
@@ -704,7 +707,10 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
+					print(loadedSettings.friend_num)
+					print("---2")
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0
@@ -872,7 +878,11 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
+					print(loadedSettings.friend_num)
+					print("---3")
+					print(loadedSettings.friend_num)
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0
@@ -1062,7 +1072,10 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
+					print(loadedSettings.friend_num)
+					print("---4")
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0
@@ -1245,7 +1258,10 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
+					print(loadedSettings.friend_num)
+					print("---5")
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
 					local j = 0

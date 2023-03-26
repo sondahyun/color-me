@@ -525,6 +525,7 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
@@ -705,6 +706,7 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
@@ -903,6 +905,7 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
@@ -1086,6 +1089,7 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0
@@ -1283,6 +1287,7 @@ function scene:create( event )
 					end
 					if loadedSettings.friendship <101 then
                   		loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					loadsave.saveTable(loadedSettings, "settings.json")
 					local i = 0

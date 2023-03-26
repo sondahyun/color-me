@@ -90,7 +90,7 @@ function scene:create( event )
 	-- home 화면으로 --
 	local function go_back(event)
 		if event.phase == "began" then
-			composer.removeScene("view02schedulee")
+			composer.removeScene("view02schedule")
 			composer.gotoScene("view00Room")
 		end
 	end
