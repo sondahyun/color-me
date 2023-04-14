@@ -54,6 +54,8 @@ function scene:create( event )
 	itemCount[16] = loadedItems.item16Count--/loadedSettings.item1
 
 	local function goback_bag(event)
+
+			print(loadedSettings.gift_num.."-gift_num_popup")
 		if event.phase == "began" then 
 			composer.hideOverlay("viewgift_bag_popup")
 		end
@@ -172,6 +174,8 @@ function scene:create( event )
 		if event.phase == "began" then
 			items[location] = ""
 
+	loadedSettings.gift_num = loadedSettings.gift_num+1
+	loadsave.saveTable(loadedSettings, "settings.json")
 			
 			if (itemCount[location]==1) then
 				arrange()

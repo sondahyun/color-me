@@ -386,11 +386,11 @@ function scene:create( event )
 
 	local function go_present(event)
 		if event.phase == "began" then
-			print(loadedSettings.gift_num)
+			print(loadedSettings.gift_num.."-gift_num_map")
 			if loadedItems.itemCount == 0 then
 				print("아이템없")
 				composer.showOverlay("zopup_noitem",optioned)
-			elseif loadedSettings.gift_num == 1 then
+			elseif loadedSettings.gift_num >= 1 then
 				print("dfasd")
 				composer.showOverlay("zopup_gift_limited",optioned)
 			else

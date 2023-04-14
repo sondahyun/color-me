@@ -14,9 +14,7 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 
-	loadedSettings.gift_num = loadedSettings.gift_num+1
-	loadsave.saveTable(loadedSettings, "settings.json")
-
+			print(loadedSettings.gift_num.."-gift_num_bag")
 	local color_char = composer.getVariable("color_char")
 	if color_char == "1" then
 		color = 1 
