@@ -557,6 +557,9 @@ function scene:create( event )
   local color = composer.getVariable("color")
 
   if color == "1" then
+          local music = audio.loadStream( "음악/블리 테마곡.wav" )
+          audio.setVolume( loadedEndings.logValue )
+            audio.play(music)
 
           loadedSettings.red_num = loadedSettings.red_num + 1
           loadedSettings.limited_num = loadedSettings.limited_num + 1
@@ -587,6 +590,7 @@ function scene:create( event )
                 script_1:addEventListener("touch",next1_1)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -631,6 +635,7 @@ function scene:create( event )
                 script_1:addEventListener("touch",next1_2)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -716,6 +721,10 @@ function scene:create( event )
 
   elseif color == "2" then
       -- 파랑마을 이동
+          local music = audio.loadStream( "음악/위즈 테마곡.wav" )
+          audio.setVolume( loadedEndings.logValue )
+            audio.play(music)
+
           loadedSettings.blue_num = loadedSettings.blue_num + 1
           loadedSettings.limited_num = loadedSettings.limited_num + 1
           if loadedSettings.limited_num == 1 then
@@ -746,6 +755,7 @@ function scene:create( event )
                 script_4:addEventListener("touch",next1_1)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -791,6 +801,7 @@ function scene:create( event )
                 script_4:addEventListener("touch",next1_2)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -877,6 +888,10 @@ function scene:create( event )
           script_4:addEventListener("touch",next)
 
   elseif color == "3" then
+          local music = audio.loadStream( "음악/조이 테마곡.wav" )
+          audio.setVolume( loadedEndings.logValue )
+            audio.play(music)
+
           loadedSettings.yellow_num = loadedSettings.yellow_num + 1
           loadedSettings.limited_num = loadedSettings.limited_num + 1
           if loadedSettings.limited_num == 1 then
@@ -907,6 +922,7 @@ function scene:create( event )
                 script_2:addEventListener("touch",next1_1)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -951,6 +967,7 @@ function scene:create( event )
                 script_2:addEventListener("touch",next1_2)
 
               else
+                  audio.pause(music)
                 script_2:removeEventListener("touch",next1_2)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
@@ -1035,6 +1052,10 @@ function scene:create( event )
 
   elseif color == "4" then
       -- 보라마을 이동
+          local music = audio.loadStream( "음악/레이 테마곡.wav" )
+          audio.setVolume( loadedEndings.logValue )
+            audio.play(music)
+            
           loadedSettings.purple_num = loadedSettings.purple_num + 1
           loadedSettings.limited_num = loadedSettings.limited_num + 1
           if loadedSettings.limited_num == 1 then
@@ -1065,6 +1086,7 @@ function scene:create( event )
                 script_5:addEventListener("touch",next1_1)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -1110,6 +1132,7 @@ function scene:create( event )
                 script_5:addEventListener("touch",next1_2)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -1187,6 +1210,9 @@ function scene:create( event )
           my_daesapan:addEventListener("touch",next)
 
   elseif color == "5" then
+          local music = audio.loadStream( "음악/솔리 테마곡.wav" )
+          audio.setVolume( loadedEndings.logValue )
+            audio.play(music)
 
           loadedSettings.green_num = loadedSettings.green_num + 1
           loadedSettings.limited_num = loadedSettings.limited_num + 1
@@ -1218,6 +1244,7 @@ function scene:create( event )
                 script_3:addEventListener("touch",next1_1)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end
@@ -1262,6 +1289,7 @@ function scene:create( event )
                 script_3:addEventListener("touch",next1_2)
 
               else
+                  audio.pause(music)
                 composer.removeScene("viewmonth5_script")
                 composer.gotoScene("view01Map",options)
               end

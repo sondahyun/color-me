@@ -34,6 +34,11 @@ function scene:create( event )
     titleButton.alpha = 0
     sceneGroup:insert(titleButton)
 
+
+    local bgm = audio.loadStream( "음악/메인 테마곡.mp3" )
+    audio.setVolume( loadedEndings.logValue )
+    audio.play(bgm)    
+
     --샘플 볼륨 이미지
     local volumeButton = display.newImage("이미지/타이틀/설정.png")
     volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
@@ -140,6 +145,7 @@ function scene:create( event )
 
     local function move(event)
         if event.phase == "began" then
+            audio.pause(bgm)
             composer.removeScene("title")
             composer.gotoScene("title1")
         end
@@ -206,10 +212,10 @@ function scene:create( event )
             if not file or (loadedEndings.end_num==1) then
                 composer.showOverlay( "nosave", options )
             else
+            audio.pause(bgm)
                 composer.removeScene("title")
                 composer.gotoScene( "view00Room")
                 -- ,options1
-                audio.pause( titleMusic )
                 local home = audio.loadStream( "음악/집.mp3" )
                 audio.setVolume( loadedEndings.logValue )
                 audio.play(home)
