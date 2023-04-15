@@ -26,7 +26,7 @@ local function onFirstView( event )
     -- Open the file handle
     local file, errorString = io.open( path, "r" )
     
-    composer.gotoScene("title")
+    composer.gotoScene("item_find_red")
     --[[if not file then
         	local titleMusic = audio.loadStream( "음악/타이틀.mp3" )
     		audio.play(titleMusic)

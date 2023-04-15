@@ -581,7 +581,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options) --여기가 게임으로 이동하는 코드라 게임 시작 페이지 넣으시면 될거 같아요!
+									composer.gotoScene("item_find_red",options) --여기가 게임으로 이동하는 코드라 게임 시작 페이지 넣으시면 될거 같아요!
 							end
 						end
 					end
@@ -625,7 +625,7 @@ local daewha21 = {}
 							else
 								script_2:removeEventListener("touch",next1_2)
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options) --게임안하고 기존 화면으로 돌아가는 코드라 돌아가는 곳 코드 넣으시면 될 거 같아요!
+									composer.gotoScene("view04Store",options) --게임안하고 기존 화면으로 돌아가는 코드라 돌아가는 곳 코드 넣으시면 될 거 같아요!
 							end
 						end
 					end
@@ -731,7 +731,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("item_find_blue",options)
 							end
 						end
 					end
@@ -776,7 +776,7 @@ local daewha21 = {}
 									script_4:removeEventListener("touch",next1_2)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options)
+									composer.gotoScene("view04Store",options)
 							end
 						end
 					end
@@ -878,7 +878,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options)
+									composer.gotoScene("item_find_yellow",options)
 							end
 						end
 					end
@@ -923,7 +923,7 @@ local daewha21 = {}
 								script_2:removeEventListener("touch",next1_2)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("view04Store",options)
 							end
 						end
 					end
@@ -1020,7 +1020,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("item_find_purple",options)
 							end
 						end
 					end
@@ -1067,7 +1067,7 @@ local daewha21 = {}
 									script_5:removeEventListener("touch",next1_2)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options)
+									composer.gotoScene("view04Store",options)
 							end
 						end
 					end
@@ -1165,7 +1165,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("item_find_green",options)
 							end
 						end
 					end
@@ -1211,7 +1211,7 @@ local daewha21 = {}
 								script_3:removeEventListener("touch",next1_2)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("view04Store",options)
 							end
 						end
 					end
