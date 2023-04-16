@@ -127,12 +127,19 @@ function scene:create( event )
         end
     end
 
+    local function creditMove(event)
+        if event.phase == "began" then
+            --special:removeEventListener("mouse",bigbig1)
+            composer.showOverlay("title(credit)",options)
+        end
+    end
+
     --크레딧 버튼
     local credit = display.newImage("이미지/크레딧/버튼.png")
     credit.x, credit.y = display.contentWidth*0.95,display.contentHeight*0.9
     sceneGroup:insert(credit)
-    credit:addEventListener("mouse",bigbig1)
-    --credit:addEventListener("touch",specialMove)
+    --credit:addEventListener("mouse",bigbig1)
+    credit:addEventListener("touch",creditMove)
 
     --스페셜 버튼
     local special = display.newImage("이미지/특별일러스트/버튼.png")
