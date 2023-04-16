@@ -517,6 +517,9 @@ function scene:create( event )
 	local color = composer.getVariable("color")
 
 	if color == "1" then
+					local music = audio.loadStream( "음악/블리 테마곡.wav" )
+ 					audio.setVolume( loadedEndings.logValue )
+    				audio.play(music)
 
 					loadedSettings.red_num = loadedSettings.red_num + 1
 					loadedSettings.limited_num = loadedSettings.limited_num + 1
@@ -554,11 +557,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -610,11 +615,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -699,6 +706,10 @@ function scene:create( event )
 
 	elseif color == "2" then
 			-- 파랑마을 이동
+					local music = audio.loadStream( "음악/위즈 테마곡.wav" )
+ 					audio.setVolume( loadedEndings.logValue )
+    				audio.play(music)
+    				
 					loadedSettings.blue_num = loadedSettings.blue_num + 1
 					loadedSettings.limited_num = loadedSettings.limited_num + 1
 					if loadedSettings.limited_num == 1 then
@@ -737,11 +748,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -796,11 +809,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -897,6 +912,9 @@ function scene:create( event )
 
 
 	elseif color == "3" then
+					local music = audio.loadStream( "음악/조이 테마곡.wav" )
+ 					audio.setVolume( loadedEndings.logValue )
+    				audio.play(music)
 
 					loadedSettings.yellow_num = loadedSettings.yellow_num + 1
 					loadedSettings.limited_num = loadedSettings.limited_num + 1
@@ -934,11 +952,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -991,11 +1011,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -1081,6 +1103,9 @@ function scene:create( event )
 				
 	elseif color == "4" then
 			-- 보라마을 이동
+					local music = audio.loadStream( "음악/레이 테마곡.wav" )
+ 					audio.setVolume( loadedEndings.logValue )
+    				audio.play(music)
 
 					loadedSettings.purple_num = loadedSettings.purple_num + 1
 					loadedSettings.limited_num = loadedSettings.limited_num + 1
@@ -1117,11 +1142,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -1173,11 +1200,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -1279,6 +1308,9 @@ function scene:create( event )
 
 				
 	elseif color == "5" then
+					local music = audio.loadStream( "음악/솔리 테마곡.wav" )
+ 					audio.setVolume( loadedEndings.logValue )
+    				audio.play(music)
 
 					loadedSettings.green_num = loadedSettings.green_num + 1
 					loadedSettings.limited_num = loadedSettings.limited_num + 1
@@ -1314,11 +1346,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end
@@ -1371,11 +1405,13 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
 	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
+									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("view01Map",options)
 	               				end

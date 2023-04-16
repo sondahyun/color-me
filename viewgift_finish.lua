@@ -37,6 +37,19 @@ function scene:create( event )
 		"이미지/대화/우정배경/보라.png"
 	}
 
+	local musicName = {
+		"음악/블리 테마곡.wav",
+		"음악/조이 테마곡.wav",
+		"음악/솔리 테마곡.wav",
+		"음악/위즈 테마곡.wav",
+		"음악/레이 테마곡.wav"
+	}
+
+
+	local music = audio.loadStream( musicName[color] )
+ 	audio.setVolume( loadedEndings.logValue )
+    audio.play(music)
+
 	for i = 1,5 do
 		background[i] = display.newImage(background_image[i])
 		background[i].x, background[i].y = display.contentWidth/2,display.contentHeight/2
@@ -432,6 +445,7 @@ function scene:create( event )
 	
 	local function go_back(event)
 		if event.phase == "began" then
+			audio.pause(music)
 			composer.removeScene("viewgift_finish")
 			composer.gotoScene("view01Map")
 		end

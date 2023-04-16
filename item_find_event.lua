@@ -535,7 +535,7 @@ local daewha21 = {}
 					local i = 0
 					local j = 0
 
-					local function next1_1(event)
+					local function next1_1(event) --next 1_2 메소드가 게임 시작 화면으로 가는 함수입니다.
 
 						if event.phase == "began" then
 							
@@ -581,14 +581,14 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("item_find_success",options)
+									composer.gotoScene("item_find_red",options) --여기가 게임으로 이동하는 코드라 게임 시작 페이지 넣으시면 될거 같아요!
 							end
 						end
 					end
 
 					
 
-					local function next1(event)
+					local function next1(event) --대화창에 내가 선택한거 보여주기 위한 함수. next1_1로 넘어감
 						if event.phase == "began" then
 							loadedSettings.red = loadedSettings.red + 5
 							loadsave.saveTable(loadedSettings,"settings.json")
@@ -607,7 +607,7 @@ local daewha21 = {}
 
 					end
 
-					local function next1_2(event)
+					local function next1_2(event) --next 1_2 메소드가 기존 화면으로 돌아가기 위한 함수입니다.
 
 						if event.phase == "began" then
 							
@@ -625,12 +625,12 @@ local daewha21 = {}
 							else
 								script_2:removeEventListener("touch",next1_2)
 									composer.removeScene("item_find_event")
-									composer.gotoScene("item_find_fail",options)
+									composer.gotoScene("view00Room",options) --게임안하고 기존 화면으로 돌아가는 코드라 돌아가는 곳 코드 넣으시면 될 거 같아요!
 							end
 						end
 					end
 
-					local function next2(event)
+					local function next2(event) --대화창에 내가 선택한거 보여주기 위한 함수. next1_2로 넘어감
 						if event.phase == "began" then
 							loadedSettings.red = loadedSettings.red + 2
 							loadsave.saveTable(loadedSettings,"settings.json")		
@@ -666,8 +666,8 @@ local daewha21 = {}
 								daewha13[1].anchorX,daewha13[1].anchorY = 0.5,0.5
 								daewha13[1].x,daewha13[1].y = display.contentWidth*0.77,display.contentHeight*0.47
 
-								choose11:addEventListener("touch",next1)
-								choose12:addEventListener("touch",next2)
+								choose11:addEventListener("touch",next1) --게임한다는 선택지, 클릭 시 해당 함수 이동
+								choose12:addEventListener("touch",next2) --게임 안하고 돌아가는 선택지
 						end
 					end
 
@@ -731,7 +731,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("item_find_blue",options)
 							end
 						end
 					end
@@ -776,7 +776,7 @@ local daewha21 = {}
 									script_4:removeEventListener("touch",next1_2)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options)
+									composer.gotoScene("view00Room",options)
 							end
 						end
 					end
@@ -878,7 +878,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options)
+									composer.gotoScene("item_find_yellow",options)
 							end
 						end
 					end
@@ -923,7 +923,7 @@ local daewha21 = {}
 								script_2:removeEventListener("touch",next1_2)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("view00Room",options)
 							end
 						end
 					end
@@ -1020,7 +1020,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("item_find_purple",options)
 							end
 						end
 					end
@@ -1067,7 +1067,7 @@ local daewha21 = {}
 									script_5:removeEventListener("touch",next1_2)
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.removeScene("item_find_event")
-									composer.gotoScene("view01_month",options)
+									composer.gotoScene("view00Room",options)
 							end
 						end
 					end
@@ -1165,7 +1165,7 @@ local daewha21 = {}
 								my_daesapan:removeEventListener("touch",next1_1)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("item_find_green",options)
 							end
 						end
 					end
@@ -1211,7 +1211,7 @@ local daewha21 = {}
 								script_3:removeEventListener("touch",next1_2)
 								loadsave.saveTable(loadedSettings, "settings.json")
 								composer.removeScene("item_find_event")
-								composer.gotoScene("view01_month",options)
+								composer.gotoScene("view00Room",options)
 							end
 						end
 					end
