@@ -56,15 +56,12 @@ function scene:create( event )
 
 	creditButton = {}
 
-	isNext = false
-
 	local function next(event)
 		if event.phase == "began" then
 			i = event.target.id 
 			creditContent.fill = {type="image",filename="이미지/홈/크레딧/크레딧" .. i .. ".png"}
 		end
 	end
-	
 
 	for i = 1, 2 do
 		creditButton[i] = display.newImage("이미지/홈/크레딧/버튼" .. i .. ".png")
