@@ -546,7 +546,7 @@ function scene:create( event )
 
 
   if color == "1" then
-          local music = audio.loadStream( "음악/블리 테마곡.wav" )
+          local music = audio.loadStream( "음악/블리 테마곡.mp3" )
           audio.setVolume( loadedEndings.logValue )
             audio.play(music)
 
@@ -706,7 +706,7 @@ function scene:create( event )
 
   elseif color == "2" then
       -- 파랑마을 이동
-          local music = audio.loadStream( "음악/위즈 테마곡.wav" )
+          local music = audio.loadStream( "음악/위즈 테마곡.mp3" )
           audio.setVolume( loadedEndings.logValue )
             audio.play(music)
 
@@ -881,7 +881,7 @@ function scene:create( event )
         
   elseif color == "3" then
     --노랑마을 이동
-          local music = audio.loadStream( "음악/조이 테마곡.wav" )
+          local music = audio.loadStream( "음악/조이 테마곡.mp3" )
           audio.setVolume( loadedEndings.logValue )
             audio.play(music)
 
@@ -1052,7 +1052,7 @@ function scene:create( event )
           my_daesapan:addEventListener("touch",next)
   elseif color == "4" then
       -- 보라마을 이동
-          local music = audio.loadStream( "음악/레이 테마곡.wav" )
+          local music = audio.loadStream( "음악/레이 테마곡.mp3" )
           audio.setVolume( loadedEndings.logValue )
             audio.play(music)
 
@@ -1208,7 +1208,7 @@ function scene:create( event )
         
   elseif color == "5" then
     --초록마을 이동
-          local music = audio.loadStream( "음악/솔리 테마곡.wav" )
+          local music = audio.loadStream( "음악/솔리 테마곡.mp3" )
           audio.setVolume( loadedEndings.logValue )
             audio.play(music)
   
