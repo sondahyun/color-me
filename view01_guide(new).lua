@@ -36,7 +36,6 @@ function scene:create( event )
 	}
 
 	local fingerMotion = graphics.newImageSheet("이미지/(신)튜토리얼/손가락.png",sheetOptions)
-    local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
 
 	local sequencesFinger = {
 		name = "finger",
@@ -88,6 +87,9 @@ function scene:create( event )
 		360
 	}
 
+	--투명 유령버튼 코드
+    local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
+
 	local isButton = {
 		1,1,0,1,0,
 		1,0,0,0,0,
@@ -100,16 +102,12 @@ function scene:create( event )
 		{1031.57 - 250 + 500 ,405.87 + 250}, -- 앨범 블리
 		{190.53 - 100,890.97 - 250 + 500 }, -- 설정 아이콘
 		{1395.39 + 330 - 500,201.72 - 120}, -- 오디오 설정 x버튼
-		{87 + 800,30}, -- 스탯창
-		{87 + 800,30}, -- 스탯창
-		{1169.13 + 600,56.63 + 180}, -- 달력
-		{1169.13+140,56.63 + 200}, -- 코인창
 		{1470.7 - 100,891.34 - 250 + 500} -- 스케줄 아이콘
 	}
 
-
 	local index = 0
 	local i = 1
+	--유령버튼 인덱스
 	local gi = 1
 	local function nextScript(event)
 		if(index==0) then
@@ -123,6 +121,8 @@ function scene:create( event )
 			sceneGroup:insert(image1)
 			sceneGroup:insert(skipBt)
 			sceneGroup:insert(startBt)
+			sceneGroup:insert(ghost_button)
+			ghost_button:removeEventListener("tap",nextScript)
 			composer.removeScene("view01_guide(new)")
 			composer.gotoScene("view01_guide(new)2")
 		end
@@ -136,13 +136,18 @@ function scene:create( event )
 			finger.alpha = 0
 		end
 
+		--유령버튼코드
 		if(isButton[index]==1) then
 			ghost_button.x, ghost_button.y = buttonLocation[gi][1], buttonLocation[gi][2]
-			ghost_button:scale( 1, 1 )
 			gi = gi+1
+			if(isButton[index-1]== 0) then
+				ghost_button:scale( 0.2, 0.2)
+			end
 		else
 			ghost_button.x, ghost_button.y = display.contentWidth/2,display.contentHeight/2
-			ghost_button:scale( 5, 5 )
+			if(isButton[index-1]~= 0) then
+				ghost_button:scale( 5, 5)
+			end
 		end
 
 		image.fill = {
@@ -156,6 +161,8 @@ function scene:create( event )
 		sceneGroup:insert(image1)
 		sceneGroup:insert(skipBt)
 		sceneGroup:insert(startBt)
+		sceneGroup:insert(ghost_button)
+		ghost_button:removeEventListener("tap",nextScript)
 		composer.removeScene("view01_guide(new)")
 		composer.gotoScene("view01_month")
 	end
