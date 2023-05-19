@@ -14,7 +14,7 @@ function scene:create( event )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	--배경--
 
-	local background = display.newImage("이미지/상점/옷템/배경(베타).png")
+	local background = display.newImage("이미지/상점/옷템/배경.png")
 	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
 	sceneGroup:insert(background)
 
@@ -47,11 +47,11 @@ function scene:create( event )
 		"탐정",
 		"해적",
 		"공주님",
-		--"병정인형",
+		"병정인형",
 		"수면잠옷",
 		"여름해변",
 		"말썽쟁이",
-		--"모범친구"
+		"모범친구"
 	}
 
 	local clothes_location = {
@@ -59,11 +59,11 @@ function scene:create( event )
 		{506.27,277.09},
 		{822.16,229.15},
 		{1203,333.64},
-		--{1532.94,262},
+		{1532.94,262},
 		{162.67,650.92},
 		{510.96,706.51},
 		{869.56,646.49},
-		--{1211.25,780.07}
+		{1211.25,780.07}
 	}
 
 	local clothes_image = {}
