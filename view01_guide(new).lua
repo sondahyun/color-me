@@ -105,7 +105,6 @@ function scene:create( event )
 		{1470.7 - 100,891.34 - 250 + 500} -- 스케줄 아이콘
 	}
 
-
 	local index = 0
 	local i = 1
 	--유령버튼 인덱스
@@ -122,6 +121,8 @@ function scene:create( event )
 			sceneGroup:insert(image1)
 			sceneGroup:insert(skipBt)
 			sceneGroup:insert(startBt)
+			sceneGroup:insert(ghost_button)
+			ghost_button:removeEventListener("tap",nextScript)
 			composer.removeScene("view01_guide(new)")
 			composer.gotoScene("view01_guide(new)2")
 		end
@@ -160,6 +161,8 @@ function scene:create( event )
 		sceneGroup:insert(image1)
 		sceneGroup:insert(skipBt)
 		sceneGroup:insert(startBt)
+		sceneGroup:insert(ghost_button)
+		ghost_button:removeEventListener("tap",nextScript)
 		composer.removeScene("view01_guide(new)")
 		composer.gotoScene("view01_month")
 	end
