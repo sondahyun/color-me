@@ -8,7 +8,8 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-	mainName = loadedSettings.name
+	mainName = "dd"
+	-- loadedSettings.name
 
 	local image = display.newImage("이미지/(신)튜토리얼/8_8-7/" .. 0 .. ".png")
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
