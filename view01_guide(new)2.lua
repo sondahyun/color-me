@@ -79,7 +79,7 @@ function scene:create( event )
 
 	--투명 유령버튼 코드
     local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
-
+	ghost_button:scale( 5, 5)
 	local isButton = {
 		0,0,0,0,
 		0,0,0,0,0,
