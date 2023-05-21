@@ -76,17 +76,40 @@ function scene:create( event )
 		180
 	}
 
+
+	--투명 유령버튼 코드
+    local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
+
+	local isButton = {
+		0,0,0,0,
+		0,0,0,0,0,
+		0,0,0,0,0,
+		0,0,0
+	}
+
+	local buttonLocation = {
+		{662 - 150 , 866 - 170 }, -- 활동 마치기 버튼 위
+		{1106 + 150 , 756 + 170}, -- no 버튼 아래
+		{1830 + 150, 235 + 170}, -- x버튼 아래
+		{1655- 150, 811 - 170}, -- 가방버튼 위
+		{783 + 150, 319 + 170}, -- 일반버튼 아래
+		{1138 + 150 , 295 + 170}, -- 꾸미기버튼 아래
+		{1819 + 150, 242 + 170}, -- x버튼 아래
+	}
+
+
 	local index = 0
 	local i = 1
-
+	--유령버튼 인덱스
+	local gi = 1
 	local function nextScript(event)
 		index = index +1
 		if(index==7) then
 			noBt.alpha = 1
-			image:removeEventListener("tap",nextScript)
+			ghost_button:removeEventListener("tap",nextScript)
 		elseif(index==8) then
 			noBt.alpha = 0
-			image:addEventListener("tap",nextScript)	
+			ghost_button:addEventListener("tap",nextScript)	
 		end
 		if(index > 17) then
 			sceneGroup:insert(noBt)
@@ -103,13 +126,27 @@ function scene:create( event )
 			finger.alpha = 0
 		end
 
+		--유령버튼코드
+		if(isButton[index]==1) then
+			ghost_button.x, ghost_button.y = buttonLocation[gi][1], buttonLocation[gi][2]
+			gi = gi+1
+			if(isButton[index-1]== 0) then
+				ghost_button:scale( 0.2, 0.2)
+			end
+		else
+			ghost_button.x, ghost_button.y = display.contentWidth/2,display.contentHeight/2
+			if(isButton[index-1]~= 0) then
+				ghost_button:scale( 5, 5)
+			end
+		end
+
 		image.fill = {
 		 	type = "image",
 		 	filename = "이미지/(신)튜토리얼/6-3_7-3/" .. index .. ".png"
 		}
 	end
 
-	image:addEventListener("tap",nextScript)
+	ghost_button:addEventListener("tap",nextScript)
 	noBt:addEventListener("tap",nextScript) 	
 end
 
