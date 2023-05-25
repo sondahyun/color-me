@@ -56,7 +56,7 @@ function scene:create( event )
 		0,0,0,0,0,1
 	}
 	ghost_button.anchorX,ghost_button.anchorY = 0,0
-	ghost_button.x, ghost_button.y = 1169.13+470,356.63 + 600
+	ghost_button.x, ghost_button.y = 1680,356.63 + 500
 	local buttonLocation = {
 		{700 ,500}, -- 상점
 		{180,300}, --연필
@@ -79,6 +79,9 @@ function scene:create( event )
 			loadedSettings.money = loadedSettings.money + 10
 			loadsave.saveTable(loadedSettings,"settings.json")
 			sceneGroup:insert(desc)
+			sceneGroup:insert(image)
+			sceneGroup:insert(finger)
+			sceneGroup:insert(ghost_button)
 			composer.removeScene("view01_guide(new)3")
 			composer.gotoScene("view01_month")
 		end
@@ -96,13 +99,13 @@ function scene:create( event )
 			ghost_button.x, ghost_button.y = buttonLocation[gi][1], buttonLocation[gi][2]
 			gi = gi+1
 			if(isButton[index-1]== 0) then
-				ghost_button:scale( 0.2, 0.2)
+				ghost_button:scale( 0.1, 0.1)
 				print("작아짐", index)
 			end
 		else
-			ghost_button.x, ghost_button.y = 350,500
+			ghost_button.x, ghost_button.y = 0,0
 			if(isButton[index-1]~= 0) then
-				ghost_button:scale( 5, 5)
+				ghost_button:scale( 10, 10)
 				print("커짐" ,index)
 			end
 		end

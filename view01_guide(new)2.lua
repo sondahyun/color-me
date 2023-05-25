@@ -132,7 +132,7 @@ function scene:create( event )
 			gi = gi+1
 			if(isButton[index-1]== 0) then
 				if(index == 5) then
-					ghost_button:scale( 0.5, 0.1)
+					ghost_button:scale( 0.6, 0.1)
 				else
 					ghost_button:scale( 0.2, 0.2)
 				end
