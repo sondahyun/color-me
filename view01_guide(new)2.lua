@@ -79,22 +79,22 @@ function scene:create( event )
 
 	--투명 유령버튼 코드
     local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
+    ghost_button.x, ghost_button.y = display.contentWidth/2,display.contentHeight/2
 	ghost_button:scale( 5, 5)
 	local isButton = {
 		0,0,0,0,
-		0,0,0,0,0,
-		0,0,0,0,0,
-		0,0,0
+		1,0,0,1,
+		1,0,1,0,0,
+		1,0,0,1
 	}
 
 	local buttonLocation = {
-		{662 - 150 , 866 - 170 }, -- 활동 마치기 버튼 위
-		{1106 + 150 , 756 + 170}, -- no 버튼 아래
-		{1830 + 150, 235 + 170}, -- x버튼 아래
-		{1655- 150, 811 - 170}, -- 가방버튼 위
-		{783 + 150, 319 + 170}, -- 일반버튼 아래
-		{1138 + 150 , 295 + 170}, -- 꾸미기버튼 아래
-		{1819 + 150, 242 + 170}, -- x버튼 아래
+		{662 - 150 , 866}, -- 활동 마치기 버튼
+		{1830 + 150, 235 - 100}, -- x버튼
+		{1655- 150, 811}, -- 가방버튼
+		{783 + 150, 319}, -- 일반버튼
+		{1138 + 150 , 295}, -- 꾸미기버튼
+		{1830 + 150, 235 - 100} -- x버튼
 	}
 
 
@@ -131,12 +131,20 @@ function scene:create( event )
 			ghost_button.x, ghost_button.y = buttonLocation[gi][1], buttonLocation[gi][2]
 			gi = gi+1
 			if(isButton[index-1]== 0) then
-				ghost_button:scale( 0.2, 0.2)
+				if(index == 5) then
+					ghost_button:scale( 0.5, 0.1)
+				else
+					ghost_button:scale( 0.2, 0.2)
+				end
 			end
 		else
 			ghost_button.x, ghost_button.y = display.contentWidth/2,display.contentHeight/2
-			if(isButton[index-1]~= 0) then
-				ghost_button:scale( 5, 5)
+			if(isButton[index-1]~= 0 and index ~= 1) then
+				if(index == 6) then
+					ghost_button:scale( 2, 10)
+				else
+					ghost_button:scale( 5, 5)
+				end
 			end
 		end
 

@@ -48,22 +48,21 @@ function scene:create( event )
 
 	--투명 유령버튼 코드
     local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
-	ghost_button:scale( 5, 5)
 	local isButton = {
-		0,0,0,0,
-		0,0,0,0,0,
-		0,0,0,0,0,
-		0,0,0
+		1,0,0,
+		0,1,1,0,0,
+		0,1,0,0,0,
+		0,0,0,0,0,0,
+		0,0,0,0,0,1
 	}
-
+	ghost_button.anchorX,ghost_button.anchorY = 0,0
+	ghost_button.x, ghost_button.y = 1169.13+470,356.63 + 600
 	local buttonLocation = {
-		{662 - 150 , 866 - 170 }, -- 활동 마치기 버튼 위
-		{1106 + 150 , 756 + 170}, -- no 버튼 아래
-		{1830 + 150, 235 + 170}, -- x버튼 아래
-		{1655- 150, 811 - 170}, -- 가방버튼 위
-		{783 + 150, 319 + 170}, -- 일반버튼 아래
-		{1138 + 150 , 295 + 170}, -- 꾸미기버튼 아래
-		{1819 + 150, 242 + 170}, -- x버튼 아래
+		{700 ,500}, -- 상점
+		{180,300}, --연필
+		{850,650}, --구매
+		{1650, 80}, -- x버튼
+		{850,850}
 	}
 
 	local index = 0
@@ -98,11 +97,13 @@ function scene:create( event )
 			gi = gi+1
 			if(isButton[index-1]== 0) then
 				ghost_button:scale( 0.2, 0.2)
+				print("작아짐", index)
 			end
 		else
-			ghost_button.x, ghost_button.y = display.contentWidth/2,display.contentHeight/2
+			ghost_button.x, ghost_button.y = 350,500
 			if(isButton[index-1]~= 0) then
 				ghost_button:scale( 5, 5)
+				print("커짐" ,index)
 			end
 		end
 		
@@ -112,7 +113,7 @@ function scene:create( event )
 		}
 	end
 
-	image:addEventListener("tap",nextScript)
+	ghost_button:addEventListener("tap",nextScript)
  	
 end
 
