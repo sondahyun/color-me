@@ -35,10 +35,7 @@ function scene:create( event )
     sceneGroup:insert(titleButton)
 
 
-    local bgm = audio.loadStream( "음악/메인 테마곡.mp3" )
-    audio.setVolume( loadedEndings.logValue )
-    audio.play(bgm)    
-
+    
     --샘플 볼륨 이미지
     local volumeButton = display.newImage("이미지/타이틀/설정.png")
     volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
@@ -97,6 +94,11 @@ function scene:create( event )
         isModal = true
         
     }
+
+    local bgm = audio.loadStream( "음악/메인 테마곡.mp3" )
+    audio.setVolume( loadedEndings.logValue )
+    audio.play(bgm)    
+
 
     local j = 0
     local function bigbig1 (event)
