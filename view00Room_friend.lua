@@ -77,22 +77,9 @@ function scene:create( event )
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
-
-	local tag2 = display.newImage("이미지/앨범/친구목록/태그2.png")
-	tag2.x,tag2.y = display.contentWidth*0.0989,display.contentHeight*0.0319
-	tag2.anchorX, tag2.anchorY= 0,0
-	sceneGroup:insert(tag2)
-	tag2:addEventListener("touch",go_popup)
-
-
 	local background_friend = display.newImage("이미지/앨범/친구목록/배경.png")
 	background_friend.x,background_friend.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_friend)
-
-	local tag = display.newImage("이미지/앨범/친구목록/태그.png")
-	tag.x,tag.y = display.contentWidth*0.1676,display.contentHeight*0.0319
-	tag.anchorX, tag.anchorY= 0,0
-	sceneGroup:insert(tag)
 
 	local friend = {}
 	local xx ={
