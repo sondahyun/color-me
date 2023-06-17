@@ -18,10 +18,6 @@ function scene:create( event )
     credit.x, credit.y = display.contentWidth*0.95,display.contentHeight*0.9
     sceneGroup:insert(credit)
 
-    --스페셜 버튼
-    local special = display.newImage("이미지/특별일러스트/버튼.png")
-    special.x, special.y = display.contentWidth*0.13,display.contentHeight*0.9
-    sceneGroup:insert(special)
 
     local ending = display.newImage("이미지/타이틀/엔딩모음.png")
     ending.x, ending.y = display.contentWidth*0.05,display.contentHeight*0.9

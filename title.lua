@@ -120,12 +120,6 @@ function scene:create( event )
         end
     end
 
-    local function specialMove(event)
-        if event.phase == "began" then
-            special:removeEventListener("mouse",bigbig1)
-            composer.showOverlay("title4(special)",options)
-        end
-    end
 
     local function creditMove(event)
         if event.phase == "began" then
@@ -140,12 +134,6 @@ function scene:create( event )
     sceneGroup:insert(credit)
     --credit:addEventListener("mouse",bigbig1)
     credit:addEventListener("touch",creditMove)
-
-    --스페셜 버튼
-    local special = display.newImage("이미지/특별일러스트/버튼.png")
-    special.x, special.y = display.contentWidth*0.13,display.contentHeight*0.9
-    sceneGroup:insert(special)
-    special:addEventListener("mouse",bigbig1)
 
 
     -- 엔딩 이미지 객체 생성 및 move 이벤트 리스너 추가

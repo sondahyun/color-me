@@ -26,11 +26,6 @@ function scene:create( event )
     sceneGroup:insert(credit)
     --credit:addEventListener("touch",move)
 
-    --스페셜 버튼
-    local special = display.newImage("이미지/특별일러스트/버튼.png")
-    special.x, special.y = display.contentWidth*0.13,display.contentHeight*0.9
-    sceneGroup:insert(special)
-
 	local volumeButton = display.newImage("이미지/타이틀/설정.png")
     volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
     sceneGroup:insert(volumeButton)
