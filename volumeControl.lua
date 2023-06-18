@@ -101,7 +101,7 @@ function scene:create( event )
         settings["fxvolume"] = logValue
         loadedEndings.logValue_effect = logValue
         loadsave.saveTable(loadedEndings,"endings.json")
-        audio.setVolume( settings["bgvolume"]  )
+        audio.setVolume( settings["fxvolume"]  )
     end
     
     -- 효과음볼륨슬라이더
