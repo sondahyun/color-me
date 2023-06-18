@@ -21,7 +21,6 @@ function scene:create( event )
 	local loadedEndings = loadsave.loadTable( "endings.json" )
 
 	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
-	audio.setVolume( loadedEndings.logValue_effect, { channel = 2 } )
 
 	print("음악." .. loadedEndings.logValue)
 
