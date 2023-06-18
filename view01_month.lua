@@ -17,19 +17,21 @@ function scene:create( event )
 
 	num = 0
 
-	audio.setVolume( loadedSettings.logValue, { channel = 1 } )
-	audio.setVolume( loadedSettings.logValue_effect, { channel = 2 } )
-
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedEndings = loadsave.loadTable( "endings.json" )
+
+	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
+	audio.setVolume( loadedEndings.logValue_effect, { channel = 2 } )
+
+	print("음악." .. loadedEndings.logValue)
+
 	local home = audio.loadStream( "음악/집.mp3" )
 
-
 	local function touch(event)
-
+--		audio.stop()
 		if event.phase == "began" then
 			if loadedSettings.month == 5 and num == 0 then
-				audio.pause(home)
+				
 				local myBday = audio.loadStream("음악/myBday.mp3")
 				audio.play(myBday, { channel = 1 })
 				loadedEndings.bgMusic = "음악/myBday.mp3"
@@ -37,19 +39,16 @@ function scene:create( event )
 				composer.removeScene("view01_month")
 				composer.gotoScene("viewmonth_birthday")	
 			elseif num == 0 then
-				audio.pause(home)
+				-- audio.setVolume( loadedEndings.logValue )
 				audio.play(home, { channel = 1 } )
+
 				loadedEndings.bgMusic = "음악/집.mp3"
        		 	loadsave.saveTable(loadedEndings,"endings.json")
 				composer.setVariable("home",home)
 				composer.removeScene("view01_month")
 				composer.gotoScene("view00Room")
 			end
-
-			
 		end
-			
-		
 	end
 
 	
@@ -158,9 +157,9 @@ function scene:hide( event )
 	local phase = event.phase
 	
 	if event.phase == "will" then
-		audio.dispose( "음악/집.mp3" )
+		-- audio.dispose( "음악/집.mp3" )
 		-- Called when the scene is on screen and is about to move off screen
-		--
+		
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then

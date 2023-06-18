@@ -35,11 +35,15 @@ function scene:create( event )
     sceneGroup:insert(titleButton)
 
 
-    local bgm = audio.loadStream( "음악/메인 테마곡.mp3" )
+    local bgm = audio.loadStream( "음악/메인 테마곡.mp3"  )
+
+    print( loadedEndings.logValue )
+    print( loadedEndings.logValue_effect )
+
     audio.setVolume( loadedEndings.logValue , { channel = 1 })
     audio.setVolume( loadedEndings.logValue_effect, { channel = 2 })
 
-    audio.play(bgm, { channel = 1 } )    
+    audio.play(bgm, { channel = 1, loops = -1 } )    
 
     --샘플 볼륨 이미지
     local volumeButton = display.newImage("이미지/타이틀/설정.png")
@@ -142,7 +146,7 @@ function scene:create( event )
 
     local function move(event)
         if event.phase == "began" then
-            audio.pause(bgm)
+            audio.stop(bgm)
             composer.removeScene("title")
             composer.gotoScene("title1")
         end

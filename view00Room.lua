@@ -13,7 +13,7 @@ function scene:create( event )
 	composer.getVariable("home")
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-	--local click1 = audio.loadStream( "음악/클릭3.wav" )
+	local loadedEndings = loadsave.loadTable( "endings.json" )
 	local number = 1
 
 	-- showoverlay 함수 사용 option
@@ -36,9 +36,12 @@ function scene:create( event )
 	end
 
 	-- 음악
-	audio.setVolume( loadedSettings.logValue, { channel = 1 } )
-	audio.setVolume( loadedSettings.logValue_effect, { channel = 2 } )
-	local click1 = audio.loadStream( "음악/스침.wav" )
+	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
+	--audio.setVolume( loadedEndings.logValue_effect, { channel = 2 } )
+	local click1 = audio.loadStream( "음악/집.mp3" )
+	audio.play( click1, {channel = 1, loops = -1 })
+
+	audio.seek( 5000, { channel=1 } )  
 
 	--스쳤을 때 커지는 거
 

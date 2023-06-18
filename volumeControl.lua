@@ -22,7 +22,7 @@ function scene:create( event )
     settings["bgvolume"] = 0.5
     
     -- Audio setup
-    audio.reserveChannels(1)
+    audio.reserveChannels(2)
     --local backgroundSound = audio.loadStream(music)
 
     local bgImage = display.newImage("이미지/타이틀/설정/창.png", display.contentWidth, display.contentHeight)
@@ -44,7 +44,7 @@ function scene:create( event )
         settings["bgvolume"] = logValue
         loadedEndings.logValue = logValue
         loadsave.saveTable(loadedEndings,"endings.json")
-        audio.setVolume( settings["bgvolume"]  )
+        audio.setVolume( settings["bgvolume"], {channel = 1} )
     end
 
     local background_image = display.newImage("이미지/설정창/소리조절칸.png")
@@ -89,6 +89,7 @@ function scene:create( event )
 
     -- 효과음볼륨리스너
     local function fgSliderListener( event )
+        print(event.value)
         local sliderValue = event.value
         loadedEndings.slider_effect = sliderValue
         local logValue
@@ -101,7 +102,7 @@ function scene:create( event )
         settings["fxvolume"] = logValue
         loadedEndings.logValue_effect = logValue
         loadsave.saveTable(loadedEndings,"endings.json")
-        audio.setVolume( settings["fxvolume"]  )
+        audio.setVolume( settings["fxvolume"] , {channel = 2} )
     end
     
     -- 효과음볼륨슬라이더
