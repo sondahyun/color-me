@@ -80,6 +80,10 @@ function scene:create( event )
 	sceneGroup:insert(store2)
 
 	local click1 = audio.loadStream( "음악/스침.wav" )
+
+	-- audio setting
+	audio.setVolume( loadedEndings.logValue , { channel = 1 })
+	audio.setVolume( loadedEndings.logValue_effect , { channel = 2 })
 	
 -- 마을 객체 커서 범위 설정. 범위 밖으로 나가면 마을 크기 작아지고 안으로 들어가면 마을 크기 커짐.
 	local i = 0
@@ -88,7 +92,7 @@ function scene:create( event )
 		if (event.target.x-event.x)^2 + (event.target.y-event.y)^2 < 110^2 then
 			-- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
 			if i == 0 then
-				local backgroundMusicChannel = audio.play(click1)
+				local backgroundMusicChannel = audio.play(click1, { channel = 2 } )
 				event.target.width = event.target.width*1.1
 				event.target.height = event.target.height*1.1
 				i = i + 1
@@ -113,10 +117,10 @@ function scene:create( event )
 			color = event.target.name
 
 			if color == "6" then
-				local click01 = audio.play(click1)
+				local click01 = audio.play(click1, { channel = 2 })
 				local home = audio.loadStream( "음악/집.mp3" )
-				audio.setVolume( loadedEndings.logValue )
-				audio.play(home)
+				
+				audio.play(home, { channel = 1 } )
 				loadedEndings.bgMusic = "음악/집.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
 			loadsave.saveTable(loadedSettings,"settings.json")
@@ -125,9 +129,9 @@ function scene:create( event )
 
 			elseif color == "7" then
 				local click01 = audio.play(click1)
-				local storeMusic = audio.loadStream( "음악/상점.mp3" )
-				audio.setVolume( loadedEndings.logValue )
-				audio.play(storeMusic);
+				local storeMusic = audio.loadStream( "음악/상점.mp3" , { channel = 1 } )
+
+				audio.play(storeMusic, { channel = 1 } )
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
 			loadsave.saveTable(loadedSettings,"settings.json")
@@ -136,9 +140,9 @@ function scene:create( event )
 
 			elseif color == "8" then
 				local click01 = audio.play(click1)
-				local storeMusic = audio.loadStream( "음악/상점.mp3" )
+				local storeMusic = audio.loadStream( "음악/상점.mp3" , { channel = 1 } )
 				audio.setVolume( loadedEndings.logValue )
-				audio.play(storeMusic);
+				audio.play(storeMusic, { channel = 1 } )
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
 			loadsave.saveTable(loadedSettings,"settings.json")
@@ -146,7 +150,7 @@ function scene:create( event )
 				composer.gotoScene( "view04Deco" )
 
 			else
-				local click01 = audio.play(click1)
+				local click01 = audio.play(click1, { channel = 2 })
 				composer.setVariable("color", color)
 				composer.removeScene("view1Map")
 				composer.gotoScene("view02Map")

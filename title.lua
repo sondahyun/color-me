@@ -36,8 +36,10 @@ function scene:create( event )
 
 
     local bgm = audio.loadStream( "음악/메인 테마곡.mp3" )
-    audio.setVolume( loadedEndings.logValue )
-    audio.play(bgm)    
+    audio.setVolume( loadedEndings.logValue , { channel = 1 })
+    audio.setVolume( loadedEndings.logValue_effect, { channel = 2 })
+
+    audio.play(bgm, { channel = 1 } )    
 
     --샘플 볼륨 이미지
     local volumeButton = display.newImage("이미지/타이틀/설정.png")
@@ -104,7 +106,7 @@ function scene:create( event )
         if (event.target.x-event.x)^2 + (event.target.y-event.y)^2 < 40^2 then
             -- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
             if j == 0 then
-                local backgroundMusicChannel = audio.play(click1)
+                local backgroundMusicChannel = audio.play(click1, { channel = 2 })
                 event.target.width = event.target.width*1.1
                 event.target.height = event.target.height*1.1
                 j = j + 1
@@ -212,8 +214,8 @@ function scene:create( event )
                 composer.gotoScene( "view00Room")
                 -- ,options1
                 local home = audio.loadStream( "음악/집.mp3" )
-                audio.setVolume( loadedEndings.logValue )
-                audio.play(home)
+               
+                audio.play(home, { channel = 1 })
             end
     end
     loadgame:addEventListener("touch",startLoad)

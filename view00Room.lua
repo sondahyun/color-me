@@ -36,6 +36,8 @@ function scene:create( event )
 	end
 
 	-- 음악
+	audio.setVolume( loadedSettings.logValue, { channel = 1 } )
+	audio.setVolume( loadedSettings.logValue_effect, { channel = 2 } )
 	local click1 = audio.loadStream( "음악/스침.wav" )
 
 	--스쳤을 때 커지는 거
@@ -46,7 +48,7 @@ function scene:create( event )
 		if (event.target.x-event.x)^2 + (event.target.y-event.y)^2 < 58^2 then
             -- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
             if j == 0 then
-                local backgroundMusicChannel = audio.play(click1)
+                local backgroundMusicChannel = audio.play(click1, { channel = 2 })
                 event.target.width = event.target.width*1.1
                 event.target.height = event.target.height*1.1
                 j = j + 1

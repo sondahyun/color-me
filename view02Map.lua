@@ -16,7 +16,6 @@ function scene:create( event )
 	red.x,red.y = display.contentWidth*0.223,display.contentHeight*0.297
 	red.name = "1"
 	sceneGroup:insert(red)
-	local click1 = audio.loadStream( "음악/클릭1.wav" )
 	
 	local blue = display.newImage("이미지/마을/파랑.png")
 	blue.x,blue.y = display.contentWidth*0.794,display.contentHeight*0.29

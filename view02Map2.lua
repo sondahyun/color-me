@@ -12,7 +12,6 @@ function scene:create( event )
 	local sceneGroup = self.view
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-	local click1 = audio.loadStream( "음악/클릭1.wav" )
 	local background = display.newImageRect("이미지/마을/배경2.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
