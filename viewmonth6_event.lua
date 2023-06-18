@@ -13,6 +13,7 @@ function scene:create( event )
 		time=1000
 	}
 
+
 	local background = display.newImageRect("이미지/이벤트/6월/눈사람1.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -198,19 +199,25 @@ function scene:create( event )
 	local a = 1
 
 	local function show(event)
-		if event.phase == "began" then
+		if event.phase == "ended" then
 			if a == 1 then
-				
-				--background3.alpha = 1
-				print("d")
 				a = a+ 1
 
 			elseif a == 2 then
-				transition.to(background3,{alpha=1})
+				background:removeEventListener("touch", show)
+
+				transition.to(background3, { time = 500, alpha = 1, onComplete = function()
+		            -- transition이 완료된 후에 background2에 대한 터치 이벤트 리스너를 다시 활성화합니다.
+		            background3:addEventListener("touch", show)
+		            background.alpha = 0
+		        end })
+
+
 				a = a+ 1
 			elseif a == 3 then
 				a = a+ 1
 			else
+				print("이미지변경3")
 				background:removeEventListener("touch",show)
 				composer.removeScene("viewmonth6_event")
 				composer.gotoScene("view01Map",options)
