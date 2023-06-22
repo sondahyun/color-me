@@ -239,7 +239,7 @@ function scene:create( event )
 		if event.phase == "began" then 
 			composer.removeScene("view99end")
 			audio.pause(home)
-			local titleMusic = audio.loadStream( "음악/타이틀.mp3" )
+			local titleMusic = audio.loadStream( "음악/메인 테마곡.mp3" )
 			audio.play(titleMusic)
 			composer.gotoScene("title")
 

@@ -96,7 +96,7 @@ print("스케줄end")
 					audio.pause(loadedEndings.bgMusic)
 					composer.gotoScene("viewmonth5_event",options)
 
-			elseif loadedSettings.month == 3 then -- 원래는 6
+			elseif loadedSettings.month == 6 then -- 원래는 6
 				composer.removeScene("view02schedule")
 				composer.removeScene("view02schedule_end")
 				audio.pause(loadedEndings.bgMusic)
