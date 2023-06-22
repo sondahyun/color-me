@@ -115,10 +115,13 @@ function scene:create( event )
 			loadedSettings.money = loadedSettings.money - loadedItems.costumeBuy[tag].cost
 
 			loadsave.saveTable(loadedSettings,"settings.json")
-			loadsave.saveTable(loadedItems,"items.json")
-
+			loadsave.saveTable(loadedItems,"items.json")	
+			print("touch")
+		end
+		if event.phase=="ended" then
 			composer.removeScene("view04DecoClothes_popup")
 			composer.gotoScene("view04DecoClothes")
+			print("end")
 		end
 	end
 
