@@ -9,6 +9,7 @@ function scene:create( event )
 	
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	mainName = loadedSettings.name
+	 local loadedEndings = loadsave.loadTable( "endings.json" )
 
 	--장면전환
 	local options={
@@ -486,10 +487,12 @@ function scene:create( event )
 	local color = composer.getVariable("color")
 
 	--print(loadedSettings.limited_num)
+	
 
 	if color == "1" then --블리
 		local function next(event) 
 			if event.phase == "began" then
+				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
 				composer.gotoScene("view01Map",options)	
 			end
@@ -518,8 +521,11 @@ function scene:create( event )
 		end
 		
 	elseif color == "2" then --위즈
+		
 		local function next(event) 
 			if event.phase == "began" then
+				
+				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
 				composer.gotoScene("view01Map",options)	
 			end
@@ -549,6 +555,7 @@ function scene:create( event )
 	elseif color == "3" then --조이
 		local function next(event) 
 			if event.phase == "began" then
+				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
 				composer.gotoScene("view01Map",options)	
 			end
@@ -579,6 +586,7 @@ function scene:create( event )
 	elseif color == "4" then --레이
 		local function next(event) 
 			if event.phase == "began" then
+				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
 				composer.gotoScene("view01Map",options)	
 			end
@@ -609,6 +617,7 @@ function scene:create( event )
 	elseif color == "5" then --솔리
 		local function next(event) 
 			if event.phase == "began" then
+				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
 				composer.gotoScene("view01Map",options)	
 			end

@@ -9,6 +9,7 @@ function scene:create( event )
 	
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	mainName = loadedSettings.name-------수정
+	 local loadedEndings = loadsave.loadTable( "endings.json" )
 
 	--장면전환
 	local options={
@@ -557,7 +558,9 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									
+									loadedEndings.bgMusic = "음악/블리 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -615,7 +618,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/블리 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -748,7 +752,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/위즈 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -809,7 +814,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/위즈 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -952,7 +958,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/조이 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -1011,7 +1018,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/조이 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -1142,7 +1150,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/레이 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -1200,7 +1209,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/레이 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -1346,7 +1356,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/솔리 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
@@ -1405,7 +1416,8 @@ function scene:create( event )
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
-									audio.pause(music)
+									loadedEndings.bgMusic = "음악/솔리 테마곡.mp3"
+        							loadsave.saveTable(loadedEndings,"endings.json")
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
