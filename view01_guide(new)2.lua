@@ -113,6 +113,8 @@ function scene:create( event )
 		end
 		if(index > 17) then
 			sceneGroup:insert(noBt)
+			sceneGroup:insert(ghost_button)
+			ghost_button:removeEventListener("tap",nextScript)
 			composer.removeScene("view01_guide(new)2")
 			composer.gotoScene("view01_guide(new)3")
 		end
