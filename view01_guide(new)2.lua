@@ -89,12 +89,12 @@ function scene:create( event )
 	}
 
 	local buttonLocation = {
-		{662 - 150 , 866}, -- 활동 마치기 버튼
-		{1830 + 150, 235 - 100}, -- x버튼
-		{1655- 150, 811}, -- 가방버튼
-		{783 + 150, 319}, -- 일반버튼
-		{1138 + 150 , 295}, -- 꾸미기버튼
-		{1830 + 150, 235 - 100} -- x버튼
+		{700 , 1000}, -- 활동 마치기 버튼
+		{1800, 100}, -- x버튼
+		{1700, 1000}, -- 가방버튼
+		{783, 150}, -- 일반버튼
+		{1138 , 150}, -- 꾸미기버튼
+		{1800, 100} -- x버튼
 	}
 
 
@@ -134,16 +134,16 @@ function scene:create( event )
 			gi = gi+1
 			if(isButton[index-1]== 0) then
 				if(index == 5) then
-					ghost_button:scale( 0.6, 0.1)
+					ghost_button:scale( 0.2, 0.1)
 				else
-					ghost_button:scale( 0.2, 0.2)
+					ghost_button:scale( 0.15, 0.15)
 				end
 			end
 		else
 			ghost_button.x, ghost_button.y = display.contentWidth/2,display.contentHeight/2
 			if(isButton[index-1]~= 0 and index ~= 1) then
 				if(index == 6) then
-					ghost_button:scale( 2, 10)
+					ghost_button:scale( 5, 10)
 				else
 					ghost_button:scale( 5, 5)
 				end
