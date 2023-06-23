@@ -76,8 +76,6 @@ function scene:create( event )
 
 	local function touch3(event)
 		if event.phase == "ended" then
-			--print("dfd")
-			audio.pause(music)
 			composer.removeScene("view00Room")
 			composer.gotoScene( "view02schedule" )
 		end
