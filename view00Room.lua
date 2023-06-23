@@ -35,11 +35,18 @@ function scene:create( event )
 		composer.gotoScene( "view03bag" )
 	end
 
+	print("00room")
 	-- 음악
+	-- local music = audio.loadStream( "음악/집.mp3" )
+ -- 	audio.setVolume( loadedEndings.logValue )
+ --    audio.play(music)
+	-- print(loadedEndings.logValue)
 	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
 	--audio.setVolume( loadedEndings.logValue_effect, { channel = 2 } )
-	local click1 = audio.loadStream( "음악/집.mp3" )
-	audio.play( click1, {channel = 1, loops = -1 })
+	audio.stop( 1 )
+    local music = audio.loadStream( "음악/집.mp3" )
+    audio.setVolume( loadedEndings.logValue , {channel = 1})
+    audio.play(music,  {channel = 1, loops=-1} )
 
 	audio.seek( 5000, { channel=1 } )  
 
@@ -70,6 +77,7 @@ function scene:create( event )
 	local function touch3(event)
 		if event.phase == "ended" then
 			--print("dfd")
+			audio.pause(music)
 			composer.removeScene("view00Room")
 			composer.gotoScene( "view02schedule" )
 		end
@@ -78,7 +86,7 @@ function scene:create( event )
 
 	local function touch4(event)
 		--local click01 = audio.play(click1)
-		composer.removeScene("view00Room")
+		--composer.removeScene("view00Room")
 		composer.gotoScene( "view00Room_friend" )
 	end
 	

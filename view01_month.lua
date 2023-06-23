@@ -24,14 +24,13 @@ function scene:create( event )
 
 	print("음악." .. loadedEndings.logValue)
 
-	local home = audio.loadStream( "음악/집.mp3" )
-
 	local function touch(event)
 --		audio.stop()
 		if event.phase == "began" then
 			if loadedSettings.month == 5 and num == 0 then
-				
+				audio.stop( 1 )
 				local myBday = audio.loadStream("음악/myBday.mp3")
+				 audio.setVolume( loadedEndings.logValue , {channel = 1})
 				audio.play(myBday, { channel = 1 })
 				loadedEndings.bgMusic = "음악/myBday.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
@@ -39,7 +38,10 @@ function scene:create( event )
 				composer.gotoScene("viewmonth_birthday")	
 			elseif num == 0 then
 				-- audio.setVolume( loadedEndings.logValue )
-				audio.play(home, { channel = 1 } )
+				-- audio.stop( 1 )
+				-- local home = audio.loadStream( "음악/집.mp3" )
+				-- audio.setVolume( loadedEndings.logValue , {channel = 1})
+				-- audio.play(home, { channel = 1 } )
 
 				loadedEndings.bgMusic = "음악/집.mp3"
        		 	loadsave.saveTable(loadedEndings,"endings.json")
