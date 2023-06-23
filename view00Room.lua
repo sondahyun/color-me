@@ -21,6 +21,20 @@ function scene:create( event )
         isModal = true
     }
 
+print("00room")
+	-- 음악
+	-- local music = audio.loadStream( "음악/집.mp3" )
+ -- 	audio.setVolume( loadedEndings.logValue )
+ --    audio.play(music)
+	-- print(loadedEndings.logValue)
+	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
+	--audio.setVolume( loadedEndings.logValue_effect, { channel = 2 } )
+	audio.stop( 1 )
+    local music = audio.loadStream( "음악/집.mp3" )
+    audio.setVolume( loadedEndings.logValue , {channel = 1})
+    audio.play(music,  {channel = 1, loops=-1} )
+
+	--audio.seek( 5000, { channel=1 } )  
 -- 관련 버튼 이동 리스너 함수
 
 	local function touch1(event)
@@ -35,20 +49,6 @@ function scene:create( event )
 		composer.gotoScene( "view03bag" )
 	end
 
-	print("00room")
-	-- 음악
-	-- local music = audio.loadStream( "음악/집.mp3" )
- -- 	audio.setVolume( loadedEndings.logValue )
- --    audio.play(music)
-	-- print(loadedEndings.logValue)
-	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
-	--audio.setVolume( loadedEndings.logValue_effect, { channel = 2 } )
-	audio.stop( 1 )
-    local music = audio.loadStream( "음악/집.mp3" )
-    audio.setVolume( loadedEndings.logValue , {channel = 1})
-    audio.play(music,  {channel = 1, loops=-1} )
-
-	audio.seek( 5000, { channel=1 } )  
 
 	--스쳤을 때 커지는 거
 
@@ -75,11 +75,8 @@ function scene:create( event )
 	end
 
 	local function touch3(event)
-		if event.phase == "ended" then
-			composer.removeScene("view00Room")
+			--composer.removeScene("view00Room")
 			composer.gotoScene( "view02schedule" )
-		end
-
 	end
 
 	local function touch4(event)
