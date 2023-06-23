@@ -31,7 +31,7 @@ function scene:create( event )
 	end
 
 	local function touch2(event)
-		composer.removeScene("view00Room")
+		--composer.removeScene("view00Room")
 		composer.gotoScene( "view03bag" )
 	end
 
