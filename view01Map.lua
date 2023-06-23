@@ -79,13 +79,11 @@ function scene:create( event )
 	store2.name = "8"
 	sceneGroup:insert(store2)
 
-	audio.reserveChannels(2)
-
 	local click1 = audio.loadStream( "음악/스침.wav" )
 
 	-- audio setting
-	--audio.setVolume( loadedEndings.logValue , { channel = 1 })
-	--audio.setVolume( loadedEndings.logValue_effect , { channel = 2 })
+	audio.setVolume( loadedEndings.logValue , { channel = 1 })
+	audio.setVolume( loadedEndings.logValue_effect , { channel = 2 })
 	
 -- 마을 객체 커서 범위 설정. 범위 밖으로 나가면 마을 크기 작아지고 안으로 들어가면 마을 크기 커짐.
 	local i = 0
@@ -125,7 +123,7 @@ function scene:create( event )
 				audio.play(home, { channel = 1 } )
 				loadedEndings.bgMusic = "음악/집.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
-				loadsave.saveTable(loadedSettings,"settings.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 				composer.removeScene("view01Map")
 				composer.gotoScene( "view00Room" )
 
@@ -143,6 +141,7 @@ function scene:create( event )
 			elseif color == "8" then
 				local click01 = audio.play(click1)
 				local storeMusic = audio.loadStream( "음악/상점.mp3" , { channel = 1 } )
+				audio.setVolume( loadedEndings.logValue )
 				audio.play(storeMusic, { channel = 1 } )
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
@@ -155,7 +154,7 @@ function scene:create( event )
 				composer.setVariable("color", color)
 				composer.removeScene("view1Map")
 				composer.gotoScene("view02Map")
-				loadsave.saveTable(loadedSettings,"settings.json")
+			loadsave.saveTable(loadedSettings,"settings.json")
 
 			end
 		end
