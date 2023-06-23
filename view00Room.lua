@@ -462,7 +462,7 @@ function scene:create( event )
 		loopCount = 0,
 		loopDirection = "forward"
 	}
-
+	print(loadedItems.costume)
 
 	-- 주인공 객체
 	normal = graphics.newImageSheet("애니매이션/모션/주인공(랜덤)/"..loadedItems.costume.. "/1.png", options)

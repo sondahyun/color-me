@@ -16,6 +16,8 @@ function scene:create( event )
 	tag = composer.getVariable("tag")
 	name = loadedItems.costumeBuy[tag].name
 
+	print(name)
+
 	local function go_back(event)
 		if event.phase == "began" then
 			--composer.removeScene("view03bag_deco3_clothes_popup")
