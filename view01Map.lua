@@ -129,9 +129,11 @@ function scene:create( event )
 
 			elseif color == "7" then
 				local click01 = audio.play(click1)
-				local storeMusic = audio.loadStream( "음악/상점.mp3" , { channel = 1 } )
-
+				audio.stop( 1 )
+				local storeMusic = audio.loadStream( "음악/상점.mp3")
+				audio.setVolume( loadedEndings.logValue , {channel = 1})
 				audio.play(storeMusic, { channel = 1 } )
+				
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
 			loadsave.saveTable(loadedSettings,"settings.json")
@@ -140,8 +142,9 @@ function scene:create( event )
 
 			elseif color == "8" then
 				local click01 = audio.play(click1)
-				local storeMusic = audio.loadStream( "음악/상점.mp3" , { channel = 1 } )
-				audio.setVolume( loadedEndings.logValue )
+				audio.stop( 1 )
+				local storeMusic = audio.loadStream( "음악/상점.mp3")
+				audio.setVolume( loadedEndings.logValue , {channel = 1})
 				audio.play(storeMusic, { channel = 1 } )
 				loadedEndings.bgMusic = "음악/상점.mp3"
         		loadsave.saveTable(loadedEndings,"endings.json")
