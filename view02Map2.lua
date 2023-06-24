@@ -136,7 +136,6 @@ function scene:create( event )
 					duduinfo.x, duduinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(duduinfo)
 
-					exitt()
 					exitt2()
 					start()
 
@@ -146,7 +145,6 @@ function scene:create( event )
 					numinfo.x, numinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(numinfo)
 
-					exitt()
 					exitt2()
 					start()
 					
@@ -156,7 +154,6 @@ function scene:create( event )
 					lemoninfo.x, lemoninfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(lemoninfo)
 
-					exitt()
 					exitt2()
 					start()
 				elseif color == "4" then
@@ -166,7 +163,6 @@ function scene:create( event )
 					ringinfo.x, ringinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(ringinfo)
 
-					exitt()
 					exitt2()
 					start()
 				elseif color == "5" then
@@ -176,7 +172,6 @@ function scene:create( event )
 					miniinfo.x, miniinfo.y = display.contentWidth/2, display.contentHeight/2
 					sceneGroup:insert(miniinfo)
 
-					exitt()
 					exitt2()
 					start()
 				end
