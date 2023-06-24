@@ -175,58 +175,74 @@ function scene:create( event )
 	end
 	
 
-	local item_list ={}
+	local bestList = {}
+	local goodList = {}
 	local present_list = {}
 
 	-- 블리
+	-- perfect : 1 ~ 2
+	-- good : 3 ~ 6
 
-	item_list[1] = {
-		"향수",
+	bestList[1] = {
 		"응원봉",
-		"오리",
-		"파이",
-		"화분",
-		"사료"
+		"머리핀",
+		"향수"
 	}
 
-	item_list[2] ={
-	
+	bestList[2] = {
 		"오리",
-		"스피커",
-		"향수",
-		"응원봉",
-		"파이",
-		"사료"
+		"헤드셋",
+		"스피커"
 	}
 
-	item_list[3] ={
-		"화분",
-		"파이",
-		"응원봉",
+	bestList[3] = {
 		"사료",
-		"연필",
-		"오리"
+		"민초"
 	}
 
-	item_list[4] ={
+	bestList[4] = {
 		"블록",
-		"연필",
-		"호랑이",
-		"스피커",
-		"오리",
-		"실험세트"
+		"안경닦이"
 	}
 
-	item_list[5] ={
-		"호랑이",
-		"사료",
-		"실험세트",
-		"오리",
+	bestList[5] = {
 		"파이",
-		"블록"
+		"망토"
 	}
 
-	
+	goodList[1] = {
+		"오리",
+		"헤드셋",
+		"스피커"
+	}
+
+	goodList[2] = {
+		"응원봉",
+		"머리핀",
+		"향수"
+	}
+
+	goodList[3] = {
+		"블록",
+		"안경닦이",
+		"파이",
+		"망토"
+	}
+
+	goodList[4] = {
+		"사료",
+		"민초",
+		"파이",
+		"망토"
+	}
+
+	goodList[5] = {
+		"사료",
+		"민초",
+		"블록",
+		"안경닦이"
+	}
+
 	present_list={
 		"향수",
 		"스피커",
@@ -235,12 +251,7 @@ function scene:create( event )
 		"호랑이"
 	}
 
-
-
-
 	-- 대화 내용 -- 
-
-
 	local name = mainName
 
 	local perfect = {}
@@ -254,7 +265,7 @@ function scene:create( event )
 	local birthday_good = {}
 	local birthday_bad = {}
 	
-
+	-- best
 	local text_1 = {
 		"우와! 이거 " .. item .. "이잖아! 내가 정말 가지고 싶었던 선물이야." .. name .. "이 이걸 내게 선물해줘서 정말 기뻐. 고마워!",
 		"헉! 이건 내가 정말 좋아하는 " .. item .. "이잖아! 가지고 싶어 했던 건데 이렇게 선물해주다니.. 정말 고마워 " .. name .. "아!!",
@@ -263,6 +274,7 @@ function scene:create( event )
 		item .. "?? 이, 이건... 내가 오래전부터 갖고 싶어 했던 거잖아...! " .. name .. ", 너는 정말 좋은 친구야. 소중하게 간직할게!"
 	}
 
+	-- good
 	local text_2 = {
 		"이건 " .. item .. "이네? 나를 위해서 가져온 거구나. 음.. 고마워!",
 		"우와~ 나에게 주는 거야? 의외의 선물인 걸. 그래도 네가 선물해 준 거니까 잘 받을게.",
@@ -271,6 +283,7 @@ function scene:create( event )
 		item .. "...? 생각지도 못한 선물이네... 하지만 네가 주는 거라면 뭐든지 고맙게 받을 거야. 정말 고마워."
 	}
 
+	-- bad
 	local text_3 = {
 		"어.. 어라 이건 " .. item .. "이네! 마음만은 고마워. 그렇지만 이 선물을 더 좋아할 다른 친구가 있지 않을까?",
 		"에엥? " ..  item .. "이네? 선물은 고맙지만, 많이 낯선 선물이네. 음... 그래 일단 고마워~",
@@ -279,6 +292,7 @@ function scene:create( event )
 		"엇... " .. item .. "이네... ...으음... 어떻게 사용해야 할지 곤란한 걸... ...그, 그래도 고마워..!"
 	}
 
+	-- brithGood
 	local text_4 = {
 		"꺄아! 이거 내 생일 선물이야? 내가 좋아하는 달달한 체리향 향수잖아! 세상이 빨간 하트로 차오르는 기분이야.",
 		"세상에, 두배로 스피커! 내가 제일 갖고 싶었던 거야! 고마워, 얼른 스피커로 노래 틀자! 뭐가 좋을까? 오늘은 발라드를 틀어도 신날 것 같아!",
@@ -287,6 +301,7 @@ function scene:create( event )
 		"내 생일 선물이야? 고마워! 네 선물 덕분에 좀 더 용감한 색연필이 될 수 있을 것 같아!"
 	}
 
+	-- birthBad
 	local text_5 = {
 		"이거… 내 선물이야? … 그래, 고마워.",
 		"으음…. 고마워…. 지금부터 이걸 가지고 어떻게 신나게 놀지 생각해볼게…!",
@@ -341,12 +356,21 @@ function scene:create( event )
 	end
 
 	-- 반응 함수 --
-
-
-	local function respones(item_name,num_min,num_max)
+	local function bestRespones(item_name)
 		local answer = 0
-		for i = num_min,num_max do
-			if item_name == item_list[color][i] then 
+		for i = 1, #bestList[color] do
+			if item_name == bestList[color][i] then 
+				answer = 1
+				return answer
+			end
+		end
+		return answer
+	end
+
+	local function goodRespones(item_name)
+		local answer = 0
+		for i = 1, #goodList[color] do
+			if item_name == goodList[color][i] then 
 				answer = 1
 				return answer
 			end
@@ -425,12 +449,12 @@ function scene:create( event )
 		
 
 	else
-		if respones(item_name,1,2) == 1 then
+		if bestRespones(item_name) == 1 then
 			perfect[color].alpha = 1
 			happy[color].alpha = 1
 			default[color].alpha = 0
 			present_stat_good(color)
-		elseif respones(item_name,3,6) == 1 then 
+		elseif goodRespones(item_name) == 1 then 
 			default[color].alpha = 1
 			soso[color].alpha = 1
 			present_stat_soso(color)
