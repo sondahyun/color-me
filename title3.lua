@@ -85,6 +85,11 @@ function scene:create( event )
 	sceneGroup:insert(pastell_yellow)
 	pastell_yellow.alpha = 0
 
+	local pastell_green = display.newImage("이미지/엔딩/엔딩카드/파스텔초록.png")
+	pastell_green.x, pastell_green.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(pastell_green)
+	pastell_green.alpha = 0
+
 	local pastell_purple = display.newImage("이미지/엔딩/엔딩카드/파스텔보라.png")
 	pastell_purple.x, pastell_purple.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(pastell_purple)
