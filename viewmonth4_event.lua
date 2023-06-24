@@ -200,7 +200,7 @@ function scene:create( event )
 
 	select_text1 = {
 		"그래 좋아!",
-		"위즈 편을 들어준다."
+		"솔리편을 들어준다."
 	}
 	select_text2 = {
 		"아니, 난 쉬고 싶어.",
