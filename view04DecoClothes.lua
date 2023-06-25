@@ -8,6 +8,10 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local json = require( "json" )
 
+local money
+local sold
+local clothes_image
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -47,7 +51,7 @@ function scene:create( event )
 	goCloset.x, goCloset.y = display.contentWidth*0.1, display.contentHeight*0.08
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
+	money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
 	money.anchorX = 1
 	money.text = loadedSettings.money
@@ -105,7 +109,7 @@ function scene:create( event )
 		{1211.25,780.07}
 	}
 
-	local clothes_image = {}
+	clothes_image = {}
 
 	for i = 1, #clothes_name do
 		clothes_image[i] = display.newImage("이미지/상점/옷템/의상-" .. clothes_name[i] .."세트.png")
@@ -123,7 +127,7 @@ function scene:create( event )
 
 	--sold--
 
-	local sold = {}
+	sold = {}
 
 	local function checkLow(i)
 		if(i>5) then
@@ -147,11 +151,15 @@ end
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
+
+	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
 	
 	if phase == "will" then
+		money.text = loadedSettings.money
 		for i = 1, 9 do
-			print(loadedItems.costumeBuy[i].buy)
+			sold[i].alpha = loadedItems.costumeBuy[i].buy
+			clothes_image[i].alpha = 1 - loadedItems.costumeBuy[i].buy * 0.5
 		end
 		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then

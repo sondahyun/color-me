@@ -10,6 +10,22 @@ local json = require( "json" )
 local money
 local sold
 
+local flowerBlanket
+local stripeBlanket
+local cactus
+local sunflower
+local clover
+local violet
+local heartCarpet
+local roundCarpet
+local squareCarpet
+local teddybear
+local bunny
+local dotWallpaper
+local plaidWallpaper
+local whiteFloor
+local woodFloor 
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -98,7 +114,7 @@ function scene:create( event )
 	end
 
 	--1행
-	local flowerBlanket = display.newImage("이미지/상점/아이템/꽃무늬이불.png")
+	flowerBlanket = display.newImage("이미지/상점/아이템/꽃무늬이불.png")
 	flowerBlanket.x,flowerBlanket.y = display.contentWidth*0.145, display.contentHeight*0.3
 	flowerBlanket.anchorX,flowerBlanket.anchorY = 0.5,0.5
 	flowerBlanket.name = "꽃무늬이불"
@@ -112,7 +128,7 @@ function scene:create( event )
 	end
 
 
-	local stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬이불.png")
+	stripeBlanket = display.newImage("이미지/상점/아이템/줄무늬이불.png")
 	stripeBlanket.x,stripeBlanket.y = display.contentWidth*0.288, display.contentHeight*0.301
 	stripeBlanket.anchorX,stripeBlanket.anchorY = 0.5,0.5
 	stripeBlanket.name = "줄무늬이불"
@@ -125,7 +141,7 @@ function scene:create( event )
 		stripeBlanket:removeEventListener("touch",popup2)
 	end
 
-	local cactus = display.newImage("이미지/상점/아이템/선인장화분.png")
+	cactus = display.newImage("이미지/상점/아이템/선인장화분.png")
 	cactus.x,cactus.y = display.contentWidth*0.427, display.contentHeight*0.295
 	cactus.anchorX,cactus.anchorY = 0.5,0.5
 	cactus.id = 15
@@ -138,7 +154,7 @@ function scene:create( event )
 		cactus:removeEventListener("touch",popup)
 	end
 
-	local sunflower = display.newImage("이미지/상점/아이템/해바라기화분.png")
+	sunflower = display.newImage("이미지/상점/아이템/해바라기화분.png")
 	sunflower.x,sunflower.y = display.contentWidth*0.571, display.contentHeight*0.285
 	sunflower.anchorX,sunflower.anchorY = 0.5,0.5
 	sunflower.alpha=loadedItems.d4Sold+0.5
@@ -151,7 +167,7 @@ function scene:create( event )
 		sunflower:removeEventListener("touch",popup)
 	end
 
-	local clover = display.newImage("이미지/상점/아이템/클로버화분.png")
+	clover = display.newImage("이미지/상점/아이템/클로버화분.png")
 	clover.x,clover.y = display.contentWidth*0.713, display.contentHeight*0.295
 	clover.anchorX,clover.anchorY = 0.5,0.5
 	clover.alpha=loadedItems.d5Sold+0.5
@@ -164,7 +180,7 @@ function scene:create( event )
 		clover:removeEventListener("touch",popup)
 	end
 
-	local violet= display.newImage("이미지/상점/아이템/제비꽃화분.png")
+	violet= display.newImage("이미지/상점/아이템/제비꽃화분.png")
 	violet.x,violet.y = display.contentWidth*0.852, display.contentHeight*0.317
 	violet.anchorX,violet.anchorY = 0.5,0.5
 	violet.alpha=loadedItems.d6Sold+0.5
@@ -179,7 +195,7 @@ function scene:create( event )
 
 	-- 2행
 
-	local heartCarpet = display.newImage("이미지/상점/아이템/하트카펫.png")
+	heartCarpet = display.newImage("이미지/상점/아이템/하트카펫.png")
 	heartCarpet.x,heartCarpet.y = display.contentWidth*0.17, display.contentHeight*0.537
 	heartCarpet.anchorX,heartCarpet.anchorY = 0.5,0.5
 	heartCarpet.alpha=loadedItems.d7Sold+0.5
@@ -192,7 +208,7 @@ function scene:create( event )
 		heartCarpet:removeEventListener("touch",popup2)
 	end
 
-	local roundCarpet = display.newImage("이미지/상점/아이템/둥근카펫.png")
+	roundCarpet = display.newImage("이미지/상점/아이템/둥근카펫.png")
 	roundCarpet.x,roundCarpet.y = display.contentWidth*0.347, display.contentHeight*0.537
 	roundCarpet.anchorX,roundCarpet.anchorY = 0.5,0.5
 	roundCarpet.alpha=loadedItems.d8Sold+0.5
@@ -205,7 +221,7 @@ function scene:create( event )
 		roundCarpet:removeEventListener("touch",popup2)
 	end
 
-	local squareCarpet = display.newImage("이미지/상점/아이템/네모카펫.png")
+	squareCarpet = display.newImage("이미지/상점/아이템/네모카펫.png")
 	squareCarpet.x,squareCarpet.y = display.contentWidth*0.542, display.contentHeight*0.553
 	squareCarpet.anchorX,squareCarpet.anchorY = 0.5,0.5
 	squareCarpet.alpha=loadedItems.d9Sold+0.5
@@ -218,7 +234,7 @@ function scene:create( event )
 		squareCarpet:removeEventListener("touch",popup2)
 	end
 
-	local teddybear = display.newImage("이미지/상점/아이템/곰인형.png")
+	teddybear = display.newImage("이미지/상점/아이템/곰인형.png")
 	teddybear.x,teddybear.y = display.contentWidth*0.71, display.contentHeight*0.54
 	teddybear.anchorX,teddybear.anchorY = 0.5,0.5
 	teddybear.alpha=loadedItems.d10Sold+0.5
@@ -231,7 +247,7 @@ function scene:create( event )
 		teddybear:removeEventListener("touch",popup)
 	end
 
-	local bunny = display.newImage("이미지/상점/아이템/토끼인형.png")
+	bunny = display.newImage("이미지/상점/아이템/토끼인형.png")
 	bunny.x,bunny.y = display.contentWidth*0.848, display.contentHeight*0.529
 	bunny.anchorX,bunny.anchorY = 0.5,0.5
 	bunny.alpha=loadedItems.d11Sold+0.5
@@ -245,7 +261,7 @@ function scene:create( event )
 	end
 
 	--3행
-	local dotWallpaper = display.newImage("이미지/상점/아이템/도트벽지.png")
+	dotWallpaper = display.newImage("이미지/상점/아이템/도트벽지.png")
 	dotWallpaper.x,dotWallpaper.y = display.contentWidth*0.149, display.contentHeight*0.766
 	dotWallpaper.anchorX,dotWallpaper.anchorY = 0.5,0.5
 	dotWallpaper.alpha=loadedItems.d12Sold+0.5
@@ -258,7 +274,7 @@ function scene:create( event )
 		dotWallpaper:removeEventListener("touch",popup2)
 	end
 
-	local plaidWallpaper = display.newImage("이미지/상점/아이템/격자벽지.png")
+	plaidWallpaper = display.newImage("이미지/상점/아이템/격자벽지.png")
 	plaidWallpaper.x,plaidWallpaper.y = display.contentWidth*0.29, display.contentHeight*0.766
 	plaidWallpaper.anchorX,plaidWallpaper.anchorY = 0.5,0.5
 	plaidWallpaper.alpha=loadedItems.d13Sold+0.5
@@ -271,7 +287,7 @@ function scene:create( event )
 		plaidWallpaper:removeEventListener("touch",popup2)
 	end
 
-	local whiteFloor = display.newImage("이미지/상점/아이템/흰색바닥.png")
+	whiteFloor = display.newImage("이미지/상점/아이템/흰색바닥.png")
 	whiteFloor.x,whiteFloor.y = display.contentWidth*0.433, display.contentHeight*0.777
 	whiteFloor.anchorX,whiteFloor.anchorY = 0.5,0.5
 	whiteFloor.alpha=loadedItems.d14Sold+0.5
@@ -284,7 +300,7 @@ function scene:create( event )
 		whiteFloor:removeEventListener("touch",popup2)
 	end
 
-	local woodFloor = display.newImage("이미지/상점/아이템/나무바닥.png")
+	woodFloor = display.newImage("이미지/상점/아이템/나무바닥.png")
 	woodFloor.x,woodFloor.y = display.contentWidth*0.571, display.contentHeight*0.777
 	woodFloor.anchorX,woodFloor.anchorY = 0.5,0.5
 	woodFloor.alpha=loadedItems.d15Sold+0.5
@@ -471,6 +487,22 @@ function scene:show( event )
 	
 	if phase == "will" then
 		money.text = loadedSettings.money
+
+		flowerBlanket.alpha=loadedItems.d1Sold+0.5
+		stripeBlanket.alpha=loadedItems.d2Sold+0.5
+		cactus.alpha=loadedItems.d3Sold+0.5
+		sunflower.alpha=loadedItems.d4Sold+0.5
+		clover.alpha=loadedItems.d5Sold+0.5
+		violet.alpha=loadedItems.d6Sold+0.5
+		heartCarpet.alpha=loadedItems.d7Sold+0.5
+		roundCarpet.alpha=loadedItems.d8Sold+0.5
+		squareCarpet.alpha=loadedItems.d9Sold+0.5
+		teddybear.alpha=loadedItems.d10Sold+0.5
+		bunny.alpha=loadedItems.d11Sold+0.5
+		dotWallpaper.alpha=loadedItems.d12Sold+0.5
+		plaidWallpaper.alpha=loadedItems.d13Sold+0.5
+		whiteFloor.alpha=loadedItems.d14Sold+0.5
+		woodFloor.alpha=loadedItems.d15Sold+0.5
 
 		 if loadedItems.d1Sold==0 then
    		sold[1].alpha=1
