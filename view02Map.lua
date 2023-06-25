@@ -12,40 +12,55 @@ function scene:create( event )
 	sceneGroup:insert(background)
 
 -- 마을 이미지 객체 
-    local red = display.newImage("이미지/마을/빨강.png")
+	local red
+	local blue
+	local yellow
+	local purple
+	local green
+	local em
+	local store
+	local store2
+
+-- 마을 맵 마을 객체 생성.
+	 red = display.newImage("이미지/마을/빨강.png")
 	red.x,red.y = display.contentWidth*0.223,display.contentHeight*0.297
 	red.name = "1"
 	sceneGroup:insert(red)
 	
-	local blue = display.newImage("이미지/마을/파랑.png")
+	 blue = display.newImage("이미지/마을/파랑.png")
 	blue.x,blue.y = display.contentWidth*0.794,display.contentHeight*0.29
 	blue.name = "2"
 	sceneGroup:insert(blue)
 
-	local yellow = display.newImage("이미지/마을/노랑.png")
+	 yellow = display.newImage("이미지/마을/노랑.png")
 	yellow.x,yellow.y = display.contentWidth*0.5,display.contentHeight*0.185	
 	yellow.name = "3"
 	sceneGroup:insert(yellow)
 
-	local purple = display.newImage("이미지/마을/보라.png")
+	 purple = display.newImage("이미지/마을/보라.png")
 	purple.x,purple.y = display.contentWidth*0.217,display.contentHeight*0.698
 	purple.name = "4"
 	sceneGroup:insert(purple)
 
-	local green = display.newImage("이미지/마을/초록.png")
+	 green = display.newImage("이미지/마을/초록.png")
 	green.x,green.y = display.contentWidth*0.785,display.contentHeight*0.713
 	green.name = "5"
 	sceneGroup:insert(green)
 
-	local em = display.newImage("이미지/마을/임시거처.png")
+	 em = display.newImage("이미지/마을/임시거처.png")
 	em.x,em.y = display.contentWidth*0.5,display.contentHeight*0.829
 	em.name = "6"
 	sceneGroup:insert(em)
 
-	local store = display.newImage("이미지/마을/상점.png")
-	store.x,store.y = display.contentWidth*0.5,display.contentHeight*0.505
+	 store = display.newImage("이미지/마을/상점.png")
+	store.x,store.y = display.contentWidth*0.437,display.contentHeight*0.505
 	store.name = "7"
 	sceneGroup:insert(store)
+
+	 store2 = display.newImage("이미지/마을/꾸미기샵.png")
+	store2.x,store2.y = display.contentWidth*0.588,display.contentHeight*0.532
+	store2.name = "8"
+	sceneGroup:insert(store2)
 
 	--장면전환
 	local options={
