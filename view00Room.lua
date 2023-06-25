@@ -75,7 +75,7 @@ print("00room")
 	end
 
 	local function touch3(event)
-			--composer.removeScene("view00Room")
+			composer.removeScene("view00Room")
 			gotoback()
 			composer.gotoScene( "view02schedule" )
 	end
