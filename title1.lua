@@ -7,8 +7,6 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 
-	
-	print("title1")
     loadedEndings = loadsave.loadTable( "endings.json" )
 
     -- 배경 객체 생성
@@ -89,9 +87,6 @@ function scene:create( event )
 	color[1][16] = loadedEndings.act_violet
 	color[1][17] = loadedEndings.good
 	color[1][18] = loadedEndings.bad
-
-
-
 
 	 num = {}
 	 num[1] = 18
@@ -181,7 +176,6 @@ function scene:create( event )
 		"이미지/엔딩/색연필/무지개.png",
 		"이미지/엔딩/색연필/보상.png"
 	}
-
 
 	local i = 1
 	local k = 0
@@ -306,10 +300,6 @@ function scene:create( event )
 	sceneGroup:insert(exit)
 	exit.x, exit.y = display.contentWidth*0.16, display.contentHeight*0.2
 	exit:addEventListener("touch",gotomap)
-
-
-
-	
 
 -- 카테고리 눌렀을 때 창 별로 색연필 다르게 나타내기
 -- 기본 창

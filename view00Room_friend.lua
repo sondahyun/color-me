@@ -77,6 +77,8 @@ function scene:create( event )
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
 
+
+
 	local background_friend = display.newImage("이미지/앨범/친구목록/배경.png")
 	background_friend.x,background_friend.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_friend)

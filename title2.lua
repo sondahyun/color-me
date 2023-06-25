@@ -26,6 +26,7 @@ function scene:create( event )
     sceneGroup:insert(credit)
     --credit:addEventListener("touch",move)
 
+
 	local volumeButton = display.newImage("이미지/타이틀/설정.png")
     volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
     sceneGroup:insert(volumeButton)
@@ -383,10 +384,11 @@ function scene:create( event )
 
 				composer.removeScene("title2")
 				composer.gotoScene( "tutorial",options)
-				audio.pause( titleMusic )
+
+				audio.stop( 1 )
 				local tutorialMusic = audio.loadStream( "음악/튜토리얼.mp3" )
-       			audio.setVolume( loadedEndings.logValue )
-				audio.play(tutorialMusic)
+       			audio.setVolume( loadedEndings.logValue , {channel = 1})
+				audio.play(tutorialMusic,  {channel = 1} )
 			end
 	end
 	titleButton:addEventListener("tap",startNew)
