@@ -76,8 +76,26 @@ function scene:create( event )
 		end
 	end
 
+	local pencil
+	local dog_rice
+	local toy
+	local duck
+	local heart
+	local pie
+	local kit
+	local plant
+	local tiger
+	local purfume
+	local speaker
+	local pin
+	local headset
+	local hero
+	local galsses
+	local mint
+	local frame
+
 	--1행
-	local pencil = display.newImage("이미지/상점/아이템/연필.png")
+	 pencil = display.newImage("이미지/상점/아이템/연필.png")
 	pencil.x,pencil.y = display.contentWidth*0.1117, display.contentHeight*0.241
 	pencil.anchorX,pencil.anchorY = 0,0
 	pencil.name = "연필"
@@ -85,7 +103,7 @@ function scene:create( event )
 	sceneGroup:insert(pencil)
 	pencil:addEventListener("touch",popup)
 
-	local dog_rice = display.newImage("이미지/상점/아이템/사료.png")
+	 dog_rice = display.newImage("이미지/상점/아이템/사료.png")
 	dog_rice.x,dog_rice.y = display.contentWidth*0.2615, display.contentHeight*0.241
 	dog_rice.anchorX,dog_rice.anchorY = 0,0
 	dog_rice.name = "사료"
@@ -93,16 +111,15 @@ function scene:create( event )
 	sceneGroup:insert(dog_rice)
 	dog_rice:addEventListener("touch",popup)
 
-	local toy = display.newImage("이미지/상점/아이템/블록.png")
+	 toy = display.newImage("이미지/상점/아이템/블록.png")
 	toy.x,toy.y = display.contentWidth*0.3948, display.contentHeight*0.241
 	toy.anchorX,toy.anchorY = 0,0
 	toy.id = 15
 	sceneGroup:insert(toy)
 	toy.name = "블록"
-
 	toy:addEventListener("touch",popup)
 
-	local duck = display.newImage("이미지/상점/아이템/오리.png")
+	 duck = display.newImage("이미지/상점/아이템/오리.png")
 	duck.x,duck.y = display.contentWidth*0.5427, display.contentHeight*0.249
 	duck.anchorX,duck.anchorY = 0,0
 	sceneGroup:insert(duck)
@@ -110,7 +127,7 @@ function scene:create( event )
 	duck.id = 14
 	duck:addEventListener("touch",popup)
 
-	local heart = display.newImage("이미지/상점/아이템/응원봉.png")
+	 heart = display.newImage("이미지/상점/아이템/응원봉.png")
 	heart.x,heart.y = display.contentWidth*0.6807, display.contentHeight*0.24
 	heart.anchorX,heart.anchorY = 0,0
 	sceneGroup:insert(heart)
@@ -118,7 +135,7 @@ function scene:create( event )
 	heart.id = 18
 	heart:addEventListener("touch",popup)
 
-	local pie = display.newImage("이미지/상점/아이템/파이.png")
+	 pie = display.newImage("이미지/상점/아이템/파이.png")
 	pie.x,pie.y = display.contentWidth*0.8195, display.contentHeight*0.249
 	pie.anchorX,pie.anchorY = 0,0
 	sceneGroup:insert(pie)
@@ -128,7 +145,7 @@ function scene:create( event )
 
 	-- 2행
 
-	local kit = display.newImage("이미지/상점/아이템/실험세트.png")
+	 kit = display.newImage("이미지/상점/아이템/실험세트.png")
 	kit.x,kit.y = display.contentWidth*0.1788, display.contentHeight*0.5114
 	kit.anchorX,kit.anchorY = 0,0
 	sceneGroup:insert(kit)
@@ -136,7 +153,7 @@ function scene:create( event )
 	kit.id = 25
 	kit:addEventListener("touch",popup)
 
-	local plant = display.newImage("이미지/상점/아이템/화분.png")
+	 plant = display.newImage("이미지/상점/아이템/화분.png")
 	plant.x,plant.y = display.contentWidth*0.3393, display.contentHeight*0.463
 	plant.anchorX,plant.anchorY = 0,0
 	sceneGroup:insert(plant)
@@ -144,7 +161,7 @@ function scene:create( event )
 	plant.id = 25
 	plant:addEventListener("touch",popup)
 
-	local tiger = display.newImage("이미지/상점/아이템/호랑이.png")
+	 tiger = display.newImage("이미지/상점/아이템/호랑이.png")
 	tiger.x,tiger.y = display.contentWidth*0.475, display.contentHeight*0.48
 	tiger.anchorX,tiger.anchorY = 0,0
 	sceneGroup:insert(tiger)
@@ -152,7 +169,7 @@ function scene:create( event )
 	tiger.id = 25
 	tiger:addEventListener("touch",popup)
 
-	local purfume = display.newImage("이미지/상점/아이템/향수.png")
+	 purfume = display.newImage("이미지/상점/아이템/향수.png")
 	purfume.x,purfume.y = display.contentWidth*0.6167, display.contentHeight*0.4736
 	purfume.anchorX,purfume.anchorY = 0,0
 	sceneGroup:insert(purfume)
@@ -160,7 +177,7 @@ function scene:create( event )
 	purfume.id = 25
 	purfume:addEventListener("touch",popup)
 
-	local speaker = display.newImage("이미지/상점/아이템/스피커.png")
+	 speaker = display.newImage("이미지/상점/아이템/스피커.png")
 	speaker.x,speaker.y = display.contentWidth*0.7489, display.contentHeight*0.4901
 	speaker.anchorX,speaker.anchorY = 0,0
 	sceneGroup:insert(speaker)
@@ -169,7 +186,7 @@ function scene:create( event )
 	speaker:addEventListener("touch",popup)
 
 	--3행
-	local pin = display.newImage("이미지/상점/아이템/머리핀.png")
+	 pin = display.newImage("이미지/상점/아이템/머리핀.png")
 	pin.x,pin.y = display.contentWidth*0.1117, display.contentHeight*0.76
 
 	pin.anchorX,pin.anchorY = 0,0
@@ -178,7 +195,7 @@ function scene:create( event )
 	pin.id = 10
 	pin:addEventListener("touch",popup)
 
-	local headset = display.newImage("이미지/상점/아이템/헤드셋.png")
+	 headset = display.newImage("이미지/상점/아이템/헤드셋.png")
 	headset.x,headset.y = display.contentWidth*0.2615, display.contentHeight*0.712
 	headset.anchorX,headset.anchorY = 0,0
 	sceneGroup:insert(headset)
@@ -186,7 +203,7 @@ function scene:create( event )
 	headset.id = 25
 	headset:addEventListener("touch",popup)
 
-	local hero = display.newImage("이미지/상점/아이템/망토.png")
+	 hero = display.newImage("이미지/상점/아이템/망토.png")
 	hero.x,hero.y = display.contentWidth*0.3948, display.contentHeight*0.74
 	hero.anchorX,hero.anchorY = 0,0
 	sceneGroup:insert(hero)
@@ -194,7 +211,7 @@ function scene:create( event )
 	hero.id = 15
 	hero:addEventListener("touch",popup)
 
-	local galsses = display.newImage("이미지/상점/아이템/안경닦이.png")
+	 galsses = display.newImage("이미지/상점/아이템/안경닦이.png")
 	galsses.x,galsses.y = display.contentWidth*0.6807, display.contentHeight*0.725
 	galsses.anchorX,galsses.anchorY = 0,0
 	sceneGroup:insert(galsses)
@@ -202,7 +219,7 @@ function scene:create( event )
 	galsses.id = 25
 	galsses:addEventListener("touch",popup)
 
-	local mint = display.newImage("이미지/상점/아이템/민초.png")
+	 mint = display.newImage("이미지/상점/아이템/민초.png")
 	mint.x,mint.y = display.contentWidth*0.543, display.contentHeight*0.73
 	mint.anchorX,mint.anchorY = 0,0
 	sceneGroup:insert(mint)
@@ -210,7 +227,7 @@ function scene:create( event )
 	mint.id = 25
 	mint:addEventListener("touch",popup)
 
-	local frame = display.newImage("이미지/상점/아이템/액자.png")
+	 frame = display.newImage("이미지/상점/아이템/액자.png")
 	frame.x,frame.y = display.contentWidth*0.8195, display.contentHeight*0.73
 	frame.anchorX,frame.anchorY = 0,0
 	sceneGroup:insert(frame)
