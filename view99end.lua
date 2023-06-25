@@ -95,38 +95,38 @@ function scene:create( event )
 	end
 
 --활동/공부/취미 엔딩 (혼합)
-	if (study >= 80) and (hobby >= 80) and (fun >= 80) and (friendship >= 80) then -- 모든 활동 스탯이 80이상일 경우 무지개
+	if (study >= 40) and (hobby >= 40) and (fun >= 40) and (friendship >= 40) then -- 모든 활동 스탯이 80이상일 경우 무지개
 		hidden_end[3] = 1
 		endingName = "무지개"
 		loadedEndings.rainbow = hidden_end[3]
-	elseif (maxStatVal >= 70) and (maxStatCode == 1) then -- 공부스탯이 70이상일 경우
+	elseif (maxStatVal >= 35) and (maxStatCode == 1) then -- 공부스탯이 70이상일 경우
 		
-		if (red >= 50) and (yellow >= 50) then
+		if (red >= 25) and (yellow >= 25) then
 			endingName = "혼합(공부)주황"
 			mix_end[1] = 1
 			loadedEndings.orange = mix_end[1]
 
-		elseif (blue >= 50) and (green >= 50) then
+		elseif (blue >= 25) and (green >= 25) then
 			endingName = "혼합(공부)청록"
 			mix_end[2] = 1
 			loadedEndings.chung = mix_end[2]
-		elseif (red >= 50) and (blue >=50) and (purple>=60) then
+		elseif (red >= 25) and (blue >=25) and (purple>=30) then
 			endingName = "혼합(공부)바이올렛"
 			mix_end[3] = 1
 			loadedEndings.violet = mix_end[3]
 		else
 			pastel()
 		end
-	elseif ((maxStatCode == 2) or (maxStatCode == 3)) and (maxStatVal >= 70) then -- hobby or fun 스탯이 70이상.
-		if (red >= 50) and (yellow >= 50) then
+	elseif ((maxStatCode == 2) or (maxStatCode == 3)) and (maxStatVal >= 35) then -- hobby or fun 스탯이 70이상.
+		if (red >= 25) and (yellow >= 25) then
 			endingName = "혼합(활동)주황"
 			mix_end[4] = 1
 			loadedEndings.act_orange = mix_end[4]
-		elseif (blue >= 50) and (green >= 50) then
+		elseif (blue >= 25) and (green >= 25) then
 			endingName = "혼합(활동)청록"
 			mix_end[5] = 1
 			loadedEndings.act_chung= mix_end[5]
-		elseif (red >= 50) and (blue >=50) and (purple>=50) then
+		elseif (red >= 25) and (blue >=25) and (purple>=25) then
 			endingName = "혼합(활동)바이올렛"
 			mix_end[6] = 1
 			loadedEndings.act_violet = mix_end[6]
@@ -136,8 +136,8 @@ function scene:create( event )
 
 
 --우정엔딩
-	elseif (maxStatCode == 4) or (maxStatVal >= 70) then -- 우정스탯이 70 이상
-		if  (maxColorVal >= 50) then
+	elseif (maxStatCode == 4) or (maxStatVal >= 35) then -- 우정스탯이 70 이상
+		if  (maxColorVal >= 25) then
 			endingName = "우정" .. colorName[maxColorCode]
 			friendship_end[maxColorCode] = 1
 		else
@@ -145,7 +145,7 @@ function scene:create( event )
 		end
 
 --호감도 40 이하
-	elseif (maxStatVal <= 40) or (maxColorVal <= 40) then -- 활동 스탯 및 호감도 스탯이 40이하일 경우
+	elseif (maxStatVal <= 20) or (maxColorVal <= 20) then -- 활동 스탯 및 호감도 스탯이 40이하일 경우
 		--할로윈 이벤트에 따라 굿/배드 나뉨
 		if loadedSettings.goodWhite == 1 then
 			hidden_end[1] = 1
