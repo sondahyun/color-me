@@ -42,7 +42,8 @@ function scene:create( event )
 			timer.cancelAll()
 			if limit > 10 then
 				composer.setVariable("score2", 25)
-			else
+			end
+			if (limit>0 and limit<=10) then
 				composer.setVariable("score2", 15)
 			end
 			composer.removeScene("view07Number")
