@@ -47,7 +47,5 @@ local function on3View( event )
 	composer.gotoScene( "store" )
 end
 
-
-
 onFirstView()	-- invoke first tab button's onPress event manually
 --수정끝

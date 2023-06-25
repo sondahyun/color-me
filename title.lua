@@ -225,6 +225,28 @@ function scene:create( event )
     loadgame:addEventListener("touch",startLoad)
     loadgame:addEventListener("mouse",bigbig)
 
+    -- 메모리 확인 
+    local interval = 1  -- 1초
+    local startTime = os.time()
+
+    local monitorMem = function()
+        local currentTime = os.time()
+        local elapsedTime = currentTime - startTime
+
+        if elapsedTime >= interval then
+            collectgarbage()
+            print("MemUsage: " .. collectgarbage("count")) 
+
+            local textMem = system.getInfo("textureMemoryUsed") / 1000000
+            print("TexMem: " .. textMem)  -- byte 단위 
+
+            startTime = currentTime
+        end
+    end
+
+    timer.performWithDelay(1000, monitorMem, 0)
+
+
 
 
 end

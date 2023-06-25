@@ -128,6 +128,8 @@ function scene:create( event )
 -- 여태 모아두었던 스탯
 -- 스탯의 값에 따라 엔딩 화면 바뀜
 
+	print("끝")
+
 	study = loadedSettings.study
 	fun = loadedSettings.fun
 	hobby = loadedSettings.hobby
@@ -138,6 +140,27 @@ function scene:create( event )
 	green = loadedSettings.green
 	purple = loadedSettings.purple
 	blue = loadedSettings.blue
+
+	function max(...)
+	    local args = {...}
+	    local maxVal = args[1]
+	  
+	    for i = 2, #args do
+	        if args[i] > maxVal then
+	            maxVal = args[i]
+	        end
+	    end
+	  
+	    return maxVal
+	end
+
+	local endColor = max( read, yellow, green, purple, blue )
+	local endStat = max( study, fun, hobby, friendship )
+
+
+
+
+
 
 -- 파스텔 엔딩
 	local function pastel()
