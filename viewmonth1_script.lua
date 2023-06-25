@@ -363,7 +363,8 @@ function scene:create( event )
 		if j == 7 and bf == 1 then
 			audio.pause(music)
 			composer.removeScene("viewmonth1_script")
-         	composer.gotoScene("view01Map",options)
+         	composer.setVariable("color_char", "4")
+			composer.gotoScene("viewgift")
 		end
 	end
 

@@ -575,13 +575,14 @@ function scene:create( event )
 									composer.setVariable("color", color)
 									--audio.pause(music)
 									composer.removeScene("viewmonth2_script")
-	               					composer.gotoScene("zcompliment_script",options)
+	               					composer.gotoScene("zcompliment_script")
 	               				elseif loadedSettings.script2 == 1 then
 	               					print("script2 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth2_script")
-	               					composer.gotoScene("view01Map",options)
+	               					composer.setVariable("color_char", "1")
+									composer.gotoScene("viewgift")
 	               				end
 							end
 						end

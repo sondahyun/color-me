@@ -870,7 +870,8 @@ function scene:create( event )
 							else
 									audio.pause(music)
 								composer.removeScene("viewmonth3_script")
-               					composer.gotoScene("view01Map",options)----수정
+               					composer.setVariable("color_char", "2")
+								composer.gotoScene("viewgift")
 							end
 						end
 					end

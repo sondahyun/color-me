@@ -1365,7 +1365,9 @@ function scene:create( event )
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
-	               					composer.gotoScene("view01Map",options)
+
+									composer.setVariable("color_char", "3")
+									composer.gotoScene("viewgift")
 	               				end
 								--composer.gotoScene("view01Map")
 							end

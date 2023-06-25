@@ -495,7 +495,13 @@ function scene:create( event )
 			if event.phase == "began" then
 				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
-				composer.gotoScene("view01Map",options)	
+
+				if loadedSettings.script2 == 1 then 
+					composer.setVariable("color_char", "1")
+					composer.gotoScene("viewgift")
+				else 
+					composer.gotoScene("view01Map",options)	
+				end
 			end
 		end
 		if loadedSettings.script6 == 1 then
@@ -589,7 +595,13 @@ function scene:create( event )
 			if event.phase == "began" then
 				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
-				composer.gotoScene("view01Map",options)	
+
+				if loadedSettings.script6 == 1 then 
+					composer.setVariable("color_char", "5")
+                  composer.gotoScene("viewgift")
+                 else
+					composer.gotoScene("view01Map",options)	
+				end
 			end
 		end
 		if loadedSettings.script6 == 1 then
@@ -620,7 +632,13 @@ function scene:create( event )
 			if event.phase == "began" then
 				audio.pause(loadedEndings.bgMusic)
 				composer.removeScene("zcompliment_script")
-				composer.gotoScene("view01Map",options)	
+
+				if loadedSettings.script4 == 1 then
+					composer.setVariable("color_char", "3")
+					composer.gotoScene("viewgift")
+				else 
+					composer.gotoScene("view01Map",options)	
+				end
 			end
 		end
 		if loadedSettings.script6 == 1 then
