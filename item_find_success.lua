@@ -12,6 +12,7 @@ function scene:create( event )
 		effect="crossFade",
 		time=1000
 	}
+	print("success!!!")
 
 	  --샘플 볼륨 이미지
     local volumeButton = display.newImage("이미지/타이틀/설정.png")
@@ -351,10 +352,11 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 
 	local color = composer.getVariable("color")
+	print("s: color = "..color)
 
 	--print(loadedSettings.limited_num)
 
-	if color == "1" then
+	if color == 1 then
 					local j = 0
 
 					local function next1(event)
@@ -390,7 +392,7 @@ function scene:create( event )
 					script_1:addEventListener("touch",next1)			
 
 
-	elseif color == "2" then
+	elseif color == 2 then
 					local j = 0
 
 					local function next1(event)
@@ -426,7 +428,8 @@ function scene:create( event )
 					script_4:addEventListener("touch",next1)
 
 
-	elseif color == "3" then
+	elseif color == 3 then
+					print("joy")
 					local j = 0
 
 					local function next1(event)
@@ -461,7 +464,7 @@ function scene:create( event )
 					daewha22[1].alpha = 1
 					script_2:addEventListener("touch",next1)
 			
-	elseif color == "4" then
+	elseif color == 4 then
 					local j = 0
 
 					local function next1(event)
@@ -497,7 +500,7 @@ function scene:create( event )
 					script_5:addEventListener("touch",next1)
 
 				
-	elseif color == "5" then
+	elseif color == 5 then
 					local j = 0
 
 					local function next1(event)

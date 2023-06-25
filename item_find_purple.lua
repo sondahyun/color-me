@@ -82,6 +82,7 @@ function scene:create( event )
 		mic.alpha=1
 		f=f+1
 		timer.cancelAll()      
+		composer.setVariable("color", 4) 
 		composer.removeScene( "item_find_purple" )
       local options={
 			effect ="fade",
@@ -103,6 +104,7 @@ function scene:create( event )
     	if i==3 then
     		display.remove(try1)
         timer.cancelAll()
+		composer.setVariable("color", 4) 
         composer.removeScene( "item_find_purple" )
       	local options={
 				effect ="fade",
@@ -126,6 +128,7 @@ function scene:create( event )
 				time=1000
 				}
 			timer.cancelAll()
+		composer.setVariable("color", 4) 
 			composer.removeScene("item_find_purple")
 			composer.gotoScene("item_find_fail",options)
 		end
