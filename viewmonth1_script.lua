@@ -84,7 +84,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.red = loadedSettings.red + 5
+		loadedSettings.red = loadedSettings.red + 10
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 	local function b2ClickRed(event)
@@ -100,7 +100,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.red = loadedSettings.red + 2
+		loadedSettings.red = loadedSettings.red + 4
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
@@ -119,7 +119,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.blue = loadedSettings.blue + 5
+		loadedSettings.blue = loadedSettings.blue + 10
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 	local function b2ClickBlue(event)
@@ -136,7 +136,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.blue = loadedSettings.blue + 2
+		loadedSettings.blue = loadedSettings.blue + 4
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
@@ -154,7 +154,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.yellow = loadedSettings.yellow + 2
+		loadedSettings.yellow = loadedSettings.yellow + 4
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 	local function b2ClickYellow(event)
@@ -170,7 +170,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.yellow = loadedSettings.yellow + 5
+		loadedSettings.yellow = loadedSettings.yellow + 10
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
@@ -188,7 +188,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.purple = loadedSettings.purple + 2
+		loadedSettings.purple = loadedSettings.purple + 4
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 	local function b2ClickPurple(event)
@@ -204,7 +204,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.purple = loadedSettings.purple + 5
+		loadedSettings.purple = loadedSettings.purple + 10
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
@@ -222,7 +222,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.green = loadedSettings.green + 5
+		loadedSettings.green = loadedSettings.green + 10
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 	local function b2ClickGreen(event)
@@ -238,7 +238,7 @@ function scene:create( event )
 		b2.alpha = 0
 		bt1.alpha = 0
 		bt2.alpha = 0
-		loadedSettings.green = loadedSettings.green + 2
+		loadedSettings.green = loadedSettings.green + 4
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
@@ -501,7 +501,7 @@ function scene:create( event )
 					end
 					Runtime:addEventListener("tap", redPage)
 					if loadedSettings.friendship <101 then
-						loadedSettings.friendship = loadedSettings.friendship + 8
+						loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
 					end
 					print("1번째")
@@ -580,7 +580,7 @@ function scene:create( event )
 					Runtime:addEventListener("tap", bluePage)
 
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print(loadedSettings.limited_num)
@@ -658,7 +658,7 @@ function scene:create( event )
 					Runtime:addEventListener("tap", yellowPage)
 
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print("1번째")
@@ -732,7 +732,7 @@ function scene:create( event )
 					Runtime:addEventListener("tap", purplePage)
 
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print("1번째")
@@ -802,7 +802,7 @@ function scene:create( event )
 					end
 					Runtime:addEventListener("tap", greenPage)
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print("1번째")

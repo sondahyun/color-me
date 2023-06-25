@@ -294,7 +294,7 @@ function scene:create( event )
 	local function two_box(event)
 		if event.phase == "began" then
 
-			loadedSettings.red = loadedSettings.red + 1
+			loadedSettings.red = loadedSettings.red + 2
 			loadsave.saveTable(loadedSettings, "settings.json")
 
 			choose1.alpha = 0

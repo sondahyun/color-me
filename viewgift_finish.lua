@@ -387,7 +387,21 @@ function scene:create( event )
 	end
 
 	local function color_stat(color)
-		loadedSettings.friendship = loadedSettings.friendship + 8
+		loadedSettings.friendship = loadedSettings.friendship + 16
+		if color == 1 then
+			loadedSettings.red = loadedSettings.red + 16
+		elseif color == 2 then
+			loadedSettings.yellow = loadedSettings.yellow + 16
+		elseif color == 3 then
+			loadedSettings.green = loadedSettings.green + 16
+		elseif color == 4 then
+			loadedSettings.blue = loadedSettings.blue + 16
+		elseif color == 5 then
+			loadedSettings.purple = loadedSettings.purple + 16
+		end
+	end
+
+	local function present_stat_good(color)
 		if color == 1 then
 			loadedSettings.red = loadedSettings.red + 8
 		elseif color == 2 then
@@ -401,7 +415,7 @@ function scene:create( event )
 		end
 	end
 
-	local function present_stat_good(color)
+	local function present_stat_soso(color)
 		if color == 1 then
 			loadedSettings.red = loadedSettings.red + 4
 		elseif color == 2 then
@@ -412,20 +426,6 @@ function scene:create( event )
 			loadedSettings.blue = loadedSettings.blue + 4
 		elseif color == 5 then
 			loadedSettings.purple = loadedSettings.purple + 4
-		end
-	end
-
-	local function present_stat_soso(color)
-		if color == 1 then
-			loadedSettings.red = loadedSettings.red + 2
-		elseif color == 2 then
-			loadedSettings.yellow = loadedSettings.yellow + 2
-		elseif color == 3 then
-			loadedSettings.green = loadedSettings.green + 2
-		elseif color == 4 then
-			loadedSettings.blue = loadedSettings.blue + 2
-		elseif color == 5 then
-			loadedSettings.purple = loadedSettings.purple + 2
 		end
 	end
 
@@ -442,7 +442,7 @@ function scene:create( event )
 			happy[color].alpha = 1
 			birthday_good[color].alpha = 1
 		else
-			loadedSettings.friendship = loadedSettings.friendship + 3
+			loadedSettings.friendship = loadedSettings.friendship + 6
 			birthday_bad[color].alpha = 1
 			awkward[color].alpha = 1
 		end

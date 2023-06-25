@@ -78,10 +78,10 @@ function scene:create( event )
 	study[i] = 1
 	stat_num = stat_num + 1
 	if friend_stat[i] <101 then 
-		friend_stat[i] = friend_stat[i] + 3
+		friend_stat[i] = friend_stat[i] + 6
 	end
 	if stat_num < 101 then
-		loadedSettings.study = loadedSettings.study +4
+		loadedSettings.study = loadedSettings.study +8
 	end
 
 	save()

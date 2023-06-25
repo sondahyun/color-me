@@ -539,7 +539,7 @@ function scene:create( event )
 						loadedSettings.show6 = 1
 					end
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print(loadedSettings.friend_num)
@@ -591,7 +591,7 @@ function scene:create( event )
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.red = loadedSettings.red + 5
+							loadedSettings.red = loadedSettings.red + 10
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha11[2].alpha = 0
 							my_daesapan.alpha=1
@@ -644,7 +644,7 @@ function scene:create( event )
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.red = loadedSettings.red + 2
+							loadedSettings.red = loadedSettings.red + 4
 							loadsave.saveTable(loadedSettings,"settings.json")		
 							daewha11[2].alpha = 0
 							my_daesapan.alpha=1
@@ -721,7 +721,7 @@ function scene:create( event )
 						loadedSettings.show6 = 1
 					end
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print(loadedSettings.friend_num)
@@ -771,7 +771,7 @@ function scene:create( event )
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.blue = loadedSettings.blue + 2
+							loadedSettings.blue = loadedSettings.blue + 4
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha41[2].alpha = 0
 							my_daesapan.alpha=1
@@ -828,7 +828,7 @@ function scene:create( event )
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.blue = loadedSettings.blue + 5
+							loadedSettings.blue = loadedSettings.blue + 10
 							loadsave.saveTable(loadedSettings,"settings.json")			
 							daewha41[2].alpha = 0
 							my_daesapan.alpha=1
@@ -902,7 +902,7 @@ function scene:create( event )
 						loadedSettings.show6 = 1
 					end
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print(loadedSettings.friend_num)
@@ -953,7 +953,7 @@ function scene:create( event )
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.yellow = loadedSettings.yellow + 5
+							loadedSettings.yellow = loadedSettings.yellow + 10
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha21[4].alpha = 0
 							my_daesapan.alpha=1
@@ -1010,7 +1010,7 @@ function scene:create( event )
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.yellow = loadedSettings.yellow + 2
+							loadedSettings.yellow = loadedSettings.yellow + 4
 							loadsave.saveTable(loadedSettings,"settings.json")					
 							daewha21[4].alpha = 0
 							--my_daesapan.alpha=1
@@ -1105,7 +1105,7 @@ function scene:create( event )
 						loadedSettings.show6 = 1
 					end
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print(loadedSettings.friend_num)
@@ -1155,7 +1155,7 @@ function scene:create( event )
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.purple = loadedSettings.purple + 5
+							loadedSettings.purple = loadedSettings.purple + 10
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha51[3].alpha = 0
 							my_daesapan.alpha=1
@@ -1213,7 +1213,7 @@ function scene:create( event )
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.purple = loadedSettings.purple + 2
+							loadedSettings.purple = loadedSettings.purple + 4
 							loadsave.saveTable(loadedSettings,"settings.json")					
 							daewha51[3].alpha = 0
 							my_daesapan.alpha=1
@@ -1300,7 +1300,7 @@ function scene:create( event )
 						loadedSettings.show6 = 1
 					end
 					if loadedSettings.friendship <101 then
-                  		loadedSettings.friendship = loadedSettings.friendship + 8
+                  		loadedSettings.friendship = loadedSettings.friendship + 16
 						loadedSettings.friend_num = loadedSettings.friend_num + 1
                		end
 					print(loadedSettings.friend_num)
@@ -1350,7 +1350,7 @@ function scene:create( event )
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.green = loadedSettings.green + 2
+							loadedSettings.green = loadedSettings.green + 4
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha31[2].alpha = 0
 							my_daesapan.alpha=1
@@ -1407,7 +1407,7 @@ function scene:create( event )
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.green = loadedSettings.green + 5
+							loadedSettings.green = loadedSettings.green + 10
 							loadsave.saveTable(loadedSettings,"settings.json")				
 							daewha31[2].alpha = 0
 							my_daesapan.alpha=1
