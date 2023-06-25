@@ -30,7 +30,6 @@ function scene:create( event )
 	fun = loadedSettings.fun
 	hobby = loadedSettings.hobby
 	friendship = loadedSettings.friendship
-
 	red = loadedSettings.red 
 	yellow = loadedSettings.yellow
 	green = loadedSettings.green
@@ -155,11 +154,11 @@ function scene:create( event )
 		elseif loadedSettings.badWhite == 1 then
 			hidden_end[2] = 1
 			loadedEndings.bad = 1
-			endingName = "베드"
+			endingName = "배드"
 		else
 			hidden_end[2] = 1
 			loadedEndings.bad = hidden_end[2]
-			endingName = "베드"
+			endingName = "배드"
 		end
 		
 --파스텔 엔딩
