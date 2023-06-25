@@ -328,7 +328,7 @@ function scene:create( event )
 			my_daesapan.alpha=1
 			daesapan.alpha=0
 
-			loadedSettings.blue = loadedSettings.blue + 2
+			loadedSettings.blue = loadedSettings.blue + 1
 			loadsave.saveTable(loadedSettings, "settings.json")
 			choose1:removeEventListener("touch",next2)
 			daesapan:addEventListener("touch",next2_1)

@@ -590,7 +590,7 @@ local daewha21 = {}
 
 					local function next1(event) --대화창에 내가 선택한거 보여주기 위한 함수. next1_1로 넘어감
 						if event.phase == "began" then
-							loadedSettings.red = loadedSettings.red + 10
+							loadedSettings.red = loadedSettings.red + 5
 							loadsave.saveTable(loadedSettings,"settings.json")
 							my_daesapan.alpha=1
 							my.alpha = 1
@@ -632,7 +632,7 @@ local daewha21 = {}
 
 					local function next2(event) --대화창에 내가 선택한거 보여주기 위한 함수. next1_2로 넘어감
 						if event.phase == "began" then
-							loadedSettings.red = loadedSettings.red + 4
+							loadedSettings.red = loadedSettings.red + 2
 							loadsave.saveTable(loadedSettings,"settings.json")		
 							daewha11[1].alpha = 0
 							my_daesapan.alpha=1
@@ -740,7 +740,7 @@ local daewha21 = {}
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.blue = loadedSettings.blue + 4
+							loadedSettings.blue = loadedSettings.blue + 2
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha41[1].alpha = 0
 							my_daesapan.alpha=1
@@ -783,7 +783,7 @@ local daewha21 = {}
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.blue = loadedSettings.blue + 10
+							loadedSettings.blue = loadedSettings.blue + 5
 							loadsave.saveTable(loadedSettings,"settings.json")	
 							daewha41[1].alpha = 0
 							my_daesapan.alpha=1
@@ -887,7 +887,7 @@ local daewha21 = {}
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.yellow = loadedSettings.yellow + 10
+							loadedSettings.yellow = loadedSettings.yellow + 5
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha21[1].alpha = 0
 							my_daesapan.alpha=1
@@ -930,7 +930,7 @@ local daewha21 = {}
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.yellow = loadedSettings.yellow + 4
+							loadedSettings.yellow = loadedSettings.yellow + 2
 							loadsave.saveTable(loadedSettings,"settings.json")					
 							daewha21[1].alpha = 0
 							my_daesapan.alpha=1
@@ -1029,7 +1029,7 @@ local daewha21 = {}
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.purple = loadedSettings.purple + 10
+							loadedSettings.purple = loadedSettings.purple + 5
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha51[1].alpha = 0
 							my_daesapan.alpha=1
@@ -1074,7 +1074,7 @@ local daewha21 = {}
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.purple = loadedSettings.purple + 4
+							loadedSettings.purple = loadedSettings.purple + 2
 							loadsave.saveTable(loadedSettings,"settings.json")					
 							daewha51[1].alpha = 0
 							my_daesapan.alpha=1
@@ -1174,7 +1174,7 @@ local daewha21 = {}
 
 					local function next1(event)
 						if event.phase == "began" then
-							loadedSettings.green = loadedSettings.green + 4
+							loadedSettings.green = loadedSettings.green + 2
 							loadsave.saveTable(loadedSettings,"settings.json")
 							daewha31[1].alpha = 0
 							my_daesapan.alpha=1
@@ -1218,7 +1218,7 @@ local daewha21 = {}
 
 					local function next2(event)
 						if event.phase == "began" then
-							loadedSettings.green = loadedSettings.green + 10
+							loadedSettings.green = loadedSettings.green + 5
 							loadsave.saveTable(loadedSettings,"settings.json")				
 							daewha31[1].alpha = 0
 							my_daesapan.alpha=1

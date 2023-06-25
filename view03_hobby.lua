@@ -81,15 +81,15 @@ function scene:create( event )
 
 	if friend_stat[i] <101 then 
 		if i == 1 then
-			friend_stat[3] = friend_stat[3] + 6
+			friend_stat[3] = friend_stat[3] + 3
 		elseif i == 2 then
-			friend_stat[1] = friend_stat[1] + 6
+			friend_stat[1] = friend_stat[1] + 3
 		elseif i == 3 then
-			friend_stat[4] = friend_stat[4] + 6
+			friend_stat[4] = friend_stat[4] + 3
 		elseif i == 4 then
-			friend_stat[2] = friend_stat[2] + 6
+			friend_stat[2] = friend_stat[2] + 3
 		else
-			friend_stat[5] = friend_stat[5] + 6
+			friend_stat[5] = friend_stat[5] + 3
 		end
 	end
 	if stat_num < 101 then
