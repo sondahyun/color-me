@@ -20,10 +20,6 @@ function scene:create( event )
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedEndings = loadsave.loadTable( "endings.json" )
 
-	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
-
-	print("음악." .. loadedEndings.logValue)
-
 	local function touch(event)
 --		audio.stop()
 		if event.phase == "began" then
@@ -37,11 +33,6 @@ function scene:create( event )
 				composer.removeScene("view01_month")
 				composer.gotoScene("viewmonth_birthday")	
 			elseif num == 0 then
-				-- audio.setVolume( loadedEndings.logValue )
-				-- audio.stop( 1 )
-				-- local home = audio.loadStream( "음악/집.mp3" )
-				-- audio.setVolume( loadedEndings.logValue , {channel = 1})
-				-- audio.play(home, { channel = 1 } )
 
 				loadedEndings.bgMusic = "음악/집.mp3"
        		 	loadsave.saveTable(loadedEndings,"endings.json")
@@ -52,15 +43,12 @@ function scene:create( event )
 		end
 	end
 
-	
+	local backgroundName = "1이른봄의달"
+
 -- 다음 달로 넘어갈 때 미리 이전 달, 다음 달 글씨 저장.
 
 	if loadedSettings.month == 0 then
-		--month.text = "1월"
-		month1 = display.newImage("이미지/월별이미지/1이른봄의달.png")
-		month1.x, month1.y = display.contentWidth/2,display.contentHeight/2
-		month1:addEventListener("touch",touch)
-		sceneGroup:insert(month1)
+		backgroundName = "1이른봄의달"
 		loadedSettings.former01 = "-파랑 마을 위즈의 생일"
 		loadedSettings.former02 = ""
 		loadedSettings.former1 = "-위즈 생일"
@@ -70,10 +58,8 @@ function scene:create( event )
 		loadsave.saveTable(loadedSettings,"settings.json")
 
 	elseif loadedSettings.month == 1 then
-		month2 = display.newImage("이미지/월별이미지/2꽃피는달.png")
-		month2.x, month2.y = display.contentWidth/2,display.contentHeight/2
-		month2:addEventListener("touch",touch)
-		sceneGroup:insert(month2)
+		backgroundName = "2꽃피는달"
+
 		loadedSettings.former02 = "-빨강 마을 블리의 생일"
 		loadedSettings.former01 = ""
 		loadedSettings.former2 = ""
@@ -83,10 +69,7 @@ function scene:create( event )
 		loadsave.saveTable(loadedSettings,"settings.json")
 		--month.text = "2월"
 	elseif loadedSettings.month == 2 then
-		month3 = display.newImage("이미지/월별이미지/3해변달.png")
-		month3.x, month3.y = display.contentWidth/2,display.contentHeight/2
-		month3:addEventListener("touch",touch)
-		sceneGroup:insert(month3)
+		backgroundName = "3해변달"
 		
 		--month.text = "3월"
 		loadedSettings.former1 = "-조이 생일"
@@ -97,10 +80,7 @@ function scene:create( event )
 		loadedSettings.next2 = ""
 		loadsave.saveTable(loadedSettings,"settings.json")
 	elseif loadedSettings.month == 3 then
-		month4 = display.newImage("이미지/월별이미지/4단풍달.png")
-		month4.x, month4.y = display.contentWidth/2,display.contentHeight/2
-		month4:addEventListener("touch",touch)
-		sceneGroup:insert(month4)
+		backgroundName = "4단풍달"
 		loadedSettings.former1 = "-솔리 생일"
 		loadedSettings.former2 = ""
 		loadedSettings.former01 = "-초록 마을 솔리의 생일"
@@ -109,11 +89,8 @@ function scene:create( event )
 		loadedSettings.next2 = ""
 		loadsave.saveTable(loadedSettings,"settings.json")
 	elseif loadedSettings.month == 4 then
-		month5 = display.newImage("이미지/월별이미지/5도토리달.png")
-		month5.x, month5.y = display.contentWidth/2,display.contentHeight/2
-		month5:addEventListener("touch",touch)
-		sceneGroup:insert(month5)
-		
+		backgroundName = "5도토리달"
+
 		loadedSettings.former1 = "-오싹한 도토리 축제"
 		loadedSettings.former2 = ""
 		loadedSettings.former01 = "-오싹한 도토리 축제"
@@ -123,10 +100,7 @@ function scene:create( event )
 		loadsave.saveTable(loadedSettings,"settings.json")
 
 	elseif loadedSettings.month == 5 then
-		month6 = display.newImage("이미지/월별이미지/6눈꽃달.png")
-		month6.x, month6.y = display.contentWidth/2,display.contentHeight/2
-		month6:addEventListener("touch",touch)
-		sceneGroup:insert(month6)
+		backgroundName = "6눈꽃달"
 		month.text = "마지막 달"
 		loadedSettings.former1 = "-나의 생일"
 		loadedSettings.former2 = "-레이 생일"
@@ -136,6 +110,12 @@ function scene:create( event )
 		loadedSettings.next2 = ""
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
+
+	local background = display.newImage("이미지/월별이미지/" .. backgroundName .. ".png")
+	background.x, background.y = display.contentWidth/2,display.contentHeight/2
+	sceneGroup:insert(background)
+	background:addEventListener("touch",touch)
+
 
 end
 
