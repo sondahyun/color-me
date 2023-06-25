@@ -41,9 +41,9 @@ function scene:create( event )
 		if event.target.id == 16 and event.target.id == currentNum then
 			timer.cancelAll()
 			if limit > 10 then
-				composer.setVariable("score2", 15)
+				composer.setVariable("score2", 25)
 			else
-				composer.setVariable("score2", 10)
+				composer.setVariable("score2", 15)
 			end
 			composer.removeScene("view07Number")
 			composer.gotoScene("view08Number")

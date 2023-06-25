@@ -172,10 +172,10 @@ function scene:create( event )
 			if event.phase == "ended" then
 				score_num = score_num + 1
 				if score_num == 6 then
-					score1 = 10
+					score1 = 15
 					showScore.text = score1
 				elseif score_num == 15 then
-					score1 = 15
+					score1 = 25
 					showScore.text = score1
 				end
 				transition.cancel("pop")
@@ -224,10 +224,10 @@ function scene:create( event )
 			if event.phase == "ended" then
 				score_num = score_num + 1
 				if score_num == 6 then
-					score1 = 10
+					score1 = 15
 					showScore.text = score1
 				elseif score_num == 15 then
-					score1 = 15
+					score1 = 25
 					showScore.text = score1
 				end
 
@@ -279,10 +279,10 @@ function scene:create( event )
 			if event.phase == "ended" then
 				score_num = score_num + 1
 				if score_num == 6 then
-					score1 = 10
+					score1 = 15
 					showScore.text = score1
 				elseif score_num == 15 then
-					score1 = 15
+					score1 = 25
 					showScore.text = score1
 				end
 				transition.cancel("pop2")
