@@ -380,7 +380,7 @@ function scene:create( event )
 
 	local function find_birth(color, month)
 		local answer = 0
-		if ((color==1) and (loadedSettings.month==1)) or ((color == 2) and (loadedSettings.month==2)) or ((color == 3) and (loadedSettings.month==3)) or ((color == 4) and (loadedSettings.month==0)) or ((color == 5) and (loadedSettings.month==5)) then
+		if ((color==1) and (month==1)) or ((color == 2) and (month==2)) or ((color == 3) and (month==3)) or ((color == 4) and (month==0)) or ((color == 5) and (month==5)) then
 			answer = 1
 		end
 		return answer

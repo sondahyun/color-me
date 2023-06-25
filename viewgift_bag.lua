@@ -18,13 +18,13 @@ function scene:create( event )
 	local color_char = composer.getVariable("color_char")
 	if color_char == "1" then
 		color = 1 
-	elseif color_char == "3" then
-		color = 2
-	elseif color_char == "5" then
-		color = 3
 	elseif color_char == "2" then
-		color = 4
+		color = 2
+	elseif color_char == "3" then
+		color = 3
 	elseif color_char == "4" then
+		color = 4
+	elseif color_char == "5" then
 		color = 5
 	end
 	--local color = composer.getVariable("color")
