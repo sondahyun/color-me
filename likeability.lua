@@ -121,13 +121,11 @@ function scene:create( event )
 	local hrt3 = {}
 	local hrt4 = {}
 	local hrt5 = {}
-	print(red.. "red"..green.."green" .. yellow .."yellow"..blue.."blue"..purple.."purple")
 	
 	 for i = 1,red do
         hrt1[i] = display.newImage("이미지/호감도/호감도 하트.png")
         hrt1[i].x, hrt1[i].y = display.contentWidth*(0.269 + ((i-1) * 0.025)), display.contentHeight*0.519
         hrt1[i].alpha = 0
-		print(red.. "red" .. i)
 		sceneGroup:insert(hrt1[i])
 	end
 
@@ -136,14 +134,12 @@ function scene:create( event )
         hrt2[i].x, hrt2[i].y = display.contentWidth*(0.448 + ((i-1) * 0.025)), display.contentHeight*0.519
         hrt2[i].alpha = 0
 		sceneGroup:insert(hrt2[i])
-		print(green.."green" .. i)
 	end
 
 	for i = 1, yellow do
         hrt3[i] = display.newImage("이미지/호감도/호감도 하트.png")
         hrt3[i].x, hrt3[i].y = display.contentWidth*(0.627 + ((i-1) * 0.025)), display.contentHeight*0.519
         hrt3[i].alpha = 0
-		print(yellow.."yellow" .. i)
 		sceneGroup:insert(hrt3[i])
 	end
 
@@ -152,7 +148,6 @@ function scene:create( event )
         hrt4[i].x, hrt4[i].y = display.contentWidth*(0.359 + ((i-1) * 0.025)), display.contentHeight*0.792
         hrt4[i].alpha = 0
 		sceneGroup:insert(hrt4[i])
-		print(blue.."blue" .. i)
 	end
 
 	for i = 1, purple do
@@ -160,7 +155,6 @@ function scene:create( event )
         hrt5[i].x, hrt5[i].y = display.contentWidth*(0.538 + ((i-1) * 0.025)), display.contentHeight*0.792
         hrt5[i].alpha = 0
 		sceneGroup:insert(hrt5[i])
-		print(purple.."purple" .. i)
 	end
 
 
