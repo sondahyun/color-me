@@ -30,7 +30,6 @@ function scene:create( event )
 	fun = loadedSettings.fun
 	hobby = loadedSettings.hobby
 	friendship = loadedSettings.friendship
-
 	red = loadedSettings.red 
 	yellow = loadedSettings.yellow
 	green = loadedSettings.green
