@@ -207,22 +207,30 @@ print("00room")
 
 	
 
-	local play = display.newRect(display.contentWidth*0.12,display.contentHeight*0.085, display.contentWidth*loadedSettings.fun*0.00174*2 ,display.contentHeight*0.023)
-	play.anchorX,play.anchorY = 0,0.5
+	local play = display.newRect(display.contentWidth * 0.12, display.contentHeight * 0.085,
+	  (loadedSettings.fun > 50 and display.contentWidth * 0.174) or (display.contentWidth * loadedSettings.fun * 0.00174 * 2),
+	  display.contentHeight * 0.023)
+  	play.anchorX,play.anchorY = 0,0.5
 	play:setFillColor(0.643,0.384,0.666)
 	sceneGroup:insert(play)
 
-	local hobby = display.newRect(display.contentWidth*0.12,display.contentHeight*0.14, display.contentWidth*loadedSettings.hobby*0.00174*2 ,display.contentHeight*0.023)
+	local hobby = display.newRect(display.contentWidth * 0.12, display.contentHeight * 0.14,
+	  (loadedSettings.hobby > 50 and display.contentWidth * 0.174) or (display.contentWidth * loadedSettings.hobby * 0.00174 * 2),
+	  display.contentHeight * 0.023)
 	hobby.anchorX,hobby.anchorY = 0,0.5
 	hobby:setFillColor(0.98, 0.556 , 0.219)
 	sceneGroup:insert(hobby)
 
-	local study = display.newRect(display.contentWidth*0.12,display.contentHeight*0.195, display.contentWidth*loadedSettings.study*0.00174*2 ,display.contentHeight*0.023)
+	local study = display.newRect(display.contentWidth * 0.12, display.contentHeight * 0.195,
+	  (loadedSettings.study > 50 and display.contentWidth * 0.174) or (display.contentWidth * loadedSettings.study * 0.00174 * 2),
+	  display.contentHeight * 0.023)
 	study.anchorX,study.anchorY = 0,0.5
 	study:setFillColor(0.46,0.537,0.752)
 	sceneGroup:insert(study)
 
-	local friendly = display.newRect(display.contentWidth*0.12,display.contentHeight*0.254, display.contentWidth*loadedSettings.friendship*0.00174*2 ,display.contentHeight*0.023)
+	local friendly = display.newRect(display.contentWidth * 0.12, display.contentHeight * 0.254,
+	  (loadedSettings.friendship > 50 and display.contentWidth * 0.174) or (display.contentWidth * loadedSettings.friendship * 0.00174 * 2),
+	  display.contentHeight * 0.023)
 	friendly.anchorX,friendly.anchorY = 0,0.5
 	friendly:setFillColor(0.933,0.474,0.474)
 	sceneGroup:insert(friendly)

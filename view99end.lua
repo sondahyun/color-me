@@ -139,6 +139,17 @@ function scene:create( event )
 		if  (maxColorVal >= 25) then
 			endingName = "우정" .. colorName[maxColorCode]
 			friendship_end[maxColorCode] = 1
+			if (colorName[maxColorCode] == "빨강") then
+				loadedEndings.red = 1
+			elseif (colorName[maxColorCode] == "노랑") then
+				loadedEndings.yellow = 1
+			elseif (colorName[maxColorCode] == "초록") then
+				loadedEndings.green = 1
+			elseif (colorName[maxColorCode] == "파랑") then
+				loadedEndings.blue = 1
+			elseif (colorName[maxColorCode] == "보라") then
+				loadedEndings.purple = 1
+			end
 		else
 			pastel()
 		end

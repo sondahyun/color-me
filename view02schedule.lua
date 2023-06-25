@@ -123,22 +123,44 @@ function scene:create( event )
 
 	-- 스탯 게이지 --
 
-	local play_bar = display.newRect(display.contentWidth*0.7440,display.contentWidth*0.04583,display.contentHeight*0.25*(loadedSettings.fun/50) ,display.contentHeight*0.0146)
+	local play_bar
+	if loadedSettings.fun >= 50 then
+	  play_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.04583, display.contentHeight*0.25, display.contentHeight*0.0146)
+	else
+	  play_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.04583, display.contentHeight*0.25*(loadedSettings.fun/50), display.contentHeight*0.0146)
+	end
 	play_bar.anchorX,play_bar.anchorY = 0,0.5
 	play_bar:setFillColor(0.643,0.384,0.666)
 	sceneGroup:insert(play_bar)
 
-	local hobby_bar = display.newRect(display.contentWidth*0.7440,display.contentWidth*0.0718, display.contentHeight*0.25*(loadedSettings.hobby/50) ,display.contentHeight*0.0146)
+	local hobby_bar
+	if loadedSettings.hobby >= 50 then
+	  hobby_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.0718, display.contentHeight*0.25, display.contentHeight*0.0146)
+	else
+	  hobby_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.0718, display.contentHeight*0.25*(loadedSettings.hobby/50), display.contentHeight*0.0146)
+	end
 	hobby_bar.anchorX,hobby_bar.anchorY = 0,0.5
 	hobby_bar:setFillColor(0.98, 0.556 , 0.219)
 	sceneGroup:insert(hobby_bar)
 
-	local study_bar = display.newRect(display.contentWidth*0.7440,display.contentWidth*0.0979, display.contentHeight*0.25*(loadedSettings.study/50) ,display.contentHeight*0.0146)
+	local study_bar
+	if loadedSettings.study >= 50 then
+	  study_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.0979, display.contentHeight*0.25, display.contentHeight*0.0146)
+	else
+	  study_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.0979, display.contentHeight*0.25*(loadedSettings.study/50), display.contentHeight*0.0146)
+	end
 	study_bar.anchorX,study_bar.anchorY = 0,0.5
 	study_bar:setFillColor(0.46,0.537,0.752)
 	sceneGroup:insert(study_bar)
 
-	local friendly_bar = display.newRect(display.contentWidth*0.7440,display.contentWidth*0.1239, display.contentHeight*0.25*(loadedSettings.friendship/50) ,display.contentHeight*0.0146)
+	local friendly_bar
+
+	if loadedSettings.friendship >= 50 then
+	  friendly_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.1239, display.contentHeight*0.25, display.contentHeight*0.0146)
+	else
+	  friendly_bar = display.newRect(display.contentWidth*0.7440, display.contentWidth*0.1239, display.contentHeight*0.25*(loadedSettings.friendship/50), display.contentHeight*0.0146)
+	end
+
 	friendly_bar.anchorX,friendly_bar.anchorY = 0,0.5
 	friendly_bar:setFillColor(0.933,0.474,0.474)
 	sceneGroup:insert(friendly_bar)
