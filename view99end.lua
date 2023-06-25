@@ -154,11 +154,11 @@ function scene:create( event )
 		elseif loadedSettings.badWhite == 1 then
 			hidden_end[2] = 1
 			loadedEndings.bad = 1
-			endingName = "베드"
+			endingName = "배드"
 		else
 			hidden_end[2] = 1
 			loadedEndings.bad = hidden_end[2]
-			endingName = "베드"
+			endingName = "배드"
 		end
 		
 --파스텔 엔딩
