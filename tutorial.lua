@@ -7,11 +7,17 @@ local json = require( "json" )
 
 local i
 local j = 1
+
+local objectsToDestroy = {}
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local b = {}
 
 	bGroup = display.newGroup()
+
+	table.insert(objectsToDestroy, bGroup)
+
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	mainName = loadedSettings.name
 
@@ -23,6 +29,7 @@ function scene:create( event )
 	--배경
 	for i = 1, 26 do
 		b[i] = display.newImage(bGroup, "이미지/오프닝/" .. i .. ".png")
+		table.insert(objectsToDestroy, b[i])
 	end
 	bGroup.x,bGroup.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(bGroup)
@@ -85,6 +92,7 @@ function scene:create( event )
 			t[i]:setFillColor(alpha)
 		end
 		sceneGroup:insert(t[i])
+		table.insert(objectsToDestroy, b[i])
 	end
 
 	-- 화면전환
@@ -115,6 +123,7 @@ function scene:create( event )
 	local function skip_tutorial()
 		skipButton.alpha = 0
 		Runtime:removeEventListener("tap", next1)
+
 		composer.removeScene("tutorial")
 		audio.pause(tutorialMusic)
 		composer.gotoScene( "view01_guide(new)" )
@@ -123,6 +132,16 @@ function scene:create( event )
 	skipButton:addEventListener("tap",skip_tutorial) 
 	Runtime:addEventListener("tap", next1)
 
+	
+
+end
+
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        local object = objectsToDestroy[i]
+        object:removeSelf()
+        object = nil
+    end
 end
 
 function scene:show( event )
@@ -155,7 +174,8 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
-	
+
+	destroyObjects()
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 
 	-- INSERT code here to cleanup the scene

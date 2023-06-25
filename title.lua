@@ -245,10 +245,6 @@ function scene:create( event )
     end
 
     timer.performWithDelay(1000, monitorMem, 0)
-
-
-
-
 end
 
 function scene:show( event )
@@ -281,7 +277,6 @@ end
 
 function scene:destroy( event )
     local sceneGroup = self.view
-    
     -- Called prior to the removal of scene's "view" (sceneGroup)
     -- 
     -- INSERT code here to cleanup the scene

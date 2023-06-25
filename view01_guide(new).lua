@@ -5,6 +5,7 @@ local scene = composer.newScene()
 local widget = require("widget")
 local json = require( "json" ) 
 
+local objectsToDestroy = {}
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -13,18 +14,22 @@ function scene:create( event )
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
 	image:toBack()
 	image.alpha = 0
+	table.insert(objectsToDestroy, image)
 
 	local image1 = display.newImage("이미지/(신)튜토리얼/0_6-2/" .. 0 .. ".png")
 	image1.x, image1.y = display.contentWidth/2,display.contentHeight/2
 	image1:toBack()
+	table.insert(objectsToDestroy, image1)
 
     local startBt = display.newImage("이미지/(신)튜토리얼/start버튼.png")
     startBt.x,startBt.y = display.contentWidth * 0.69, display.contentHeight * 0.42
     startBt.alpha = 1
+    table.insert(objectsToDestroy, startBt)
 
     local skipBt = display.newImage("이미지/(신)튜토리얼/skip버튼.png")
     skipBt.x,skipBt.y = display.contentWidth * 0.84, display.contentHeight * 0.42
     skipBt.alpha = 1
+    table.insert(objectsToDestroy, skipBt)
 
 	-- finger animation 
 	local sheetOptions =
@@ -51,6 +56,7 @@ function scene:create( event )
 	finger.x, finger.y = 1169.13+140,56.63 + 200
 	finger.alpha = 0
 	sceneGroup:insert(finger)
+	table.insert(objectsToDestroy, finger)
 	
 	finger:play()
 	finger.rotation = 270
@@ -90,6 +96,8 @@ function scene:create( event )
 	--투명 유령버튼 코드
     local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
 
+    table.insert(objectsToDestroy, ghost_button)
+
 	local isButton = {
 		1,1,0,1,0,
 		1,0,0,0,0,
@@ -123,6 +131,7 @@ function scene:create( event )
 			sceneGroup:insert(startBt)
 			sceneGroup:insert(ghost_button)
 			ghost_button:removeEventListener("tap",nextScript)
+			sceneGroup = nil
 			composer.removeScene("view01_guide(new)")
 			composer.gotoScene("view01_guide(new)2")
 		end
@@ -172,6 +181,15 @@ function scene:create( event )
  	
 end
 
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
+end
+
+
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
@@ -202,7 +220,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
-	
+	destroyObjects()
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 
 	-- INSERT code here to cleanup the scene

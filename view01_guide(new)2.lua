@@ -4,6 +4,7 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local widget = require("widget")
 local json = require( "json" ) 
+local objectsToDestroy = {}
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -12,12 +13,14 @@ function scene:create( event )
 	local image = display.newImage("이미지/(신)튜토리얼/6-3_7-3/" .. 0 .. ".png")
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
 	image:toBack()
+	table.insert(objectsToDestroy, image)
 
     local noBt = display.newImage("이미지/공통/no버튼.png")
     noBt.x,noBt.y = display.contentWidth * 0.578, display.contentHeight * 0.608
     noBt.alpha = 0
     noBt.height = 68
     noBt.width = 239
+    table.insert(objectsToDestroy, noBt)
 
 	-- finger animation 
 	local sheetOptions =
@@ -27,6 +30,7 @@ function scene:create( event )
 	    numFrames = 18,
 	    sheetContentWidth=1800, sheetContentHeight=900
 	}
+
 
 	local fingerMotion = graphics.newImageSheet("이미지/(신)튜토리얼/손가락.png",sheetOptions)
 
@@ -44,6 +48,7 @@ function scene:create( event )
 	finger.x, finger.y = 1169.13+140,56.63 + 200
 	finger.alpha = 0
 	sceneGroup:insert(finger)
+	table.insert(objectsToDestroy, finger)
 	
 	finger:play()
 	finger.rotation = 270
@@ -81,6 +86,8 @@ function scene:create( event )
     local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
     ghost_button.x, ghost_button.y = display.contentWidth/2,display.contentHeight/2
 	ghost_button:scale( 5, 5)
+	table.insert(objectsToDestroy, ghost_button)
+	
 	local isButton = {
 		0,0,0,0,
 		1,0,0,1,
@@ -115,6 +122,7 @@ function scene:create( event )
 			sceneGroup:insert(noBt)
 			sceneGroup:insert(ghost_button)
 			ghost_button:removeEventListener("tap",nextScript)
+			sceneGroup = nil
 			composer.removeScene("view01_guide(new)2")
 			composer.gotoScene("view01_guide(new)3")
 		end
@@ -160,6 +168,14 @@ function scene:create( event )
 	noBt:addEventListener("tap",nextScript) 	
 end
 
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
+end
+
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
@@ -190,6 +206,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
+	destroyObjects()
 	
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 

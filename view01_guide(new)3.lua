@@ -5,6 +5,7 @@ local scene = composer.newScene()
 local widget = require("widget")
 local json = require( "json" ) 
 
+local objectsToDestroy = {}
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -13,6 +14,7 @@ function scene:create( event )
 	local image = display.newImage("이미지/(신)튜토리얼/8_8-7/" .. 0 .. ".png")
 	image.x, image.y = display.contentWidth/2,display.contentHeight/2
 	image:toBack()
+	table.insert(objectsToDestroy, image)
 
 	-- finger animation 
 	local sheetOptions =
@@ -39,6 +41,7 @@ function scene:create( event )
 	finger.x, finger.y = 1169.13+470,356.63 + 270
 	finger.alpha = 1
 	sceneGroup:insert(finger)
+	table.insert(objectsToDestroy, finger)
 	
 	finger:play()
 
@@ -57,6 +60,7 @@ function scene:create( event )
 	}
 	ghost_button.anchorX,ghost_button.anchorY = 0,0
 	ghost_button.x, ghost_button.y = 1680,356.63 + 500
+	table.insert(objectsToDestroy, ghost_button)
 	local buttonLocation = {
 		{700 ,500}, -- 상점
 		{180,300}, --연필
@@ -82,6 +86,7 @@ function scene:create( event )
 			sceneGroup:insert(image)
 			sceneGroup:insert(finger)
 			sceneGroup:insert(ghost_button)
+			sceneGroup = nil
 			composer.removeScene("view01_guide(new)3")
 			composer.gotoScene("view01_month")
 		end
@@ -120,6 +125,14 @@ function scene:create( event )
  	
 end
 
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
+end
+
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
@@ -150,7 +163,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
-	
+	destroyObjects()
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 
 	-- INSERT code here to cleanup the scene
