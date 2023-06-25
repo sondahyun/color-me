@@ -197,6 +197,10 @@ function scene:create( event )
 	table.insert(objectsToDestroy, title)
 	transition.to(title,{time=2000,alpha=1,delay=3000})
 
+	-- 로드관련 코드
+	if loadedEndings.end_num == 0 then 
+		loadedEndings.end_num=loadedEndings.end_num+1
+	end
 	-- 저장
 	loadedEndings.pastel_red = pastel_end[1]
 	loadedEndings.pastel_yellow = pastel_end[2]
