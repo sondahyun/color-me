@@ -3,6 +3,7 @@
 local composer = require( "composer" )
 local scene = composer.newScene()
 local loadsave = require( "loadsave" )
+local objectsToDestroy = {} 
 
 function scene:create( event )
     -- showoverlay 함수 사용 option
@@ -37,6 +38,7 @@ function scene:create( event )
    my.alpha = 0
    my:setFillColor(1)
    sceneGroup:insert(my)
+   table.insert(objectsToDestroy, my)
   
    local find1 = composer.getVariable("find1")
   local find2= composer.getVariable("find2")
@@ -189,12 +191,15 @@ function scene:create( event )
          b1 = display.newImage("이미지/대화/선택지/주인공.png")
          b1.x, b1.y = display.contentWidth*0.167,display.contentHeight*0.505
          sceneGroup:insert(b1)
+         table.insert(objectsToDestroy, b1)
          b2 = display.newImage("이미지/대화/선택지/주인공.png")
          b2.x, b2.y = display.contentWidth*0.5,display.contentHeight*0.505
          sceneGroup:insert(b2)
+         table.insert(objectsToDestroy, b2)
          b3 = display.newImage("이미지/대화/선택지/주인공.png")
          b3.x, b3.y = display.contentWidth*0.832,display.contentHeight*0.505
          sceneGroup:insert(b3)
+         table.insert(objectsToDestroy, b3)
 
 
 
@@ -210,6 +215,7 @@ function scene:create( event )
          bt1 = display.newText(option2)
          bt1:setFillColor(1)
          sceneGroup:insert(bt1)
+         table.insert(objectsToDestroy, bt1)
 
          b1:addEventListener("touch",b1Click)
 
@@ -225,6 +231,7 @@ function scene:create( event )
          bt2 = display.newText(option3)
          bt2:setFillColor(1)
          sceneGroup:insert(bt2)
+         table.insert(objectsToDestroy, bt2)
 
          b2:addEventListener("touch",b2Click)
 
@@ -232,6 +239,7 @@ function scene:create( event )
          bt3:setFillColor(1)
          bt3.anchorX,bt3.anchorY = 0,0
          sceneGroup:insert(bt3)
+         table.insert(objectsToDestroy, bt3)
 
          b3:addEventListener("touch",b3Click)
       end
@@ -406,6 +414,7 @@ function scene:create( event )
 	b[4] = display.newImage(bGroup, "이미지/이벤트/도토리 이벤트/3.png")
 	bGroup.x,bGroup.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(bGroup)
+   table.insert(objectsToDestroy, bGroup)
     --대화창
     s[1] = display.newImage("이미지/대화/대화창/주인공.png", display.contentWidth/2,display.contentHeight*0.8)
     s[2] = display.newImage("이미지/대화/대화창/주인공.png", display.contentWidth/2,display.contentHeight*0.8)
@@ -425,6 +434,8 @@ function scene:create( event )
         t[i].anchorX,t[i].anchorY = 0.0,0.0
         sceneGroup:insert(s[i])
         sceneGroup:insert(t[i])
+        table.insert(objectsToDestroy, s[i])
+        table.insert(objectsToDestroy, t[i])
         s[i]:addEventListener("tap",Page)
    end
 
@@ -445,6 +456,8 @@ function scene:create( event )
 	bGood1[6] = display.newImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/굿엔딩분기1.png")
 	GoodEnding1.x,GoodEnding1.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(GoodEnding1)
+   table.insert(objectsToDestroy, GoodEnding1)
+
    --대화창
    sGood1[1] = display.newImage("이미지/대화/대화창/블리.png", display.contentWidth/2,display.contentHeight*0.8)
    sGood1[2] = display.newImage("이미지/대화/대화창/위즈.png", display.contentWidth/2,display.contentHeight*0.8)
@@ -473,6 +486,9 @@ function scene:create( event )
       sceneGroup:insert(cGood1[i])
       sceneGroup:insert(sGood1[i])
       sceneGroup:insert(tGood1[i])
+      table.insert(objectsToDestroy, cGood1[i])
+      table.insert(objectsToDestroy, sGood1[i])
+      table.insert(objectsToDestroy, tGood1[i])
       sGood1[i].alpha = 0
       cGood1[i].alpha = 0
       tGood1[i].alpha = 0
@@ -493,6 +509,7 @@ function scene:create( event )
    bGood2[9] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
    GoodEnding2.x,GoodEnding2.y = display.contentWidth/2,display.contentHeight/2
    sceneGroup:insert(GoodEnding2)
+   table.insert(objectsToDestroy, GoodEnding2)
 
    --대화창
    sGood2[1] = display.newImage("이미지/대화/대화창/주인공.png", display.contentWidth/2,display.contentHeight*0.8)
@@ -531,6 +548,9 @@ function scene:create( event )
       sceneGroup:insert(cGood2[i])
       sceneGroup:insert(sGood2[i])
       sceneGroup:insert(tGood2[i])
+      table.insert(objectsToDestroy, cGood2[i])
+      table.insert(objectsToDestroy, sGood2[i])
+      table.insert(objectsToDestroy, tGood2[i])
       bGood2[i].alpha = 0
       sGood2[i].alpha = 0
       cGood2[i].alpha = 0
@@ -548,6 +568,7 @@ function scene:create( event )
    bBad[6] = display.newImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
    BadEnding.x,BadEnding.y = display.contentWidth/2,display.contentHeight/2
    sceneGroup:insert(BadEnding)
+   table.insert(objectsToDestroy, BadEnding)
    --대화창
    sBad[1] = display.newImage("이미지/대화/대화창/주인공.png", display.contentWidth/2,display.contentHeight*0.8)
    sBad[2] = display.newImage("이미지/대화/대화창/조이.png", display.contentWidth/2,display.contentHeight*0.8)
@@ -576,6 +597,9 @@ function scene:create( event )
       sceneGroup:insert(cBad[i])
       sceneGroup:insert(sBad[i])
       sceneGroup:insert(tBad[i])
+      table.insert(objectsToDestroy, cBad[i])
+      table.insert(objectsToDestroy, sBad[i])
+      table.insert(objectsToDestroy, tBad[i])
       bBad[i].alpha = 0
       sBad[i].alpha = 0
       cBad[i].alpha = 0
@@ -586,6 +610,15 @@ function scene:create( event )
 
    
 end
+
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
+end
+
 
 function scene:show( event )
 	local sceneGroup = self.view
@@ -617,6 +650,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
+   destroyObjects()
 	
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 

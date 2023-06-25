@@ -3,7 +3,7 @@
 local composer = require( "composer" )
 local scene = composer.newScene()
 local loadsave = require( "loadsave" )
-
+local objectsToDestroy = {} 
 function scene:create( event )
 	local sceneGroup = self.view
 	
@@ -17,35 +17,42 @@ function scene:create( event )
 	local background = display.newImageRect("이미지/이벤트/6월/눈사람1.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
+	table.insert(objectsToDestroy, background)
 
 	local background3 = display.newImageRect("이미지/이벤트/6월/눈사람2.png",display.contentWidth, display.contentHeight)
 	background3.x,background3.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background3)
+	table.insert(objectsToDestroy, background3)
 	background3.alpha = 0
 
 	local daesapan = display.newImage("이미지/대화/대화창/블리.png")
 	daesapan.x, daesapan.y = display.contentWidth/2,display.contentHeight*0.85
 	sceneGroup:insert(daesapan)
+	table.insert(objectsToDestroy, daesapan)
 	daesapan.alpha = 0
 
 	local my_daesapan = display.newImage("이미지/대화/대화창/주인공.png")
 	my_daesapan.x, my_daesapan.y = display.contentWidth/2,display.contentHeight*0.85
 	sceneGroup:insert(my_daesapan)
+	table.insert(objectsToDestroy, my_daesapan)
 	my_daesapan.alpha=0
 
 	local lay_daesapan = display.newImage("이미지/대화/대화창/레이.png")
 	lay_daesapan.x, lay_daesapan.y = display.contentWidth/2,display.contentHeight*0.85
 	sceneGroup:insert(lay_daesapan)
+	table.insert(objectsToDestroy, lay_daesapan)
 	lay_daesapan.alpha=0
 
 	local choose1 = display.newImage("이미지/대화/선택지/레이.png")
 	choose1.x, choose1.y = display.contentWidth*0.2,display.contentHeight*0.47
 	sceneGroup:insert(choose1)
+	table.insert(objectsToDestroy, choose1)
 	choose1.alpha = 0
 
 	local choose2 = display.newImage("이미지/대화/선택지/레이.png")
 	choose2.x, choose2.y = display.contentWidth*0.8,display.contentHeight*0.47
 	sceneGroup:insert(choose2)
+	table.insert(objectsToDestroy, choose2)
 	choose2.alpha = 0
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -58,6 +65,7 @@ function scene:create( event )
 	my.x, my.y = display.contentWidth * 0.170,display.contentHeight*0.75
 	my:setFillColor(1)
 	sceneGroup:insert(my)
+	table.insert(objectsToDestroy, my)
 
 
 	local daewha = {}
@@ -97,6 +105,7 @@ function scene:create( event )
 		daewha[i].size = 30
 		daewha[i].x, daewha[i].y = display.contentWidth * 0.084,display.contentHeight*0.8
 		sceneGroup:insert(daewha[i])
+		table.insert(objectsToDestroy, daewha[i])
 	end
 
 	for i = 1,4 do
@@ -112,6 +121,7 @@ function scene:create( event )
 		daewha2[i].alpha = 0
 		daewha2[i].x, daewha2[i].y = display.contentWidth * 0.084,display.contentHeight*0.8
 		sceneGroup:insert(daewha2[i])
+		table.insert(objectsToDestroy, daewha2[i])
 	end
 
 	for i =1,6 do
@@ -127,6 +137,7 @@ function scene:create( event )
 		daewha3[i]:setFillColor(0)
 		daewha3[i].alpha = 0
 		sceneGroup:insert(daewha3[i])
+		table.insert(objectsToDestroy, daewha3[i])
 	end
 
 	local i = 2
@@ -349,6 +360,15 @@ function scene:create( event )
 
 end
 
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
+end
+
+
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
@@ -379,7 +399,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
-	
+	destroyObjects()
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 
 	-- INSERT code here to cleanup the scene

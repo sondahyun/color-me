@@ -9,6 +9,7 @@ local scene = composer.newScene()
 
 local loadsave = require( "loadsave" )
 local json = require( "json" )
+local objectsToDestroy = {} 
 
 function scene:create( event )
 	local sceneGroup = self.view
@@ -20,12 +21,14 @@ function scene:create( event )
 	local background = display.newImageRect("이미지/홈/배경/가구포함.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
+	table.insert(objectsToDestroy, background)
 
 	-- 달력 글씨
 	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
 	month:setFillColor(0)
 	month.size = 40
 	sceneGroup:insert(month)
+	table.insert(objectsToDestroy, month)
 -- 이전 달 할 일 1
 	local former = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2325,"font/잘풀리는오늘 Medium.ttf")
 	former.anchorX,former.anchorY = 0,0
@@ -33,6 +36,7 @@ function scene:create( event )
 	former.size = 20
 	former.text = loadedSettings.former1
 	sceneGroup:insert(former)
+	table.insert(objectsToDestroy, former)
 -- 이전 달 할 일 2
 	local former2 = display.newText("",display.contentWidth * 0.6225, display.contentHeight * 0.2603,"font/잘풀리는오늘 Medium.ttf")
 	former2.anchorX ,former2.anchorY = 0,0
@@ -40,6 +44,7 @@ function scene:create( event )
 	former2.size = 20
 	former2.text = loadedSettings.former2
 	sceneGroup:insert(former2)
+	table.insert(objectsToDestroy, former2)
 -- 다음 달 할 일 1
 	local next1 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3422,"font/잘풀리는오늘 Medium.ttf")
 	next1.anchorX,next1.anchorY = 0,0
@@ -47,6 +52,7 @@ function scene:create( event )
 	next1.size = 20
 	next1.text = loadedSettings.next1
 	sceneGroup:insert(next1)
+	table.insert(objectsToDestroy, next1)
 -- 다음 달 할 일 2
 	local next2 = display.newText("dd",display.contentWidth * 0.6225, display.contentHeight * 0.3722,"font/잘풀리는오늘 Medium.ttf")
 	next2.anchorX,next2.anchorY = 0,0
@@ -54,6 +60,7 @@ function scene:create( event )
 	next2.size = 20
 	next2.text = loadedSettings.next2
 	sceneGroup:insert(next2)
+	table.insert(objectsToDestroy, next2)
 
 	if loadedSettings.month == 0 then
 		month.text = "이른 봄의 달"
@@ -74,27 +81,32 @@ function scene:create( event )
 	local background_1 = display.newImage("이미지/이벤트/생일/1.png")
 	background_1.x,background_1.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_1)
+	table.insert(objectsToDestroy, background_1)
 	background_1.alpha = 0
 
 	local background_2 = display.newImage("이미지/이벤트/생일/2.png")
 	background_2.x,background_2.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_2)
+	table.insert(objectsToDestroy, background_2)
 	background_2.alpha = 0
 
 	local money = display.newImage("이미지/이벤트/생일/돈.png")
 	money.x,money.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(money)
+	table.insert(objectsToDestroy, money)
 	money.alpha = 0
 
 	local my_daesapan = display.newImage("이미지/대화/대화창/주인공.png")
 	my_daesapan.x, my_daesapan.y = display.contentWidth*0.5,display.contentHeight*0.7176
 	my_daesapan.anchorY = 0
 	sceneGroup:insert(my_daesapan)
+	table.insert(objectsToDestroy, my_daesapan)
 
 	local green_daesapan = display.newImage("이미지/대화/대화창/모두.png")
 	green_daesapan.x, green_daesapan.y = display.contentWidth*0.5,display.contentHeight*0.7176
 	green_daesapan.anchorY = 0
 	sceneGroup:insert(green_daesapan)
+	table.insert(objectsToDestroy, green_daesapan)
 	green_daesapan.alpha = 0
 
 
@@ -113,18 +125,21 @@ function scene:create( event )
    my.alpha = 1
    my:setFillColor(1)
    sceneGroup:insert(my)
+   table.insert(objectsToDestroy, my)
 
 	local select1 = display.newImage("이미지/대화/선택지/주인공.png")
 	select1.x, select1.y = display.contentWidth*0.02, display.contentHeight*0.3500
 	select1.anchorY, select1.anchorX = 0,0
 	select1.alpha = 0
 	sceneGroup:insert(select1)
+	table.insert(objectsToDestroy, select1)
 
 	local select2 = display.newImage("이미지/대화/선택지/주인공.png")
 	select2.x, select2.y = display.contentWidth*0.707, display.contentHeight*0.3500
 	select2.anchorY, select2.anchorX = 0,0
 	select2.alpha = 0
 	sceneGroup:insert(select2)
+	table.insert(objectsToDestroy, select2)
 
 	local myBday = audio.loadStream("음악/myBday.mp3")
 
@@ -154,11 +169,13 @@ function scene:create( event )
 		select_daewha1=display.newText(option1)
 		select_daewha1.anchorX,select_daewha1.anchorY = 0,0
 		sceneGroup:insert(select_daewha1)
+		table.insert(objectsToDestroy, select_daewha1)
 		select_daewha1.alpha = 0
 
 		select_daewha2=display.newText(option2)
 		select_daewha2.anchorX,select_daewha2.anchorY = 0,0
 		sceneGroup:insert(select_daewha2)
+		table.insert(objectsToDestroy, select_daewha2)
 		select_daewha2.alpha = 0
 	
 
@@ -189,6 +206,7 @@ function scene:create( event )
 		daewha[i].alpha = 0
 		daewha[i].size = 30
 		sceneGroup:insert(daewha[i])
+		table.insert(objectsToDestroy, daewha[i])
 	end
 
 	for i = 1,3 do
@@ -198,6 +216,7 @@ function scene:create( event )
 		daewha2[i].alpha = 0
 		daewha2[i].size = 30
 		sceneGroup:insert(daewha2[i])
+		table.insert(objectsToDestroy, daewha2[i])
 	end
 
 	j = 1
@@ -310,12 +329,14 @@ function scene:create( event )
 	my_daesapan:addEventListener("touch",first)
 	daewha[1].alpha = 1
 
+end
 
-
-
-	
-			
-
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
 end
 
 function scene:show( event )
@@ -345,6 +366,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
+	destroyObjects()
 	
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 
