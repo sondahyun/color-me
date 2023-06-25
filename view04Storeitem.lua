@@ -23,136 +23,22 @@ function scene:create( event )
 		isModal=true
 	}
 
-	local background = display.newImage("이미지/상점/배경(가격).png")
-	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
-	sceneGroup:insert(background)
-
-	local exit = display.newImage("이미지/공통/x버튼.png")
-	exit.x, exit.y = display.contentWidth*0.9207, display.contentHeight*0.0438
-	exit.anchorX, exit.anchorY = 0,0
-	sceneGroup:insert(exit)
-
--- 코인 창 객체 
-	local coin = display.newImage("이미지/공통/코인표시창.png")
-	sceneGroup:insert(coin)
-	coin.x, coin.y = display.contentWidth*0.1, display.contentHeight*0.08
-
-
-
-	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
-	money:setFillColor(0.964, 0.462, 0.411)
-	money.anchorX = 1
-	money.text = loadedSettings.money +1000
-	money.size = 53
-	sceneGroup:insert(money)
-
-	--1행
-	local pencil = display.newImage("이미지/상점/아이템/연필.png")
-	pencil.x,pencil.y = display.contentWidth*0.1117, display.contentHeight*0.241
-	pencil.anchorX,pencil.anchorY = 0,0
-	sceneGroup:insert(pencil)
-	pencil.name = "연필"
-
-	local dog_rice = display.newImage("이미지/상점/아이템/사료.png")
-	dog_rice.x,dog_rice.y = display.contentWidth*0.2615, display.contentHeight*0.241
-	dog_rice.anchorX,dog_rice.anchorY = 0,0
-	sceneGroup:insert(dog_rice)
-	dog_rice.name = "사료"
-
-	local toy = display.newImage("이미지/상점/아이템/블록.png")
-	toy.x,toy.y = display.contentWidth*0.3948, display.contentHeight*0.241
-	toy.anchorX,toy.anchorY = 0,0
-	sceneGroup:insert(toy)
-
-	local duck = display.newImage("이미지/상점/아이템/오리.png")
-	duck.x,duck.y = display.contentWidth*0.5427, display.contentHeight*0.249
-	duck.anchorX,duck.anchorY = 0,0
-	sceneGroup:insert(duck)
-
-	local heart = display.newImage("이미지/상점/아이템/응원봉.png")
-	heart.x,heart.y = display.contentWidth*0.6807, display.contentHeight*0.24
-	heart.anchorX,heart.anchorY = 0,0
-	sceneGroup:insert(heart)
-
-	local pie = display.newImage("이미지/상점/아이템/파이.png")
-	pie.x,pie.y = display.contentWidth*0.8195, display.contentHeight*0.249
-	pie.anchorX,pie.anchorY = 0,0
-	sceneGroup:insert(pie)
-
-	-- 2행
-
-	local kit = display.newImage("이미지/상점/아이템/실험세트.png")
-	kit.x,kit.y = display.contentWidth*0.1788, display.contentHeight*0.5114
-	kit.anchorX,kit.anchorY = 0,0
-	sceneGroup:insert(kit)
-
-	local plant = display.newImage("이미지/상점/아이템/화분.png")
-	plant.x,plant.y = display.contentWidth*0.3393, display.contentHeight*0.463
-	plant.anchorX,plant.anchorY = 0,0
-	sceneGroup:insert(plant)
-
-	local tiger = display.newImage("이미지/상점/아이템/호랑이.png")
-	tiger.x,tiger.y = display.contentWidth*0.475, display.contentHeight*0.48
-	tiger.anchorX,tiger.anchorY = 0,0
-	sceneGroup:insert(tiger)
-
-	local purfume = display.newImage("이미지/상점/아이템/향수.png")
-	purfume.x,purfume.y = display.contentWidth*0.6167, display.contentHeight*0.4736
-	purfume.anchorX,purfume.anchorY = 0,0
-	sceneGroup:insert(purfume)
-
-	local speaker = display.newImage("이미지/상점/아이템/스피커.png")
-	speaker.x,speaker.y = display.contentWidth*0.7489, display.contentHeight*0.4901
-	speaker.anchorX,speaker.anchorY = 0,0
-	sceneGroup:insert(speaker)
-
-	--3행
-	local pin = display.newImage("이미지/상점/아이템/머리핀.png")
-	pin.x,pin.y = display.contentWidth*0.1117, display.contentHeight*0.76
-	pin.anchorX,pin.anchorY = 0,0
-	sceneGroup:insert(pin)
-
-
-	local headset = display.newImage("이미지/상점/아이템/헤드셋.png")
-	headset.x,headset.y = display.contentWidth*0.2615, display.contentHeight*0.712
-	headset.anchorX,headset.anchorY = 0,0
-	sceneGroup:insert(headset)
-
-	local hero = display.newImage("이미지/상점/아이템/망토.png")
-	hero.x,hero.y = display.contentWidth*0.3948, display.contentHeight*0.74
-	hero.anchorX,hero.anchorY = 0,0
-	sceneGroup:insert(hero)
-
-	local galsses = display.newImage("이미지/상점/아이템/안경닦이.png")
-	galsses.x,galsses.y = display.contentWidth*0.6807, display.contentHeight*0.725
-	galsses.anchorX,galsses.anchorY = 0,0
-	sceneGroup:insert(galsses)
-
-	local mint = display.newImage("이미지/상점/아이템/민초.png")
-	mint.x,mint.y = display.contentWidth*0.543, display.contentHeight*0.73
-	mint.anchorX,mint.anchorY = 0,0
-	sceneGroup:insert(mint)
-
-	local frame = display.newImage("이미지/상점/아이템/액자.png")
-	frame.x,frame.y = display.contentWidth*0.8195, display.contentHeight*0.73
-	frame.anchorX,frame.anchorY = 0,0
-	sceneGroup:insert(frame)
-
 	item = composer.getVariable("item")
-	money = composer.getVariable("money")
+	money = composer.getVariable("moneys")
+
+	print(money)
 
 	local color = 0
 	local i = 0
 	--중복아이템 flag 변수
 	local jungbok
 	local function take_stuff(event)
-		jungbok = 0
-		local red_num = loadedSettings.red_num
-		local yellow_num = loadedSettings.yellow_num
-		local blue_num = loadedSettings.blue_num
-		local purple_num = loadedSettings.purple_num
-		local green_num = loadedSettings.green_num
+	jungbok = 0
+	local red_num = loadedSettings.red_num
+	local yellow_num = loadedSettings.yellow_num
+	local blue_num = loadedSettings.blue_num
+	local purple_num = loadedSettings.purple_num
+	local green_num = loadedSettings.green_num
 
 	  local find1 = composer.getVariable("find1")
 	  local find2= composer.getVariable("find2")
@@ -296,7 +182,7 @@ function scene:create( event )
 						loadedItems.item17Count = 1
 					end
 				end
-				
+				print(loadedSettings.money )
 				loadedSettings.money = loadedSettings.money - money
 				loadsave.saveTable(loadedSettings,"settings.json")
 				loadsave.saveTable(loadedItems,"items.json")
@@ -331,8 +217,6 @@ function scene:create( event )
 	button.anchorX, button.anchorY = 0,0
 	sceneGroup:insert(button)
 	button:addEventListener("touch",take_stuff)
-
-
 
 
 end

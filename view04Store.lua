@@ -7,11 +7,14 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local json = require( "json" )
+local loadedSettings = loadsave.loadTable( "settings.json" )
+local loadedItems= loadsave.loadTable( "items.json" )
+
+local money
 
 function scene:create( event )
 	local sceneGroup = self.view
-	local loadedSettings = loadsave.loadTable( "settings.json" )
-	local loadedItems= loadsave.loadTable( "items.json" )
+	
 
 	if loadedSettings.month == 5 then
 		if loadedSettings.month6_event == 0 then
@@ -19,6 +22,10 @@ function scene:create( event )
 			loadsave.saveTable(loadedSettings,"settings.json")
 		end
 	end
+
+	local option1={
+		isModal=true
+	}
 
 	
 	local background = display.newImage("이미지/상점/배경(가격).png")
@@ -47,14 +54,14 @@ function scene:create( event )
 	sceneGroup:insert(coin)
 	coin.x, coin.y = display.contentWidth*0.1, display.contentHeight*0.08
 
-	loadedSettings.money=loadedSettings.money
+	money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
 	money.anchorX = 1
-	money.text = loadedSettings.money
 	money.size = 53
+	money.text = 1
+	money.text = 2
 	sceneGroup:insert(money)
 
 	-- 진열
@@ -62,11 +69,10 @@ function scene:create( event )
 	local function popup(event)
 		if event.phase == "began" then
 			item = event.target.name
-			money = event.target.id
+			moneys = event.target.id
 			composer.setVariable("item", item)
-			composer.setVariable("money",money)
-			composer.removeScene("view04Store")
-			composer.gotoScene("view04Storeitem")
+			composer.setVariable("moneys",moneys)
+			composer.showOverlay("view04Storeitem", option1)
 		end
 	end
 
@@ -212,17 +218,15 @@ function scene:create( event )
 	frame.id = 20
 	frame:addEventListener("touch",popup)
 
-
-
-
-
 end
 
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
+	local loadedSettings = loadsave.loadTable( "settings.json" )
 	
 	if phase == "will" then
+		money.text = loadedSettings.money
 		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then
 		-- Called when the scene is now on screen
