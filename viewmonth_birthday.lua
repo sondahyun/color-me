@@ -265,8 +265,6 @@ function scene:create( event )
      				 loadsave.saveTable(loadedSettings,"settings.json")
 
 				audio.pause(myBday)
-				local home = audio.loadStream("음악/집.mp3")
-				audio.play(home)
 				composer.removeScene("viewmonth_birthday")
 				composer.gotoScene("view00Room")
 			end
