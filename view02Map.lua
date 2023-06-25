@@ -75,7 +75,18 @@ function scene:create( event )
 -- 이전 view01Map.lua 에서 가져온 타겟 객체의 값을 받아줌.
 	color = composer.getVariable("color")
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-
+	local color_char
+	if color == "1" then
+		color_char = "1" 
+	elseif color == "2" then
+		color_char = "4"
+	elseif color == "3" then
+		color_char = "2"
+	elseif color == "4" then
+		color_char = "5"
+	elseif color == "5" then
+		color_char = "4"
+	end
 
 -- 마을 방문
 -- 월 별로 스크립트가 변화하므로 달에 따라 스크립트.lua도 달라져야 함.
@@ -408,7 +419,7 @@ function scene:create( event )
 				print("dfasd")
 				composer.showOverlay("zopup_gift_limited",optioned)
 			else
-				composer.setVariable("color_char",color)
+				composer.setVariable("color_char",color_char)
 				composer.removeScene("view02Map")
 				composer.gotoScene("viewgift_bag")
 			end
