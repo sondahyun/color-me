@@ -143,10 +143,21 @@ function scene:create( event )
 
 	--timer
 	local time = 0
+	local coin=0
  
 	local function Timer(event)
 		time = time + 1
-		composer.setVariable("score", time)
+		if(time>0 and time<=5) then
+			coin=5
+		end
+		if(time>5 and time<=10) then 
+			coin=15
+		end
+		if(time>10 and time<=15) then
+			coin=25
+		end
+
+		composer.setVariable("score", coin)
 
 		if  time == 15  then
 
@@ -171,7 +182,7 @@ function scene:create( event )
 
          	display.remove(user)
 
-			composer.setVariable("score", time)
+			composer.setVariable("score", coin)
 			composer.removeScene("view19ring") --game
 			composer.gotoScene("view20ring") --gameover
 
@@ -204,7 +215,7 @@ function scene:create( event )
         		--Runtime:removeEventListener("enterFrame", walld[i])
 			end
 
-			composer.setVariable("score", time)
+			composer.setVariable("score", coin)
 			--transition.
 			timer.cancel(tmr)
 

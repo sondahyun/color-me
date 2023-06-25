@@ -32,9 +32,11 @@ function scene:create( event )
 	score.x,score.y = display.contentWidth/33.166, display.contentHeight/13.2482826
 
 	local score1 = 0 
-	local showScore = display.newText(score1,display.contentWidth/12,display.contentHeight/5.555,"font/잘풀리는오늘 Medium.ttf") 
+	local showScore = display.newText(5,display.contentWidth/12,display.contentHeight/5.555,"font/잘풀리는오늘 Medium.ttf") 
 	showScore:setFillColor(0) 
 	showScore.size = 80
+
+	local coin=0
 
 
 --타이머
@@ -60,7 +62,16 @@ function scene:create( event )
 		if limit == 0 then
 			timer.cancel(time1)
 			--composer.setVariable("result", 0)
-			composer.setVariable("score2", score1)
+			if(score1<=5) then
+				coin=5
+			end
+			if(score1>5) then
+				coin=15
+			end
+			if(score1==8) then
+				coin=25
+			end
+			composer.setVariable("score2", coin)
 			composer.removeScene("view21card")
 			composer.gotoScene("view22card")
 		end
@@ -165,7 +176,15 @@ function scene:create( event )
 						
 						--점수 1점
 						score1 = score1 + 1
-						showScore.text = score1
+							if(score1<=5) then
+								showScore.text=5
+							end
+							if(score1>5) then
+								showScore.text=15
+							end
+							if(score1==8) then
+								showScore.text=25
+							end
 						print(score1)
 						
 						if (isLastCard(card[1], card[2]) == 1) then
@@ -175,7 +194,16 @@ function scene:create( event )
 							transition.to( gameUI[card[2]], { time=100, delay=100, width=gameUI[card[1]].width*2, height=gameUI[card[1]].height*2 } )
 							transition.to( backUI[21], { time=100, delay=110, alpha=1 } )
 							transition.cancel()
-							composer.setVariable("score2", score1)
+							if(score1<=5) then
+								coin=5
+							end
+							if(score1>5) then
+								coin=15
+							end
+							if(score1==8) then
+								coin=25
+							end
+							composer.setVariable("score2", coin)
 							composer.removeScene("view21card")
 							composer.gotoScene("view22card")
 						else
