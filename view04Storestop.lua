@@ -22,9 +22,6 @@ function scene:create( event )
 			composer.hideOverlay("view04Storestop")
 		end
 	end
-	
-	
-
 
 	local update = display.newImage("이미지/공통/팝업창/코인부족.png")
 	update.x, update.y = display.contentWidth*0.5, display.contentHeight*0.5

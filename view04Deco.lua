@@ -7,11 +7,17 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local json = require( "json" )
+local money
+local sold
 
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
+
+	local option1={
+		isModal=true
+	}
 
 	if loadedSettings.month == 5 then
 		if loadedSettings.month6_event == 0 then
@@ -49,7 +55,7 @@ function scene:create( event )
 
 
 	-- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
-	local money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
+	money = display.newText("",display.contentWidth*0.16, display.contentHeight*0.079,"font/NanumSquare_acB.ttf")
 	money:setFillColor(0.964, 0.462, 0.411)
 	money.anchorX = 1
 	money.text = loadedSettings.money
@@ -74,22 +80,20 @@ function scene:create( event )
 	local function popup(event)
 		if event.phase == "began" then
 			item = event.target.name
-			money = event.target.id
+			moneys = event.target.id
 			composer.setVariable("item", item)
-			composer.setVariable("money",money)
-			composer.removeScene("view04Deco")
-			composer.gotoScene("view04Decoitem")
+			composer.setVariable("money",moneys)
+			composer.showOverlay("view04Decoitem",option1)
 		end
 	end
 
 	local function popup2(event)
 		if event.phase == "began" then
 			item = event.target.name
-			money = event.target.id
+			moneys = event.target.id
 			composer.setVariable("item", item)
-			composer.setVariable("money",money)
-			composer.removeScene("view04Deco")
-			composer.gotoScene("view04Decoitem_L")
+			composer.setVariable("money",moneys)
+			composer.showOverlay("view04Decoitem_L",option1)
 		end
 	end
 
@@ -370,7 +374,7 @@ wofprice.size = 25
 wofprice:setFillColor(0)
 sceneGroup:insert(wofprice)
 
-	local sold={}
+	sold={}
    sold[1] = display.newImage("이미지/상점/상점_soldout.png")
    sold[1].x,sold[1].y = display.contentWidth*0.1459, display.contentHeight*0.411
    sold[2] = display.newImage("이미지/상점/상점_soldout.png")
@@ -462,8 +466,57 @@ end
 function scene:show( event )
 	local sceneGroup = self.view
 	local phase = event.phase
+	local loadedSettings = loadsave.loadTable( "settings.json" )
+	local loadedItems= loadsave.loadTable( "items.json" )
 	
 	if phase == "will" then
+		money.text = loadedSettings.money
+
+		 if loadedItems.d1Sold==0 then
+   		sold[1].alpha=1
+   	end
+   	if loadedItems.d2Sold==0 then
+   		sold[2].alpha=1
+   	end
+   	if loadedItems.d3Sold==0 then
+   		sold[3].alpha=1
+   	end
+   	if loadedItems.d4Sold==0 then
+   		sold[4].alpha=1
+   	end
+   	if loadedItems.d5Sold==0 then
+   		sold[5].alpha=1
+   	end
+   	if loadedItems.d6Sold==0 then
+   		sold[6].alpha=1
+   	end
+   	if loadedItems.d7Sold==0 then
+   		sold[7].alpha=1
+   	end
+   	if loadedItems.d8Sold==0 then
+   		sold[8].alpha=1
+   	end
+   	if loadedItems.d9Sold==0 then
+   		sold[9].alpha=1
+   	end
+   	if loadedItems.d10Sold==0 then
+   		sold[10].alpha=1
+   	end
+   	if loadedItems.d11Sold==0 then
+   		sold[11].alpha=1
+   	end
+   	if loadedItems.d12Sold==0 then
+   		sold[12].alpha=1
+   	end
+   	if loadedItems.d13Sold==0 then
+   		sold[13].alpha=1
+   	end
+   	if loadedItems.d14Sold==0 then
+   		sold[14].alpha=1
+   	end
+   	if loadedItems.d15Sold==0 then
+   		sold[15].alpha=1
+   	end
 		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then
 		-- Called when the scene is now on screen

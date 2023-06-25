@@ -12,6 +12,10 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedItems= loadsave.loadTable( "items.json" )
+
+	local option1={
+		isModal=true
+	}
 	
 	local shouldUpdate = false
 	
@@ -72,8 +76,7 @@ function scene:create( event )
 			shouldUpdate = true
 			tag = event.target.tag
 			composer.setVariable("tag", tag)
-			composer.removeScene("view04DecoClothes")
-			composer.gotoScene("view04DecoClothes_popup")
+			composer.showOverlay("view04DecoClothes_popup", option1)
 		end
 	end
 
