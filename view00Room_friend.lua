@@ -5,6 +5,8 @@ local scene = composer.newScene()
 local loadsave = require("loadsave")
 local json = require( "json" )
 
+local objectsToDestroy = {}
+
 function scene:create( event )
 	local sceneGroup = self.view
 
@@ -13,21 +15,25 @@ function scene:create( event )
 	local background = display.newImageRect("이미지/홈/배경/가구포함.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
+	table.insert(objectsToDestroy, background)
 
 -- 스탯 바 객체 생성.
 	local play = display.newRect(154,65, loadedSettings.fun*2.25 ,25)
 	play.anchorX,play.anchorY = 0,0.5
 	play:setFillColor(0.643,0.384,0.666)
 	sceneGroup:insert(play)
+	table.insert(objectsToDestroy, play)
 
 -- 스탯창 객체
 	local stat = display.newImage("이미지/홈/스탯창.png")
 	stat.x, stat.y = display.contentWidth*0.18,display.contentHeight*0.15
 	sceneGroup:insert(stat)
+	table.insert(objectsToDestroy, stat)
 
 -- 코인 창 객체 
 	local coin = display.newImage("이미지/공통/코인표시창.png")
 	sceneGroup:insert(coin)
+	table.insert(objectsToDestroy, coin)
 	coin.x, coin.y = display.contentWidth*0.9, display.contentHeight*0.08
 
 -- 코인 객체, 글씨체 및 세이브 파일에 담겨진 보유 코인을 text에 담음
@@ -36,12 +42,14 @@ function scene:create( event )
 	money.anchorX = 1
 	money.text = loadedSettings.money 
 	money.size = 53
+	table.insert(objectsToDestroy, money)
 	sceneGroup:insert(money)
 
 	local black = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
 	black.alpha = 0.5
 	black:setFillColor(0)
 	sceneGroup:insert(black)
+	table.insert(objectsToDestroy, black)
 
 	-- showoverlay 함수 사용 option
     local options = {
@@ -76,12 +84,12 @@ function scene:create( event )
 	exit.anchorX, exit.anchorY = 0,0
 	sceneGroup:insert(exit)
 	exit:addEventListener("touch",go_back)
-
-
+	table.insert(objectsToDestroy, exit)
 
 	local background_friend = display.newImage("이미지/앨범/친구목록/배경.png")
 	background_friend.x,background_friend.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background_friend)
+	table.insert(objectsToDestroy, background_friend)
 
 
 	local friend = {}
@@ -100,7 +108,6 @@ function scene:create( event )
 		display.contentHeight*0.6163
 	}
 
-	print("dfsaij;lfks")
 	for i= 1,5 do
 		friend[i] = display.newImage("이미지/앨범/친구목록/" .. i .. ".png")
 		friend[i].x=xx[i]
@@ -110,14 +117,16 @@ function scene:create( event )
 		friend[i]:addEventListener("touch",popup)
 		sceneGroup:insert(friend[i])
 	end
-
-
-
-
-	
-
-
 end
+
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
+end
+
 
 function scene:show( event )
 	local sceneGroup = self.view
@@ -149,6 +158,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
+	destroyObjects()
 	
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 
