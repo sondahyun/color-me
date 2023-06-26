@@ -35,8 +35,9 @@ function scene:create( event )
     sceneGroup:insert(titleButton)
 
 
-    local bgm = audio.loadStream( "음악/메인 테마곡.mp3"  )
-
+    local bgm = audio.loadStream( "음악/메인 테마곡.mp3" )
+    --audio.setVolume( loadedEndings.logValue )
+    --audio.play(bgm)    
 
     --샘플 볼륨 이미지
     local volumeButton = display.newImage("이미지/타이틀/설정.png")
@@ -89,15 +90,13 @@ function scene:create( event )
 
 
     loadedEndings = loadsave.loadTable( "endings.json" )
-    
-    
+
     print( loadedEndings.logValue )
     print( loadedEndings.logValue_effect )
-
     audio.setVolume( loadedEndings.logValue , { channel = 1 })
     audio.setVolume( loadedEndings.logValue_effect, { channel = 2 })
-
     audio.play(bgm, { channel = 1, loops = -1 } )    
+    
 -- showoverlay 함수 사용 option
 
     local options = {
@@ -141,6 +140,8 @@ function scene:create( event )
     sceneGroup:insert(credit)
     --credit:addEventListener("mouse",bigbig1)
     credit:addEventListener("touch",creditMove)
+
+
 
 
     -- 엔딩 이미지 객체 생성 및 move 이벤트 리스너 추가
@@ -219,33 +220,15 @@ function scene:create( event )
                 composer.gotoScene( "view00Room")
                 -- ,options1
                 local home = audio.loadStream( "음악/집.mp3" )
-               
+                audio.setVolume( loadedEndings.logValue )
                 audio.play(home, { channel = 1 })
             end
     end
     loadgame:addEventListener("touch",startLoad)
     loadgame:addEventListener("mouse",bigbig)
 
-    -- 메모리 확인 
-    local interval = 1  -- 1초
-    local startTime = os.time()
 
-    local monitorMem = function()
-        local currentTime = os.time()
-        local elapsedTime = currentTime - startTime
 
-        if elapsedTime >= interval then
-            collectgarbage()
-            print("MemUsage: " .. collectgarbage("count")) 
-
-            local textMem = system.getInfo("textureMemoryUsed") / 1000000
-            print("TexMem: " .. textMem)  -- byte 단위 
-
-            startTime = currentTime
-        end
-    end
-
-    timer.performWithDelay(1000, monitorMem, 0)
 end
 
 function scene:show( event )
@@ -278,11 +261,24 @@ end
 
 function scene:destroy( event )
     local sceneGroup = self.view
+    
     -- Called prior to the removal of scene's "view" (sceneGroup)
     -- 
     -- INSERT code here to cleanup the scene
     -- e.g. remove display objects, remove touch listeners, save state, etc.
 end
+
+---------------------------------------------------------------------------------
+
+-- Listener setup
+scene:addEventListener( "create", scene )
+scene:addEventListener( "show", scene )
+scene:addEventListener( "hide", scene )
+scene:addEventListener( "destroy", scene )
+
+-----------------------------------------------------------------------------------------
+
+
 
 ---------------------------------------------------------------------------------
 

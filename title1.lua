@@ -3,7 +3,7 @@ local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local scene = composer.newScene()
 local json = require( "json" ) 
-
+local objectsToDestroy = {}
 function scene:create( event )
 	local sceneGroup = self.view
 
@@ -14,25 +14,30 @@ function scene:create( event )
     local background = display.newImageRect("이미지/타이틀/메인.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
+	table.insert(objectsToDestroy, background)
 
 	local ending = display.newImage("이미지/타이틀/엔딩모음.png")
     ending.x, ending.y = display.contentWidth*0.05,display.contentHeight*0.9
     sceneGroup:insert(ending)
+    table.insert(objectsToDestroy, ending)
 
     local volumeButton = display.newImage("이미지/타이틀/설정.png")
     volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
     sceneGroup:insert(volumeButton)
+    table.insert(objectsToDestroy, volumeButton)
 
     --크레딧 버튼
     local credit = display.newImage("이미지/크레딧/버튼.png")
     credit.x, credit.y = display.contentWidth*0.95,display.contentHeight*0.9
     sceneGroup:insert(credit)
     --credit:addEventListener("touch",move)
+    table.insert(objectsToDestroy, credit)
 
 	local back = display.newRect(display.contentWidth/2,display.contentHeight/2,display.contentWidth,display.contentHeight)
 	back:setFillColor(0)
 	back.alpha = 0.5
 	sceneGroup:insert(back)
+	table.insert(objectsToDestroy, back)
 
 
 -- 엔딩 세이브 파일 배열 생성(세이브 파일은 배열로 생성이 불가능하므로 배열로 편히 사용하기 위해 앞에서 배열을 생성하여 세이브 파일을 넣어줄 필요가 있음)
@@ -186,6 +191,7 @@ function scene:create( event )
 		chang[i] = display.newImage(image[i])
 		chang[i].x, chang[i].y = display.contentWidth/2,display.contentHeight/2
 		sceneGroup:insert(chang[i])
+		table.insert(objectsToDestroy, chang[i])
 		chang[i].alpha = 0
 	end
 
@@ -227,6 +233,7 @@ function scene:create( event )
 		pen[1][i].alpha =color[1][i]
 		pen[1][i].name = i
 		pen[1][i]:addEventListener("touch",popup)
+		table.insert(objectsToDestroy, pen[1][i])
 		
 	end
 	
@@ -239,6 +246,7 @@ function scene:create( event )
 		pen[2][i].alpha = 0
 		pen[2][i].name = i
 		pen[2][i].anchorX,pen[2][i].anchorY = 0,0
+		table.insert(objectsToDestroy, pen[2][i])
 		pen[2][i]:addEventListener("touch",popup)
 	end
 --3번째 index 색연필들
@@ -250,6 +258,7 @@ function scene:create( event )
 		pen[3][i].name = i+16
 		pen[3][i].anchorX,pen[3][i].anchorY = 0,0
 		sceneGroup:insert(pen[3][i])
+		table.insert(objectsToDestroy, pen[3][i])
 		pen[3][i]:addEventListener("touch",popup)
 	end
 --4번째 index 색연필들
@@ -260,6 +269,7 @@ function scene:create( event )
 		pen[4][i].name = i+10
 		pen[4][i].anchorX,pen[4][i].anchorY=0,0
 		sceneGroup:insert(pen[4][i])
+		table.insert(objectsToDestroy, pen[4][i])
 		pen[4][i]:addEventListener("touch",popup)
 	end
 --5번째 index 색연필들
@@ -270,6 +280,7 @@ function scene:create( event )
 		pen[5][i].name = i+5
 		sceneGroup:insert(pen[5][i])
 		pen[5][i].anchorX,pen[5][i].anchorY =0,0
+		table.insert(objectsToDestroy, pen[5][i])
 		pen[5][i]:addEventListener("touch",popup)
 	end
 --6번째 index 색연필들
@@ -280,6 +291,7 @@ function scene:create( event )
 		pen[6][i].name = i+18
 		pen[6][i].anchorX, pen[6][i].anchorY = 0,0
 		sceneGroup:insert(pen[6][i])
+		table.insert(objectsToDestroy, pen[6][i])
 		pen[6][i]:addEventListener("touch",popup)
 	end
 
@@ -300,6 +312,7 @@ function scene:create( event )
 	sceneGroup:insert(exit)
 	exit.x, exit.y = display.contentWidth*0.16, display.contentHeight*0.2
 	exit:addEventListener("touch",gotomap)
+	table.insert(objectsToDestroy, image)
 
 -- 카테고리 눌렀을 때 창 별로 색연필 다르게 나타내기
 -- 기본 창
@@ -339,12 +352,21 @@ function scene:create( event )
 		sceneGroup:insert(button[i])
 		button[i].name = i
 		button[i]:addEventListener("touch",side)
+		table.insert(objectsToDestroy, button[i])
 		button[i].alpha = 1
 	end
 
 	button[1].alpha = 0
 	
 	
+end
+
+local function destroyObjects()
+    for i = 1, #objectsToDestroy do
+        display.remove(objectsToDestroy[i])
+        objectsToDestroy[i] = nil
+    end
+    objectsToDestroy = nil
 end
 
 function scene:show( event )
@@ -377,6 +399,7 @@ end
 
 function scene:destroy( event )
 	local sceneGroup = self.view
+	destroyObjects()
 	
 	-- Called prior to the removal of scene's "view" (sceneGroup)
 	-- 

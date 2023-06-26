@@ -85,8 +85,10 @@ function scene:create( event )
 	elseif color == "4" then
 		color_char = "5"
 	elseif color == "5" then
-		color_char = "4"
+		color_char = "3"
 	end
+
+	print( "컬러" .. color_char)
 
 -- 마을 방문
 -- 월 별로 스크립트가 변화하므로 달에 따라 스크립트.lua도 달라져야 함.
