@@ -2,7 +2,7 @@ local loadsave = require( "loadsave" )
 local composer = require( "composer" )
 local scene = composer.newScene()
 local json = require( "json" ) 
-
+local defaultField
 function scene:create( event )
 	local sceneGroup = self.view
 
@@ -50,7 +50,7 @@ function scene:create( event )
 	sceneGroup:insert(titleButton)
 
 	--이름 입력을 위한 텍스트상자 생성--
-	local defaultField
+	
 	local function textListener( event )
  
     	if ( event.phase == "began" ) then
@@ -95,6 +95,10 @@ function scene:create( event )
 		time = 2000
 	}
 
+	local option = {
+        isModal = true
+    }
+
 	local function gotomap(event)
 		if event.phase == "began" then 
 			event.target.width,event.target.height = 68.82,68.82
@@ -121,10 +125,9 @@ function scene:create( event )
 	local function startNew(event)
 		--색깔 또는 이름을 선택하지 않았을 시 에러 팝업창으로 넘어간다
 		if defaultField.text == "" then
-			defaultField:removeSelf()
-			defaultField = nil
-			composer.removeScene("title2")
-			composer.gotoScene("title2_1")
+			defaultField.isVisible = false
+			composer.showOverlay("title2_1", option)
+
 		else
 				--게임 진행을 위한 저장 데이터들 생성
 				
@@ -404,6 +407,7 @@ function scene:show( event )
 	local phase = event.phase
 	
 	if phase == "will" then
+		defaultField.isVisible = true
 		-- Called when the scene is still off screen and is about to move on screen
 	elseif phase == "did" then
 		-- Called when the scene is now on screen

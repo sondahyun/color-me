@@ -8,42 +8,10 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 
-	print("title2_1")
-	local background = display.newImageRect("이미지/타이틀/메인.png",display.contentWidth, display.contentHeight)
-	background.x,background.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background)
-
-	local ending = display.newImage("이미지/타이틀/엔딩모음.png")
-	ending.x, ending.y = display.contentWidth*0.95,display.contentHeight*0.9
-	sceneGroup:insert(ending)
-
-	local volumeButton = display.newImage("이미지/타이틀/설정.png")
-    volumeButton.x,volumeButton.y = display.contentWidth * 0.87, display.contentHeight * 0.9
-    sceneGroup:insert(volumeButton)
-
-    local newgame = display.newImage("이미지/타이틀/새게임.png")
-    newgame.x,newgame.y = display.contentWidth * 0.42, display.contentHeight * 0.9
-    sceneGroup:insert(newgame)
-
-    local loadgame = display.newImage("이미지/타이틀/로드버튼.png")
-    loadgame.x,loadgame.y = display.contentWidth * 0.58, display.contentHeight * 0.9
-    sceneGroup:insert(loadgame)
-
-	local titlePopup = display.newImage("이미지/타이틀/이름설정팝업.png")
-	titlePopup.x,titlePopup.y = display.contentWidth/2,display.contentHeight * 0.8
-	titlePopup.alpha = 0
-	sceneGroup:insert(titlePopup)
-
-	local titleButton = display.newImage("이미지/타이틀/이름결정.png")
-	titleButton.x,titleButton.y = display.contentWidth/2,display.contentHeight * 0.65
-	titleButton.alpha = 0
-	sceneGroup:insert(titleButton)
 
 
 	local function gohome(event)
 		if event.phase == "began" then
-				composer.removeScene("title2_1")
-				exit.alpha=0
 				composer.gotoScene("title2")
 				
 		end
