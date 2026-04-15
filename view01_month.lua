@@ -15,7 +15,7 @@ function scene:create( event )
 	month.size = 500
 	sceneGroup:insert(month)
 
-	num = 0
+	local num = 0
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	local loadedEndings = loadsave.loadTable( "endings.json" )

@@ -17,10 +17,10 @@ function scene:create( event )
 		end
 	end	
 
-	newError = display.newImage("이미지/공통/팝업창/이름입력.png")
+	local newError = display.newImage("이미지/공통/팝업창/이름입력.png")
 	sceneGroup:insert(newError)
 	newError.x, newError.y = display.contentWidth/2,display.contentHeight/2
-	exit = display.newImage("이미지/공통/x버튼.png")
+	local exit = display.newImage("이미지/공통/x버튼.png")
 	sceneGroup:insert(exit)
 	exit.x, exit.y = display.contentWidth*0.645, display.contentHeight*0.375
 	exit:addEventListener("touch",gohome)

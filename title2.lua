@@ -77,7 +77,7 @@ function scene:create( event )
 		defaultField = native.newTextField( display.contentWidth/2,display.contentHeight * 0.56, 370, 60 )
 		defaultField:addEventListener( "userInput", textListener )
 		defaultField.font = native.newFont( "font/잘풀리는오늘 Medium.ttf", 40)
-		defaultFied = ""
+		defaultField.text = ""
 		defaultField.align = "center"
 		sceneGroup:insert(defaultField)
 	end
@@ -210,7 +210,7 @@ function scene:create( event )
     				script6 = 0
 				}
 				loadsave.saveTable( gameSettings, "settings.json" )
-				local itme = {
+				local item = {
 
 						itemCount = 0,
 						item1 = "없음",
@@ -371,12 +371,10 @@ function scene:create( event )
 					}
 
 			
-				local serializedJSON = json.encode(itme)
-				local itmes = json.decode(serializedJSON)
-				--loadsave.saveTable(custumeBuy, "items.json")
+				local serializedJSON = json.encode(item)
+				local items = json.decode(serializedJSON)
 
-
-				loadsave.saveTable( itmes ,"items.json" )
+				loadsave.saveTable( items, "items.json" )
 				composer.setVariable("name",defaultField.text)
 				defaultField:removeSelf()
 				defaultField = nil

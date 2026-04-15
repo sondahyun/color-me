@@ -7,6 +7,7 @@ local json = require( "json" )
 
 local i
 local j = 1
+local next1  -- forward declaration for Runtime listener cleanup
 
 local objectsToDestroy = {}
 
@@ -14,12 +15,12 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local b = {}
 
-	bGroup = display.newGroup()
+	local bGroup = display.newGroup()
 
 	table.insert(objectsToDestroy, bGroup)
 
 	local loadedSettings = loadsave.loadTable( "settings.json" )
-	mainName = loadedSettings.name
+	local mainName = loadedSettings.name
 
 	-- showoverlay 함수 사용 option
     local options = {
@@ -96,7 +97,7 @@ function scene:create( event )
 	end
 
 	-- 화면전환
-	local function next1()
+	next1 = function()
 		if j > 1 and j < 26 then
 			b[j - 1].alpha = 0
 			
@@ -163,12 +164,10 @@ function scene:hide( event )
 	local phase = event.phase
 	
 	if event.phase == "will" then
-		-- Called when the scene is on screen and is about to move off screen
-		--
-		-- INSERT code here to pause the scene
-		-- e.g. stop timers, stop animation, unload sounds, etc.)
+		if next1 then
+			Runtime:removeEventListener("tap", next1)
+		end
 	elseif phase == "did" then
-		-- Called when the scene is now off screen
 	end
 end
 

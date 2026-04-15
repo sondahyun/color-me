@@ -46,11 +46,11 @@ function scene:create( event )
 		end
 	end	
 
-	creditContent = display.newImage("이미지/홈/크레딧/크레딧1.png")
+	local creditContent = display.newImage("이미지/홈/크레딧/크레딧1.png")
 	creditContent.x, creditContent.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(creditContent)
 
-	creditButton = {}
+	local creditButton = {}
 
 	local function next(event)
 		if event.phase == "began" then
@@ -67,7 +67,7 @@ function scene:create( event )
 		creditButton[i]:addEventListener("touch",next)
 	end
 
-	exit = display.newImage("이미지/공통/x버튼.png")
+	local exit = display.newImage("이미지/공통/x버튼.png")
 	sceneGroup:insert(exit)
 	exit.x, exit.y = display.contentWidth*0.743, display.contentHeight*0.28
 	exit:addEventListener("touch",gohome)

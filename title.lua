@@ -278,16 +278,4 @@ scene:addEventListener( "destroy", scene )
 
 -----------------------------------------------------------------------------------------
 
-
-
----------------------------------------------------------------------------------
-
--- Listener setup
-scene:addEventListener( "create", scene )
-scene:addEventListener( "show", scene )
-scene:addEventListener( "hide", scene )
-scene:addEventListener( "destroy", scene )
-
------------------------------------------------------------------------------------------
-
 return scene
