@@ -23,7 +23,7 @@ function scene:create( event )
 	end
 	
 	--배경화면
-	local bg = display.newImage("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png", display.contentWidth, display.contentHeight)
+	local bg = display.newImageRect("이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png", display.contentWidth, display.contentHeight)
     bg.x = display.contentWidth/2
     bg.y = display.contentHeight/2
     sceneGroup:insert(bg)

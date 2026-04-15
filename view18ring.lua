@@ -15,7 +15,7 @@ function scene:create( event )
 
 	
 
-    local background = display.newImage( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png", display.contentWidth, display.contentHeight)
+    local background = display.newImageRect( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 배경(보라마을).png", display.contentWidth, display.contentHeight)
     background.x = display.contentWidth/2
     background.y = display.contentHeight/2
     sceneGroup:insert(background)
@@ -24,7 +24,7 @@ function scene:create( event )
     ready.y = display.contentHeight/2 + 160
     ready.rotation = 65
     sceneGroup:insert(ready)]]
-    local daepo = display.newImage( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 대기모양(보라마을).png", display.contentWidth, display.contentHeight)
+    local daepo = display.newImage( "이미지/미니게임/미니게임_보라마을/미니게임_링통과게임 대기모양(보라마을).png")
     daepo.x = display.contentWidth/5
     daepo.y = display.contentHeight/1.2
     sceneGroup:insert(daepo)

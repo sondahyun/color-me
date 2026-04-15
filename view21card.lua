@@ -185,7 +185,6 @@ function scene:create( event )
 							if(score1==8) then
 								showScore.text=25
 							end
-						print(score1)
 						
 						if (isLastCard(card[1], card[2]) == 1) then
 							transition.to( gameUI[card[1]], { time=100, x=display.contentWidth/2, y=display.contentHeight/2 } )
@@ -194,6 +193,7 @@ function scene:create( event )
 							transition.to( gameUI[card[2]], { time=100, delay=100, width=gameUI[card[1]].width*2, height=gameUI[card[1]].height*2 } )
 							transition.to( backUI[21], { time=100, delay=110, alpha=1 } )
 							transition.cancel()
+							timer.cancel(time1)
 							if(score1<=5) then
 								coin=5
 							end
