@@ -25,7 +25,7 @@ function scene:create( event )
     audio.reserveChannels(2)
     --local backgroundSound = audio.loadStream(music)
 
-    local bgImage = display.newImage("이미지/타이틀/설정/창.png", display.contentWidth, display.contentHeight)
+    local bgImage = display.newImage("이미지/타이틀/설정/창.png")
     bgImage.x = display.contentWidth / 2; 
     bgImage.y = display.contentHeight  / 2; 
     sceneGroup:insert(bgImage)
