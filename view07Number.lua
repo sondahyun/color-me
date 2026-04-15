@@ -131,12 +131,8 @@ function scene:hide( event )
 	local phase = event.phase
 	
 	if event.phase == "will" then
-		-- Called when the scene is on screen and is about to move off screen
-		--
-		-- INSERT code here to pause the scene
-		-- e.g. stop timers, stop animation, unload sounds, etc.)
+		timer.cancelAll()
 	elseif phase == "did" then
-		-- Called when the scene is now off screen
 	end
 end
 

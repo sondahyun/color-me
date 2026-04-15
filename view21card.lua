@@ -9,6 +9,7 @@ local isFinished = 0
 local card = {}
 local rand = {}
 local count = {}
+local time1
 
 -- GUI
 
@@ -284,7 +285,9 @@ function scene:hide( event )
 	local phase = event.phase
 	
 	if event.phase == "will" then
-		-- e.g. stop timers, stop animation, unload sounds, etc.)
+		if time1 then
+			timer.cancel(time1)
+		end
 	elseif phase == "did" then
 	end
 end
