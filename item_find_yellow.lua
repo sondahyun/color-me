@@ -1,8 +1,10 @@
--- item_find_yellow.lua (래퍼)
+-- item_find_yellow.lua
 -- 노랑마을 숨은그림찾기: 마이크
 local composer = require( "composer" )
+local scene = composer.newScene()
+local findColor = require("item_find_color")
 
-composer.setVariable("find_config", {
+findColor.setup(scene, {
     colorId = 3,
     sceneName = "item_find_yellow",
     bgImage = "이미지/대화/우정배경/노랑.png",
@@ -13,4 +15,4 @@ composer.setVariable("find_config", {
     micX = 0.2615, micY = 0.8655
 })
 
-return require("item_find_color")
+return scene

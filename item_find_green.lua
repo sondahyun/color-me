@@ -1,8 +1,10 @@
--- item_find_green.lua (래퍼)
+-- item_find_green.lua
 -- 초록마을 숨은그림찾기: 물뿌리개
 local composer = require( "composer" )
+local scene = composer.newScene()
+local findColor = require("item_find_color")
 
-composer.setVariable("find_config", {
+findColor.setup(scene, {
     colorId = 5,
     sceneName = "item_find_green",
     bgImage = "이미지/대화/우정배경/초록.png",
@@ -13,4 +15,4 @@ composer.setVariable("find_config", {
     micX = 0.6628, micY = 0.6248
 })
 
-return require("item_find_color")
+return scene

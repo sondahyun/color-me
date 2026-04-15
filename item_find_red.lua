@@ -1,8 +1,10 @@
--- item_find_red.lua (래퍼)
+-- item_find_red.lua
 -- 빨강마을 숨은그림찾기: 하트수첩
 local composer = require( "composer" )
+local scene = composer.newScene()
+local findColor = require("item_find_color")
 
-composer.setVariable("find_config", {
+findColor.setup(scene, {
     colorId = 1,
     sceneName = "item_find_red",
     bgImage = "이미지/대화/우정배경/빨강.png",
@@ -13,4 +15,4 @@ composer.setVariable("find_config", {
     micX = 0.5865, micY = 0.597
 })
 
-return require("item_find_color")
+return scene

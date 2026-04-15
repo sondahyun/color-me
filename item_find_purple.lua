@@ -1,8 +1,10 @@
--- item_find_purple.lua (래퍼)
+-- item_find_purple.lua
 -- 보라마을 숨은그림찾기: 글러브
 local composer = require( "composer" )
+local scene = composer.newScene()
+local findColor = require("item_find_color")
 
-composer.setVariable("find_config", {
+findColor.setup(scene, {
     colorId = 4,
     sceneName = "item_find_purple",
     bgImage = "이미지/대화/우정배경/보라.png",
@@ -13,4 +15,4 @@ composer.setVariable("find_config", {
     micX = 0.3333, micY = 0.1035
 })
 
-return require("item_find_color")
+return scene

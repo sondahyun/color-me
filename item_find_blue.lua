@@ -1,8 +1,10 @@
--- item_find_blue.lua (래퍼)
+-- item_find_blue.lua
 -- 파랑마을 숨은그림찾기: 확성기
 local composer = require( "composer" )
+local scene = composer.newScene()
+local findColor = require("item_find_color")
 
-composer.setVariable("find_config", {
+findColor.setup(scene, {
     colorId = 2,
     sceneName = "item_find_blue",
     bgImage = "이미지/대화/우정배경/파랑.png",
@@ -13,4 +15,4 @@ composer.setVariable("find_config", {
     micX = 0.367, micY = 0.41
 })
 
-return require("item_find_color")
+return scene
