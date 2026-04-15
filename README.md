@@ -42,7 +42,7 @@
 
 | 타이틀 화면 | 월드맵 |
 |:---:|:---:|
-| <img src="이미지/타이틀/메인.png" width="400"/> | <img src="이미지/마을/지도.png" width="400"/> |
+| <img src="이미지/타이틀/메인.png" width="400"/> | <img src="screenshots/지도.png" width="400"/> |
 
 #### 계절별 일러스트
 
