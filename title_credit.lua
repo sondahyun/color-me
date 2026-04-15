@@ -8,7 +8,6 @@ local json = require( "json" )
 function scene:create( event )
 	local sceneGroup = self.view
 
-	print("title2_1")
 	local background = display.newImageRect("이미지/타이틀/메인.png",display.contentWidth, display.contentHeight)
 	background.x,background.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(background)
@@ -37,15 +36,6 @@ function scene:create( event )
 
 
 
-	local function gohome(event)
-		if event.phase == "began" then
-				composer.removeScene("title_credit")
-				exit.alpha=0
-				composer.gotoScene("title")
-				
-		end
-	end	
-
 	local creditContent = display.newImage("이미지/홈/크레딧/크레딧1.png")
 	creditContent.x, creditContent.y = display.contentWidth/2, display.contentHeight/2
 	sceneGroup:insert(creditContent)
@@ -54,7 +44,7 @@ function scene:create( event )
 
 	local function next(event)
 		if event.phase == "began" then
-			i = event.target.id 
+			local i = event.target.id
 			creditContent.fill = {type="image",filename="이미지/홈/크레딧/크레딧" .. i .. ".png"}
 		end
 	end
@@ -65,6 +55,13 @@ function scene:create( event )
 		sceneGroup:insert(creditButton[i])
 		creditButton[i].id = i
 		creditButton[i]:addEventListener("touch",next)
+	end
+
+	local function gohome(event)
+		if event.phase == "began" then
+			composer.removeScene("title_credit")
+			composer.gotoScene("title")
+		end
 	end
 
 	local exit = display.newImage("이미지/공통/x버튼.png")

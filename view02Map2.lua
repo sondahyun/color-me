@@ -176,9 +176,9 @@ function scene:create( event )
 					start()
 				end
 
-			else 
-				composer.removeScene("view02Map2")
-				composer.gotoScene( "view15limited" )
+			else
+				local optioned = { isModal = true }
+				composer.showOverlay( "zopup_limited", optioned )
 			end
 
 end
