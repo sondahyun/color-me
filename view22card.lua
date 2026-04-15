@@ -1,7 +1,4 @@
---카드 뒤집기 게임 종료된 화면
-
---[[local composer = require( "composer" )
-local scene = composer.newScene()]]
+-- 카드 뒤집기 게임 결과 화면
 local composer = require( "composer" )
 local scene = composer.newScene()
 local loadsave = require( "loadsave" )
@@ -47,7 +44,6 @@ function scene:create( event )
 	
 	local loadedSettings = loadsave.loadTable( "settings.json" ) 
 	loadedSettings.money = loadedSettings.money + score3
-	print(loadedSettings.money)
 	loadsave.saveTable(loadedSettings, "settings.json")
 
 	local function gomap(event)

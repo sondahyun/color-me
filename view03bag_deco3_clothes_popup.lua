@@ -16,7 +16,6 @@ function scene:create( event )
 	tag = composer.getVariable("tag")
 	name = loadedItems.costumeBuy[tag].name
 
-	print(name)
 
 	local function go_back(event)
 		if event.phase == "began" then

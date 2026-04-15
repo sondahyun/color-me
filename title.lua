@@ -6,7 +6,6 @@ local json = require( "json" )
 function scene:create( event )
     local sceneGroup = self.view
 -- 객체 생성
-    print("title")
     -- showoverlay 함수 사용 option
     local options = {
         isModal = true
@@ -55,7 +54,7 @@ function scene:create( event )
  
     local file, errorString = io.open( path, "r" )
     if not file then
-        print("make an ending file")
+        -- 엔딩 데이터 파일 최초 생성
         --엔딩관련 데이터 파일 생성
         local endings = {
             rainbow = 0,
@@ -91,8 +90,6 @@ function scene:create( event )
 
     loadedEndings = loadsave.loadTable( "endings.json" )
 
-    print( loadedEndings.logValue )
-    print( loadedEndings.logValue_effect )
     audio.setVolume( loadedEndings.logValue , { channel = 1 })
     audio.setVolume( loadedEndings.logValue_effect, { channel = 2 })
     audio.play(bgm, { channel = 1, loops = -1 } )    

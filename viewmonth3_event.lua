@@ -570,7 +570,6 @@ function scene:create( event )
 	local function bye(event)
 		if event.phase == "began" then 
 			if v == 1 then
-				print("b1")
 				choose1:removeEventListener("touch",second)
 				daewha0[2].alpha = 0
 				choose1.alpha = 0
@@ -583,7 +582,6 @@ function scene:create( event )
 				my.alpha = 1
 				v = v+1
 			else
-				print("b2")
 				daesapan:removeEventListener("touch",bye)
 				composer.removeScene("viewmonth3_event")
 				audio.pause(eventMusic)
@@ -598,7 +596,6 @@ function scene:create( event )
 	end
 
 	local function second(event)
-		print("second func")
 		if event.phase == "began" then
 
 			if k == 0 then

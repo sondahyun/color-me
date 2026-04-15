@@ -21,7 +21,7 @@ function scene:create( event )
 	transition.to(board,{alpha=1,time=1000})
 	sceneGroup:insert(board)
 
-	score3 = composer.getVariable("score2")
+	local score3 = composer.getVariable("score2")
 
 	-- 점수판
 	local showScore1 = display.newText(score3,display.contentWidth/2, display.contentHeight/1.9,"font/잘풀리는오늘 Medium.ttf") 

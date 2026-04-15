@@ -6,7 +6,6 @@ local defaultField
 function scene:create( event )
 	local sceneGroup = self.view
 
-	print("title2")
 	--로드
 	local loadedEndings = loadsave.loadTable( "endings.json" )
 
@@ -58,13 +57,8 @@ function scene:create( event )
  
     	elseif ( event.phase == "ended" or event.phase == "submitted" ) then
         	-- Output resulting text from "defaultField"
-        	print( event.target.text )
  
     	elseif ( event.phase == "editing" ) then
-        	print( event.newCharacters )
-        	print( event.oldText )
-        	print( event.startPosition )
-        	print( event.text )
     	end
 	end
 

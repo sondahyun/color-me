@@ -95,10 +95,6 @@ function scene:create( event )
 					loadedItems.d15Sold=0
 				end
 
-				print(blanketCount)
-				print(wallpaperCount)
-				print(floorCount)
-				print(item)
 
 				if (item=="꽃무늬이불") or (item=="줄무늬이불") then 
 					loadedItems.blanketCount=loadedItems.blanketCount+1

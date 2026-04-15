@@ -552,9 +552,7 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_1)
 								script_1:addEventListener("touch",next1_1)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -564,7 +562,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -612,9 +609,7 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_2)
 								script_1:addEventListener("touch",next1_2)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -623,7 +618,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -746,9 +740,7 @@ function scene:create( event )
 								script_4.alpha = 1
 								script_4:addEventListener("touch",next1_1)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -757,7 +749,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -808,9 +799,7 @@ function scene:create( event )
 								script_4.alpha = 1
 								script_4:addEventListener("touch",next1_2)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -819,7 +808,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -952,9 +940,7 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_1)
 								script_2:addEventListener("touch",next1_1)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -963,7 +949,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -1012,9 +997,7 @@ function scene:create( event )
 								script_2:addEventListener("touch",next1_2)
 							else
 								script_2:removeEventListener("touch",next1_2)
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -1023,7 +1006,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -1144,9 +1126,7 @@ function scene:create( event )
 								script_5.alpha = 1
 								script_5:addEventListener("touch",next1_1)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -1155,7 +1135,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -1203,9 +1182,7 @@ function scene:create( event )
 								script_5.alpha = 1
 								script_5:addEventListener("touch",next1_2)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -1214,7 +1191,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -1350,9 +1326,7 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_1)
 								script_3:addEventListener("touch",next1_1)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -1361,7 +1335,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")
@@ -1412,9 +1385,7 @@ function scene:create( event )
 								my_daesapan:removeEventListener("touch",next1_2)
 								script_3:addEventListener("touch",next1_2)
 							else
-								print("out"..loadedSettings.script4)
 								if loadedSettings.script4 == 0 then
-									print("script4 = 0일때")
 									loadedSettings.script4 = 1
 									loadsave.saveTable(loadedSettings, "settings.json")
 									composer.setVariable("color", color)
@@ -1423,7 +1394,6 @@ function scene:create( event )
 									composer.removeScene("viewmonth4_script")
 	               					composer.gotoScene("zcompliment_script",options)
 	               				elseif loadedSettings.script4 == 1 then
-	               					print("script4 = 1일때")
 									composer.setVariable("color", color)
 									audio.pause(music)
 									composer.removeScene("viewmonth4_script")

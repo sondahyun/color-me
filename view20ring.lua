@@ -30,7 +30,6 @@ function scene:create( event )
 
 	local loadedSettings = loadsave.loadTable( "settings.json" ) 
 	loadedSettings.money = loadedSettings.money + score3
-	print(loadedSettings.money)
 	loadsave.saveTable(loadedSettings, "settings.json")
 
 	local function gomap(event)

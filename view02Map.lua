@@ -88,7 +88,6 @@ function scene:create( event )
 		color_char = "3"
 	end
 
-	print( "컬러" .. color_char)
 
 -- 마을 방문
 -- 월 별로 스크립트가 변화하므로 달에 따라 스크립트.lua도 달라져야 함.
@@ -413,12 +412,9 @@ function scene:create( event )
 
 	local function go_present(event)
 		if event.phase == "began" then
-			print(loadedSettings.gift_num.."-gift_num_map")
 			if loadedItems.itemCount == 0 then
-				print("아이템없")
 				composer.showOverlay("zopup_noitem",optioned)
 			elseif loadedSettings.gift_num >= 1 then
-				print("dfasd")
 				composer.showOverlay("zopup_gift_limited",optioned)
 			else
 				composer.setVariable("color_char",color_char)

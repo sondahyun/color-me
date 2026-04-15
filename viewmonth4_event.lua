@@ -536,7 +536,6 @@ function scene:create( event )
 
 	local function first_scence(event)
 		if event.phase == "began" then 
-			print(i)
 			if i==1 then
 				daewha[i].alpha = 0
 				daewha[i+1].alpha = 1
@@ -586,7 +585,6 @@ function scene:create( event )
 			 	background_1:addEventListener("touch",first_scence)
 			 	i = i+1
 			elseif i == 4 then
-			 	print(i)
 
 			 	my_daesapan.alpha = 1
 			 	my.alpha = 1
@@ -627,7 +625,6 @@ function scene:create( event )
 			 	end
 			
 			elseif i == 7 then
-				print(i)
 				my_daesapan.alpha = 0
 				my.alpha = 0
 			 	green_daesapan.alpha = 1
