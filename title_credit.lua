@@ -39,7 +39,7 @@ function scene:create( event )
 
 	local function gohome(event)
 		if event.phase == "began" then
-				composer.removeScene("title(credit)")
+				composer.removeScene("title_credit")
 				exit.alpha=0
 				composer.gotoScene("title")
 				

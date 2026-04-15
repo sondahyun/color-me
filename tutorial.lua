@@ -112,7 +112,7 @@ function scene:create( event )
 
 		if j == 28 then
 			composer.removeScene("tutorial")
-			composer.gotoScene("view01_guide(new)")
+			composer.gotoScene("view01_guide")
 		end
 	end
 
@@ -127,7 +127,7 @@ function scene:create( event )
 
 		composer.removeScene("tutorial")
 		audio.pause(tutorialMusic)
-		composer.gotoScene( "view01_guide(new)" )
+		composer.gotoScene( "view01_guide" )
 	end
 
 	skipButton:addEventListener("tap",skip_tutorial) 

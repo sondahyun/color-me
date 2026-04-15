@@ -87,7 +87,7 @@ function scene:create( event )
 			sceneGroup:insert(finger)
 			sceneGroup:insert(ghost_button)
 			sceneGroup = nil
-			composer.removeScene("view01_guide(new)3")
+			composer.removeScene("view01_guide3")
 			composer.gotoScene("view01_month")
 		end
 

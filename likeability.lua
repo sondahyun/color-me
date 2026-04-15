@@ -301,7 +301,7 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
-		composer.removeScene("View13Plan")
+		composer.removeScene("view13plan")
 		-- Called when the scene is now off screen
 	end
 end

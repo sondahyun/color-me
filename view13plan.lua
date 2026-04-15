@@ -7,10 +7,9 @@ function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 
-	print("view13")
 	local function touch2(event)
 
-		composer.hideOverlay("View13Plan")
+		composer.hideOverlay("view13plan")
 	end
 
 	local options = {
@@ -68,32 +67,32 @@ function scene:create( event )
 
 				if loadedSettings.month2_event==1 then
 					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view13plan")
 					composer.gotoScene("viewmonth2_event",options)
 				else
 					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view13plan")
 					composer.gotoScene("likeability",options)
 
 				end
 			elseif loadedSettings.month==4 then
 					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view13plan")
 					composer.gotoScene("likeability",options)
 
 			elseif loadedSettings.month==5 then
 					composer.removeScene("view12Plan")
-					composer.removeScene("View13Plan")
+					composer.removeScene("view13plan")
 					composer.gotoScene("viewmonth5_event",options)
 
 			elseif loadedSettings.month == 6 then 
 				composer.removeScene("view12Plan")
-				composer.removeScene("View13Plan")
+				composer.removeScene("view13plan")
 				composer.gotoScene("likeability")
 
 			else
 				composer.removeScene("view12Plan")
-				composer.removeScene("View13Plan")
+				composer.removeScene("view13plan")
 				composer.gotoScene("view01_month",options)
 			end
 		end
@@ -142,7 +141,7 @@ function scene:hide( event )
 		-- INSERT code here to pause the scene
 		-- e.g. stop timers, stop animation, unload sounds, etc.)
 	elseif phase == "did" then
-		composer.removeScene("View13Plan")
+		composer.removeScene("view13plan")
 		-- Called when the scene is now off screen
 	end
 end

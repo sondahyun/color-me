@@ -127,7 +127,7 @@ function scene:create( event )
     local function creditMove(event)
         if event.phase == "began" then
             --special:removeEventListener("mouse",bigbig1)
-            composer.showOverlay("title(credit)",options)
+            composer.showOverlay("title_credit",options)
         end
     end
 
