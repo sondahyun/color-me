@@ -14,31 +14,7 @@
 
 ## 게임 화면
 
-### 플레이 영상 (GIF)
-
-> `screenshots/` 폴더에 아래 파일명으로 저장하세요.
-
-#### 미니게임
-
-| 두더지잡기 (빨강) | 레몬잡기 (노랑) | 카드뒤집기 (초록) |
-|:---:|:---:|:---:|
-| <img src="screenshots/minigame_dudu.gif" width="280"/> | <img src="screenshots/minigame_lemon.gif" width="280"/> | <img src="screenshots/minigame_card.gif" width="280"/> |
-
-| 숫자클릭 (파랑) | 링통과 (보라) | 숨은그림찾기 |
-|:---:|:---:|:---:|
-| <img src="screenshots/minigame_number.gif" width="280"/> | <img src="screenshots/minigame_ring.gif" width="280"/> | <img src="screenshots/minigame_hidden.gif" width="280"/> |
-
-#### 핵심 플레이
-
-| 오프닝 스토리 | 일정 관리 & 활동 | 선물 주기 |
-|:---:|:---:|:---:|
-| <img src="screenshots/opening.gif" width="280"/> | <img src="screenshots/schedule.gif" width="280"/> | <img src="screenshots/gift.gif" width="280"/> |
-
-| 상점 구매 | 방 꾸미기 | 엔딩 |
-|:---:|:---:|:---:|
-| <img src="screenshots/shop.gif" width="280"/> | <img src="screenshots/decoration.gif" width="280"/> | <img src="screenshots/ending.gif" width="280"/> |
-
-### 스크린샷 (이미지)
+### 스크린샷
 
 #### 타이틀 & 월드맵
 
@@ -69,6 +45,28 @@
 | 숫자클릭 설명 | 링통과 설명 |
 |:---:|:---:|
 | <img src="이미지/미니게임/마을지도_게임설명창/미니게임_게임설명(파랑마을).png" width="280"/> | <img src="이미지/미니게임/마을지도_게임설명창/미니게임_게임설명(보라마을).png" width="280"/> |
+
+### 플레이 영상 (GIF)
+
+#### 미니게임
+
+| 두더지잡기 (빨강) | 레몬잡기 (노랑) | 카드뒤집기 (초록) |
+|:---:|:---:|:---:|
+| <img src="screenshots/minigame_dudu.gif" width="280"/> | <img src="screenshots/minigame_lemon.gif" width="280"/> | <img src="screenshots/minigame_card.gif" width="280"/> |
+
+| 숫자클릭 (파랑) | 링통과 (보라) | 숨은그림찾기 |
+|:---:|:---:|:---:|
+| <img src="screenshots/minigame_number.gif" width="280"/> | <img src="screenshots/minigame_ring.gif" width="280"/> | <img src="screenshots/minigame_hidden.gif" width="280"/> |
+
+#### 핵심 플레이
+
+| 오프닝 스토리 | 일정 관리 & 활동 | 선물 주기 |
+|:---:|:---:|:---:|
+| <img src="screenshots/opening.gif" width="280"/> | <img src="screenshots/schedule.gif" width="280"/> | <img src="screenshots/gift.gif" width="280"/> |
+
+| 상점 구매 | 방 꾸미기 | 엔딩 |
+|:---:|:---:|:---:|
+| <img src="screenshots/shop.gif" width="280"/> | <img src="screenshots/decoration.gif" width="280"/> | <img src="screenshots/ending.gif" width="280"/> |
 
 ## 주요 기능
 
