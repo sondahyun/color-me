@@ -72,7 +72,7 @@
 
 | 놀이 | 취미 | 공부 |
 |:---:|:---:|:---:|
-| <img src="screenshots/activity_play.gif" width="280"/> | <img src="screenshots/activity_hobby.gif" width="280"/> | <img src="screenshots/activity_study.gif" width="280"/> |
+| <img src="screenshots/놀이.gif" width="280"/> | <img src="screenshots/취미.gif" width="280"/> | <img src="screenshots/공부.gif" width="280"/> |
 
 ## 주요 기능
 
