@@ -12,6 +12,13 @@ local loadedItems= loadsave.loadTable( "items.json" )
 
 local money
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	
@@ -28,8 +35,7 @@ function scene:create( event )
 	}
 
 	
-	local background = display.newImage("이미지/상점/배경(가격).png")
-	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
+	local background = newFullBleedImage("이미지/상점/배경(가격).png")
 	sceneGroup:insert(background)
 
 	local storeMusic = audio.loadStream( "음악/상점.mp3" )

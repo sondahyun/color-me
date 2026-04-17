@@ -12,6 +12,19 @@ local defaultTextColor = 0
 
 local objectsToDestroy = {}
 
+local function newFullBleedImage(parent, path)
+	local image = display.newImage(parent, path)
+	local scale = math.max(
+		display.actualContentWidth / image.width,
+		display.actualContentHeight / image.height
+	)
+	image.xScale = scale
+	image.yScale = scale
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local b = {}
@@ -30,10 +43,9 @@ function scene:create( event )
 
 	--배경
 	for i = 1, 26 do
-		b[i] = display.newImage(bGroup, "이미지/오프닝/" .. i .. ".png")
+		b[i] = newFullBleedImage(bGroup, "이미지/오프닝/" .. i .. ".png")
 		table.insert(objectsToDestroy, b[i])
 	end
-	bGroup.x,bGroup.y = display.contentWidth/2,display.contentHeight/2
 	sceneGroup:insert(bGroup)
 
 	composer.setVariable("find1", 0)	

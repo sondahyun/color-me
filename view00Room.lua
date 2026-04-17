@@ -5,6 +5,13 @@ local scene = composer.newScene()
 local loadsave = require("loadsave")
 local json = require( "json" )
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedItems= loadsave.loadTable( "items.json" )
@@ -88,8 +95,7 @@ print("00room")
 	end
 	
 -- 배경 객체
-	local background = display.newImageRect("이미지/홈/배경/기본.png",display.contentWidth, display.contentHeight)
-	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	local background = newFullBleedImage("이미지/홈/배경/기본.png")
 	sceneGroup:insert(background)
 
 --------벽지

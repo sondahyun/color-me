@@ -6,13 +6,26 @@ local widget = require("widget")
 local json = require( "json" ) 
 local objectsToDestroy = {}
 
+local function fitFullBleed(image)
+	local scale = math.max(
+		display.actualContentWidth / image.width,
+		display.actualContentHeight / image.height
+	)
+	image.xScale = scale
+	image.yScale = scale
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 	
 	local image = display.newImage("이미지/(신)튜토리얼/6-3_7-3/" .. 0 .. ".png")
-	image.x, image.y = display.contentWidth/2,display.contentHeight/2
+	fitFullBleed(image)
 	image:toBack()
+	sceneGroup:insert(image)
 	table.insert(objectsToDestroy, image)
 
     local noBt = display.newImage("이미지/공통/no버튼.png")

@@ -3,6 +3,17 @@ local composer = require( "composer" )
 local scene = composer.newScene()
 local json = require( "json" ) 
 local defaultField
+local enteredName = ""
+
+local function normalizedName(value)
+	value = tostring(value or "")
+	value = value:gsub("^%s+", ""):gsub("%s+$", "")
+	if value == "이름" then
+		return ""
+	end
+	return value
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 
@@ -57,8 +68,10 @@ function scene:create( event )
  
     	elseif ( event.phase == "ended" or event.phase == "submitted" ) then
         	-- Output resulting text from "defaultField"
+			enteredName = normalizedName(event.target.text)
  
     	elseif ( event.phase == "editing" ) then
+			enteredName = normalizedName(event.target.text)
     	end
 	end
 
@@ -72,6 +85,7 @@ function scene:create( event )
 		defaultField:addEventListener( "userInput", textListener )
 		defaultField.font = native.newFont( "font/잘풀리는오늘 Medium.ttf", 40)
 		defaultField.text = ""
+		defaultField.placeholder = ""
 		defaultField.align = "center"
 		sceneGroup:insert(defaultField)
 	end
@@ -117,8 +131,12 @@ function scene:create( event )
 
 	
 	local function startNew(event)
+		local playerName = normalizedName(defaultField and defaultField.text or enteredName)
+		enteredName = playerName
+		native.setKeyboardFocus(nil)
+
 		--색깔 또는 이름을 선택하지 않았을 시 에러 팝업창으로 넘어간다
-		if defaultField.text == "" then
+		if playerName == "" then
 			defaultField.isVisible = false
 			composer.showOverlay("title2_1", option)
 
@@ -197,7 +215,7 @@ function scene:create( event )
     				former02 = "",
     				next1 = "",
     				next2 = "",
-    				name = defaultField.text,
+    				name = playerName,
     				test = 0,
     				script2 = 0,
     				script4 = 0,
@@ -369,7 +387,7 @@ function scene:create( event )
 				local items = json.decode(serializedJSON)
 
 				loadsave.saveTable( items, "items.json" )
-				composer.setVariable("name",defaultField.text)
+				composer.setVariable("name",playerName)
 				defaultField:removeSelf()
 				defaultField = nil
 				

@@ -8,6 +8,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local json = require( "json" )
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -46,8 +53,7 @@ function scene:create( event )
 	end
 
 
-	local update1 = display.newImage("이미지/가방/꾸미기배경2.png")
-	update1.x, update1.y = display.contentWidth*0.5, display.contentHeight*0.5
+	local update1 = newFullBleedImage("이미지/가방/꾸미기배경2.png")
 	sceneGroup:insert(update1)
 
 	local basic_button= display.newImage("이미지/가방/일반.png")

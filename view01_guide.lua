@@ -6,29 +6,45 @@ local widget = require("widget")
 local json = require( "json" ) 
 
 local objectsToDestroy = {}
+
+local function fitFullBleed(image)
+	local scale = math.max(
+		display.actualContentWidth / image.width,
+		display.actualContentHeight / image.height
+	)
+	image.xScale = scale
+	image.yScale = scale
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
 
 	local image = display.newImage("이미지/(신)튜토리얼/0_6-2/" .. 0 .. ".png")
-	image.x, image.y = display.contentWidth/2,display.contentHeight/2
+	fitFullBleed(image)
 	image:toBack()
 	image.alpha = 0
+	sceneGroup:insert(image)
 	table.insert(objectsToDestroy, image)
 
 	local image1 = display.newImage("이미지/(신)튜토리얼/0_6-2/" .. 0 .. ".png")
-	image1.x, image1.y = display.contentWidth/2,display.contentHeight/2
+	fitFullBleed(image1)
 	image1:toBack()
 	table.insert(objectsToDestroy, image1)
 
     local startBt = display.newImage("이미지/(신)튜토리얼/start버튼.png")
     startBt.x,startBt.y = display.contentWidth * 0.69, display.contentHeight * 0.42
     startBt.alpha = 1
+    sceneGroup:insert(startBt)
     table.insert(objectsToDestroy, startBt)
 
     local skipBt = display.newImage("이미지/(신)튜토리얼/skip버튼.png")
     skipBt.x,skipBt.y = display.contentWidth * 0.84, display.contentHeight * 0.42
     skipBt.alpha = 1
+    sceneGroup:insert(skipBt)
     table.insert(objectsToDestroy, skipBt)
 
 	-- finger animation 
@@ -95,6 +111,7 @@ function scene:create( event )
 
 	--투명 유령버튼 코드
     local ghost_button = display.newImage("이미지/(신)튜토리얼/투명버튼.png")
+	sceneGroup:insert(ghost_button)
 
     table.insert(objectsToDestroy, ghost_button)
 
@@ -126,10 +143,6 @@ function scene:create( event )
 		end
 		index = index +1
 		if(index > 17) then
-			sceneGroup:insert(image1)
-			sceneGroup:insert(skipBt)
-			sceneGroup:insert(startBt)
-			sceneGroup:insert(ghost_button)
 			ghost_button:removeEventListener("tap",nextScript)
 			sceneGroup = nil
 			composer.removeScene("view01_guide")
@@ -167,10 +180,6 @@ function scene:create( event )
 	end
 
 	local function goRoom(event)
-		sceneGroup:insert(image1)
-		sceneGroup:insert(skipBt)
-		sceneGroup:insert(startBt)
-		sceneGroup:insert(ghost_button)
 		ghost_button:removeEventListener("tap",nextScript)
 		composer.removeScene("view01_guide")
 		composer.gotoScene("view01_month")

@@ -9,6 +9,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local json = require( "json" )
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	composer.removeHidden()
@@ -98,8 +105,7 @@ function scene:create( event )
 
 	-- 배경 요소 -- 
 	
-	local background = display.newImage("이미지/스케줄/배경요소/배경.png")
-	background.x, background.y = display.contentWidth/2, display.contentHeight/2
+	local background = newFullBleedImage("이미지/스케줄/배경요소/배경.png")
 	sceneGroup:insert(background)
 
 	local schedule = display.newImage("이미지/스케줄/배경요소/선택창배경.png")
