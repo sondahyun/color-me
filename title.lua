@@ -35,6 +35,7 @@ function scene:create( event )
 
 
     local bgm = audio.loadStream( "음악/메인 테마곡.mp3" )
+    local click1 = audio.loadStream( "음악/스침.wav" )
     --audio.setVolume( loadedEndings.logValue )
     --audio.play(bgm)    
 
@@ -145,7 +146,7 @@ function scene:create( event )
 
     local function move(event)
         if event.phase == "began" then
-            audio.stop(bgm)
+            audio.stop(1)
             composer.removeScene("title")
             composer.gotoScene("title1")
         end
@@ -212,7 +213,7 @@ function scene:create( event )
             if not file or (loadedEndings.end_num==1) then
                 composer.showOverlay( "nosave", options )
             else
-            audio.pause(bgm)
+            audio.pause(1)
                 composer.removeScene("title")
                 composer.gotoScene( "view00Room")
                 -- ,options1

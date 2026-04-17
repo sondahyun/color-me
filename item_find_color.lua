@@ -14,6 +14,14 @@ function M.setup(scene, config)
     local s1x, s1y, s1w, s1h = config.s1x, config.s1y, config.s1w, config.s1h
     local s1Color     = config.s1Color or 0
     local micX, micY  = config.micX, config.micY
+    local timeAttackTimer
+
+    local function cancelTimeAttackTimer()
+        if timeAttackTimer then
+            timer.cancel(timeAttackTimer)
+            timeAttackTimer = nil
+        end
+    end
 
     function scene:create( event )
         local sceneGroup = self.view
@@ -82,7 +90,7 @@ function M.setup(scene, config)
         local function find(event)
             success.alpha = 1
             mic.alpha = 1
-            timer.cancelAll()
+            cancelTimeAttackTimer()
             composer.setVariable("color", colorId)
             composer.removeScene(sceneName)
             composer.gotoScene("item_find_success", { effect = "fade", time = 1000 })
@@ -97,7 +105,7 @@ function M.setup(scene, config)
             if i == 2 then display.remove(try2) end
             if i == 3 then
                 display.remove(try1)
-                timer.cancelAll()
+                cancelTimeAttackTimer()
                 composer.setVariable("color", colorId)
                 composer.removeScene(sceneName)
                 composer.gotoScene("item_find_fail", { effect = "fade", time = 1000 })
@@ -110,18 +118,25 @@ function M.setup(scene, config)
             limit = limit - 1
             showLimit.text = limit
             if limit == 0 then
-                timer.cancelAll()
+                cancelTimeAttackTimer()
                 composer.setVariable("color", colorId)
                 composer.removeScene(sceneName)
                 composer.gotoScene("item_find_fail", { effect = "fade", time = 1000 })
             end
         end
-        timer.performWithDelay(1000, timeAttack, 0)
+        timeAttackTimer = timer.performWithDelay(1000, timeAttack, 0)
     end
 
     function scene:show( event ) end
-    function scene:hide( event ) end
-    function scene:destroy( event ) end
+    function scene:hide( event )
+        if event.phase == "will" then
+            cancelTimeAttackTimer()
+        end
+    end
+
+    function scene:destroy( event )
+        cancelTimeAttackTimer()
+    end
 
     scene:addEventListener( "create", scene )
     scene:addEventListener( "show", scene )

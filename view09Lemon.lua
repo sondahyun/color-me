@@ -120,7 +120,12 @@ function scene:create( event )
 		if event.phase == "began" then
 			if event.other.name == "lemon" or event.other.name == "bug" then
 				if event.target.name == "floor" then
-					timer.performWithDelay( 1000,event.other:removeSelf())
+					local other = event.other
+					timer.performWithDelay(1000, function()
+						if other and other.removeSelf and other.parent then
+							other:removeSelf()
+						end
+					end)
 					event.other=nil
 					m = m-1
 				end

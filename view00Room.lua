@@ -30,6 +30,7 @@ print("00room")
 	--audio.setVolume( loadedEndings.logValue, { channel = 1 } )
 	--audio.setVolume( loadedEndings.logValue_effect, { channel = 2 } )
 	audio.stop( 1 )
+	local click1 = audio.loadStream( "음악/스침.wav" )
     local music = audio.loadStream( "음악/집.mp3" )
     audio.setVolume( loadedEndings.logValue , {channel = 1})
     audio.play(music,  {channel = 1, loops=-1} )
@@ -52,7 +53,7 @@ print("00room")
 
 	--스쳤을 때 커지는 거
 
-	local i = 0
+	local j = 0
 	local function bigbig (event)
 		
 		if (event.target.x-event.x)^2 + (event.target.y-event.y)^2 < 58^2 then
