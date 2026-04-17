@@ -92,28 +92,26 @@ function scene:create( event )
 	audio.setVolume( loadedEndings.logValue , { channel = 1 })
 	audio.setVolume( loadedEndings.logValue_effect , { channel = 2 })
 	
--- 마을 객체 커서 범위 설정. 범위 밖으로 나가면 마을 크기 작아지고 안으로 들어가면 마을 크기 커짐.
-	local i = 0
-	local function bigbig (event)
-		
-		if (event.target.x-event.x)^2 + (event.target.y-event.y)^2 < 110^2 then
-			-- i값을 지정해 놓는 이유는 범위 안에서는 크기가 더 늘어나거나 줄어들지 않고, 소리가 연이어 나오지 않음.
-			if i == 0 then
-				local backgroundMusicChannel = audio.play(click1, { channel = 2 } )
-				event.target.width = event.target.width*1.1
-				event.target.height = event.target.height*1.1
-				i = i + 1
-			end
-		
-		elseif (event.target.x-event.x)^2 + (event.target.y-event.y)^2 > 110^2 then
-			if i == 1 then
-				event.target.width =event.target.width/11*10
-				event.target.height =event.target.height/11*10
-				i = i - 1 
-			end
+	-- 마을 객체 커서 범위 설정. 범위 밖으로 나가면 마을 크기 작아지고 안으로 들어가면 마을 크기 커짐.
+		local function bigbig (event)
+			local target = event.target
+			local isInside = (target.x-event.x)^2 + (target.y-event.y)^2 < 110^2
 			
+			if isInside then
+				if not target.isHovered then
+					audio.play(click1, { channel = 2 } )
+					target.xScale = 1.1
+					target.yScale = 1.1
+					target.isHovered = true
+				end
+			
+			elseif target.isHovered then
+				target.xScale = 1
+				target.yScale = 1
+				target.isHovered = false
+				end
+				
 		end
-	end
 
 	local color = 0
 

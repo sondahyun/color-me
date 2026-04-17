@@ -5,6 +5,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local objectsToDestroy = {} 
 
+local function newFullBleedImage(parent, path)
+    local image = display.newImageRect(parent, path, display.actualContentWidth, display.actualContentHeight)
+    image.x = display.screenOriginX + display.actualContentWidth * 0.5
+    image.y = display.screenOriginY + display.actualContentHeight * 0.5
+    return image
+end
+
 function scene:create( event )
     -- showoverlay 함수 사용 option
     local options = {
@@ -50,11 +57,11 @@ function scene:create( event )
    local j = 2
    --음악
    local home = audio.loadStream( "음악/집.mp3" )
-   audio.pause(home)
+   audio.pause(1)
    local dMusic = audio.loadStream( "음악/도토리축제.mp3" )
    audio.setVolume( loadedEndings.logValue )
    loadedEndings.bgMusic = "음악/도토리축제.mp3"
-   audio.play(dMusic)
+   audio.play(dMusic, { channel = 1 })
     --공통화면
     bGroup = display.newGroup()
     local b = {}
@@ -269,7 +276,7 @@ function scene:create( event )
       end
       j = j + 1
       if j == 8 then
-         audio.pause( dMusic )
+         audio.pause(1)
          composer.removeScene("viewmonth5_event")
          if find1 == 1 then
           composer.setVariable("find1", 2)  
@@ -326,7 +333,7 @@ function scene:create( event )
       end      
       j = j + 1
       if j == 11 then
-         audio.pause( dMusic )
+         audio.pause(1)
          composer.removeScene("viewmonth5_event")
          if find1 == 1 then
           composer.setVariable("find1", 2)  
@@ -378,7 +385,7 @@ function scene:create( event )
       end
       j = j + 1
       if j == 8 then
-         audio.pause( dMusic )
+         audio.pause(1)
          composer.removeScene("viewmonth5_event")
          if find1 == 1 then
           composer.setVariable("find1", 2)  
@@ -408,11 +415,10 @@ function scene:create( event )
 
    --공통화면
 	--배경
-	b[1] = display.newImage(bGroup, "이미지/이벤트/도토리 이벤트/1.png")
-	b[2] = display.newImage(bGroup, "이미지/이벤트/도토리 이벤트/1.png")
-	b[3] = display.newImage(bGroup, "이미지/이벤트/도토리 이벤트/2.png")
-	b[4] = display.newImage(bGroup, "이미지/이벤트/도토리 이벤트/3.png")
-	bGroup.x,bGroup.y = display.contentWidth/2,display.contentHeight/2
+	b[1] = newFullBleedImage(bGroup, "이미지/이벤트/도토리 이벤트/1.png")
+	b[2] = newFullBleedImage(bGroup, "이미지/이벤트/도토리 이벤트/1.png")
+	b[3] = newFullBleedImage(bGroup, "이미지/이벤트/도토리 이벤트/2.png")
+	b[4] = newFullBleedImage(bGroup, "이미지/이벤트/도토리 이벤트/3.png")
 	sceneGroup:insert(bGroup)
    table.insert(objectsToDestroy, bGroup)
     --대화창
@@ -448,13 +454,12 @@ function scene:create( event )
 
    --굿엔딩1--
    --배경
-	bGood1[1] = display.newImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
-	bGood1[2] = display.newImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
-	bGood1[3] = display.newImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
-	bGood1[4] = display.newImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
-	bGood1[5] = display.newImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
-	bGood1[6] = display.newImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/굿엔딩분기1.png")
-	GoodEnding1.x,GoodEnding1.y = display.contentWidth/2,display.contentHeight/2
+	bGood1[1] = newFullBleedImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
+	bGood1[2] = newFullBleedImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
+	bGood1[3] = newFullBleedImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
+	bGood1[4] = newFullBleedImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
+	bGood1[5] = newFullBleedImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/1.png")
+	bGood1[6] = newFullBleedImage(GoodEnding1, "이미지/이벤트/도토리 이벤트/굿엔딩분기1.png")
 	sceneGroup:insert(GoodEnding1)
    table.insert(objectsToDestroy, GoodEnding1)
 
@@ -498,16 +503,15 @@ function scene:create( event )
 
    --굿엔딩2--
    --배경
-   bGood2[1] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/굿엔딩분기2-1.png")
-   bGood2[2] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/1.png")
-   bGood2[3] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/1.png")
-   bGood2[4] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/굿엔딩분기2-1.png")
-   bGood2[5] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/1.png")
-   bGood2[6] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
-   bGood2[7] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/굿엔딩분기2-2.png")
-   bGood2[8] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
-   bGood2[9] = display.newImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
-   GoodEnding2.x,GoodEnding2.y = display.contentWidth/2,display.contentHeight/2
+   bGood2[1] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/굿엔딩분기2-1.png")
+   bGood2[2] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/1.png")
+   bGood2[3] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/1.png")
+   bGood2[4] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/굿엔딩분기2-1.png")
+   bGood2[5] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/1.png")
+   bGood2[6] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
+   bGood2[7] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/굿엔딩분기2-2.png")
+   bGood2[8] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
+   bGood2[9] = newFullBleedImage(GoodEnding2, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
    sceneGroup:insert(GoodEnding2)
    table.insert(objectsToDestroy, GoodEnding2)
 
@@ -560,13 +564,12 @@ function scene:create( event )
 
    --배드엔딩--
    --배경
-   bBad[1] = display.newImage(BadEnding, "이미지/이벤트/도토리 이벤트/배드엔딩분기1.png")
-   bBad[2] = display.newImage(BadEnding, "이미지/이벤트/도토리 이벤트/배드엔딩분기2.png")
-   bBad[3] = display.newImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
-   bBad[4] = display.newImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
-   bBad[5] = display.newImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
-   bBad[6] = display.newImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
-   BadEnding.x,BadEnding.y = display.contentWidth/2,display.contentHeight/2
+   bBad[1] = newFullBleedImage(BadEnding, "이미지/이벤트/도토리 이벤트/배드엔딩분기1.png")
+   bBad[2] = newFullBleedImage(BadEnding, "이미지/이벤트/도토리 이벤트/배드엔딩분기2.png")
+   bBad[3] = newFullBleedImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
+   bBad[4] = newFullBleedImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
+   bBad[5] = newFullBleedImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
+   bBad[6] = newFullBleedImage(BadEnding, "이미지/이벤트/도토리 이벤트/2,3 배경.png")
    sceneGroup:insert(BadEnding)
    table.insert(objectsToDestroy, BadEnding)
    --대화창

@@ -4,6 +4,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local objectsToDestroy = {} 
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	
@@ -37,10 +44,9 @@ function scene:create( event )
  	audio.setVolume( loadedEndings.logValue )
     audio.play(eventMusic)
 
-	local background = display.newImage("이미지/홈/배경/가구포함.png")
-	background.x, background.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background)
-	table.insert(objectsToDestroy, background)
+		local background = newFullBleedImage("이미지/홈/배경/가구포함.png")
+		sceneGroup:insert(background)
+		table.insert(objectsToDestroy, background)
 -- 달력 글씨
 	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
 	month:setFillColor(0)
@@ -99,36 +105,36 @@ function scene:create( event )
     	
 	}
 
-	local background_1 = display.newImage("이미지/이벤트/3월/1.png")
-	background_1.x,background_1.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background_1)
-	background_1.width, background_1.height = display.contentWidth,display.contentHeight
-	background_1.alpha = 0
-	table.insert(objectsToDestroy, background_1)
+		local background_1 = newFullBleedImage("이미지/이벤트/3월/1.png")
+		sceneGroup:insert(background_1)
+		background_1.alpha = 0
+		table.insert(objectsToDestroy, background_1)
 
-	local sing1 = display.newImage("이미지/이벤트/3월/2.png")
-	sing1.x, sing1.y  = display.contentWidth*0.5,display.contentHeight*0.5
-	sceneGroup:insert(sing1)
-	sing1.alpha = 0
-	table.insert(objectsToDestroy, sing1)
+		local sing1 = newFullBleedImage("이미지/이벤트/3월/2.png")
+		sceneGroup:insert(sing1)
+		sing1.alpha = 0
+		table.insert(objectsToDestroy, sing1)
 
-	local sing = display.newImage("이미지/이벤트/3월/3.png")
-	sing.x, sing.y  = display.contentWidth*0.5,display.contentHeight*0.5
-	sceneGroup:insert(sing)
-	sing.alpha = 0
-	table.insert(objectsToDestroy, sing)
+		local sing = newFullBleedImage("이미지/이벤트/3월/3.png")
+		sceneGroup:insert(sing)
+		sing.alpha = 0
+		table.insert(objectsToDestroy, sing)
 
-	local black_box = display.newRect(display.contentWidth/2,display.contentHeight/2, display.contentWidth,display.contentHeight)
-	black_box.alpha = 0
-	black_box:setFillColor(0)
-	sceneGroup:insert(black_box)
-	table.insert(objectsToDestroy, black_box)
+		local black_box = display.newRect(
+			display.screenOriginX + display.actualContentWidth * 0.5,
+			display.screenOriginY + display.actualContentHeight * 0.5,
+			display.actualContentWidth,
+			display.actualContentHeight
+		)
+		black_box.alpha = 0
+		black_box:setFillColor(0)
+		sceneGroup:insert(black_box)
+		table.insert(objectsToDestroy, black_box)
 
-	local home = display.newImage("이미지/이벤트/3월/4.png")
-	home.x, home.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(home)
-	home.alpha = 0
-	table.insert(objectsToDestroy, home)
+		local home = newFullBleedImage("이미지/이벤트/3월/4.png")
+		sceneGroup:insert(home)
+		home.alpha = 0
+		table.insert(objectsToDestroy, home)
 	
 	local joy = display.newImage("이미지/캐릭터/조이/기본.png")
 	joy.x, joy.y =  display.contentWidth*0.53,display.contentHeight/2

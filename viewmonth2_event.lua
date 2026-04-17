@@ -4,6 +4,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local objectsToDestroy = {} 
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	
@@ -36,17 +43,14 @@ function scene:create( event )
  	audio.setVolume( loadedEndings.logValue )
     audio.play(eventMusic)
 
-	local background = display.newImage("이미지/대화/우정배경/빨강.png")
-	background.x, background.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background)
-	table.insert(objectsToDestroy, background)
+		local background = newFullBleedImage("이미지/대화/우정배경/빨강.png")
+		sceneGroup:insert(background)
+		table.insert(objectsToDestroy, background)
 
-	local background_1 = display.newImage("이미지/이벤트/2월/봄소풍.png")
-	background_1.x,background_1.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background_1)
-	table.insert(objectsToDestroy, background_1)
-	background_1.width, background_1.height = display.contentWidth,display.contentHeight
-	background_1.alpha = 0
+		local background_1 = newFullBleedImage("이미지/이벤트/2월/봄소풍.png")
+		sceneGroup:insert(background_1)
+		table.insert(objectsToDestroy, background_1)
+		background_1.alpha = 0
 	
 
 	local blli = display.newImage("이미지/캐릭터/블리/기본.png")

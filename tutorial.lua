@@ -8,6 +8,7 @@ local json = require( "json" )
 local i
 local j = 1
 local next1  -- forward declaration for Runtime listener cleanup
+local defaultTextColor = 0
 
 local objectsToDestroy = {}
 
@@ -78,23 +79,23 @@ function scene:create( event )
 		t[i].alpha = 0
 	end
 
-	for i = 1, 26 do
-		if i == 18 then
-			t[i]:setFillColor(0, 0.4, 0)
+		for i = 1, 26 do
+			if i == 18 then
+				t[i]:setFillColor(0, 0.4, 0)
 		elseif i == 20 then
 			t[i]:setFillColor(1, 0.2, 0.3)
 		elseif i == 21 then --o
 			t[i]:setFillColor(1, 0.4, 0.1)
 		elseif i == 22 then--b
 			t[i]:setFillColor(0.2, 0.4, 0.8)
-		elseif i == 23 then --p
-			t[i]:setFillColor(0.5, 0.2, 0.7)
-		else
-			t[i]:setFillColor(alpha)
+			elseif i == 23 then --p
+				t[i]:setFillColor(0.5, 0.2, 0.7)
+			else
+					t[i]:setFillColor(defaultTextColor)
+				end
+				sceneGroup:insert(t[i])
+				table.insert(objectsToDestroy, t[i])
 		end
-		sceneGroup:insert(t[i])
-		table.insert(objectsToDestroy, b[i])
-	end
 
 	-- 화면전환
 	next1 = function()
@@ -138,11 +139,13 @@ function scene:create( event )
 end
 
 local function destroyObjects()
-    for i = 1, #objectsToDestroy do
-        local object = objectsToDestroy[i]
-        object:removeSelf()
-        object = nil
-    end
+	    for i = 1, #objectsToDestroy do
+	        local object = objectsToDestroy[i]
+	        if object and object.removeSelf and object.parent then
+	            object:removeSelf()
+	        end
+	        objectsToDestroy[i] = nil
+	    end
 end
 
 function scene:show( event )

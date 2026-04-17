@@ -5,6 +5,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local objectsToDestroy = {} 
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	
@@ -38,29 +45,25 @@ function scene:create( event )
     audio.play(eventMusic)
 
 
-	-- 배경 --
-	local background = display.newImageRect("이미지/홈/배경/가구포함.png",display.contentWidth, display.contentHeight)
-	background.x,background.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background)
-	table.insert(objectsToDestroy, background)
+		-- 배경 --
+		local background = newFullBleedImage("이미지/홈/배경/가구포함.png")
+		sceneGroup:insert(background)
+		table.insert(objectsToDestroy, background)
 
-	local background_1 = display.newImage("이미지/이벤트/4월/1.png")
-	background_1.x,background_1.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background_1)
-	table.insert(objectsToDestroy, background_1)
-	background_1.alpha = 0
+		local background_1 = newFullBleedImage("이미지/이벤트/4월/1.png")
+		sceneGroup:insert(background_1)
+		table.insert(objectsToDestroy, background_1)
+		background_1.alpha = 0
 
-	local background_2 = display.newImage("이미지/이벤트/4월/2.png")
-	background_2.x,background_2.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background_2)
-	table.insert(objectsToDestroy, background_2)
-	background_2.alpha = 0
+		local background_2 = newFullBleedImage("이미지/이벤트/4월/2.png")
+		sceneGroup:insert(background_2)
+		table.insert(objectsToDestroy, background_2)
+		background_2.alpha = 0
 
-	local background_3 = display.newImage("이미지/이벤트/4월/3.png")
-	background_3.x,background_3.y = display.contentWidth/2,display.contentHeight/2
-	sceneGroup:insert(background_3)
-	table.insert(objectsToDestroy, background_3)
-	background_3.alpha = 0
+		local background_3 = newFullBleedImage("이미지/이벤트/4월/3.png")
+		sceneGroup:insert(background_3)
+		table.insert(objectsToDestroy, background_3)
+		background_3.alpha = 0
 
 	-- 달력 글씨
 	local month = display.newText("",display.contentWidth * 0.691, display.contentHeight * 0.162,"font/잘풀리는오늘 Medium.ttf")
