@@ -5,6 +5,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local objectsToDestroy = {} 
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	
@@ -35,10 +42,9 @@ function scene:create( event )
 
 	local eventMusic = audio.loadStream( "음악/계절.mp3" )
  	audio.setVolume( loadedEndings.logValue )
-    audio.play(eventMusic)
+    audio.play(eventMusic, { channel = 1 })
 
-	local background = display.newImageRect("이미지/마을/배경2.png",display.contentWidth, display.contentHeight)
-	background.x,background.y = display.contentWidth/2,display.contentHeight/2
+	local background = newFullBleedImage("이미지/마을/배경2.png")
 	sceneGroup:insert(background)
 	table.insert(objectsToDestroy, background)
 
@@ -245,7 +251,7 @@ function scene:create( event )
 			if n == 4 then
 				--loadsave.saveTable(loadedSettings, "settings.json")
 				composer.removeScene("viewmonth1_event")
-				audio.pause(eventMusic)
+					audio.pause(1)
 				composer.gotoScene("view01Map",options)
 			else
 				wiz.alpha = 0
@@ -308,7 +314,7 @@ function scene:create( event )
 			else
 
 				composer.removeScene("viewmonth1_event")
-				audio.pause(eventMusic)
+					audio.pause(1)
 				composer.gotoScene("view01Map",options)
 			end
 		end

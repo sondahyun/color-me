@@ -5,6 +5,13 @@ local scene = composer.newScene()
 local loadsave = require( "loadsave" )
 local json = require( "json" )
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 
@@ -111,8 +118,7 @@ function scene:create( event )
 		loadsave.saveTable(loadedSettings,"settings.json")
 	end
 
-	local background = display.newImage("이미지/월별이미지/" .. backgroundName .. ".png")
-	background.x, background.y = display.contentWidth/2,display.contentHeight/2
+	local background = newFullBleedImage("이미지/월별이미지/" .. backgroundName .. ".png")
 	sceneGroup:insert(background)
 	background:addEventListener("touch",touch)
 

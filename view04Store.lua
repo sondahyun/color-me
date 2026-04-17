@@ -36,7 +36,7 @@ function scene:create( event )
 	
 	local function go_back(event)
 		if event.phase == "began" then
-			audio.pause(storeMusic)
+			audio.pause(1)
 			composer.removeScene("view04Store")
 			composer.gotoScene("view01Map")
 		end
