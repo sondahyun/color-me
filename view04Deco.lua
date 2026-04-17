@@ -26,6 +26,13 @@ local plaidWallpaper
 local whiteFloor
 local woodFloor 
 
+local function newFullBleedImage(path)
+	local image = display.newImageRect(path, display.actualContentWidth, display.actualContentHeight)
+	image.x = display.screenOriginX + display.actualContentWidth * 0.5
+	image.y = display.screenOriginY + display.actualContentHeight * 0.5
+	return image
+end
+
 function scene:create( event )
 	local sceneGroup = self.view
 	local loadedSettings = loadsave.loadTable( "settings.json" )
@@ -43,15 +50,14 @@ function scene:create( event )
 	end
 
 	
-	local background = display.newImage("이미지/상점/꾸미기배경.png")
-	background.x, background.y = display.contentWidth*0.5, display.contentHeight*0.5
+	local background = newFullBleedImage("이미지/상점/꾸미기배경.png")
 	sceneGroup:insert(background)
 
 	local storeMusic = audio.loadStream( "음악/상점.mp3" )
 	
 	local function go_back(event)
 		if event.phase == "began" then
-			audio.pause(storeMusic)
+			audio.pause(1)
 			composer.removeScene("view04Deco")
 			composer.gotoScene("view01Map")
 		end
