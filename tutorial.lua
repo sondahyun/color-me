@@ -121,14 +121,14 @@ function scene:create( event )
     skipButton.alpha = 1
     sceneGroup:insert(skipButton)
     
-	local function skip_tutorial()
-		skipButton.alpha = 0
-		Runtime:removeEventListener("tap", next1)
+		local function skip_tutorial()
+			skipButton.alpha = 0
+			Runtime:removeEventListener("tap", next1)
 
-		composer.removeScene("tutorial")
-		audio.pause(tutorialMusic)
-		composer.gotoScene( "view01_guide" )
-	end
+			composer.removeScene("tutorial")
+			audio.pause(1)
+			composer.gotoScene( "view01_guide" )
+		end
 
 	skipButton:addEventListener("tap",skip_tutorial) 
 	Runtime:addEventListener("tap", next1)

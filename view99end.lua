@@ -179,13 +179,13 @@ function scene:create( event )
 
 	transition.to(good,{time=2000,alpha=1})
 
-	local function goback(event)
-		if event.phase == "began" then 
-			composer.removeScene("view99end")
-			audio.pause(home)
-			local titleMusic = audio.loadStream( "음악/메인 테마곡.mp3" )
-			audio.play(titleMusic)
-			composer.gotoScene("title")
+		local function goback(event)
+			if event.phase == "began" then 
+				composer.removeScene("view99end")
+				audio.pause(1)
+				local titleMusic = audio.loadStream( "음악/메인 테마곡.mp3" )
+				audio.play(titleMusic)
+				composer.gotoScene("title")
 
 		end
 	end

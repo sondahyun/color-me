@@ -38,12 +38,12 @@ print("00room")
 	--audio.seek( 5000, { channel=1 } )  
 -- 관련 버튼 이동 리스너 함수
 
-	local function touch1(event)
-		audio.pause(home)
-		composer.removeScene("view00Room")
-		composer.gotoScene( "view01Map" )
+		local function touch1(event)
+			audio.pause(1)
+			composer.removeScene("view00Room")
+			composer.gotoScene( "view01Map" )
 
-	end
+		end
 
 	local function touch2(event)
 		composer.removeScene("view00Room")
