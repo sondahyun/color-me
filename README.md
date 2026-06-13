@@ -12,6 +12,40 @@
 
 [STOVE에서 플레이하기](https://store.onstove.com/ko/games/1952/)
 
+## 출시 스토리
+
+> **텀블벅 크라우드펀딩 82% → 스마일게이트 STOVE 정식 출시 🎉**
+
+### 1️⃣ 텀블벅 크라우드펀딩 — 아쉬운 82%
+
+처음에는 [텀블벅(Tumblbug) 크라우드펀딩](https://tumblbug.com/u/rtkacovogepvomta)으로 출시에 도전했습니다. 목표 금액 50만 원 중 **413,001원**을 모아 **달성률 82%**(후원자 25명 · 2023.01.18 ~ 03.19)로 아쉽게 마무리되었지만, 가능성을 확인한 의미 있는 첫걸음이었습니다.
+
+<img src="screenshots/tumblbug.jpg" width="680" alt="텀블벅 크라우드펀딩 82% 달성"/>
+
+### 2️⃣ 스마일게이트 STOVE — 정식 계약 출시
+
+이후 **스마일게이트(Smilegate)의 인디게임 플랫폼 STOVE** 측에서 먼저 연락을 주셨고, **정식 계약을 통해 STOVE에 게임을 출시**하게 되었습니다. 자체 펀딩에서 멈추지 않고, 플랫폼이 먼저 찾아와 정식으로 출시된 작품입니다.
+
+[![STOVE 바로가기](https://img.shields.io/badge/STOVE-컬러미!%20정식%20출시-00AEEF?style=for-the-badge)](https://store.onstove.com/ko/games/1952/)
+
+<img src="screenshots/stove_store.jpg" width="820" alt="컬러 미! (Color me!) STOVE 스토어 페이지"/>
+
+| 항목 | 내용 |
+|---|---|
+| **스토어** | [컬러 미! (Color me!) — Smilegate STOVE](https://store.onstove.com/ko/games/1952/) |
+| **퍼블리싱** | 스마일게이트 STOVE 정식 계약 출시 |
+| **출시일** | 2023.06.30 |
+| **장르 / 가격** | 시뮬레이션 / 무료 |
+| **이용자 평가** | ⭐ 100% 추천 (참여 10명) |
+
+### 캐릭터 저작권 등록
+
+게임의 메인 캐릭터 **블랭크(Blank)** 는 한국저작권위원회에 **미술저작물 &gt; 응용미술 &gt; 캐릭터**로 정식 등록된 오리지널 IP입니다. *(등록번호 C-2023-039005)*
+
+<img src="screenshots/캐릭터_저작권등록증.jpg" width="520" alt="블랭크(Blank) 캐릭터 저작권 등록증"/>
+
+> 🔒 개인정보 보호를 위해 등록증의 주소·생년월일은 가린 상태로 첨부했습니다.
+
 ## 한눈에 보기
 
 - **장르**: 육성 시뮬레이션 / 비주얼 노벨
