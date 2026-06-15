@@ -2,15 +2,19 @@
 
 > 색연필 행성에서 자신만의 색을 찾아가는 육성 시뮬레이션 게임
 
+[![STOVE](https://img.shields.io/badge/STOVE-플레이하기-00AEEF?style=flat-square)](https://store.onstove.com/ko/games/1952/)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Android%20%7C%20iOS-555555?style=flat-square)
+![Engine](https://img.shields.io/badge/Engine-Solar2D-2A8FBD?style=flat-square)
+![Language](https://img.shields.io/badge/Language-Lua-2C2D72?style=flat-square)
+![Price](https://img.shields.io/badge/Price-무료-2EA44F?style=flat-square)
+
 ![타이틀 화면](이미지/타이틀/메인.png)
 
 ## 게임 소개
 
 **Color Me**는 색연필 행성에 사는 하얀색 색연필 주인공이 6개월 동안 공부, 놀기, 취미, 우정 활동을 반복하며 자신만의 색을 찾아가는 육성 시뮬레이션 게임입니다.
 
-플레이어의 선택과 행동에 따라 **19가지 엔딩** 중 하나에 도달합니다.
-
-[STOVE에서 플레이하기](https://store.onstove.com/ko/games/1952/)
+주인공이 찾는 **'색'은 곧 '자신만의 정체성'**을 상징합니다. 어떤 친구와 얼마나 함께하는지에 따라, 플레이어의 선택과 행동은 **19가지 엔딩** 중 하나로 이어집니다.
 
 ## 출시 스토리
 
@@ -219,6 +223,4 @@ color-me/
 ## 개발 정보
 
 - **개발 형태**: 팀 프로젝트
-- **장르**: 육성 시뮬레이션 / 비주얼 노벨
-- **플랫폼**: Windows (PC, STOVE) / Android / iOS
 - **파일 규모**: 95개 Lua 파일, 약 31,000줄
